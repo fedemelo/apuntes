@@ -16,7 +16,14 @@ const StyledNoteDocument = styled.div`
 
   h2 {
     font-size: 1.5em;
-    color: darkred;
+    color: darkgreen;
+    text-align: left;
+  }
+
+  h3 {
+    font-size: 1.2em;
+    color: black;
+    text-align: left;
   }
 
   p {

@@ -1,5 +1,5 @@
 import NoteDocument from '@/components/NoteDocument';
-import Math from '@/components/Math';
+import Math from '@/math/Math';
 
 const AlgebraLineal = () => <NoteDocument>
     <h1>Álgebra lineal</h1>
@@ -15,6 +15,7 @@ const AlgebraLineal = () => <NoteDocument>
         </Math> 
         donde <Math>x_i</Math> son las <em>variables</em> o <em>incógnitas</em>, las constantes <Math>a_i</Math> son los <em>coeficientes</em> y la constante <Math>b</Math> es el <em>término independiente</em>.
     </p>
+
 </NoteDocument>
 
 export default AlgebraLineal;
