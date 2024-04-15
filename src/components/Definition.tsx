@@ -23,7 +23,7 @@ interface DefinitionProps {
 const Definition: React.FC<DefinitionProps> = ({ concept, children }) => (
     <DefinitionBox>
         <Title>{concept}</Title>
-        {children}
+        <p>{children}</p>
     </DefinitionBox>
 );
 

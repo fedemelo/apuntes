@@ -16,10 +16,12 @@ const Notacion = () => <NoteDocument>
         Uso la notación <Math>2^A</Math> para denotar el conjunto potencia de <Math>A</Math>: el conjunto de todos los subconjuntos de <Math>A</Math>.
         <Math block>{`2^A = \\{B \\ | \\ x \\in B \\implies x \\in A\\}`}</Math>
         Opto por esa notación debido a que:
-        <ul>
-            <li><Math>{`|2^A|=2^{|A|}`}</Math></li>
-            <li>Existe una biyección del conjunto potencia de <Math>A</Math> con el conjunto de todas las funciones desde <Math>A</Math> a cualquier conjunto dado de cardinalidad 2.</li>
-        </ul>
+    </p>
+    <ul>
+        <li><Math>{`|2^A|=2^{|A|}`}</Math></li>
+        <li>Existe una biyección del conjunto potencia de <Math>A</Math> con el conjunto de todas las funciones desde <Math>A</Math> a cualquier conjunto dado de cardinalidad 2.</li>
+    </ul>
+    <p>
         Creo que la notación se puede entender de manera intuitiva, por lo que la prefiero sobre otras notaciones comunes como <Math>{`\\mathcal{P}(A)`}</Math>, que proviene de <i>power set</i>.
     </p>
 
