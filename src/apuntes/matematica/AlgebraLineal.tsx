@@ -1,4 +1,4 @@
-import NoteDocument from '@/components/NoteDocument';
+import NoteDocument from '@/components/notes/NoteDocument';
 import Math from '@/math/Math';
 
 const AlgebraLineal = () => <NoteDocument>

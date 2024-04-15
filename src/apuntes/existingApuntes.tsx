@@ -8,6 +8,7 @@ export const existingApuntes: ExistingApuntes = {
     "Matemática": [
         "Teoría de Grafos",
         "Álgebra Lineal",
-        "Notación"
+        "Notación",
+        "Cálculo Diferencial"
     ]
 }

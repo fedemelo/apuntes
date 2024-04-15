@@ -1,4 +1,4 @@
-import NoteDocument from '@/components/NoteDocument';
+import NoteDocument from '@/components/notes/NoteDocument';
 import Math from '@/math/Math';
 
 const Notacion = () => <NoteDocument>
@@ -6,7 +6,7 @@ const Notacion = () => <NoteDocument>
 
     <h2> Números naturales, incluyendo y excluyendo al <Math>0</Math></h2>
     <p>
-        El símbolo <Math>\N</Math> denota los números naturales. No existe actualmente una convención extendida que indique si <Math>0 \in \N</Math> o si <Math>0 \notin \N</Math>. Como solución a esa ambigüedad, en estos apuntes siempre se indica explícitamente si se incluye el <Math>0</Math>, escribiendo <Math>{`\\N \\cup \\{0\\}`}</Math>, o si se excluye, escribiendo <Math>{`\\N \\setminus \\{0\\}`}</Math>. Si en algún punto no se hace la distinción, es porque no es relevante en el contexto.
+        El símbolo <Math>\N</Math> denota los números naturales. No existe actualmente una convención extendida que indique si <Math>0 \in \N</Math> o si <Math>0 \notin \N</Math>. Como solución a esa ambigüedad, en estos apuntes siempre se indica explícitamente si se incluye el <Math>0</Math>, escribiendo <Math>{`\\N \\cup \\{0\\}`}</Math>, o si se excluye, escribiendo <Math>{`\\N \\setminus \\{0\\}`}</Math>. Si en algún punto no se hace esa distinción, es porque no es relevante en el contexto.
     </p>
 
     <h2>Notación de conjuntos</h2>
