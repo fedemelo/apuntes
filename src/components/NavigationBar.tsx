@@ -1,4 +1,8 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+
+import { snakeCase } from 'change-case';
+import removeAccents from 'remove-accents';
 
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
@@ -7,7 +11,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 
-import { existingNotes } from '@/apuntes/notesMetadata';
+import { existingApuntes } from '@/apuntes/existingApuntes';
 
 
 export default function NavigationBar() {
@@ -26,33 +30,40 @@ export default function NavigationBar() {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          {existingNotes.map((category) => (
-            <React.Fragment key={category.name}>
+    <AppBar position="static" sx={{ backgroundColor: "primary", color: "white" }}>
+      <Container>
+        <Toolbar disableGutters sx={{ gap: 5 }}>
+          {Object.entries(existingApuntes).map(([topic, subtopics]) => {
+            const snakecaseTopic = snakeCase(removeAccents(topic))
+            return <React.Fragment key={topic}>
               <Button
-                id={`${category.name}-button`}
-                aria-controls={openMenuId === category.name ? `${category.name}-menu` : undefined}
+                id={`${snakecaseTopic}-button`}
+                aria-controls={openMenuId === snakecaseTopic ? `${topic}-menu` : undefined}
                 aria-haspopup="true"
-                aria-expanded={openMenuId === category.name ? 'true' : undefined}
-                onClick={handleClick(category.name)}
+                aria-expanded={openMenuId === snakecaseTopic ? 'true' : undefined}
+                onClick={handleClick(snakecaseTopic)}
+                color='inherit'
               >
-                {category.name}
+                {topic}
               </Button>
               <Menu
-                id={`${category.name}-menu`}
-                anchorEl={document.getElementById(`${category.name}-button`)}
-                open={openMenuId === category.name}
+                id={`${snakecaseTopic}-menu`}
+                anchorEl={document.getElementById(`${snakecaseTopic}-button`)}
+                open={openMenuId === snakecaseTopic}
                 onClose={handleClose}
-                MenuListProps={{ 'aria-labelledby': `${category.name}-button` }}
+                MenuListProps={{ 'aria-labelledby': `${snakecaseTopic}-button` }}
               >
-                {category.subjects.map((subject) => (
-                  <MenuItem key={subject} onClick={handleClose}>{subject}</MenuItem>
-                ))}
+                {subtopics.map(subtopic => {
+
+                  const snakeCaseSubtopic = snakeCase(removeAccents(subtopic))
+
+                  return <MenuItem key={snakeCaseSubtopic} onClick={handleClose} component={Link} to={`/apuntes/${snakecaseTopic}/${snakeCaseSubtopic}`}>
+                    {subtopic}
+                  </MenuItem>
+                })}
               </Menu>
             </React.Fragment>
-          ))}
+          })}
         </Toolbar>
       </Container>
     </AppBar>

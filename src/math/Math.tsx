@@ -48,10 +48,8 @@ function formatInlineMath(math: string): string {
  */
 function replaceShortCommands(math: string): string {
     Object.entries(shortCommandsMap).forEach(([key, value]) => {
-        console.log(key, value);
         const regExp = new RegExp(key, 'g');
         math = math.replace(regExp, value.replace("\\", ""));
     });
-    console.log(math);
     return math;
 }
