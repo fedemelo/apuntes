@@ -1,6 +1,5 @@
 import NoteDocument from '@/components/notes/NoteDocument';
 import Math from '@/math/Math';
-
 import Example from '@/components/notes/environments/Example';
 
 const CalculoDiferencial = () => <NoteDocument>
@@ -31,13 +30,20 @@ const CalculoDiferencial = () => <NoteDocument>
         Se dice, entonces, que el límite de <Math>f(x)</Math> cuando <Math>x</Math> tiende a <Math>2</Math> es igual a <Math>0</Math>. Eso se denota por <Math>{`\\displaystyle \\lim_{x\\to 2}f(x)=0`}</Math>.
     </Example>
     <p>
-        Generalizando lo anterior, si <Math>f(x)</Math> tiende a un valor <Math>L</Math> a medida que <Math>x</Math> tiende a un valor <Math>c</Math>, se escribe <Math>{`\\displaystyle \\lim_{x\\to c} f(x)=L`}</Math>.
+        Generalizando lo anterior, si cuando <Math>x</Math> tiende a un valor <Math>c</Math>, entonces <Math>f(x)</Math> tiende a un valor <Math>L</Math>, se escribe <Math>{`\\displaystyle \\lim_{x\\to c} f(x)=L`}</Math> y se dice que <Math>L</Math> es el límite de <Math>f(x)</Math> cuando <Math>x</Math> tiende a <Math>c</Math>.
+    </p>    
+    <p>
+        Dicho de otra forma: el límite existe si se puede acercar <Math>f(x)</Math> a un valor <Math>L</Math> tanto como se quiera, sin llegar a <Math>L</Math>, tomando valores de <Math>x</Math> lo suficientemente cercanos a <Math>c</Math>.
     </p>
     <p>
-        Si el límite existe, se puede acercar <Math>f(x)</Math> a un valor <Math>L</Math> tanto como se quiera, sin llegar a <Math>L</Math>, si se toman valores de <Math>x</Math> lo suficientemente cercanos a <Math>c</Math>. 
-        {/* NOTA PARA MATEMÁTICOS??? */}
-        Es decir, dado un valor <Math>{`\\varepsilon`}</Math> para la cercanía entre <Math>f(x)</Math> y <Math>L</Math>, es posible hallar un valor <Math>{`\\delta`}</Math> para la cercanía entre <Math>x</Math> y <Math>c</Math>, tal que si <Math>x</Math> está a menos de <Math>{`\\delta`}</Math> unidades de <Math>c</Math>, entonces <Math>f(x)</Math> está a menos de <Math>{`\\varepsilon`}</Math> unidades de <Math>L</Math>. Así pues, el límite existe si y solamente si dado cualquier <Math>{`\\varepsilon>0`}</Math> existe un <Math>{`\\delta>0`}</Math>, tal que si la distancia entre <Math>x</Math> y <Math>c</Math> es menor que <Math>{`\\delta`}</Math>, entonces la distancia entre <Math>f(x)</Math> y <Math>L</Math> es menor que <Math>{`\\varepsilon`}</Math>.
+        La definición recién presentada es intuitiva, pero no es precisa, por lo que carece de rigor matemático. Existe una definición formal de límite, que para la gran mayoría de los estudiantes de cálculo es innecesaria. No obstante, cuentan los prerrequisitos teóricos necesarios para entenderla, por lo cual se presenta a continuación.   
     </p>
+    {/* <MathematiciansNote>
+        <MathematiciansNote.Title>Definición formal de límite</MathematiciansNote.Title>
+
+        Es decir, dado un valor <Math>{`\\varepsilon`}</Math> para la cercanía entre <Math>f(x)</Math> y <Math>L</Math>, es posible hallar un valor <Math>{`\\delta`}</Math> para la cercanía entre <Math>x</Math> y <Math>c</Math>, tal que si <Math>x</Math> está a menos de <Math>{`\\delta`}</Math> unidades de <Math>c</Math>, entonces <Math>f(x)</Math> está a menos de <Math>{`\\varepsilon`}</Math> unidades de <Math>L</Math>. Así pues, el límite existe si y solamente si dado cualquier <Math>{`\\varepsilon>0`}</Math> existe un <Math>{`\\delta>0`}</Math>, tal que si la distancia entre <Math>x</Math> y <Math>c</Math> es menor que <Math>{`\\delta`}</Math>, entonces la distancia entre <Math>f(x)</Math> y <Math>L</Math> es menor que <Math>{`\\varepsilon`}</Math>.
+    <MathematiciansNote> */}
+
 </NoteDocument>
 
 export default CalculoDiferencial;

@@ -32,7 +32,7 @@ export default function Router() {
                     const pascalCaseSubtopic = pascalCase(removeAccents(subtopic));
 
                     const locationInCode: string = `./apuntes/${snakecaseTopic}/${pascalCaseSubtopic}.tsx`;
-                    const CurrentNotes = React.lazy(() => import(locationInCode));
+                    const CurrentNotes = React.lazy(() => import(/* @vite-ignore */ locationInCode));
                     const path: string = `/apuntes/${snakecaseTopic}/${snakeCaseSubtopic}`;
 
                     return <Route

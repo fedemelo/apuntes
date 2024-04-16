@@ -11,9 +11,7 @@ const TeoriaDeGrafos = () => <NoteDocument>
         Un grafo es una estructura matemática que representa relaciones entre pares de objetos.
     </p>
 
-    <Definition>
-        <Definition.Title>Grafo</Definition.Title>
-
+    <Definition concept="Grafo">
         Un <em>grafo</em> <Math>G</Math> es un par ordenado de conjuntos disjuntos <Math>G=(V, E)</Math> tal que <Math>V</Math> es un conjunto de <strong>vértices</strong> o <strong>nodos</strong> y <Math>E</Math> es un conjunto de <strong>arcos</strong> que conectan pares de vértices.
     </Definition>
 

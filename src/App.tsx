@@ -6,6 +6,7 @@ import Router from './Router'
 import { MathJaxContext } from "better-react-mathjax";
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 
 const theme = createTheme({
   palette: {
@@ -33,9 +34,11 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <NavigationBar />
-      <MathJaxContext>
-        <Router />
-      </MathJaxContext>
+      <Box className="main-content">
+        <MathJaxContext>
+          <Router />
+        </MathJaxContext>
+      </Box>
       <Footer />
     </ThemeProvider>
   )

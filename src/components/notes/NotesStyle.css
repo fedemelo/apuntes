@@ -1,44 +1,46 @@
 .note-document {
-    background: white;
-    margin: 20px;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    text-align: justify;
-  }
+  background: white;
+  margin-top: 0.5em;
+  padding-inline: 16em;
+  font-family: Arial, sans-serif;
+  text-align: justify;
   
-  .note-document h1 {
-    font-size: 2em;
-    color: darkblue;
-  }
-  
-  .note-document h2 {
-    font-size: 1.7em;
-    color: darkgreen;
-    text-align: left;
-  }
-  
-  .note-document h3 {
-    font-size: 1.5em;
-    color: black;
-    text-align: left;
-  }
-  
-  .note-document h4 {
-    font-size: 1.3em;
-    color: black;
-    text-align: left;
-  }
-  
-  .note-document p {
-    font-size: 1em;
-    line-height: 1.5;
-    text-align: justify;
-  }
-  
-  .note-document ul, .note-document ol {
-    font-size: 1em;
-    line-height: 1.5;
-    text-align: left;
-    padding-left: 3em;
-  }
-  
+  align-self: start;
+}
+
+.note-document h1 {
+  font-size: 2em;
+  color: darkblue;
+}
+
+.note-document h2 {
+  font-size: 1.7em;
+  color: darkgreen;
+  text-align: left;
+}
+
+.note-document h3 {
+  font-size: 1.5em;
+  color: black;
+  text-align: left;
+}
+
+.note-document h4 {
+  font-size: 1.3em;
+  color: black;
+  text-align: left;
+}
+
+.note-document p {
+  font-size: 1em;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.note-document ul,
+.note-document ol {
+  font-size: 1em;
+  line-height: 1.5;
+  text-align: left;
+  padding-left: 3em;
+}
