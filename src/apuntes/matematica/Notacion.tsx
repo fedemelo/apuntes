@@ -1,3 +1,4 @@
+import Example from '@/components/notes/environments/Example';
 import NoteDocument from '@/components/notes/NoteDocument';
 import Math from '@/math/Math';
 
@@ -45,9 +46,13 @@ const Notacion = () => <NoteDocument>
         Para expresar equivalencias en clases de equivalencia, es común escribir
         <Math block>{`x \\equiv y \\quad (\\operatorname{mod} k).`}</Math>
         Para eso, yo empleo la concisa notación <Math>{`x\\equiv_k y.`}</Math>
-    </p><p>
-        Por ejemplo, para escribir que <Math>k</Math> es par, escribo <Math>{`k \\equiv_2 0`}</Math>, en lugar de escribir <Math>{`k \\equiv 0 \\quad (\\operatorname{mod} 2)`}</Math> y más aún en lugar de escribir <Math>{`\\exists m \\in \\N (k = 2m).`}</Math>
     </p>
+    <Example>
+        <Example.Title>Paridad</Example.Title>
+        <p>
+            Como ejemplo de la notación expuesta recién, para escribir que <Math>k</Math> es par, se escribe <Math>{`k \\equiv_2 0`}</Math>, en lugar de escribir <Math>{`k \\equiv 0 \\quad (\\operatorname{mod} 2)`}</Math> y más aún en lugar de escribir <Math>{`\\exists m \\in \\N (k = 2m).`}</Math>
+        </p>
+    </Example>
 </NoteDocument>
 
 export default Notacion;
