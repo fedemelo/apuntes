@@ -11,22 +11,69 @@
 .note-document h1 {
   font-size: 2em;
   color: darkblue;
+
+  counter-reset: h2;
+}
+
+.note-document h2::before {
+  counter-increment: h2;
+  content: counter(h2) '. ';
 }
 
 .note-document h2 {
   font-size: 1.7em;
   color: darkgreen;
   text-align: left;
+
+  counter-reset: h3;
+}
+
+.note-document h3::before {
+  counter-increment: h3;
+  content: counter(h2) '.' counter(h3) '. ';
 }
 
 .note-document h3 {
   font-size: 1.5em;
   color: black;
   text-align: left;
+
+  counter-reset: h4;
+}
+
+.note-document h4::before {
+  counter-increment: h4;
+  content: counter(h2) '.' counter(h3) '.' counter(h4) '. ';
 }
 
 .note-document h4 {
   font-size: 1.3em;
+  color: black;
+  text-align: left;
+
+  counter-reset: h5;
+}
+
+.note-document h5::before {
+  counter-increment: h5;
+  content: counter(h2) '.' counter(h3) '.' counter(h4) '.' counter(h5) '. ';
+}
+
+.note-document h5 {
+  font-size: 1.1em;
+  color: black;
+  text-align: left;
+
+  counter-reset: h6;
+}
+
+.note-document h6::before {
+  counter-increment: h6;
+  content: counter(h2) '.' counter(h3) '.' counter(h4) '.' counter(h5) '.' counter(h6) '. ';
+}
+
+.note-document h6 {
+  font-size: 1em;
   color: black;
   text-align: left;
 }

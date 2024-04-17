@@ -15,7 +15,7 @@ const CalculoDiferencial = () => <NoteDocument>
     <p>
         En estos apuntes, se estudian exclusivamente funciones escalares, de una variable y con valores reales. El estudio de funciones vectoriales y de múltiples variables se aborda en los <a href='/apuntes/matematica/calculo-vectorial'>apuntes de cálculo vectorial</a>. El estudio del cálculo para funciones con valores complejos se aborda en las <a href='/apuntes/matematica/calculo-de-variable-compleja'>notas de cálculo de variable compleja</a>.
     </p>
-    <h1>Límites</h1>
+    <h2>Límites</h2>
     <p>
         El concepto de límite formaliza la noción de aproximarse a un valor tanto como se quiera sin alcanzar el valor en sí. Es sencillo comprender la intuición del límite mediante un ejemplo.
     </p>
