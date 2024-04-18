@@ -1,5 +1,6 @@
-import Definition from "@/components/notes/environments/Definition";
 import NoteDocument from "@/components/notes/NoteDocument";
+import Definition from "@/components/notes/environments/Definition";
+import InlineDefinition from "@/components/notes/environments/InlineDefinition";
 
 const TeoriaDeJuegos = () => (
     <NoteDocument>
@@ -20,12 +21,15 @@ lo básico de Probabilidad y una pizca de Álgebra Lineal. Toca saber:</p>
     </ul>*/}
         <h2>Introducción</h2>
         <p>
-            La teoría de juegos en una rama de la matemática que estudia la interacción entre agentes en situaciones en
+            La teoría de juegos en la rama de la matemática que estudia la interacción entre agentes en situaciones en
             las que los agentes compiten por incentivos y en las que las decisiones de cada agente afectan las ganancias
             del resto.
         </p>
         <h3>Definición de juego</h3>
-        Esta sección expone qué se entiende por juego en la teoría de juegos.
+        <p>
+            En esta sección se expone qué se entiende por <em>juego</em> en la teoría de juegos, al igual que sus
+            elementos y los tipos de juegos que existen.
+        </p>
         <Definition concept="Juego">
             Un <em>juego</em> es un modelo matemático de una situación de toma interactiva de decisiones, en donde cada
             tomador de decisiones, denominado <em>jugador</em>, busca obtener el mejor resultado para sí, presumiendo
@@ -39,29 +43,31 @@ lo básico de Probabilidad y una pizca de Álgebra Lineal. Toca saber:</p>
                 el propósito de obtener la mayor utilidad.
             </li>
             <li>
-                <strong>Reglas</strong>: Cuándo, dónde y qué debe y puede hacer cada jugador en cada instante del juego.
+                <em>Reglas</em>: Cuándo, dónde y qué debe y puede hacer cada jugador en cada instante del juego.
             </li>
             <li>
-                <strong>Información</strong>: La información que tienen los agentes para tomar una decisión racional.
+                <em>Información</em>: La información que tienen los agentes para tomar una decisión racional. En
+                ocasiones mucha, en otras poca.
             </li>
             <li>
-                <strong>Resultados</strong>: La toma de decisiones, siguiendo las reglas, produce resultados. Se tienen
+                <em>Resultados</em>: La toma de decisiones, siguiendo las reglas, produce resultados. Se tienen
                 resultados que son preferibles a otros. La decisión de cada jugador afecta los resultados de todos los
                 jugadores.
             </li>
         </ul>
         <h3>Tipos de juegos</h3>
-        <p>Los juegos se clasifican en tipos dependiendo de las siguientes características:</p>
-        <ul>
+        <p>Los juegos se clasifican en tipos de acuerdo con tres de sus características:</p>
+        <ol>
             <li>
-                Qué <strong>información</strong> tienen los jugadores: En concreto:
+                Qué <em>información</em> tienen los jugadores: En concreto:
                 <ul>
                     <li>
-                        Si los jugadores conocen las decisiones de los demás (<strong>información perfecta</strong>) o
-                        no.
+                        Si los jugadores conocen todas decisiones tomadas por de los demás (
+                        <a href="#juego_de_informacion_perfecta">juego de información perfecta</a>) o no.
                     </li>
                     <li>
-                        Si los jugadores conocen todos los posibles pagos (<strong>información completa</strong>) o no.
+                        Si los jugadores conocen todos los posibles pagos que puede dar el juego (
+                        <a href="#juego_de_informacion_completa">juego de información completa</a>) o no.
                     </li>
                 </ul>
             </li>
@@ -69,74 +75,61 @@ lo básico de Probabilidad y una pizca de Álgebra Lineal. Toca saber:</p>
                 Cómo se relacionan las ganancias de los jugadores.
                 <ul>
                     <li>
-                        Si tienen intereses opuestos (<strong>estrictamente competitivo</strong>) o si muchos pueden
-                        ganar.
+                        Si tienen intereses opuestos (<em>estrictamente competitivo</em>) o si muchos pueden ganar.
                     </li>
                 </ul>
             </li>
             <li>
-                Si los jugadores juegan individualmente (<strong>no cooperativo</strong>) o están permitidas las
-                coaliciones y es eso lo que es de interés (<strong>cooperativo</strong>) .
+                Si los jugadores juegan individualmente (<a href="#juego_no_cooperativo">juego no cooperativo</a>) o
+                están permitidas las coaliciones y es eso lo que es de interés (
+                <a href="#juego_cooperativo">juego cooperativo</a>).
             </li>
-        </ul>{" "}
-        <p>Un solo juego es de múltiples tipos, al menos uno por cada una de las características anteriores.</p>
-        <p>Los más simples: De información completa, perfecta, competitivo y no cooperativo.</p>
+        </ol>
         <p>
-            Se presume que todo juego es de ese tipo salvo que se diga lo contrario (i.e., si sobre un juego se dice
-            únicamente que es de información imperfecta, entonces tácitamente es también de información completa,
-            competitivo y no cooperativo).
+            Todos los juegos son de múltiples tipos, pues se clasifican por cada una de las características anteriores.
+            Los juegos más simples son aquellos de información perfecta, completa, competitivos y no cooperativos. Se
+            presume que todo juego es de ese tipo salvo que se diga lo contrario (i.e., si sobre un juego se dice
+            únicamente que es de información imperfecta, entonces se debe supomer que es también de información
+            completa, competitivo y no cooperativo).
         </p>
-        <h4>Por información</h4>
-        <h5>Información perfecta e imperfecta</h5>
-        <h6>Información perfecta</h6>
-        <p>De acuerdo con la información que está disponible para cada jugador.</p>
+        <p>A continuación se ofrecen las definiciones formales de los tipos de juegos mencionados.</p>
+        <Definition concept="Juego de información perfecta">
+            Un juego es de <em>información perfecta</em> si cada jugador conoce:
+            <ul>
+                <li>Qué jugadores participan en el juego.</li>
+                <li>Los posibles pagos que puede dar el juego.</li>
+                <li>
+                    Las decisiones que toma cada jugador. Adicionalmente, si ha habido intervención del azar, sabe cuál
+                    fue el resultado.
+                </li>
+            </ul>
+        </Definition>
         <p>
-            <strong>Juego de información perfecta</strong>: Cada jugador conoce
+            Lo anterior implica que, al representar el juego en <a href="#forma_extensiva">forma extensiva</a>, en
+            cualquier instante cada jugador conoce en qué nodo del árbol se encuentra. Dicho más formalmente, todos los{" "}
+            <a href="#conjunto_de_informacion">conjuntos de información</a> son triviales: se componen de un solo nodo.
         </p>
-        <ul>
-            <li>Los jugadores.</li>
-            <li>Las decisiones tomadas.</li>
-            <li>Los posibles pagos.</li>
-        </ul>
-        <p>Conoce todas las acciones suyas y de otros:</p>
-        <ul>
-            <li>
-                Si ha habido intervención del azar, sabe cuál fue el resultado. (El azar se modela como un jugador más
-                en la forma extensiva del juego).
-            </li>
-            <li>
-                <strong>Todos los conjuntos de información son triviales</strong>. Todos se componen de un solo vértice.
-                <ul>
-                    <li>
-                        En cualquier instante, cualquier jugador puede representar el juego en forma extensiva y sabe en
-                        qué nodo se encuentra.
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <h6>Información imperfecta</h6>
+        <InlineDefinition concept="Juego de información imperfecta">
+            La mayoría de juegos no son así, suelen tener información oculta y contar con un componente de azar que los
+            jugadores desconocen. A esos juegos, que no son de información perfecta, se les llama de{" "}
+            <strong>información imperfecta</strong>.
+        </InlineDefinition>
+        <p>Si un juego es de información perfecta, entonces también es de información completa.</p>
+        <Definition concept="Juego de información completa">
+            Un juego es de <em>información completa</em> si cada jugador conoce los pagos que todos los jugadores
+            podrían obtener en cada uno de sus perfiles estratégicos.
+        </Definition>
         <p>
-            La mayoría de juegos no son así, suelen tener información oculta y tener un componente de azar que los
-            jugadores desconocen. A esos juegos se les llama de <strong>información imperfecta</strong>.
+            Un juego puede ser de información completa pero imperfecta. En ese caso, los jugadores no conocen las
+            decisiones tomadas por los demás jugadores.
         </p>
-        <h5>Información completa e incompleta</h5>
-        <h6>Información incompleta</h6>
-        <p>
-            <strong>Información incompleta</strong>: Al menos un jugador desconoce el pago que recibe algún jugador con
-            algún perfil estratégico (i.e. en algún nodo terminal).
-        </p>
-        <p>Véase: [[Teoría de Juegos#Juegos de información incompleta|Juegos de información incompleta]]</p>
-        <h6>Información completa</h6>
-        <p>
-            <strong>Juego de información completa</strong>: Todos los jugadores conocen los pagos de todos los jugadores
-            en todos sus perfiles estratégicos.
-        </p>
-        <p>Un juego puede ser de información completa pero imperfecta.</p>
-        <h4>Competitividad</h4>
-        <h5>Juego (estrictamente) competitivo</h5>
-        <p>
-            <strong>Juego estrictamente competitivo</strong>: Los jugadores tienen intereses exactamente opuestos.
-        </p>
+        <InlineDefinition concept="Juego de información incompleta">
+            Si un juego no es de información completa, entonces es de <strong>información incompleta</strong> y al menos
+            un jugador desconoce el pago que recibe algún otro jugador con algún perfil estratégico (i.e. en algún nodo
+            terminal).
+        </InlineDefinition>
+        <p>Por último, un juego es estrictamente competitivo si los jugadores tienen intereses exactamente opuestos.</p>
+        {/* <Definition concept="Juego (estrictamente) competitivo"> */}
         {/* <p>Formalmente: dado un juego de 2 jugadores, es <em>estrictamente
         competitivo</em> si para todo perfil estratégico $s \in S_1 \times S_2$
         se cumple que $$\begin{gathered} u_1(s) + u_2(s) =
