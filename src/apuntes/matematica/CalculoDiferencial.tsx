@@ -1,6 +1,7 @@
 import NoteDocument from "@/components/notes/NoteDocument";
-import {LaTeX} from "@/math/Math";
 import Example from "@/components/notes/environments/Example";
+import LaTeX from "@/math/LaTeX";
+import M from "@/math/ASCIIMath";
 
 const CalculoDiferencial = () => (
     <NoteDocument>
@@ -20,16 +21,16 @@ const CalculoDiferencial = () => (
         <p>El concepto de límite formaliza la noción de aproximarse a un valor tanto como se quiera sin alcanzar el valor en sí. Es sencillo comprender la intuición del límite mediante un ejemplo.</p>
         <Example>
             <Example.Title>
-                Límite cuando <LaTeX>x</LaTeX> tiende a <LaTeX>2</LaTeX>
+                Límite cuando <M>x</M> tiende a <M>2</M>
             </Example.Title>
-            Considérese la función <LaTeX>f(x)=x-2</LaTeX>. Se toman valores de <LaTeX>x</LaTeX> cercanos a <LaTeX>2</LaTeX>, por ejemplo <LaTeX>1.9</LaTeX>, <LaTeX>2.05</LaTeX> o cualquier otro valor arbitrariamente cercano. Se puede evidenciar que al evaluar la función en cualquiera de esos valores, el resultado siempre es un número cercano a <LaTeX>0</LaTeX>:<LaTeX block>f(1.9)=1.9-2=-0.1 \\ f(2.05)=2.05-2=0.05</LaTeX>
-            Se dice, entonces, que el límite de <LaTeX>f(x)</LaTeX> cuando <LaTeX>x</LaTeX> tiende a <LaTeX>2</LaTeX> es igual a <LaTeX>0</LaTeX>. Eso se denota por <LaTeX>{`\\displaystyle \\lim_{x\\to 2}f(x)=0`}</LaTeX>.
+            Considérese la función <M>f(x)=x-2</M>. Se toman valores de <M>x</M> cercanos a <M>2</M>, por ejemplo <M>1.9</M>, <M>2.05</M> o cualquier otro valor arbitrariamente cercano. Se puede evidenciar que al evaluar la función en cualquiera de esos valores, el resultado siempre es un número cercano a <M>0</M>:<LaTeX block>f(1.9)=1.9-2=-0.1 \\ f(2.05)=2.05-2=0.05</LaTeX>
+            Se dice, entonces, que el límite de <M>f(x)</M> cuando <M>x</M> tiende a <M>2</M> es igual a <M>0</M>. Eso se denota por <M>lim_(x to 2)f(x)=0</M>.
         </Example>
         <p>
-            Generalizando lo anterior, si cuando <LaTeX>x</LaTeX> tiende a un valor <LaTeX>c</LaTeX>, entonces <LaTeX>f(x)</LaTeX> tiende a un valor <LaTeX>L</LaTeX>, se escribe <LaTeX>{`\\displaystyle \\lim_{x\\to c} f(x)=L`}</LaTeX> y se dice que <LaTeX>L</LaTeX> es el límite de <LaTeX>f(x)</LaTeX> cuando <LaTeX>x</LaTeX> tiende a <LaTeX>c</LaTeX>.
+            Generalizando lo anterior, si cuando <M>x</M> tiende a un valor <M>c</M>, entonces <M>f(x)</M> tiende a un valor <M>L</M>, se escribe <M>lim_(x to c) f(x)=L</M> y se dice que <M>L</M> es el límite de <M>f(x)</M> cuando <M>x</M> tiende a <M>c</M>.
         </p>
         <p>
-            Dicho de otra forma: el límite existe si se puede acercar <LaTeX>f(x)</LaTeX> a un valor <LaTeX>L</LaTeX> tanto como se quiera, sin llegar a <LaTeX>L</LaTeX>, tomando valores de <LaTeX>x</LaTeX> lo suficientemente cercanos a <LaTeX>c</LaTeX>.
+            Dicho de otra forma: el límite existe si se puede acercar <M>f(x)</M> a un valor <M>L</M> tanto como se quiera, sin llegar a <M>L</M>, tomando valores de <M>x</M> lo suficientemente cercanos a <M>c</M>.
         </p>
         <p>La definición recién presentada es intuitiva, pero no es precisa, por lo que carece de rigor matemático. Existe una definición formal de límite, que para la gran mayoría de los estudiantes de cálculo es innecesaria. No obstante, cuentan los prerrequisitos teóricos necesarios para entenderla, por lo cual se presenta a continuación.</p>
         {/* <MathematiciansNote>

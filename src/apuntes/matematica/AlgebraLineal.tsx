@@ -1,6 +1,6 @@
 import InlineDefinition from "@/components/notes/environments/InlineDefinition";
 import NoteDocument from "@/components/notes/NoteDocument";
-import { LaTeX } from "@/math/Math";
+import M from "@/math/ASCIIMath";
 
 const AlgebraLineal = () => (
     <NoteDocument>
@@ -25,20 +25,20 @@ const AlgebraLineal = () => (
         <p>Adicionalmente, para leer estos apuntes, es recomendable estar familiarizado con la notación utilizada para representar sumatorias, productorias y conjuntos.</p>
         <h2>Ecuaciones lineales</h2>
         <InlineDefinition concept="Ecuación lineal">
-            Una <em>ecuación lineal</em> o <em>ecuación de primer grado</em> es una ecuación en donde las variables tienen grado <LaTeX>1</LaTeX> o menor. La forma general de una ecuación lineal es
+            Una <em>ecuación lineal</em> o <em>ecuación de primer grado</em> es una ecuación en donde las variables tienen grado <M>1</M> o menor. La forma general de una ecuación lineal es
         </InlineDefinition>
-        <LaTeX block>a_1x_1+a_2x_2+\cdots+a_nx_n=b</LaTeX>
+        <M block>a_1x_1+a_2x_2+cdots+a_nx_n=b.</M>
         <InlineDefinition concept="Variable, Coeficiente">
-            donde el conjunto <LaTeX>{`\\{x_i\\}_\{1\\leq i \\leq n\}`}</LaTeX> es el conjunto de <em>variables</em> o <em>incógnitas</em>, <LaTeX>{`\\{a_i\\}_\{1\\leq i \\leq n\}`}</LaTeX> es el conjunto de <em>coeficientes</em> y la constante <LaTeX>b</LaTeX> se denomina <em>término independiente</em>. Los coeficientes deben satisfacer que <LaTeX>{`\\sum_{i=1}^{n} a_i \\neq 0`}</LaTeX> para que la ecuación sea no trivial, es decir, cuente con al menos una variable.
+            donde el conjunto <M>{"{x_i}_(1 leq i leq n)"}</M> es el conjunto de <em>variables</em> o <em>incógnitas</em>, <M>{"{a_i}_(1 leq i leq n)"}</M> es el conjunto de <em>coeficientes</em> y la constante <M>b</M> se denomina <em>término independiente</em>. Los coeficientes deben satisfacer que <M>sum_(i=1)^(n) a_i ne 0</M> para que la ecuación sea no trivial, es decir, cuente con al menos una variable.
         </InlineDefinition>
         <p>
-            Por convención, las constantes se denotan usando las primeras letras del alfabeto y las variables se denotan usando las últimas. Si una ecuación tiene tres o menos variables, es convención denotarlas usando las letras <LaTeX>x</LaTeX>, <LaTeX>y</LaTeX> y <LaTeX>z</LaTeX>, en lugar de <LaTeX>x_i</LaTeX>. Análogamente, los coeficientes se denotarían por <LaTeX>a</LaTeX>, <LaTeX>b</LaTeX> y <LaTeX>c</LaTeX>.
+            Por convención, las constantes se denotan usando las primeras letras del alfabeto y las variables se denotan usando las últimas. Si una ecuación tiene tres o menos variables, es convención denotarlas usando las letras <M>x</M>, <M>y</M> y <M>z</M>, en lugar de <M>x_i</M>. Análogamente, los coeficientes se denotarían por <M>a</M>, <M>b</M> y <M>c</M>.
         </p>
         <p>
-            Toda ecuación lineal tiene al menos un conjunto ordenado de números reales que la satisfacen. Si una ecuación lineal tiene <LaTeX>n</LaTeX> variables, sus soluciones consisten de <LaTeX>n</LaTeX> elementos. Dos ecuaciones con la misma solución se denominan <em>equivalentes</em>.
+            Toda ecuación lineal tiene al menos un conjunto ordenado de números reales que la satisfacen. Si una ecuación lineal tiene <M>n</M> variables, sus soluciones consisten de <M>n</M> elementos. Dos ecuaciones con la misma solución se denominan <em>equivalentes</em>.
         </p>
         <p>
-            Toda ecuación lineal con una variable, con forma general <LaTeX> ax=b </LaTeX>, tiene solución única: <LaTeX> x=frac(b)(a) </LaTeX>. Dicha solución se interpreta geométricamente como un punto en <LaTeX>\R</LaTeX>, la recta real
+            Toda ecuación lineal con una variable, con forma general <M> ax=b </M>, tiene solución única: <M> x=b/a </M>. Dicha solución se interpreta geométricamente como un punto en <M>RR</M>, la recta real
         </p>
     </NoteDocument>
 );

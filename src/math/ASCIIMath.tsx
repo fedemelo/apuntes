@@ -1,4 +1,4 @@
-import { MathJax } from "better-react-mathjax";
+import { MathJax, MathJaxContext } from "better-react-mathjax";
 
 interface MathProps {
     children: string;
@@ -7,7 +7,7 @@ interface MathProps {
 }
 
 export default function ASCIIMath({ children, block, dynamic }: MathProps) {
-    const math = `$${children.trim()}$`;
+    const math = `€${children.trim()}€`;
     if (block) {
         return dynamic ? (
             <MathJax dynamic style={{ textAlign: "center" }}>
@@ -25,4 +25,17 @@ export default function ASCIIMath({ children, block, dynamic }: MathProps) {
             <MathJax inline>{math}</MathJax>
         );
     }
+}
+
+export function ASCIIMathContext({ children }: { children: React.ReactNode }) {
+    const asciiMathConfig = {
+        loader: { load: ["input/asciimath", "output/chtml"] },
+        asciimath: {
+            fixphi: true,
+            displaystyle: false,
+            delimiters: [["€", "€"]],
+        },
+    };
+
+    return <MathJaxContext config={asciiMathConfig}>{children}</MathJaxContext>;
 }
