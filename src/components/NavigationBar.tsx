@@ -11,6 +11,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 
+import "./NavigationBar.css";
+
 import existingApuntes from "@/apuntes/existingApuntes.json";
 
 export default function NavigationBar() {
@@ -29,14 +31,15 @@ export default function NavigationBar() {
     };
 
     return (
-        <AppBar position="static" sx={{ backgroundColor: "primary", color: "white" }}>
+        <AppBar position="static" className="navigation-bar">
             <Container>
-                <Toolbar disableGutters sx={{ gap: 5 }}>
+                <Toolbar disableGutters className="toolbar">
                     {Object.entries(existingApuntes).map(([topic, subtopics]) => {
                         const snakecaseTopic = snakeCase(removeAccents(topic));
                         return (
                             <React.Fragment key={topic}>
                                 <Button
+                                    className="topic-button"
                                     id={`${snakecaseTopic}-button`}
                                     aria-controls={openMenuId === snakecaseTopic ? `${topic}-menu` : undefined}
                                     aria-haspopup="true"
