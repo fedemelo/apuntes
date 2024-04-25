@@ -6,7 +6,7 @@ interface MathProps {
     block?: boolean;
 }
 
-export function LaTeX({ children, block }: MathProps) {
+export default function LaTeX({ children, block }: MathProps) {
     const formattedMath = block ? formatBlockMath(children) : children.trim();
 
     if (block) {
@@ -17,9 +17,7 @@ export function LaTeX({ children, block }: MathProps) {
 }
 
 /**
- * Formats block math so that:
- * - There is no need to escape backslashes in the code, so math can be written with normal LaTeX syntax.
- * - Line breaks are allowed using \\ in the code, by enclosing the math in a gather* environment.
+ * Formats block math so that line breaks are allowed using \\ in the code, by enclosing the math in a gather* environment.
  * @param math
  * @returns The formatted math.
  */
