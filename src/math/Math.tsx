@@ -1,29 +1,20 @@
-import { MathJax } from 'better-react-mathjax';
-import shortCommandsMap from './shortCommandsMap.json';
+import { InlineMath, BlockMath } from "react-katex";
+import "katex/dist/katex.min.css";
 
 interface MathProps {
     children: string;
     block?: boolean;
 }
 
-export default function Math({ children, block }: MathProps) {
-
-    const formattedMath = block ? formatBlockMath(children) : formatInlineMath(children);
+export function LaTeX({ children, block }: MathProps) {
+    const formattedMath = block ? formatBlockMath(children) : children.trim();
 
     if (block) {
-        return (
-            <MathJax dynamic>
-                {formattedMath}
-            </MathJax>
-        );
+        return <BlockMath math={formattedMath} />;
     } else {
-        return (
-            <MathJax inline dynamic>
-                {formattedMath}
-            </MathJax>
-        );
+        return <InlineMath math={formattedMath} />;
     }
-};
+}
 
 /**
  * Formats block math so that:
@@ -33,23 +24,9 @@ export default function Math({ children, block }: MathProps) {
  * @returns The formatted math.
  */
 function formatBlockMath(math: string): string {
-    const lines = math.trim().split('\n').filter(line => line.trim() !== '');
-    return `\\[\\begin{gather*}${replaceShortCommands(lines.join(' \\\\ '))}\\end{gather*}\\]`;
-}
-
-function formatInlineMath(math: string): string {
-    return `\\(${replaceShortCommands(math.trim())}\\)`;
-}
-
-/**
- * Replaces short commands defined in the shortCommandsMap with their full LaTeX representation. 
- * @param math
- * @returns The math with short commands replaced.
- */
-function replaceShortCommands(math: string): string {
-    Object.entries(shortCommandsMap).forEach(([key, value]) => {
-        const regExp = new RegExp(key, 'g');
-        math = math.replace(regExp, value.replace("\\", ""));
-    });
-    return math;
+    const lines = math
+        .trim()
+        .split("\n")
+        .filter((line) => line.trim() !== "");
+    return `\\begin{gather*}${lines.join(" \\\\ ")}\\end{gather*}`;
 }
