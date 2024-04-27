@@ -12,16 +12,14 @@ const AlgebraLineal = () => (
             El <em>álgebra lineal</em> se ocupa del estudio de objetos matemáticos específicos: ecuaciones lineales, transformaciones lineales, funciones lineales, vectores y matrices. Muchos de ellos surgen de generalizar las propiedades de una línea recta (de allí el nombre de <i>lineal</i>):
         </p>
         <h2>Prerrequisitos</h2>
-        <p>
-            Para una comprensión exitosa del álgebra lineal es indispensable contar con conocimientos previos en aritmética y álgebra elemental. En particular, se requiere un dominio de los siguientes temas:
-            <ul>
-                <li>Operaciones aritméticas entre números reales, expresados ya sea como enteros, decimales o fracciones.</li>
-                <li>
-                    Teoría de conjuntos básica, en particular la definición de conjuntos en forma extensiva e intensiva (también denominada <i>por comprensión</i>) y las operaciones básicas que existen entre ellos, como unión e intersección.
-                </li>
-                <li>Manipulación de expresiones algebraicas elementales, en concreto factorización de polinomios de primer y segundo grado y resolución de ecuaciones lineales y cuadráticas.</li>
-            </ul>
-        </p>
+        <p>Para una comprensión exitosa del álgebra lineal es indispensable contar con conocimientos previos en aritmética y álgebra elemental. En particular, se requiere un dominio de los siguientes temas:</p>
+        <ul>
+            <li>Operaciones aritméticas entre números reales, expresados ya sea como enteros, decimales o fracciones.</li>
+            <li>
+                Teoría de conjuntos básica, en particular la definición de conjuntos en forma extensiva e intensiva (también denominada <i>por comprensión</i>) y las operaciones básicas que existen entre ellos, como unión e intersección.
+            </li>
+            <li>Manipulación de expresiones algebraicas elementales, en concreto factorización de polinomios de primer y segundo grado y resolución de ecuaciones lineales y cuadráticas.</li>
+        </ul>
         <p>Adicionalmente, para leer estos apuntes, es recomendable estar familiarizado con la notación utilizada para representar sumatorias, productorias y conjuntos.</p>
         <h2>Ecuaciones lineales</h2>
         <InlineDefinition concept="Ecuación lineal">
@@ -38,7 +36,11 @@ const AlgebraLineal = () => (
             Toda ecuación lineal tiene al menos un conjunto ordenado de números reales que la satisfacen. Si una ecuación lineal tiene <M>n</M> variables, sus soluciones consisten de <M>n</M> elementos. Dos ecuaciones con la misma solución se denominan <em>equivalentes</em>.
         </p>
         <p>
-            Toda ecuación lineal con una variable, con forma general <M> ax=b </M>, tiene solución única: <M> x=b/a </M>. Dicha solución se interpreta geométricamente como un punto en <M>RR</M>, la recta real
+            Toda ecuación lineal con una variable, con forma general <M> ax=b </M>, tiene solución única: <M> x=b/a </M>. Dicha solución se interpreta geométricamente como un punto en <M>RR</M>, la recta real.
+        </p>
+        <img src="./apuntes/matematica/imgAlgebraLineal/ecuacion_lineal_una_variable.svg" alt="Ecuación lineal con una variable" />
+        <p>
+            Toda ecuación lineal con dos variables, con forma general <M> ax+by=c </M>, tiene infinitas soluciones. Cada una de estas soluciones se interpreta geométricamente como las coordenadas de un punto en <M>RR^2</M>, el plano euclidiano. El conjunto de soluciones describen una recta en el plano. Las ecuaciones lineales con dos variables generalmente se expresan en la forma canónica de la ecuación de la recta: <M> y=mx+b </M>.
         </p>
     </NoteDocument>
 );

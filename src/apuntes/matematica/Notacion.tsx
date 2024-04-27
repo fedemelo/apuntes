@@ -40,9 +40,11 @@ const Notacion = () => (
             Sea <M>A</M> un conjunto y <M>n in NN</M> tal que <M>|A| geq n</M>. Uso la notación <M>((A),(n))</M>
             para representar el conjunto de todos los subconjuntos de <M>A</M> de tamaño <M>n</M>.<M block>{"((A),(n)) = {B : B subseteq A ^^ |B| = n}"}</M>
             Eso se debe a que la cantidad de subconjuntos de <M>A</M> de tamaño <M>n</M> se calcula mediante combinatoria. Consiste en elegir <M>n</M> elementos a partir de <M>|A|</M> elementos, lo cual, expresado con la notación tradicional de combinatoria, se escribe como:
-            <LaTeX block>{`\\binom{|A|}{n} = \\frac{|A|!}{n!(|A|-n)!}`}</LaTeX>
-            Así pues, al emplear la notación que uso, se tiene que
-            <M block>|((A),(n))| = ((|A|),(n)).</M>
+        </p>
+        <LaTeX block>{`\\binom{|A|}{n} = \\frac{|A|!}{n!(|A|-n)!}`}</LaTeX>
+        <p>Así pues, al emplear la notación que uso, se tiene que</p>
+        <M block>|((A),(n))| = ((|A|),(n)).</M>
+        <p>
             Por ende, la prefiero antes que otras notaciones como <M>A^((n))</M>. A mi juicio, es una notación que se puede entender intuitivamente, al igual que <M>2^A</M> para el conjunto potencia.
         </p>
 
