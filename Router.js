@@ -12,7 +12,7 @@ export default function Router() {
                 return subtopics.map((subtopic) => {
                     const snakeCaseSubtopic = snakeCase(removeAccents(subtopic));
                     const pascalCaseSubtopic = pascalCase(removeAccents(subtopic));
-                    const compiledLocation = `./apuntes/${snakecaseTopic}/${pascalCaseSubtopic}.js`;
+                    const compiledLocation = `../apuntes/${snakecaseTopic}/${pascalCaseSubtopic}.js`;
                     const CurrentNotes = React.lazy(() => import(/* @vite-ignore */ compiledLocation));
                     const path = `/apuntes/${snakecaseTopic}/${snakeCaseSubtopic}`;
                     return (_jsx(Route, { path: path, element: _jsx(React.Suspense, { fallback: _jsx(Loader, {}), children: _jsx(CurrentNotes, {}) }) }, path));
