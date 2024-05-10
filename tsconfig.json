@@ -1,17 +1,16 @@
 {
     "compilerOptions": {
-      "target": "ES2020",
-      "useDefineForClassFields": true,
-      "lib": ["ES2020", "DOM", "ESNext"],
-      "types": ["node"],
+      "target": "ESNext",
       "module": "ESNext",
+      "useDefineForClassFields": true,
+      "lib": ["ES2020", "DOM", "ESNext", "DOM.Iterable"],
+      "types": ["node"],
       "skipLibCheck": true,
       "baseUrl": ".",
       "paths": {
         "@/*": ["./src/*"]
       },
       "moduleResolution": "node",
-      "allowImportingTsExtensions": true,
       "allowSyntheticDefaultImports": true,
       "resolveJsonModule": true,
       "isolatedModules": true,
@@ -25,6 +24,7 @@
       "noUnusedParameters": true,
       "noFallthroughCasesInSwitch": true
     },
-    "include": ["src/**/*"]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
   }
   

@@ -9,4 +9,11 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  base: "/apuntes/",
+  build: {
+    outDir: 'dist'
+  },
+  server: {
+    open: true
+  }
 })
