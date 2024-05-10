@@ -15,7 +15,7 @@ export default function Router() {
         <Routes>
             <Route
                 key="home"
-                path="/"
+                path="/"    
                 element={
                     <React.Suspense fallback={<Loader />}>
                         <Home />
