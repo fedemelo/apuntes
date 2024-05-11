@@ -14,7 +14,7 @@
     top: -0.3em;
     left: 5%;
 
-    background-color: #000080;
+    background-color: var(--definition-blue);
     color: white;
 
     padding-block: 0.5em;
@@ -27,7 +27,7 @@
     padding-top: 2.5em;
 
     background-color: white;
-    border: 2px solid #000080; 
+    border: 2px solid var(--definition-blue); 
     width: 100%;
     border-radius: 0 10px 10px 10px; 
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
@@ -47,7 +47,7 @@
     margin-right: -15em;
 
     padding-bottom: 0.2em;
-    background: linear-gradient(to left, #000080 60%, transparent 60%) bottom / 100% 3px no-repeat,
-        linear-gradient(to left, #000080 80%, transparent 80%) bottom / 100% 2px no-repeat,
-        linear-gradient(to left, #000080 100%, transparent 100%) bottom / 100% 1px no-repeat;
+    background: linear-gradient(to left, var(--definition-blue) 60%, transparent 60%) bottom / 100% 3px no-repeat,
+        linear-gradient(to left, var(--definition-blue) 80%, transparent 80%) bottom / 100% 2px no-repeat,
+        linear-gradient(to left, var(--definition-blue) 100%, transparent 100%) bottom / 100% 1px no-repeat;
 }
