@@ -18,7 +18,8 @@
 
 .note-document h1 {
   font-size: 2em;
-  color: darkblue;
+  color: black;
+  text-align: center;
 
   counter-reset: h2;
 }
@@ -29,9 +30,14 @@
 }
 
 .note-document h2 {
-  font-size: 1.7em;
-  color: darkgreen;
-  text-align: left;
+  font-size: 1.5em;
+  color: white;
+  background-color: #067d06;
+  padding: 0.2em 0;
+  width: 100%;
+  text-align: center;
+
+  border-radius: 0 10px 10px 10px; 
 
   counter-reset: h3;
 }
@@ -42,7 +48,7 @@
 }
 
 .note-document h3 {
-  font-size: 1.5em;
+  font-size: 1.3em;
   color: black;
   text-align: left;
 
@@ -55,7 +61,7 @@
 }
 
 .note-document h4 {
-  font-size: 1.3em;
+  font-size: 1.1em;
   color: black;
   text-align: left;
 
