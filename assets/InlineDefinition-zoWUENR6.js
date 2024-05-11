@@ -1,0 +1,1 @@
+import{j as i}from"./index-EJRaH2OP.js";import{g as r}from"./Definition-BFDf0_qM.js";function a({children:s,concept:e,id:n}){return n=n||r(e),i.jsxs("div",{className:"definition-container",children:[i.jsx("p",{children:s}),i.jsx("div",{className:"concept-side",id:n,children:i.jsx("strong",{children:e})})]})}export{a as I};
