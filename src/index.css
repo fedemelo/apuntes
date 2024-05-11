@@ -1,12 +1,13 @@
 :root {
-  --hyperlink-blue: #646cff;
-  --background-gray: #f0f0f0;
+  --hyperlink-color: #646cff;
+  --background-light-color: #f0f0f0;
 
-  --section-green: #067d06;
+  --section-color: #067d06;
 
-  --definition-blue: #000080;
-  --theorem-green: #004C00;
-  --example-yellow: #807643; 
+  --definition-color: #000080;
+  --theorem-color: #004C00;
+  --example-color: #807643;
+  --my-red: #8B0000;
 }
 
 html, body {
@@ -40,10 +41,10 @@ html, body {
 
 a {
   font-weight: 500;
-  color: var(--hyperlink-blue);
+  color: var(--hyperlink-color);
   text-decoration: inherit;
 }
 
 a:hover {
-  color: var(--hyperlink-blue);
+  color: var(--hyperlink-color);
 }

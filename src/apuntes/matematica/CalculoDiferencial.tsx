@@ -1,4 +1,4 @@
-import Example from "@/components/notes/environments/Example";
+import { Example } from "@/components/notes/environments/Boxes";
 import NoteDocument from "@/components/notes/NoteDocument";
 import LaTeX from "@/math/LaTeX";
 import M from "@/math/ASCIIMath";

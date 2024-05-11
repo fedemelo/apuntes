@@ -1,5 +1,5 @@
 import NoteDocument from "@/components/notes/NoteDocument";
-import Definition from "@/components/notes/environments/Definition";
+import { Definition } from "@/components/notes/environments/Boxes";
 import InlineDefinition from "@/components/notes/environments/InlineDefinition";
 
 const TeoriaDeJuegos = () => (

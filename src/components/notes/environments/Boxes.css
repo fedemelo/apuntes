@@ -1,0 +1,18 @@
+.definition-concept-side {
+    text-align: right;
+
+    display: block;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    max-width: 10em;
+    min-width: 10em;
+    margin-right: -15em;
+
+    padding-bottom: 0.2em;
+    background: linear-gradient(to left, var(--definition-color) 60%, transparent 60%) bottom / 100% 3px no-repeat,
+        linear-gradient(to left, var(--definition-color) 80%, transparent 80%) bottom / 100% 2px no-repeat,
+        linear-gradient(to left, var(--definition-color) 100%, transparent 100%) bottom / 100% 1px no-repeat;
+}

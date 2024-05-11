@@ -1,5 +1,5 @@
 .note-document {
-  background-color: var(--background-gray); 
+  background-color: var(--background-light-color); 
   padding-inline: 15em; 
   font-family: Arial, sans-serif;
   text-align: justify;
@@ -32,7 +32,7 @@
 .note-document h2 {
   font-size: 1.5em;
   color: white;
-  background-color: var(--section-green);
+  background-color: var(--section-color);
   padding: 0.2em 0;
   width: 100%;
   text-align: center;
