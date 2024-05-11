@@ -19,6 +19,11 @@ jobs:
     - name: Install dependencies
       run: yarn install
 
+    - name: Configure Git user
+      run: |
+        git config --global user.email "federicomelobarrero@gmail.com"
+        git config --global user.name "fedemelo"
+
     - name: Build
       run: yarn build
 
