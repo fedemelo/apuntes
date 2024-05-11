@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import "./NotesStyle.css";
+import "./NoteDocument.css";
 
 const NoteDocument: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   useEffect(() => {

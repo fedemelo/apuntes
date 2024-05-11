@@ -1,9 +1,0 @@
-.example-box {
-    background-color: var(--example-yellow);
-    border-left: 5px solid rgb(219, 219, 90);
-}
-
-.example-title {
-    margin: 0;
-    font-weight: bold;
-}

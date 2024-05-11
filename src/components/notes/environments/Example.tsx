@@ -1,14 +1,26 @@
-import './BoxStyles.css';
-import './ExampleStyles.css';
+import generateIdAutomatically from "./idGenerator";
 
-const Example: React.FC<{ children: React.ReactNode }> & {
-    Title: React.FC<{ children: React.ReactNode }>;
-} = ({ children }) => (
-    <div className="example-box">{children}</div>
-);
+import "./BoxEnvironment.css";
+import "./Example.css";
 
-Example.Title = ({ children }: { children: React.ReactNode }) => (
-    <p className="example-title">Ejemplo: {children}</p>
-);
 
-export default Example;
+interface ExampleProps {
+    children: React.ReactNode;
+    title: React.ReactNode | string;
+    id?: string;
+}
+
+export default function Example({ children, title, id }: ExampleProps) {
+    id = id || generateIdAutomatically(title);
+
+    return (
+        <div className="box-environment-container">
+            <div className="box-environment example-box">
+                <div className="box-environment-title example-title" id={id}>
+                    <strong>{title}</strong>
+                </div>
+                {children}
+            </div>
+        </div>
+    );
+}

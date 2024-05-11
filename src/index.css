@@ -1,12 +1,13 @@
 :root {
   --hyperlink-blue: #646cff;
   --background-gray: #f0f0f0;
+
+  --section-green: #067d06;
+
   --definition-blue: #000080;
   --theorem-green: #004C00;
-  --section-green: #067d06;
-  --example-yellow: #f1f1b7;
+  --example-yellow: #807643; 
 }
-
 
 html, body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

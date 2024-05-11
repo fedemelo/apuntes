@@ -55,11 +55,8 @@ const Notacion = () => (
             En lugar de eso, yo empleo la concisa notación
             <M block>x equiv_k y.</M>
         </p>
-        <Example>
-            <Example.Title>Paridad</Example.Title>
-            <p>
-                Como ejemplo de la notación expuesta recién, para escribir que <M>k</M> es par, se escribe <M>k equiv_2 0</M>, en lugar de escribir <M>k equiv 0 quad (mod 2)</M> y más aún en lugar de escribir <M>exists m in NN (k = 2m)</M>.
-            </p>
+        <Example title="Paridad">
+            Como ejemplo de la notación expuesta recién, para escribir que <M>k</M> es par, se escribe <M>k equiv_2 0</M>, en lugar de escribir <M>k equiv 0 quad (mod 2)</M> y más aún en lugar de escribir <M>exists m in NN (k = 2m)</M>.
         </Example>
     </NoteDocument>
 );

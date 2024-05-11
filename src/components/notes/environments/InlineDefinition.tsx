@@ -1,8 +1,8 @@
-import React from "react";
+import generateIdAutomatically from "./idGenerator";
 
-import "./DefinitionStyles.css";
+import "./Definition.css";
+import "./BoxEnvironment.css";
 
-import { generateIdAutomatically } from "./Definition";
 
 interface InlineDefinitionProps {
     children: React.ReactNode | string;
@@ -14,7 +14,7 @@ export default function InlineDefinition({ children, concept, id }: InlineDefini
     id = id || generateIdAutomatically(concept);
 
     return (
-        <div className="definition-container">
+        <div className="box-environment-container">
             <p>{children}</p>
             <div className="concept-side" id={id}>
                 <strong>{concept}</strong>

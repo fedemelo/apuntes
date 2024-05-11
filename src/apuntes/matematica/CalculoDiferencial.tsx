@@ -1,5 +1,5 @@
-import NoteDocument from "@/components/notes/NoteDocument";
 import Example from "@/components/notes/environments/Example";
+import NoteDocument from "@/components/notes/NoteDocument";
 import LaTeX from "@/math/LaTeX";
 import M from "@/math/ASCIIMath";
 
@@ -19,10 +19,7 @@ const CalculoDiferencial = () => (
         </p>
         <h2>Límites</h2>
         <p>El concepto de límite formaliza la noción de aproximarse a un valor tanto como se quiera sin alcanzar el valor en sí. Es sencillo comprender la intuición del límite mediante un ejemplo.</p>
-        <Example>
-            <Example.Title>
-                Límite cuando <M>x</M> tiende a <M>2</M>
-            </Example.Title>
+        <Example title={<>Límite cuando <M>x</M> tiende a <M>2</M></>} id="limite-cuando-x-tiende-a-2">
             Considérese la función <M>f(x)=x-2</M>. Se toman valores de <M>x</M> cercanos a <M>2</M>, por ejemplo <M>1.9</M>, <M>2.05</M> o cualquier otro valor arbitrariamente cercano. Se puede evidenciar que al evaluar la función en cualquiera de esos valores, el resultado siempre es un número cercano a <M>0</M>:<LaTeX block>f(1.9)=1.9-2=-0.1 \\ f(2.05)=2.05-2=0.05</LaTeX>
             Se dice, entonces, que el límite de <M>f(x)</M> cuando <M>x</M> tiende a <M>2</M> es igual a <M>0</M>. Eso se denota por <M>lim_(x to 2)f(x)=0</M>.
         </Example>

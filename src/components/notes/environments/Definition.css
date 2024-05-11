@@ -1,36 +1,13 @@
-.definition-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.definition-title ::before {
+.definition-title > strong::before {
     content: "Definición " counter(h2) "." counter(h3) ". ";
 }
 
-
 .definition-title {
-    position: absolute;
-    top: -0.3em;
-    left: 5%;
-
     background-color: var(--definition-blue);
-    color: white;
-
-    padding-block: 0.5em;
-    padding-inline: 1.5em;
-    border-radius: 10px 10px 10px 10px;
-    text-align: center;
 }
 
 .definition-box {
-    padding-top: 2.5em;
-
-    background-color: white;
     border: 2px solid var(--definition-blue); 
-    width: 100%;
-    border-radius: 0 10px 10px 10px; 
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
 }
 
 .concept-side {
