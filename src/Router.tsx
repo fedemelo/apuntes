@@ -4,11 +4,12 @@ import { Route, Routes } from "react-router-dom";
 import Loader from "@/components/loader/Loader";
 
 
+const Custom404 = React.lazy(() => import("@/pages/Custom404"));
 const mathUrl = "/apuntes/matematica/";
 const files = [
     {
         Component: React.lazy(() => import("@/pages/Home")), 
-        path: "/"
+        path: "/apuntes/"
     },
     {
         Component: React.lazy(() => import("@/apuntes/matematica/CalculoDiferencial")), 
@@ -48,6 +49,7 @@ export default function Router() {
           />
         );
       })}
+        <Route path="/apuntes/*" element={<Custom404 />} />
     </Routes>
   );
 }
