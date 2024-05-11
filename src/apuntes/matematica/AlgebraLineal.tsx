@@ -4,7 +4,7 @@ import M from "@/math/ASCIIMath";
 
 const AlgebraLineal = () => (
     <NoteDocument>
-        <h1>Álgebra lineal</h1>
+        <h1>Álgebra Lineal</h1>
         <p>
             El <em>álgebra</em> es la rama de la matemática que estudia la noción de cantidad de forma abstracta, representándola mediante símbolos y objetos matemáticos.
         </p>

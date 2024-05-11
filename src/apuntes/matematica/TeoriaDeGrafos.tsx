@@ -5,7 +5,7 @@ import M from "@/math/ASCIIMath";
 
 const TeoriaDeGrafos = () => (
     <NoteDocument>
-        <h1>Definición de grafo</h1>
+        <h1>Teoría de Grafos</h1>
 
         <h2>Introducción</h2>
         <p>Un grafo es una estructura matemática que representa relaciones entre pares de objetos.</p>

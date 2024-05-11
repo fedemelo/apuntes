@@ -5,7 +5,7 @@ import M from "@/math/ASCIIMath";
 
 const CalculoDiferencial = () => (
     <NoteDocument>
-        <h1>Cálculo diferencial</h1>
+        <h1>Cálculo Diferencial</h1>
         <p>
             El <em>cálculo diferencial</em> es la rama del cálculo que estudia el cambio en funciones continuas, en particular, la derivación. Estos apuntes estudian el cálculo diferencial en tres secciones:
         </p>
