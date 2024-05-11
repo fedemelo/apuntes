@@ -9,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist -r https://${GH_TOKEN}@github.com/fedemelo/apuntes.git"
+    "deploy": "gh-pages -d dist -r https://${GH_PAT}@github.com/fedemelo/apuntes.git"
   },
   "dependencies": {
     "@emotion/react": "^11.11form.4",
