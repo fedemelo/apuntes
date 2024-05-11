@@ -9,7 +9,7 @@ const AlgebraLineal = () => (
             El <em>álgebra</em> es la rama de la matemática que estudia la noción de cantidad de forma abstracta, representándola mediante símbolos y objetos matemáticos.
         </p>
         <p>
-            El <em>álgebra lineal</em> se ocupa del estudio de objetos matemáticos específicos: ecuaciones lineales, transformaciones lineales, funciones lineales, vectores y matrices. Muchos de ellos surgen de generalizar las propiedades de una línea recta (de allí el nombre de <i>lineal</i>):
+            El <em>álgebra lineal</em> se ocupa del estudio de objetos matemáticos específicos, varios de los cuales surgen de generalizar las propiedades de una línea recta (de allí el nombre de <i>lineal</i>): ecuaciones lineales, transformaciones lineales, funciones lineales, vectores y matrices.
         </p>
         <h2>Prerrequisitos</h2>
         <p>Para una comprensión exitosa del álgebra lineal es indispensable contar con conocimientos previos en aritmética y álgebra elemental. En particular, se requiere un dominio de los siguientes temas:</p>
