@@ -19,7 +19,10 @@ export default function Definition({ children, concept, id }: DefinitionProps) {
     return (
         <div className="definition-container">
             <div className="definition-box">
-                <strong>{concept}</strong>. {children}
+                <div className="definition-title" id={id}>
+                    <strong>{concept}</strong>
+                </div>
+                {children}
             </div>
             <div className="concept-side" id={id}>
                 <strong>{concept}</strong>
