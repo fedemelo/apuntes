@@ -1,0 +1,1 @@
+import{j as n}from"./index-I2SJHukf.js";import{g as s}from"./NoteDocument-BFcYIQaK.js";/* empty css                   */function m({children:r,concept:i,id:e}){return e=e||s(i),n.jsxs("div",{className:"box-environment-container",children:[n.jsx("p",{children:r}),n.jsx("div",{className:"concept-side",id:e,children:n.jsx("strong",{children:i})})]})}export{m as I};
