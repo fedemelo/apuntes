@@ -3,45 +3,46 @@ import { Route, Routes } from "react-router-dom";
 
 import Loader from "@/components/loader/Loader";
 
-const Home = React.lazy(() => import("@/pages/Home"));
 
-const CalculoDiferencial = React.lazy(() => import("@/apuntes/matematica/CalculoDiferencial"));
-const AlgebraLineal = React.lazy(() => import("@/apuntes/matematica/AlgebraLineal"));
-const Notacion = React.lazy(() => import("@/apuntes/matematica/Notacion"));
-const TeoriaDeGrafos = React.lazy(() => import("@/apuntes/matematica/TeoriaDeGrafos"));
-const TeoriaDeJuegos = React.lazy(() => import("@/apuntes/matematica/TeoriaDeJuegos"));
-
-const notes = [
-  [CalculoDiferencial, "calculo_diferencial"],
-  [AlgebraLineal, "algebra_lineal"],
-  [Notacion, "notacion"],
-  [TeoriaDeGrafos, "teoria_de_grafos"],
-  [TeoriaDeJuegos, "teoria_de_juegos"],
-];
+const mathUrl = "/apuntes/matematica/";
+const files = [
+    {
+        Component: React.lazy(() => import("@/pages/Home")), 
+        path: "/"
+    },
+    {
+        Component: React.lazy(() => import("@/apuntes/matematica/CalculoDiferencial")), 
+        path: `${mathUrl}calculo_diferencial`
+    },
+    {
+        Component: React.lazy(() => import("@/apuntes/matematica/AlgebraLineal")), 
+        path: `${mathUrl}algebra_lineal`
+    },
+    {
+        Component: React.lazy(() => import("@/apuntes/matematica/Notacion")), 
+        path: `${mathUrl}notacion`
+    },
+    {
+        Component: React.lazy(() => import("@/apuntes/matematica/TeoriaDeGrafos")), 
+        path: `${mathUrl}teoria_de_grafos`
+    },
+    {
+        Component: React.lazy(() => import("@/apuntes/matematica/TeoriaDeJuegos")), 
+        path: `${mathUrl}teoria_de_juegos`
+    }
+]
 
 export default function Router() {
-  console.log(CalculoDiferencial.name);
-
   return (
     <Routes>
-      <Route
-        key="home"
-        path="/"
-        element={
-          <React.Suspense fallback={<Loader />}>
-            <Home />
-          </React.Suspense>
-        }
-      />
-      {notes.map((note, index) => {
-        const Note = note[0];
+      {files.map((file, index) => {
         return (
           <Route
             key={index}
-            path={`/apuntes/matematica/${note[1]}`}
+            path={file.path}
             element={
               <React.Suspense fallback={<Loader />}>
-                <Note />
+                <file.Component />
               </React.Suspense>
             }
           />
