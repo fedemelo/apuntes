@@ -9,23 +9,25 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
 
-    - name: Install dependencies
-      run: yarn install
+      - name: Install dependencies
+        run: yarn install
 
-    - name: Configure Git user
-      run: |
-        git config --global user.email "federicomelobarrero@gmail.com"
-        git config --global user.name "fedemelo"
+      - name: Configure Git user
+        run: |
+          git config --global user.email "federicomelobarrero@gmail.com"
+          git config --global user.name "fedemelo"
 
-    - name: Build
-      run: yarn build
+      - name: Build
+        run: yarn build
 
-    - name: Deploy
-      run: yarn deploy
+      - name: Deploy
+        run: yarn deploy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
