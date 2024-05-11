@@ -1,21 +1,7 @@
-import { isValidElement } from "react";
-
-import ReactDomServer from "react-dom/server";
-
-import removeAccents from "remove-accents";
-import { snakeCase } from "change-case";
-
 import styled from "styled-components";
 
+import generateIdAutomatically from "./automaticIdGenerator"
 
-interface AbstractBoxProps {
-  content: React.ReactNode;
-  title: React.ReactNode | string;
-  environmentName: string;
-  environmentColor: string;
-  additionalContent?: React.ReactNode;
-  id?: string;
-}
 
 export const BoxContainer = styled.div`
   display: flex;
@@ -24,8 +10,7 @@ export const BoxContainer = styled.div`
 `;
 
 const Box = styled.div<{ color: string }>`
-  padding-left: 1.2em;
-  padding-right: 1.2em;
+  padding-inline: 1.2em;
   padding-top: 2.5em;
   padding-bottom: 0.7em;
 
@@ -58,10 +43,19 @@ const Title = styled.div<{ color: string; environmentName: string }>`
 `;
 
 
+interface AbstractBoxProps {
+  content: React.ReactNode;
+  title: React.ReactNode | string;
+  environmentName: string;
+  environmentColor: string;
+  additionalContent?: React.ReactNode;
+  id?: string;
+}
+
 export default function AbstractBox({
   content,
   title,
-  environmentName,
+  environmentName: name,
   environmentColor: color,
   additionalContent,
   id,
@@ -71,7 +65,7 @@ export default function AbstractBox({
   return (
     <BoxContainer>
       <Box color={color}>
-        <Title color={color} environmentName={environmentName} id={id}>
+        <Title color={color} environmentName={name} id={id}>
           <strong>{title}</strong>
         </Title>
         {content}
@@ -81,22 +75,3 @@ export default function AbstractBox({
   );
 }
 
-
-export function generateIdAutomatically(stringOrComponent: React.ReactNode | string) {
-  let idString = "";
-
-  if (typeof stringOrComponent === "string") {
-    idString = stringOrComponent;
-  } else if (isValidElement(stringOrComponent) && typeof stringOrComponent.props.children === "string") {
-    idString = stringOrComponent.props.children;
-  } else {
-    const asString = ReactDomServer.renderToStaticMarkup(stringOrComponent);
-    // Automatic ID generation fails if the input is not a string or an element with a string as children
-    // Most notably, this will fail if the input contains a Math component
-    throw new Error(
-      `Failed to generate automatic ID for the box with title '${asString}'. Please provide an id prop manually.`
-    );
-  }
-
-  return snakeCase(removeAccents(idString));
-}

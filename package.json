@@ -15,6 +15,7 @@
     "@emotion/react": "^11.11form.4",
     "@emotion/styled": "^11.11.5",
     "@matejmazur/react-mathjax": "^0.1.10",
+    "@mui/icons-material": "^5.15.17",
     "@mui/material": "^5.15.15",
     "@radix-ui/react-navigation-menu": "^1.1.4",
     "@types/": "matejmazur/react-mathjax",

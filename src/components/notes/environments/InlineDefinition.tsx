@@ -1,4 +1,5 @@
-import { generateIdAutomatically, BoxContainer } from "./AbstractBox";
+import generateIdAutomatically from "./automaticIdGenerator"
+import { BoxContainer } from "./AbstractBox";
 
 import "./Boxes.css";
 

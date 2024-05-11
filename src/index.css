@@ -7,6 +7,11 @@
   --definition-color: #000080;
   --theorem-color: #004C00;
   --example-color: #807643;
+
+  --tip-color: #BFAF5F;
+  --warning-color: #990000;
+  --notation-color: #E6B8B8;
+
   --my-red: #8B0000;
 }
 
