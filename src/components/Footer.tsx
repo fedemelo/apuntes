@@ -1,5 +1,7 @@
 import { Box, Typography, Container } from '@mui/material';
 
+import "./Footer.css"
+
 export default function Footer() {
   return (
     <Box component="footer">

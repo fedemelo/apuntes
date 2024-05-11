@@ -1,11 +1,19 @@
 .note-document {
-  background: white;
-  margin-top: 0.5em;
-  padding-inline: 16em;
+  background-color: #f0f0f0; 
+  padding-inline: 15em; 
   font-family: Arial, sans-serif;
   text-align: justify;
-  
   align-self: start;
+  margin-top: 0;
+}
+
+.note-document-content {
+  background-color: #ffffff; 
+  padding-top: 0.5em;
+  padding-inline: 4em;
+  padding-bottom: 1em;
+  border-radius: 8px; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
 }
 
 .note-document h1 {
