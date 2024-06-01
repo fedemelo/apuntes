@@ -23,7 +23,7 @@ const Box = styled.div<{ color: string }>`
   margin: 0;
 `;
 
-const Title = styled.div<{ color: string; environmentName: string }>`
+const Title = styled.div<{ $color: string; $environmentName: string }>`
   position: absolute;
   top: -0.3em;
   left: 5%;
@@ -35,10 +35,10 @@ const Title = styled.div<{ color: string; environmentName: string }>`
   border-radius: 10px 10px 10px 10px;
   text-align: center;
 
-  background-color: ${(props) => props.color};
+  background-color: ${(props) => props.$color};
 
   & > strong::before {
-    content: "${(props) => props.environmentName} " counter(h2) "." counter(h3) ". ";
+    content: "${(props) => props.$environmentName} " counter(h2) "." counter(h3) ". ";
   }
 `;
 
@@ -65,7 +65,7 @@ export default function AbstractBox({
   return (
     <BoxContainer>
       <Box color={color}>
-        <Title color={color} environmentName={name} id={id}>
+        <Title $color={color} $environmentName={name} id={id}>
           <strong>{title}</strong>
         </Title>
         {content}
