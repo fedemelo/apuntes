@@ -55,7 +55,7 @@ const AlgebraLineal = () => (
     <p>
       Toda ecuación lineal con una variable, con forma general <M> ax=b </M>, tiene solución única: <M> x=b/a </M>. Dicha solución se interpreta geométricamente como un punto en <M>RR</M>, la recta real.
     </p>
-    <img src="./img/ecuacion_lineal_una_variable.svg" alt="Gráfica de una función lineal" />
+
     <p>
       Toda ecuación lineal con dos variables, con forma general <M> ax+by=c </M>, tiene infinitas soluciones. Cada una de estas soluciones se interpreta geométricamente como las coordenadas de un punto en <M>RR^2</M>, el plano euclidiano, de forma que el conjunto de soluciones describen una recta en el plano. Las ecuaciones lineales con dos variables generalmente se expresan en la forma canónica de la ecuación de la recta: <M> y=mx+b </M>, donde <M> m </M> es la pendiente de la recta y <M> b </M> es la ordenada al origen.
     </p>
