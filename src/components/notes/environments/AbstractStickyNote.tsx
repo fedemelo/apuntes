@@ -29,7 +29,7 @@ const IconBox = styled.div<{ color: string }>`
 `;
 
 
-const Box = styled.div<{ color: string; environmentName: string }>`
+const Box = styled.div<{ color: string; $environmentName: string }>`
   position: relative;
 
   padding-right: 1.2em;
@@ -56,7 +56,7 @@ const Box = styled.div<{ color: string; environmentName: string }>`
 
 
   & > span::before {
-    content: "${(props) => props.environmentName} ";
+    content: "${(props) => props.$environmentName} ";
     color: ${(props) => props.color};
     font-weight: bold;
   }
@@ -103,7 +103,7 @@ export default function AbstractStickyNote({
   return (
     <BoxContainer>
       <IconBox color={color}>{icon}</IconBox>
-      <Box color={color} environmentName={name} id={id}>
+      <Box color={color} $environmentName={name} id={id}>
         <span>{content}</span>
       </Box>
     </BoxContainer>
