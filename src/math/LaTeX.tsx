@@ -1,30 +1,23 @@
-import { InlineMath, BlockMath } from "react-katex";
+import { useEffect, useRef } from "react";
+import katex from "katex";
 import "katex/dist/katex.min.css";
 
-interface MathProps {
-    children: string;
-    block?: boolean;
+interface LaTeXProps {
+  children: string;
+  block?: boolean;
 }
 
-export default function LaTeX({ children, block }: MathProps) {
-    const formattedMath = block ? formatBlockMath(children) : children.trim();
+export default function LaTeX({ children, block = false }: LaTeXProps) {
+  const katexRef = useRef<HTMLDivElement>(null);
 
-    if (block) {
-        return <BlockMath math={formattedMath} />;
-    } else {
-        return <InlineMath math={formattedMath} />;
+  useEffect(() => {
+    if (katexRef.current) {
+      const options = { displayMode: block };
+      katex.render(children, katexRef.current, options);
     }
+  }, [children, block]);
+
+  return <span ref={katexRef} />;
 }
 
-/**
- * Formats block math so that line breaks are allowed using \\ in the code, by enclosing the math in a gather* environment.
- * @param math
- * @returns The formatted math.
- */
-function formatBlockMath(math: string): string {
-    const lines = math
-        .trim()
-        .split("\n")
-        .filter((line) => line.trim() !== "");
-    return `\\begin{gather*}${lines.join(" \\\\ ")}\\end{gather*}`;
-}
+export const r = String.raw;

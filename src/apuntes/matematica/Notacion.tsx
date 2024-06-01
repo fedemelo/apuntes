@@ -1,17 +1,17 @@
 import { Example } from "@/components/notes/environments/Boxes";
 import NoteDocument from "@/components/notes/NoteDocument";
-import LaTeX from "@/math/LaTeX";
+import LaTeX, {r} from "@/math/LaTeX";
 import M from "@/math/ASCIIMath";
 
-const Notacion = () => (
-    <NoteDocument>
+const Notacion = () => {
+    return <NoteDocument>
         <h1>Notación</h1>
 
         <h2>
             Números naturales, incluyendo y excluyendo al <M>0</M>
         </h2>
         <p>
-            El símbolo <M>NN</M> denota los números naturales. No existe actualmente una convención extendida que indique si <M>0 in NN</M> o si <M>0 notin NN</M>. Como solución a esa ambigüedad, en estos apuntes siempre se indica explícitamente si se incluye el <M>0</M>, escribiendo <M>{"NN cup {0}"}</M>, o si se excluye, escribiendo <LaTeX>{`\\N \\setminus \\{0\\}`}</LaTeX>. Si en algún punto no se hace esa distinción, es porque no es relevante en el contexto.
+            El símbolo <M>NN</M> denota los números naturales. No existe actualmente una convención extendida que indique si <M>0 in NN</M> o si <M>0 notin NN</M>. Como solución a esa ambigüedad, en estos apuntes siempre se indica explícitamente si se incluye el <M>0</M>, escribiendo <M>{"NN cup {0}"}</M>, o si se excluye, escribiendo <LaTeX>{r`\N \setminus \{0\}`}</LaTeX>. Si en algún punto no se hace esa distinción, es porque no es relevante en el contexto.
         </p>
 
         <h2>Notación de conjuntos</h2>
@@ -30,7 +30,7 @@ const Notacion = () => (
             </li>
         </ul>
         <p>
-            Creo que la notación se puede entender de manera intuitiva, por lo que la prefiero sobre otras notaciones comunes como <LaTeX>{`\\mathcal{P}(A)`}</LaTeX>, que proviene de <i>power set</i>.
+            Creo que la notación se puede entender de manera intuitiva, por lo que la prefiero sobre otras notaciones comunes como <LaTeX>{r`\mathcal{P}(A)`}</LaTeX>, que proviene de <i>power set</i>.
         </p>
 
         <h3>
@@ -41,7 +41,7 @@ const Notacion = () => (
             para representar el conjunto de todos los subconjuntos de <M>A</M> de tamaño <M>n</M>.<M block>{"((A),(n)) = {B : B subseteq A ^^ |B| = n}"}</M>
             Eso se debe a que la cantidad de subconjuntos de <M>A</M> de tamaño <M>n</M> se calcula mediante combinatoria. Consiste en elegir <M>n</M> elementos a partir de <M>|A|</M> elementos, lo cual, expresado con la notación tradicional de combinatoria, se escribe como:
         </p>
-        <LaTeX block>{`\\binom{|A|}{n} = \\frac{|A|!}{n!(|A|-n)!}`}</LaTeX>
+        <LaTeX block>{r`\binom{|A|}{n} = \frac{|A|!}{n!(|A|-n)!}`}</LaTeX>
         <p>Así pues, al emplear la notación que uso, se tiene que</p>
         <M block>|((A),(n))| = ((|A|),(n)).</M>
         <p>
@@ -59,6 +59,6 @@ const Notacion = () => (
             Como ejemplo de la notación expuesta recién, para escribir que <M>k</M> es par, se escribe <M>k equiv_2 0</M>, en lugar de escribir <M>k equiv 0 quad (mod 2)</M> y más aún en lugar de escribir <M>exists m in NN (k = 2m)</M>.
         </Example>
     </NoteDocument>
-);
+};
 
 export default Notacion;
