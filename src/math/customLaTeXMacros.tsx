@@ -72,7 +72,6 @@ export const macros: Record<string, string> = {
     "\\proy": r`\mathrm{proy}`,
     "\\adj": r`\mathrm{adj}`,
     "\\im": r`\mathrm{im}`,
-    "\\gen": r`\mathrm{gen}`,
     "\\lcm": r`\mathrm{lcm}`,
     // TODO: Environments for matrices
   };
