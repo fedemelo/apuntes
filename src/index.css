@@ -12,7 +12,8 @@
   --warning-color: #990000;
   --notation-color: #E6B8B8;
 
-  --my-red: #8B0000;
+  --prerequisites-color: #e8e3e3;
+  --acknowledgements-color: #f7e5c1;
 }
 
 html, body {
