@@ -5,6 +5,7 @@ import styled from "styled-components";
 const BoxContainer = styled.div`
   flex-direction: row;
   display: flex;
+  margin-block: 1em;
 
   position: relative;
 

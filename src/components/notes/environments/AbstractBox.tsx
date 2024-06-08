@@ -7,6 +7,7 @@ export const BoxContainer = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  margin-block: 1em;
 `;
 
 const Box = styled.div<{ color: string }>`
