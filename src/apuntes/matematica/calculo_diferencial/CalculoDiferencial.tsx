@@ -1,7 +1,7 @@
 import { Definition, Example, Theorem } from "@/components/notes/environments/Boxes";
+import { Tip, Warning } from "@/components/notes/environments/StickyNotes";
 import NoteDocument from "@/components/notes/NoteDocument";
 import M, { r } from "@/math/LaTeX";
-import { Tip, Warning } from "@/components/notes/environments/StickyNotes";
 
 const CalculoDiferencial = () => (
     <NoteDocument>

@@ -1,3 +1,10 @@
 {
-    "Matemática": ["Álgebra Lineal", "Cálculo Diferencial", "Notación", "Teoría de Grafos", "Teoría de Juegos"]
+    "Matemática": [
+        "Álgebra Lineal",
+        "Cálculo Diferencial",
+        "Cálculo Vectorial",
+        "Notación",
+        "Teoría de Grafos",
+        "Teoría de Juegos"
+    ]
 }

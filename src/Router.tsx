@@ -16,6 +16,10 @@ const files = [
         path: `${mathUrl}calculo_diferencial`
     },
     {
+        Component: React.lazy(() => import("@/apuntes/matematica/calculo_vectorial/CalculoVectorial")),
+        path: `${mathUrl}calculo_vectorial`
+    },
+    {
         Component: React.lazy(() => import("@/apuntes/matematica/algebra_lineal/AlgebraLineal")), 
         path: `${mathUrl}algebra_lineal`
     },
