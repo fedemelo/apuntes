@@ -9,6 +9,10 @@ import { snakeCase } from "change-case";
 
 export default function generateIdAutomatically(stringOrComponent: React.ReactNode | string) {
     let idString = "";
+
+    if (!stringOrComponent) {
+      return undefined;
+    }
   
     if (typeof stringOrComponent === "string") {
       idString = stringOrComponent;

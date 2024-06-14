@@ -5,7 +5,7 @@ import "./Boxes.css";
 
 interface BoxProps {
   children: React.ReactNode;
-  title: React.ReactNode | string;
+  title?: React.ReactNode | string;
   id?: string;
 }
 
@@ -33,7 +33,7 @@ export function Definition({ children, concept, id }: DefinitionProps) {
 
 
 type TheoremProps = Omit<BoxProps, "title"> & {
-  name: React.ReactNode | string;
+  name?: React.ReactNode | string;
 };
 
 export function Theorem({ children, name, id }: TheoremProps) {
