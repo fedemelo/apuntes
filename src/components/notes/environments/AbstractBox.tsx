@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import generateIdAutomatically from "@/components/utils/generateIdAutomatically";
-
+import CopyLinkToClipboard from "@/components/utils/CopyLinkToClipboard";
 
 export const BoxContainer = styled.div`
   display: flex;
@@ -22,6 +22,7 @@ const Box = styled.div<{ color: string }>`
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   width: 100%;
   margin: 0;
+  position: relative; /* Needed for positioning the button */
 `;
 
 const Title = styled.div<{ $color: string; $environmentName: string }>`
@@ -43,6 +44,11 @@ const Title = styled.div<{ $color: string; $environmentName: string }>`
   }
 `;
 
+const ButtonContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+`;
 
 interface AbstractBoxProps {
   content: React.ReactNode;
@@ -62,17 +68,27 @@ export default function AbstractBox({
   id,
 }: AbstractBoxProps) {
   id = id || generateIdAutomatically(title);
+  const linkToCopy = `${window.location.origin}${window.location.pathname}#${id}`;
+  const copyMessage = "Link copiado al portapapeles"
 
   return (
     <BoxContainer>
       <Box color={color}>
-        {id? <Title $color={color} $environmentName={name} id={id}>
-          <strong>{title}</strong>
-        </Title> : <Title $color={color} $environmentName={name}><strong/></Title>}
+        {id ? (
+          <Title $color={color} $environmentName={name} id={id}>
+            <strong>{title}</strong>
+          </Title>
+        ) : (
+          <Title $color={color} $environmentName={name}>
+            <strong />
+          </Title>
+        )}
         {content}
+        {id && <ButtonContainer>
+          <CopyLinkToClipboard link={linkToCopy} message={copyMessage} color={color} />
+        </ButtonContainer>}
       </Box>
       {additionalContent}
     </BoxContainer>
   );
 }
-
