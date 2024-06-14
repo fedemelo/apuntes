@@ -1,3 +1,4 @@
+import AbstractAccordionBox from "./AbstractAccordionBox";
 import AbstractBox from "./AbstractBox";
 
 import "./Boxes.css";
@@ -56,7 +57,7 @@ export function Theorem({ children, name, id }: TheoremProps) {
 
 export function Example({ children, title, id }: BoxProps) {
   return (
-    <AbstractBox
+    <AbstractAccordionBox
       content={children}
       title={title}
       environmentName="Ejemplo"

@@ -25,7 +25,7 @@ const Box = styled.div<{ color: string }>`
   position: relative; /* Needed for positioning the button */
 `;
 
-const Title = styled.div<{ $color: string; $environmentName: string }>`
+export const Title = styled.div<{ $color: string; $environmentName: string }>`
   position: absolute;
   top: -0.3em;
   left: 5%;
@@ -44,7 +44,7 @@ const Title = styled.div<{ $color: string; $environmentName: string }>`
   }
 `;
 
-const ButtonContainer = styled.div`
+export const ButtonContainer = styled.div`
   position: absolute;
   bottom: 0;
   right: 0;

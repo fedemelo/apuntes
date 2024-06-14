@@ -15,9 +15,9 @@ interface AbstractAccordionProps {
 
 export default function AbstractAccordion({
   content,
+  title,
   environmentName: name,
   environmentColor: color,
-  title,
   id,
 }: AbstractAccordionProps) {
   id = id || generateIdAutomatically(name + title);
