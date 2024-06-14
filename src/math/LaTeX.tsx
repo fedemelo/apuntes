@@ -14,7 +14,7 @@ export default function LaTeX({ children, block = false }: LaTeXProps) {
 
   useEffect(() => {
     if (katexRef.current) {
-      const options = { displayMode: block, macros };
+      const options: katex.KatexOptions = { displayMode: block, macros };
       katex.render(children, katexRef.current, options);
     }
   }, [children, block]);
