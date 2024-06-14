@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-import { snakeCase } from "change-case";
+import { kebabCase } from "change-case";
 import removeAccents from "remove-accents";
 
 import AppBar from "@mui/material/AppBar";
@@ -35,36 +35,36 @@ export default function NavigationBar() {
             <Container>
                 <Toolbar disableGutters className="toolbar">
                     {Object.entries(existingApuntes).map(([topic, subtopics]) => {
-                        const snakecaseTopic = snakeCase(removeAccents(topic));
+                        const kebabCaseTopic = kebabCase(removeAccents(topic));
                         return (
                             <React.Fragment key={topic}>
                                 <Button
                                     className="topic-button"
-                                    id={`${snakecaseTopic}-button`}
-                                    aria-controls={openMenuId === snakecaseTopic ? `${topic}-menu` : undefined}
+                                    id={`${kebabCaseTopic}-button`}
+                                    aria-controls={openMenuId === kebabCaseTopic ? `${topic}-menu` : undefined}
                                     aria-haspopup="true"
-                                    aria-expanded={openMenuId === snakecaseTopic ? "true" : undefined}
-                                    onClick={handleClick(snakecaseTopic)}
+                                    aria-expanded={openMenuId === kebabCaseTopic ? "true" : undefined}
+                                    onClick={handleClick(kebabCaseTopic)}
                                     color="inherit"
                                 >
                                     {topic}
                                 </Button>
                                 <Menu
-                                    id={`${snakecaseTopic}-menu`}
-                                    anchorEl={document.getElementById(`${snakecaseTopic}-button`)}
-                                    open={openMenuId === snakecaseTopic}
+                                    id={`${kebabCaseTopic}-menu`}
+                                    anchorEl={document.getElementById(`${kebabCaseTopic}-button`)}
+                                    open={openMenuId === kebabCaseTopic}
                                     onClose={handleClose}
-                                    MenuListProps={{ "aria-labelledby": `${snakecaseTopic}-button` }}
+                                    MenuListProps={{ "aria-labelledby": `${kebabCaseTopic}-button` }}
                                 >
                                     {subtopics.map((subtopic) => {
-                                        const snakeCaseSubtopic = snakeCase(removeAccents(subtopic));
+                                        const kebabCaseSubtopic = kebabCase(removeAccents(subtopic));
 
                                         return (
                                             <MenuItem
-                                                key={snakeCaseSubtopic}
+                                                key={kebabCaseSubtopic}
                                                 onClick={handleClose}
                                                 component={Link}
-                                                to={`/apuntes/${snakecaseTopic}/${snakeCaseSubtopic}`}
+                                                to={`/apuntes/${kebabCaseTopic}/${kebabCaseSubtopic}`}
                                             >
                                                 {subtopic}
                                             </MenuItem>

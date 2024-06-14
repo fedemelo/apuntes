@@ -4,7 +4,7 @@ import { isValidElement } from "react";
 import ReactDomServer from "react-dom/server";
 
 import removeAccents from "remove-accents";
-import { snakeCase } from "change-case";
+import { kebabCase } from "change-case";
 
 
 export default function generateIdAutomatically(stringOrComponent: React.ReactNode | string) {
@@ -27,6 +27,6 @@ export default function generateIdAutomatically(stringOrComponent: React.ReactNo
       );
     }
   
-    return snakeCase(removeAccents(idString));
+    return kebabCase(removeAccents(idString));
   }
   

@@ -12,28 +12,28 @@ const files = [
         path: "/apuntes/"
     },
     {
-        Component: React.lazy(() => import("@/apuntes/matematica/calculo_diferencial/CalculoDiferencial")), 
-        path: `${mathUrl}calculo_diferencial`
+        Component: React.lazy(() => import("@/apuntes/matematica/calculo-diferencial/CalculoDiferencial")), 
+        path: `${mathUrl}calculo-diferencial`
     },
     {
-        Component: React.lazy(() => import("@/apuntes/matematica/calculo_vectorial/CalculoVectorial")),
-        path: `${mathUrl}calculo_vectorial`
+        Component: React.lazy(() => import("@/apuntes/matematica/calculo-vectorial/CalculoVectorial")),
+        path: `${mathUrl}calculo-vectorial`
     },
     {
-        Component: React.lazy(() => import("@/apuntes/matematica/algebra_lineal/AlgebraLineal")), 
-        path: `${mathUrl}algebra_lineal`
+        Component: React.lazy(() => import("@/apuntes/matematica/algebra-lineal/AlgebraLineal")), 
+        path: `${mathUrl}algebra-lineal`
     },
     {
         Component: React.lazy(() => import("@/apuntes/matematica/notacion/Notacion")), 
         path: `${mathUrl}notacion`
     },
     {
-        Component: React.lazy(() => import("@/apuntes/matematica/teoria_de_grafos/TeoriaDeGrafos")), 
-        path: `${mathUrl}teoria_de_grafos`
+        Component: React.lazy(() => import("@/apuntes/matematica/teoria-de-grafos/TeoriaDeGrafos")), 
+        path: `${mathUrl}teoria-de-grafos`
     },
     {
-        Component: React.lazy(() => import("@/apuntes/matematica/teoria_de_juegos/TeoriaDeJuegos")), 
-        path: `${mathUrl}teoria_de_juegos`
+        Component: React.lazy(() => import("@/apuntes/matematica/teoria-de-juegos/TeoriaDeJuegos")), 
+        path: `${mathUrl}teoria-de-juegos`
     }
 ]
 

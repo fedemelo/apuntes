@@ -1,4 +1,4 @@
-import generateIdAutomatically from "./automaticIdGenerator";
+import generateIdAutomatically from "@/components/utils/generateIdAutomatically";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";

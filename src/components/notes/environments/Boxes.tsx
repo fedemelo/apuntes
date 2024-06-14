@@ -43,12 +43,12 @@ export function Theorem({ children, name, id }: TheoremProps) {
       title={name}
       environmentName="Teorema"
       environmentColor="var(--theorem-color)"
+      id={id}
       // additionalContent={
       //   <div className="theorem-proof" id={id}>
       //     TODO: Add support for theorem proofs
       //   </div>
       // }
-      id={id}
     />
   );
 }

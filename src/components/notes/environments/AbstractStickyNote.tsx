@@ -1,4 +1,4 @@
-import generateIdAutomatically from "./automaticIdGenerator";
+import generateIdAutomatically from "@/components/utils/generateIdAutomatically";
 
 import styled from "styled-components";
 

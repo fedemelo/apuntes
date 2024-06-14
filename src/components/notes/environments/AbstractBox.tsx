@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import generateIdAutomatically from "./automaticIdGenerator"
+import generateIdAutomatically from "@/components/utils/generateIdAutomatically";
 
 
 export const BoxContainer = styled.div`
