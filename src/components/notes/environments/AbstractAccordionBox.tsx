@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import generateIdAutomatically from '@/components/utils/generateIdAutomatically';
 import CopyLinkToClipboard from '@/components/utils/CopyLinkToClipboard';
 import { BoxContainer, ButtonContainer, Title } from './AbstractBox';
 
-
-const StyledAccordion = styled(Accordion) <{ color: string }>`
+const StyledAccordion = styled(Accordion)<{ color: string }>`
   width: 100%;
   border: 2px solid ${(props) => props.color};
   border-radius: 0 10px 10px 10px;
@@ -37,11 +37,16 @@ export default function AbstractAccordionBox({
   id = id || generateIdAutomatically(title);
   const linkToCopy = `${window.location.origin}${window.location.pathname}#${id}`;
   const copyMessage = "Link copiado al portapapeles";
+  const [expanded, setExpanded] = useState(false);
+
+  const handleChange = () => {
+    setExpanded(!expanded);
+  };
 
   return (
     <BoxContainer>
-      <StyledAccordion color={color}>
-        <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: color }}/>}>
+      <StyledAccordion color={color} expanded={expanded} onChange={handleChange}>
+        <AccordionSummary expandIcon={expanded ? <VisibilityIcon sx={{ color: color }} /> : <VisibilityOffIcon sx={{ color: color }} />}>
           {id ? (
             <Title $color={color} $environmentName={name} id={id}>
               <strong>{title}</strong>

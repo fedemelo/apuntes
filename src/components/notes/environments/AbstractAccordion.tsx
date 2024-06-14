@@ -1,9 +1,12 @@
+import { useState } from "react";
+
 import generateIdAutomatically from "@/components/utils/generateIdAutomatically";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 interface AbstractAccordionProps {
   content: React.ReactNode;
@@ -20,11 +23,15 @@ export default function AbstractAccordion({
   environmentColor: color,
   id,
 }: AbstractAccordionProps) {
+  const [expanded, setExpanded] = useState(false);
   id = id || generateIdAutomatically(name + title);
 
   return (
-    <Accordion>
-      <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header" sx={{backgroundColor: color}}>
+    <Accordion expanded={expanded} onChange={() => {setExpanded(!expanded)}}>
+      <AccordionSummary
+        expandIcon={expanded ? <VisibilityIcon /> : <VisibilityOffIcon />}
+        sx={{ backgroundColor: color }}
+      >
         <strong>
           {name}
           {title ? `: ${title}` : ""}
