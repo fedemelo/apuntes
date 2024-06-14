@@ -1,0 +1,7 @@
+import{j as n}from"./index-B72t4Jia.js";import{p as x,g as m,B as d,a as p,d as j,T as s,b as h,c as u,C as v,A as f,e as a}from"./NoteDocument-BGEWhGVt.js";const g=x(f)`
+  width: 100%;
+  border: 2px solid ${o=>o.color};
+  border-radius: 0 10px 10px 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  background-color: white;
+`;function C({content:o,title:e,environmentName:r,environmentColor:i,additionalContent:c,id:t}){t=t||m(e);const l=`${window.location.origin}${window.location.pathname}#${t}`;return n.jsxs(d,{children:[n.jsxs(g,{color:i,children:[n.jsx(p,{expandIcon:n.jsx(j,{sx:{color:i}}),children:t?n.jsx(s,{$color:i,$environmentName:r,id:t,children:n.jsx("strong",{children:e})}):n.jsx(s,{$color:i,$environmentName:r,children:n.jsx("strong",{})})}),n.jsxs(h,{children:[o,t&&n.jsx(u,{children:n.jsx(v,{link:l,message:"Link copiado al portapapeles",color:i})})]})]}),c]})}function w({children:o,concept:e,id:r}){return n.jsx(a,{content:o,title:e,environmentName:"Definición",environmentColor:"var(--definition-color)",additionalContent:n.jsx("div",{className:"definition-concept-side",id:r,children:n.jsx("strong",{children:e})}),id:r})}function y({children:o,name:e,id:r}){return n.jsx(a,{content:o,title:e,environmentName:"Teorema",environmentColor:"var(--theorem-color)",id:r})}function N({children:o,title:e,id:r}){return n.jsx(C,{content:o,title:e,environmentName:"Ejemplo",environmentColor:"var(--example-color)",id:r})}export{w as D,N as E,y as T};
