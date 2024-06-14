@@ -66,9 +66,9 @@ export default function AbstractBox({
   return (
     <BoxContainer>
       <Box color={color}>
-        {id && <Title $color={color} $environmentName={name} id={id}>
+        {id? <Title $color={color} $environmentName={name} id={id}>
           <strong>{title}</strong>
-        </Title>}
+        </Title> : <Title $color={color} $environmentName={name}><strong/></Title>}
         {content}
       </Box>
       {additionalContent}
