@@ -1,9 +1,10 @@
 import { Definition, Example, Theorem } from "@/components/notes/environments/Boxes";
-import { Tip, Warning } from "@/components/notes/environments/StickyNotes";
+import { Notation, Tip, Warning } from "@/components/notes/environments/StickyNotes";
 import NoteDocument from "@/components/notes/NoteDocument";
 import Section from "@/components/notes/Section";
+import { referenceById } from "@/components/utils/hyperlinkManager";
 import M, { r } from "@/math/LaTeX";
-import { VECTOR_CALCULUS } from "@/Router";
+import { DIFFERENTIAL_CALCULUS, VECTOR_CALCULUS } from "@/Router";
 
 const CalculoDiferencial = () => (
   <NoteDocument>
@@ -303,7 +304,223 @@ const CalculoDiferencial = () => (
 	\rule[1ex]{0pt}{2.5ex}viii.&Límite de una función compuesta: &\(\displaystyle \lim_{x \to c}(f \circ g)(x)=\lim_{x \to c}f(g(x)) 	= f\left(\lim_{x \to c}g(x) \right)\). \\
 \end{longtable}  */}
 
+      <h4>Cálculo de límites para funciones continuas</h4>
+
+      <p>
+        Si la función es continua en el intervalo del límite, para calcular el límite se evalúa la función en el punto dado:
+        <M block>
+          {r`\lim_{x \to c}f(x)=f(c).`}
+        </M>
+      </p>
+
+      <h4>Cálculo de límites para funciones con discontinuidad removible</h4>
+      <p>
+        Si evaluar la función en el punto genera una indeterminación, tal como <M>{r`\dfrac{0}{0}`}</M>, <M>{r` \dfrac{\pm \infty}{\pm \infty}`}</M> o <M>{r` \infty \pm \infty `}</M>, se deben efectuar manipulaciones algebraicas, tales como factorizar, racionalizar y simplificar, para remover la expresión que produce la indeterminación. Una vez removido el término que genera la indeterminación, se evalúa: <M>{r`\lim_{x \to c}f(x)=f(c)`}</M>.
+      </p>
+
+      <Warning>
+        No siempre se puede remover la indeterminación con métodos algebraicos. En los casos en que no es posible debe usarse la {referenceById("Regla de L'Hôpital", DIFFERENTIAL_CALCULUS, "", "Regla de L'Hôpital")}.
+      </Warning>
+
+      <p>
+        Si, una vez removida la indeterminación, evaluar la función genera una indefinición, es decir división en 0 de la forma <M>{r`\frac{a}{0}`}</M> donde <M>{r`a \in \mathbb{R}_{>0}`}</M> , se dice que la función tiende a <M>{r`+\infty`}</M> o <M>{r`-\infty`}</M>. Para saber cuál es el signo, se realiza un análisis con valores cercanos al número <M>{r`c`}</M> del que se quiere hallar el límite: si al reemplazar valores cercanos el límite es positivo, el límite tiende a <M>{r`+\infty`}</M>; si es negativo, tiende a <M>{r`-\infty`}</M>.
+      </p>
+
+      <h4>Cálculo de límites que tienden a infinito</h4>
+
+      <p>
+        Para calcular límites que tienden a infinito, se tienen distintos casos según el tipo de función.
+      </p>
+      <p>
+        Si la función es un polinomio, de la forma <M>{r`p(x)=a_nx^n+ a_{n-1}x^{n-1}+ \cdots + a_1x+a_0`}</M>, se sabe de antemano que el límite al infinito es infinito. Para determinar el signo, Se evalúa el límite en el término principal, de forma que el signo es el producto entre el signo del infinito y el signo del coeficiente principal:
+        <M block>
+          {r`\lim_{x \to \pm \infty} p(x) = \lim_{x \to \pm \infty} a_n x^n = \pm \infty \cdot a_n.`}
+        </M>
+      </p>
+
+      <h5>Límites al infinito en funciones racionales</h5>
+      <p>
+        Si la función es racional, de la forma <M>{r`r(x)=\frac{f(x)}{g(x)}`}</M> entonces el valor del límite depende de qué función crece a mayor ritmo. Si <M>{r`\lim_{x \to \infty}\frac{f(x)}{g(x)} = 0`}</M>, es porque <M>g</M> crece mucho más rápido que <M>f</M> y a medida que el valor de <M>x</M> incrementa, el valor de <M>g</M> es tan grande en comparación con <M>f</M> que el cociente <M>f/g</M> se acerca a <M>0</M>. Se dice entonces que <M>g</M> <em>domina asintóticamente</em> a <M>f</M>.
+      </p>
+
+      <Definition concept="Dominancia asintótica">
+        Sea dice que una función <M>g</M> <em>domina asintóticamente</em> a otra función <M>f</M>, lo cual se denota como <M>{r`g \gg f`}</M> si el límite al infinito del cociente <M>f/g</M> tiende a 0:
+        <M block>
+          {r`\big(g \gg f\big) \iff \left(\lim_{x \to \infty}\frac{f(x)}{g(x)} = 0\right).`}
+        </M>
+      </Definition>
+
+      <p>
+        Con eso en mente, para calcular límites al infinito de funciones racionales, resulta sumamente útil tener presente el orden de dominancia asintótica. Dicho orden es el siguiente:
+        <M block>
+          {r`1 \ll \log(n) \ll n^{1/2} \ll n \ll n\log(n) \ll n^2 \ll \cdots \ll n^a \ll 2^n \ll \cdots \ll a^n \ll n!`}
+        </M>
+        donde <M>{r`a \in \mathbb{R}_{> 2}`}</M>. Una función puede estar constituida por sumas y restas entre varias de estas funciones, en cuyo caso se toma la de mayor orden para determinar el límite.
+      </p>
+      <p>
+        Si ocurre el caso contrario que el expuesto antes y <M>f</M> domina asintóticamente a <M>g</M>, entonces el límite al infinito tiende a infinito. El raciocinio es análogo: a medida que el valor de <M>x</M> aumenta, el valor de <M>f</M> es tan grande en comparación con <M>g</M> que el cociente <M>f/g</M> se acerca a <M>{r`\infty`}</M>.
+      </p>
+      <p>
+        Para determinar el signo del límite, depende de los signos de los términos de mayor orden de ambas funciones. Por ejemplo, si <M>f</M> y <M>g</M> son polinomios tales que el grado de <M>f</M> es mayor que el de <M>g</M>, entonces el límite tiende a <M>{r`\pm \infty`}</M> y el signo depende del cociente de los signos de los coeficientes principales de <M>f</M> y <M>g</M>.
+      </p>
+      <p>
+        Por último, si ambas funciones crecen a ritmos similares, el límite es un real no nulo.
+      </p>
+      <ul>
+        <li>
+          Si <M>f</M> y <M>g</M> son polinomios de igual grado, el límite es igual al cociente de los coeficientes principales de los polinomios.
+
+          <Tip>
+            Podría pasar que, por la forma en la que está escrito alguno de los polinomio, hayan dos términos de mayor grado. En ese caso, se debe tomar la suma de los coeficientes de esos términos de mayor grado como el coeficiente principal.
+          </Tip>
+        </li>
+        <li>
+          Si <M>f</M> y <M>g</M> son funciones logarítmicas, de la forma <M>f = \log(p)</M> y <M>g = \log(q)</M>, el límite es el cociente entre el exponente de mayor grado de <M>p</M> y el exponente de mayor grado de <M>q</M>.
+        </li>
+      </ul>
+
+      <Example title="Diversos límites al infinito de funciones racionales">
+        Límite en los que basta con recordar el orden de dominancia asintótica:
+        <ul>
+          <li><M>{r`\displaystyle \lim_{x \to \infty} \frac{3x^2+2x+1}{x^3+5x^2+4} = \lim_{x \to \infty} \frac{x^2}{x^3} = 0.`}</M></li>
+          <li><M>{r`\displaystyle \lim_{x \to \infty} \frac{x!}{-3^x} = -\infty`}</M></li>
+        </ul>
+        Límites en los que las funciones crecen a ritmos equiparables:
+        <ul>
+          <li><M>{r`\displaystyle \lim_{x \to \infty} \frac{\sqrt{2x^3-x}+\sqrt{2x^3}}{\sqrt[6]{6x^4+x^{-9}}} = \lim_{x \to \infty} \frac{\sqrt{2}x^{3/2}-x^{1/2}+\sqrt{2}x^{3/2}}{\sqrt[6]{6}x^{2/3}+x^{-3/2}} = \frac{2\sqrt{2}}{\sqrt[6]{6}}`}</M></li>
+          <li><M>{r`\displaystyle \lim_{x \to \infty} \frac{\log(x^2-x)}{\log(x^{-4} + x^{-3})} = -\frac{2}{3}`}</M></li>
+        </ul>
+      </Example>
+
+      <h5>Límites al infinito en otras funciones</h5>
+      <p>
+        Para calcular límites al infinito de otras funciones, se realiza un análisis de la gráfica de la función, determinando cuál es el comportamiento de la función a medida que <M>x</M> incrementa (o decrece) indefinidamente. Algunos límites notables que se pueden calcular de esta forma son:
+      </p>
+      <ul>
+        <li> Exponenciales si <M>{r`a>0`}</M></li>
+        <ul>
+          <li> <M>{r`\displaystyle \lim_{x \to 0}a^x=1`}</M></li>
+          <li> Si <M>{r`a>1`}</M>:</li>
+          <ul>
+            <li> <M>{r`\displaystyle \lim_{x\to \infty}a^x= \infty`}</M></li>
+            <li> <M>{r`\displaystyle \lim_{x \to -\infty}a^x=0`}</M></li>
+          </ul>
+          <li> Si <M>{r`0<a<1`}</M>:</li>
+          <ul>
+            <li> <M>{r`\displaystyle \lim_{x\to \infty}a^x= 0`}</M></li>
+            <li> <M>{r`\displaystyle \lim_{x \to -\infty}a^x=\infty`}</M></li>
+          </ul>
+        </ul>
+        <li> Exponenciales si <M>{r`a<0`}</M></li>
+        <ul>
+          <li> <M>{r`\displaystyle \lim_{x \to 0}a^x=-1`}</M></li>
+          <li> Si <M>{r`-1<a<0`}</M>:</li>
+          <ul>
+            <li> <M>{r`\displaystyle \lim_{x\to \infty}a^x= 0`}</M></li>
+            <li> <M>{r`\displaystyle \lim_{x \to -\infty}a^x=-\infty`}</M></li>
+          </ul>
+          <li> Si <M>{r`a<-1`}</M>:</li>
+          <ul>
+            <li> <M>{r`\displaystyle \lim_{x\to \infty}a^x= -\infty`}</M></li>
+            <li> <M>{r`\displaystyle \lim_{x \to -\infty}a^x=0`}</M></li>
+          </ul>
+        </ul>
+        <li> Logaritmo natural:</li>
+        <ul>
+          <li> <M>{r`\displaystyle \lim_{x\to \infty}\ln x=\infty.`}</M></li>
+          <li> <M>{r`\displaystyle \lim_{x\to - \infty}\ln x \text{ No existe}.`}</M></li>
+          <li> <M>{r`\displaystyle \lim_{x\to 0^{\pmb{+}}}\ln x=- \infty.`}</M></li>
+          <li> <M>{r`\displaystyle \lim_{x\to 0^{-}}\ln x \text{ No existe}`}</M>.</li>
+        </ul>
+        <li> Radicales: <M>{r`\displaystyle \lim_{x \to \infty}\sqrt[n]{x}= \infty`}</M>.</li>
+        <li> Constante de Euler:</li>
+        <ul>
+          <li> <M>{r`\displaystyle \lim_{x \to \infty}\left(1+\frac{1}{x}\right)^{x}=e.`}</M></li>
+          <li>  <M>{r`\displaystyle \lim_{x \to \infty}\left(1+\frac{a}{x}\right)^{bx}=\lim_{x \to \infty}\left(\frac{x+a}{x}\right)^{bx}=\mathrm{e}^{ab}.`}</M></li>
+        </ul>
+        <li> Inversas de trigonométricas: Muchas tienen asíntotas horizontales. </li>
+      </ul>
+
+      <h4>Cálculo de límites para funciones con discontinuidad esencial o no removible</h4>
+
+      <p>
+        Si no se puede remover la expresión que genera la indeterminación pero la función es acotada (es decir, que está limitada a un rango específico conocido), para hallar el límite se usa el teorema del emparedado en esa expresión.
+      </p>
+      <Theorem name="Teorema del Emparedado o del Sándwich">
+        Sean <M>{r`f, g`}</M> y <M>{r`h`}</M> funciones, si para todo <M>{r`x`}</M> en <M>{r`[a,b]`}</M>, excepto posiblemente para un valor <M>{r`c \in (a,b)`}</M>, se cumple tanto que <M>{r`f(x)<g(x)<h(x)`}</M> como que <M>{r`\displaystyle \lim_{x\to c}f(x)=\lim_{x\to c}h(x)=L`}</M>, entonces <M>{r`\displaystyle \lim_{x\to c}g(x)=L`}</M>.
+      </Theorem>
+      <p>
+        Al aplicar el Teorema del emparedado, resulta conveniente usar intervalos pequeños y funciones que sean siempre continuas para <M>{r`f(x)`}</M> y <M>{r`h(x)`}</M>. Además, es necesario que esas funciones sean acotadas, es decir, que su rango sea un intervalo finito y conocido. Funciones útiles para ello son <M>{r`f(x)=\sin x`}</M>, <M>{r`f(x)=\cos x`}</M> y algunas funciones trigonométricas inversas.
+      </p>
+
+      <h4>Regla de L'Hôpital</h4>
+      {/* TODO: Add historic context
+\footnote{Misivas del matemático suizo Johann Bernoulli (1667-1748) al marqués parisino Guillaume Fran\c{o}is De L’Hôpital (1661-1704) contienen el desarrollo de la hoy denominada Regla de L’Hôpital por parte del suizo. No obstante, L’Hôpital publicó la regla a su nombre en su obra <i>Analyse des infiniment petits pour l'intelligence des lignes courbes</i> (1696), sirviéndose del trabajo de Bernoulli.} */}
+      <p>
+        Además de las formas ya mencionadas para el cálculo de límites, Johann Bernoulli desarrolló una forma alternativa para calcular límites que, al ser evaluados, produzcan indeterminaciones de la forma <M>{r`\dfrac{0}{0}`}</M> o <M>{r`\dfrac{\pm \infty}{\pm \infty}`}</M>. La regla utiliza derivación, el tema tratado en la sección siguiente.
+      </p>
+
+      <Theorem name="Regla de L'Hôpital" environmentName="Ley">
+        Sean <M>{r`f`}</M> y <M>{r`g`}</M> funciones derivables en el intervalo abierto <M>{r`(a,b)`}</M> y supóngase que <M>{r`g'(x) \neq 0`}</M> para todo <M>{r`x \in (a,b)`}</M>, excepto posiblemente para <M>{r`c \in (a,b)`}</M>. Si se cumple que
+        <M block>
+          {r`\begin{align*}
+		\begin{aligned}
+			\lim_{x \to c} f(x) & = 0 \\
+			\lim_{x \to c} f(x) & = \pm \infty
+		\end{aligned} && \begin{aligned}
+			\text{ y } \\
+			\text{ y }
+		\end{aligned} && \begin{aligned}
+			\lim_{x \to c} g(x) & = 0 \qquad \text{ o que}\\
+			\lim_{x \to c} g(x) & = \pm \infty
+		\end{aligned}
+	\end{align*}`}
+        </M>
+        se tiene una forma indeterminada del tipo <M>{r`\frac{0}{0}`}</M> o <M>{r`\frac{\pm \infty}{\pm \infty}`}</M>. Si <M>{r`\lim_{x\to c} \frac{f'(x)}{g'(x)}`}</M> existe, se cumple que:
+        <M block>
+          {r`\lim_{x \to c} \frac{f(x)}{g(x)} \stackrel{\text{H}}{=} \lim_{x\to c} \frac{f'(x)}{g'(x)}.`}
+        </M>
+      </Theorem>
+
+      <Notation>
+        Escribo una H sobre el signo de igualdad para denotar el uso de la Regla de L'Hôpital.
+      </Notation>
+
+      <p>
+        Al usar la Regla de L'Hôpital, es útil usar la ley de límite de un producto para separar como factor únicamente la expresión del límite que genera la indeterminación. La Regla puede ser usada con límites de la forma de otras indeterminaciones, si antes de aplicarla se transforman los límites a límites con indeterminaciones de la forma <M>{r`\frac{0}{0}`}</M> o <M>{r`\frac{\pm \infty}{\pm \infty}`}</M> mediante métodos algebraicos. De eso se ocupan las subsecciones siguientes.
+      </p>
+
+      <h5>Indeterminación <M>{r`\bm{\pm \infty \cdot 0}`}</M></h5>
+
+      <p>
+        Si al evaluar un límite se tiene una indeterminación de la forma <M>{r`\pm \infty \cdot 0`}</M>, se utilizan propiedades de fracciones para transformarlo: se divide en el recíproco de una de las funciones,
+        <M block>
+          {r`\lim_{x\to c} \left(f(x) \cdot g(x)\right) =\pm \infty \cdot 0 \ \implies \ \lim_{x\to c} \frac{f(x)}{\frac{1}{g(x)}} = \frac{\pm \infty}{\lim_{x\to c}\frac{1}{g(x)}}=\frac{\pm \infty}{\pm \infty}.`}
+        </M>
+        Si se tiene una función con logaritmo, tal que su límite cuando <M>{r`x`}</M> tiende a 0 por derecha es <M>{r`-\infty`}</M>, se debe mantener en el denominador durante el proceso anterior para aplicar la Regla de L'Hôpital.
+      </p>
+
+      <h5>Indeterminación <M>{r`\bm{\infty - \infty}`}</M>.</h5>
+
+      <p>
+        Si al evaluar un límite se tiene una indeterminación de la forma <M>{r`\infty - \infty`}</M>, se expresa el límite como una resta de cocientes y luego, usando propiedades de fracciones, su unen en una única fracción que dará una de las formas indeterminadas buscadas:
+        <M block>
+          {r`\lim_{x\to c}\left( \frac{f(x)}{g(x)}-\frac{p(x)}{q(x)}\right) = \infty - \infty \ \implies \ \lim_{x\to c} \frac{(f\cdot q)(x)-(p\cdot g)(x)}{(g \cdot q)(x)}= \frac{0}{0}.`}
+        </M>
+      </p>
+
+      <h5>Indeterminaciones <M>{r`\bm{0^0, \infty^0 \text{ y } 1^{\infty}}`}</M></h5>
+
+      <p>
+        Si al evaluar un límite se tiene una indeterminación de la forma <M>{r`0^0, \infty^0 \text{ o } 1^{\infty}`}</M>, seguramente se tenía una función de la forma <M>{r`f(x)^{g(x)}`}</M>. Se emplean las propiedades del logartimo y de la potenciación para transformarla. Primero, se transforma la función a una exponencial con base <M>{r`\mathrm{e}`}</M> con un logaritmo natural en el exponente. Esto permite dos cosas: que la función que originalmente era exponente ahora pase a multiplicar el logaritmo y que sea posible agregar el límite al exponente. Con eso, se transforma la indeterminación a un límite más sencillo de calcular.
+        <M block>
+          {r`\lim_{x\to c} f(x)^{g(x)} = \lim_{x\to c} \mathrm{e}^{\ln f(x)^{g(x)}} = \lim_{x\to c} \mathrm{e}^{g(x)\cdot \ln f(x)} = \mathrm{e}^{\lim\limits_{x\to c}(g(x)\cdot \ln f(x))}.`}
+        </M>
+      </p>
+
     </Section>
+
+
 
   </NoteDocument>
 );
