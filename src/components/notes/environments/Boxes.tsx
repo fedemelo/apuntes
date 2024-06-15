@@ -36,14 +36,15 @@ export function Definition({ children, concept, id }: DefinitionProps) {
 
 type TheoremProps = Omit<BoxProps, "title"> & {
   name?: React.ReactNode | string;
+  environmentName?: string;
 };
 
-export function Theorem({ children, name, id }: TheoremProps) {
+export function Theorem({ children, name, id, environmentName = "Teorema"}: TheoremProps) {
   return (
     <AbstractBox
       content={children}
       title={name}
-      environmentName="Teorema"
+      environmentName={environmentName}
       environmentColor="var(--theorem-color)"
       id={id}
       className="theorem"
