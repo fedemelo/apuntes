@@ -27,6 +27,10 @@ export default function generateIdAutomatically(stringOrComponent: React.ReactNo
       );
     }
   
-    return kebabCase(removeAccents(idString));
+    return kebabCase(removeSpecialCharacters(removeAccents(idString)));
   }
+
+  export const removeSpecialCharacters = (input: string): string => {
+    return input.replace(/[^\w\s]/gi, '');
+  };
   
