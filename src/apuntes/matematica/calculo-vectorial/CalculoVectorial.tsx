@@ -534,7 +534,7 @@ Las propiedades de los límites de múltiples variables son análogas a las prop
       <h3>La derivada parcial</h3>
 
       <p>
-        Al definir la {referenceById("derivada para funciones escalares de una variable", DIFFERENTIAL_CALCULUS, 'derivada')}, se deriva sobre la única variable que tiene la función. En el caso de funciones escalares de múltiples variables, es posible derivar la función con respecto a cada una de sus variables de forma independiente. A esa operación se le denomina derivada parcial.
+        Al definir la derivada para funciones escalares de una variable, se deriva sobre la única variable que tiene la función. En el caso de funciones escalares de múltiples variables, es posible derivar la función con respecto a cada una de sus variables de forma independiente. A esa operación se le denomina derivada parcial.
       </p>
 
       <Definition concept="Derivada parcial">
@@ -546,7 +546,7 @@ Las propiedades de los límites de múltiples variables son análogas a las prop
       </Definition>
 
       <p>
-        La definición de derivada parcial es análoga a la definición de derivada: en el numerador, sólo se suma <M>{r`h`}</M> a la variable con respecto a la cual se está derivando. La derivada parcial <M>{r`\partial f /\partial x_i`}</M> indica cómo crece (o decrece) la función en la dirección de la variable <M>{r`x_i`}</M>, es decir, respecto al eje cartesiano <M>{r`x_i`}</M>. Para toda función escalar de múltiples variables, si esta es diferenciable, se pueden calcular sus derivadas parciales con respecto a cada una de sus variables. Nótese que la derivada parcial sólo está definida para funciones escalares.
+        La definición de derivada parcial es análoga a la {referenceById("definición de derivada", DIFFERENTIAL_CALCULUS, 'derivada')}: en el numerador, sólo se suma <M>{r`h`}</M> a la variable con respecto a la cual se está derivando. La derivada parcial <M>{r`\partial f /\partial x_i`}</M> indica cómo crece (o decrece) la función en la dirección de la variable <M>{r`x_i`}</M>, es decir, respecto al eje cartesiano <M>{r`x_i`}</M>. Para toda función escalar de múltiples variables, si esta es diferenciable, se pueden calcular sus derivadas parciales con respecto a cada una de sus variables. Nótese que la derivada parcial sólo está definida para funciones escalares.
       </p>
       <p>
         Para calcular la derivada parcial <M>{r`\partial f /\partial x_i`}</M>, se hace uso de las reglas de derivación del cálculo diferencial tomando <M>{r`x_i`}</M> como si fuera la única variable de la función y todas las demás variables como si fueran constantes. A causa de eso, el procedimiento para calcular una derivada parcial es el mismo que se sigue para calcular la derivada de una función escalar de una variable. Consecuentemente, la derivación parcial tiene las mismas propiedades que la derivación de funciones escalares de una variable.
