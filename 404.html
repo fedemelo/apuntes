@@ -1,4 +1,3 @@
-<!-- public/404.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +5,8 @@
   <title>Page Not Found</title>
   <script type="text/javascript">
     var pathname = window.location.pathname;
-    window.location.replace(pathname);
+    var search = window.location.search;
+    window.location.replace("/apuntes/index.html?redirect=" + encodeURIComponent(pathname + search));
   </script>
 </head>
 <body>
