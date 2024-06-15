@@ -1,4 +1,4 @@
-import{r as m,j as e,D as j}from"./index-CmLoEHr4.js";import{D as i,E as r,T as o}from"./Boxes-C2JDTLZ9.js";import{N as d,T as s,W as c}from"./StickyNotes-CLWbDoEg.js";import{p as u,N as v,r as f}from"./NoteDocument-CPcpW-c5.js";import{L as a,r as n}from"./LaTeX-7gQEXWJ1.js";const g=u.div`
+import{r as m,j as e,D as j}from"./index-BbXaoYFA.js";import{D as i,E as r,T as o}from"./Boxes-B3Mep-h4.js";import{N as d,T as s,W as c}from"./StickyNotes-bzTaDHM8.js";import{p as u,N as v,r as f}from"./NoteDocument-HOZG5EJ3.js";import{L as a,r as n}from"./LaTeX-Cu6wNcWI.js";const g=u.div`
   width: 100%;
   margin-bottom: 1em;
   display: block;
