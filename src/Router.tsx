@@ -1,9 +1,7 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 import Loader from "@/components/loader/Loader";
-
-
 const Custom404 = React.lazy(() => import("@/pages/Custom404"));
 
 const baseUrl = "apuntes";
@@ -22,41 +20,56 @@ export const GRAPH_THEORY = `/${baseUrl}/${math}/${graphTheory}`;
 export const GAME_THEORY = `/${baseUrl}/${math}/${gameTheory}`;
 
 const files = [
-    {
-        Component: React.lazy(() => import("@/pages/Home")), 
-        path: "/apuntes/"
-    },
-    {
-        Component: React.lazy(() => import("@/apuntes/matematica/calculo-diferencial/CalculoDiferencial")),
-        path: DIFFERENTIAL_CALCULUS
-    },
-    {
-        Component: React.lazy(() => import("@/apuntes/matematica/calculo-vectorial/CalculoVectorial")),
-        path: VECTOR_CALCULUS
-    },
-    {
-        Component: React.lazy(() => import("@/apuntes/matematica/algebra-lineal/AlgebraLineal")),
-        path: LINEAR_ALGEBRA
-    },
-    {
-        Component: React.lazy(() => import("@/apuntes/matematica/notacion/Notacion")),
-        path: NOTATION
-    },
-    {
-        Component: React.lazy(() => import("@/apuntes/matematica/teoria-de-grafos/TeoriaDeGrafos")),
-        path: GRAPH_THEORY
-    },
-    {
-        Component: React.lazy(() => import("@/apuntes/matematica/teoria-de-juegos/TeoriaDeJuegos")),
-        path: GAME_THEORY
+  {
+    Component: React.lazy(() => import("@/pages/Home")),
+    path: "/apuntes/"
+  },
+  {
+    Component: React.lazy(() => import("@/apuntes/matematica/calculo-diferencial/CalculoDiferencial")),
+    path: DIFFERENTIAL_CALCULUS
+  },
+  {
+    Component: React.lazy(() => import("@/apuntes/matematica/calculo-vectorial/CalculoVectorial")),
+    path: VECTOR_CALCULUS
+  },
+  {
+    Component: React.lazy(() => import("@/apuntes/matematica/algebra-lineal/AlgebraLineal")),
+    path: LINEAR_ALGEBRA
+  },
+  {
+    Component: React.lazy(() => import("@/apuntes/matematica/notacion/Notacion")),
+    path: NOTATION
+  },
+  {
+    Component: React.lazy(() => import("@/apuntes/matematica/teoria-de-grafos/TeoriaDeGrafos")),
+    path: GRAPH_THEORY
+  },
+  {
+    Component: React.lazy(() => import("@/apuntes/matematica/teoria-de-juegos/TeoriaDeJuegos")),
+    path: GAME_THEORY
+  }
+];
+
+const RedirectHandler = () => {
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirect = urlParams.get('redirect');
+    if (redirect) {
+      navigate(redirect);
     }
-]
+  }, [navigate]);
+
+  return null;
+};
 
 export default function Router() {
   return (
-    <Routes>
-      {files.map((file, index) => {
-        return (
+    <>
+      <RedirectHandler />
+      <Routes>
+        {files.map((file, index) => (
           <Route
             key={index}
             path={file.path}
@@ -66,9 +79,9 @@ export default function Router() {
               </React.Suspense>
             }
           />
-        );
-      })}
+        ))}
         <Route path="/apuntes/*" element={<Custom404 />} />
-    </Routes>
+      </Routes>
+    </>
   );
 }
