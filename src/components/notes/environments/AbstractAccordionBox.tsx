@@ -24,6 +24,7 @@ interface AbstractAccordionBoxProps {
   environmentColor: string;
   additionalContent?: React.ReactNode;
   id?: string;
+  className: string;
 }
 
 export default function AbstractAccordionBox({
@@ -33,26 +34,23 @@ export default function AbstractAccordionBox({
   environmentColor: color,
   additionalContent,
   id,
+  className,
 }: AbstractAccordionBoxProps) {
   id = id || generateIdAutomatically(title);
   const linkToCopy = `${window.location.origin}${window.location.pathname}#${id}`;
   const copyMessage = "Link copiado al portapapeles";
   const [expanded, setExpanded] = useState(false);
 
-  const handleChange = () => {
-    setExpanded(!expanded);
-  };
-
   return (
     <BoxContainer>
-      <StyledAccordion color={color} expanded={expanded} onChange={handleChange}>
+      <StyledAccordion color={color} expanded={expanded} onChange={() => {setExpanded(!expanded)}}>
         <AccordionSummary expandIcon={expanded ? <VisibilityIcon sx={{ color: color }} /> : <VisibilityOffIcon sx={{ color: color }} />}>
           {id ? (
-            <Title $color={color} $environmentName={name} id={id}>
+            <Title $color={color} $environmentName={name} id={id} className={className}>
               <strong>{title}</strong>
             </Title>
           ) : (
-            <Title $color={color} $environmentName={name}>
+            <Title $color={color} $environmentName={name} className={className}>
               <strong />
             </Title>
           )}

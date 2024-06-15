@@ -24,22 +24,13 @@
   counter-reset: h2;
 }
 
-.note-document h2::before {
+.note-document h2 {
   counter-increment: h2;
-  content: counter(h2) '. ';
+  counter-reset: h3 def thm eg;
 }
 
-.note-document h2 {
-  font-size: 1.5em;
-  color: white;
-  background-color: var(--section-color);
-  padding: 0.2em 0;
-  width: 100%;
-  text-align: center;
-
-  border-radius: 0 10px 10px 10px; 
-
-  counter-reset: h3;
+.note-document h2::before {
+  content: counter(h2) '. ';
 }
 
 .note-document h3::before {

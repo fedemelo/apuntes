@@ -1,3 +1,18 @@
+div.definition>strong::before {
+    counter-increment: def;
+    content: "Definición " counter(h2) "." counter(def) ". ";
+}
+
+div.theorem>strong::before {
+    counter-increment: thm;
+    content: "Teorema " counter(h2) "." counter(thm) ". ";
+}
+
+div.example>strong::before {
+    counter-increment: eg;
+    content: "Ejemplo " counter(h2) "." counter(eg) ". ";
+}
+
 .definition-concept-side {
     text-align: right;
 

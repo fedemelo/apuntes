@@ -10,7 +10,7 @@ export const BoxContainer = styled.div`
   margin-block: 1em;
 `;
 
-const Box = styled.div<{ color: string }>`
+const Box = styled.div<{ color: string, $environmentName: string }>`
   padding-inline: 1.2em;
   padding-top: 2.5em;
   padding-bottom: 0.7em;
@@ -22,12 +22,12 @@ const Box = styled.div<{ color: string }>`
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   width: 100%;
   margin: 0;
-  position: relative; /* Needed for positioning the button */
+  position: relative;
 `;
 
 export const Title = styled.div<{ $color: string; $environmentName: string }>`
   position: absolute;
-  top: -0.3em;
+  top: -0.5em;
   left: 5%;
 
   color: white;
@@ -38,10 +38,6 @@ export const Title = styled.div<{ $color: string; $environmentName: string }>`
   text-align: center;
 
   background-color: ${(props) => props.$color};
-
-  & > strong::before {
-    content: "${(props) => props.$environmentName} " counter(h2) "." counter(h3) ". ";
-  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -57,6 +53,7 @@ interface AbstractBoxProps {
   environmentColor: string;
   additionalContent?: React.ReactNode;
   id?: string;
+  className: string;
 }
 
 export default function AbstractBox({
@@ -66,27 +63,34 @@ export default function AbstractBox({
   environmentColor: color,
   additionalContent,
   id,
+  className,
 }: AbstractBoxProps) {
   id = id || generateIdAutomatically(title);
   const linkToCopy = `${window.location.origin}${window.location.pathname}#${id}`;
-  const copyMessage = "Link copiado al portapapeles"
+  const copyMessage = "Link copiado al portapapeles";
 
   return (
     <BoxContainer>
-      <Box color={color}>
+      <Box color={color} $environmentName={name}>
         {id ? (
-          <Title $color={color} $environmentName={name} id={id}>
+          <Title $color={color} $environmentName={name} id={id} className={className}>
             <strong>{title}</strong>
           </Title>
         ) : (
-          <Title $color={color} $environmentName={name}>
-            <strong />
+          <Title $color={color} $environmentName={name} className={className}>
+            <strong/>
           </Title>
         )}
         {content}
-        {id && <ButtonContainer>
-          <CopyLinkToClipboard link={linkToCopy} message={copyMessage} color={color} />
-        </ButtonContainer>}
+        {id && (
+          <ButtonContainer>
+            <CopyLinkToClipboard
+              link={linkToCopy}
+              message={copyMessage}
+              color={color}
+            />
+          </ButtonContainer>
+        )}
       </Box>
       {additionalContent}
     </BoxContainer>

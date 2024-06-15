@@ -28,6 +28,7 @@ export function Definition({ children, concept, id }: DefinitionProps) {
         </div>
       }
       id={id}
+      className="definition"
     />
   );
 }
@@ -45,11 +46,7 @@ export function Theorem({ children, name, id }: TheoremProps) {
       environmentName="Teorema"
       environmentColor="var(--theorem-color)"
       id={id}
-      // additionalContent={
-      //   <div className="theorem-proof" id={id}>
-      //     TODO: Add support for theorem proofs
-      //   </div>
-      // }
+      className="theorem"
     />
   );
 }
@@ -63,6 +60,7 @@ export function Example({ children, title, id }: BoxProps) {
       environmentName="Ejemplo"
       environmentColor="var(--example-color)"
       id={id}
+      className="example"
     />
   );
 }
