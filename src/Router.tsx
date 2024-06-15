@@ -57,7 +57,7 @@ const RedirectHandler = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const redirect = urlParams.get('redirect');
     if (redirect) {
-      navigate(redirect);
+      navigate(redirect, { replace: true });
     }
   }, [navigate]);
 
