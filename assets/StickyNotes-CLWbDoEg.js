@@ -1,4 +1,4 @@
-import{j as o,i as s,T as u}from"./index-Dnlt-gAj.js";import{p as r,g as x,e as d}from"./NoteDocument-7xWwwi1Y.js";const f=r.div`
+import{j as o,i as s,T as u}from"./index-CmLoEHr4.js";import{p as r,g as x,e as d}from"./NoteDocument-CPcpW-c5.js";const f=r.div`
   flex-direction: row;
   display: flex;
   margin-block: 1em;

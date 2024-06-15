@@ -1,4 +1,4 @@
-import{r as j,j as n}from"./index-Dnlt-gAj.js";import{p as h,g as u,B as f,a as v,d as C,b as g,T as c,c as b,f as A,C as N,A as $,h as l}from"./NoteDocument-7xWwwi1Y.js";const w=h($)`
+import{r as j,j as n}from"./index-CmLoEHr4.js";import{p as h,g as u,B as f,a as v,d as C,b as g,T as c,c as b,f as A,C as N,A as $,h as l}from"./NoteDocument-CPcpW-c5.js";const w=h($)`
   width: 100%;
   border: 2px solid ${e=>e.color};
   border-radius: 0 10px 10px 10px;
