@@ -36,7 +36,7 @@ export const macros = {
     "\\tnparder": r`\tfrac{\partial^{#1} #2}{\partial #3^{#1}}`,
     "\\dnparder": r`\dfrac{\partial^{#1} #2}{\partial #3^{#1}}`,
 
-    "\\d": r`\mathrm{d}`,
+    "\\du": r`\mathrm{d}`,
 
     "\\indint": r`\int #1 \: \mathrm{d} #2`,
     "\\defint": r`\int_{#3}^{#4} #1 \: \mathrm{d} #2`,
@@ -60,7 +60,7 @@ export const macros = {
     "\\arcsch": r`\operatorname{arcsch}`,
   
     // Complex numbers
-    "\\i": r`\mathrm{i}`,
+    "\\iu": r`\mathrm{i}`,
     "\\Rep": r`\mathrm{Re}`,
     "\\Imp": r`\mathrm{Im}`,
   
