@@ -1,4 +1,5 @@
 import { Definition, Example, Theorem } from "@/components/notes/environments/Boxes";
+import Properties from "@/components/notes/environments/Properties";
 import { Notation, Tip, Warning } from "@/components/notes/environments/StickyNotes";
 import NoteDocument from "@/components/notes/NoteDocument";
 import Section from "@/components/notes/Section";
@@ -520,7 +521,369 @@ const CalculoDiferencial = () => (
 
     </Section>
 
+    <Section title="Derivación">
 
+      <h3>Definición de derivada</h3>
+
+      <Tip>
+        Una recta es <em>tangente</em> a una curva en un punto si únicamente interseca a la curva en ese punto. Si la interseca en dos puntos, la recta es <em>secante</em>.
+      </Tip>
+
+      <p>
+        La derivada surge como un método matemático para resolver dos problemas. El primero, de carácter geométrico, hallar la pendiente de la recta tangente a una curva; el segundo, conocer la razón de cambio instantánea de una función respecto a su variable independiente. La razón de cambio es la medida en la que una variable se modifica con relación a otra, como, por ejemplo, la medida en que la distancia recorrida se modifica con respecto al tiempo. En una gráfica lineal, no hay problema para hallar la razón de cambio instantánea, porque es la misma siempre: la pendiente de la recta. Para otras gráficas, no lineales, hallar la razón de cambio instantánea lleva al problema geométrico mencionado al inicio de este párrafo: hallar la pendiente de la recta tangente a la curva en ese punto. Así pues, son en esencia el mismo problema. Eso es, entonces, lo que representa la derivada de una función en un punto: la pendiente de la recta tangente a la curva en ese punto.
+      </p>
+      <p>
+        Para aproximar la pendiente de la recta tangente a un punto cualquiera, <M>{r`(a, f(a))`}</M>, se puede usar la pendiente de una recta secante que pasa por ese punto y otro muy cercano: <M>{r`(x, f(x))`}</M>. Se calcula la pendiente de la recta secante con la fórmula para pendiente que se conoce de la geometría analítica:
+        <M block>
+          {r`m_{\text{secante}}=\frac{\Delta y}{\Delta x}=\frac{y_2-y_1}{x_2-x_1}=\frac{f(x)-f(a)}{x-a}`}
+        </M>
+      </p>
+
+      <p>
+        Supóngase que se seleccionó un <M>x</M> tal que <M>{`x>a`}</M> y úsese <M>{r`h`}</M> para denotar la distancia entre <M>a</M> y <M>x</M>. Se puede entonces escribir <M>{r`(x, f(x))`}</M> como <M>{r`(a+h, f(a+h))`}</M>. Con eso se puede reescribir la pendiente de la recta secante:
+        <M block>
+          {r`m_{\text{secante}}{} = \frac{f(a+h)-f(a)}{a+h-a} =\frac{f(a+h)-f(a)}{h} `}
+        </M>
+        Entre más cerca esté el punto elegido del punto original, menor será <M>{r`h`}</M>. Ergo, tomar una magnitud de <M>{r`h`}</M> infinitesimalmente pequeña hará que la pendiente que se está obteniendo de la recta secante se aproxime a la pendiente de la recta tangente, que se quiere obtener. Por ello, es adecuado tomar el límite cuando <M>{r`h`}</M> tiende a <M>{r`0`}</M> de la pendiente de la recta secante. Se obtiene con eso la pendiente de la recta tangente:
+        <M block>
+          {r` m_{\text{tangente}}= \lim_{h\to 0}\frac{f(a+h)-f(a)}{h}= \lim_{x\to a}\frac{f(x)-f(a)}{x-a}.`}
+        </M>
+      </p>
+      <p>
+        En consonancia con lo mencionado anteriormente, a la pendiente de la recta tangente a la función en un punto se le da el nombre de <em>derivada</em> en ese punto.
+      </p>
+      <Definition concept="Derivada">
+        La <em>derivada</em> <M>{r`f'(a)`}</M> de la función <M>{r`f`}</M> en el número <M>{r`a`}</M> se define como la pendiente de la recta tangente a la gráfica de la función en el punto <M>{r`(a, f(a))`}</M> en <M>{r`f`}</M>.
+        <M block>
+          {r`f'(a) \coloneqq\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}.`}
+        </M>
+        Si y solamente si el límite existe.
+      </Definition>
+
+      <p>
+        Si se reemplaza el número <M>{r`a`}</M> por una variable <M>{r`x`}</M>, se puede extrapolar el concepto de derivada en un punto y obtener la derivada como una función.
+      </p>
+
+      <Definition concept="Función derivada">
+        La <em>función derivada</em> <M>{r`f'`}</M> de la función <M>{r`f`}</M> es aquella función que, para cualquier punto <M>{r`(x, f(x))`}</M> de <M>{r`f`}</M>, da la pendiente de la recta que es tangente a <M>{r`f`}</M> en ese punto.
+        <M block>
+          {r`f'(x) \coloneqq\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}.`}
+        </M>
+        Si y solamente si el límite existe.
+      </Definition>
+      <p>
+        Usualmente, se denominada "derivada" de forma indiscriminada tanto a la derivada en un punto como a la función derivada. Aunque es importante tener presente la distinción, resulta sencillo inferir cuál de las dos se está mencionando en un contexto específico.
+      </p>
+
+      <h4>Orden de la derivada</h4>
+
+      <p>
+        Como la derivada es una función, es posible que se pueda a su vez derivar (es decir: derivar la derivada). El <em>orden</em> de la derivada dicta cuántas veces se deriva una función dada. Así, la derivada de primer orden o primera derivada se obtiene al derivar una función solo una vez, que es la definición que se ha enunciado. Si se deriva la función derivada <M>{r`f'`}</M> se obtendrá la derivada de segundo orden o segunda derivada de <M>{r`f`}</M>, que puede ser denotada por <M>{r`f''`}</M>. Si se deriva la función <M>{r`f''`}</M> se obtendrá la tercera derivada <M>{r`f'''`}</M> y así sucesivamente hasta que la función obtenida tras derivar deje de ser diferenciable.
+      </p>
+
+      <Notation>
+        Se usan distintas notaciones para representar la derivación y su orden. La notación que se ha usado es la <em>notación de Lagrange</em>, en donde la derivada se representa por la función prima.
+        <M block>
+          {r`f'(x), f''(x), f'''(x), f^{(4)}(x),\cdots, f^{(n)}(x) \quad \text{ o } \quad y', y'', y''',y^{(4)},\cdots, y^{(n)}`}
+        </M>
+        La <em>notación de Leibniz</em> es la más ampliamente utilizada. Es notablemente útil debido a que especifica respecto a qué variable se deriva. <M>{r`\der{}{x} f(x)`}</M> se lee como la derivada de <M>{r`f(x)`}</M> con respecto a <M>{r`x`}</M>.
+        <M block>
+          {r`\der{}{x} f(x),\nder{2}{}{x} f(x),\nder{3}{}{x} f(x),\cdots, \nder{n}{}{x} f(x) \quad \text{ o } \quad \der{y}{x},\nder{2}{y}{x},\nder{3}{y}{x},\cdots, \nder{n}{y}{x}`}
+        </M>
+
+        Otra posibilidad es la <em>notación de Newton</em>, frecuentemente utilizada en la física para denotar la derivada con respecto al tiempo, que representa el orden de la derivada por el número de puntos: < M>{r`\dot{y}, \ddot{y}, \ldots`}</M>
+      </Notation>
+
+      <h3>Diferenciabilidad</h3>
+
+      <h4>Derivadas laterales</h4>
+
+      Similarmente a como se definen límites laterales, se definen también derivadas laterales. Resultan útiles para funciones que no son continuas en un punto, ya que permiten calcular la derivada de la función en ese punto desde un lado u otro.
+
+      <Definition concept="Derivada por derecha">
+        La derivada de la función <M>{r`f`}</M> en el punto <M>{r`(a, f(a))`}</M> por derecha está dada por:
+        <M block>
+          {r`f'_+(a)\coloneqq\lim_{h\to 0^+}\frac{f(a+h)-f(a)}{h}=\lim_{x\to a^+}\frac{f(x)-f(a)}{x-a}`}
+        </M>
+      </Definition>
+
+      <Definition concept="Derivada por izquierda">
+        La derivada de la función <M>{r`f`}</M> en el punto <M>{r`(a, f(a))`}</M> por izquierda está dada por:
+        <M block>
+          {r`f'_-(a) \coloneqq\lim_{h\to 0^-}\frac{f(a+h)-f(a)}{h} =\lim_{x\to a^-}\frac{f(x)-f(a)}{x-a}`}
+        </M>
+      </Definition>
+
+      <h4>Diferenciabilidad</h4>
+
+      <p>
+        Análogamente a como sucede con los límites, si ambas derivadas laterales son iguales, entonces la derivada de la función en ese punto existe y es igual a la derivada lateral. Si no son iguales, la derivada de la función en ese punto no existe.
+      </p>
+
+      <Definition concept="Función diferenciable">
+        Se dice que una función es <em>derivable</em> o <em>diferenciable</em> en un punto o intervalo si es posible calcular su derivada en dicho punto o intervalo.
+      </Definition>
+
+      <p>
+        <b>Diferenciabilidad en un punto.</b> Una función <M>{r`f`}</M> es diferenciable en el punto <M>{r`(a, f(a))`}</M> si los límites <M>{r`\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}`}</M> y <M>{r`\lim_{x\to a}\frac{f(x)-f(a)}{x-a}`}</M> existen y la función es continua en <M>{r`a`}</M>. Consecuencia de que los límites existan y la función sea continua es que los límutes son iguales. Por ende, <M>{r`f'(a)`}</M> existe si <M>{r`f'_+(a)=f'_-(a)`}</M>.
+      </p>
+
+      <p>
+        <b>Diferenciabilidad en un intervalo cerrado.</b> Una función <M>{r`f`}</M> es diferenciable en un intervalo cerrado <M>{r`[a,b]`}</M> si es diferenciable en todo punto del intervalo abierto <M>{r`(a,b)`}</M> y además existen <M>{r`f'_+(a)`}</M> y <M>{r`f'_-(b)`}</M>.
+      </p>
+
+      <h4>No diferenciabilidad</h4>
+      <p>
+        Una función <M>{r`f`}</M> no es derivable en el punto <M>{r`(a, f(a))`}</M> si <M>{r`f'_{+}(a) \neq f'_{-}(a)`}</M>.  Gráficamente, no es derivable en el punto si ahí hay una discontinuidad o si en ese punto hay "puntas" o "esquinas" puntiagudas, ya que se pueden trazar múltiples rectas tangentes a la función en ese punto, todas con pendientes distintas, y por ende no existe una única derivada.
+      </p>
+
+      <p>
+        <b>Función de Weierstrass.</b> La Función de Weierstrass es un ejemplo de función que a pesar de ser continua en todo su dominio no es derivable en ningún punto. Esto se debe a que está compuesta por únicamente "puntas" o "esquinas".
+      </p>
+
+      <h4>Diferenciabilidad continua</h4>
+
+      <p>
+        Si la función derivada <M>{r`f'`}</M> es continua, entonces se dice que la función <M>{r`f`}</M> es <em>continuamente diferenciable</em> y se cataloga como una función de <em>clase <M>{r`C^1`}</M></em>.
+      </p>
+
+      <p>
+        Una función es de clase <M>{r`C^n`}</M> si existen todas sus derivadas desde su derivada de primer orden hasta su derivada de orden <M>{r`n`}</M> y todas son funciones continuas. En ese caso, la función es <em><M>{r`n`}</M> veces continuamente diferenciable</em>. Si una función es de clase <M>{r`C^n`}</M> para un <M>{r`n \in \mathbb{N}\setminus \{0\}`}</M> arbitrariamente grande, entonces la función es <em>infinitamente diferenciable</em> y se cataloga como de clase <M>{r`C^\infty`}</M>.
+      </p>
+
+      <h3>Reglas de derivación</h3>
+      <p>
+        Las famosas <em>reglas de derivación</em> son un conjunto de casos simples y comunes de derivadas que se utilizan para derivar funciones complejas de forma más rápida y mecánica, en lugar de hacer uso de la definición de derivada, que frecuentemente requiere calcular límites intrincados. En estos apuntes se dividen en 7 categorías:
+      </p>
+      <ol>
+        <li>Propiedades de la derivación (5).</li>
+        <li>Reglas de derivación básicas (5).</li>
+        <li>Derivadas de las funciones trigonométricas (3 pares).</li>
+        <li>Derivadas de las funciones trigonométricas inversas (3 pares).</li>
+        <li>Derivadas de las funciones hiperbólicas (6).</li>
+        <li>Derivadas de las funciones hiperbólicas inversas  (6).</li>
+      </ol>
+      <p>
+        En total, son 34 reglas de derivación. Las últimas dos categorías son mucho menos comunes y se incluyen por completitud. Realmente, solo hace falta memorizar 16 reglas: las 5 propiedades, las 5 básicas y 6 pares correspondientes a las trigonométricas y a sus inversas.
+      </p>
+
+      <Properties
+        title="Propiedades de la derivación"
+        description={<p>Estas reglas corresponden realmente a propiedades que tiene la derivada como operación. Sean <M>{r`f`}</M> y <M>{r`g`}</M> funciones diferenciables:</p>}
+        properties={[
+          {
+            name: 'Propiedad de homogeneidad de la derivación',
+            formula: <M>{r`\displaystyle (a\cdot f)'=a \cdot f'.`}</M>
+          },
+          {
+            name: 'Propiedad de linealidad de la derivación',
+            formula: <M>{r`\displaystyle (f \pm g)'=f' \pm g'.`}</M>
+          },
+          {
+            name: 'Regla del producto',
+            formula: <M>{r`\displaystyle (f\cdot g)'=f'\cdot g+f\cdot g'.`}</M>
+          },
+          {
+            name: 'Regla del cociente',
+            formula: <M>{r`\displaystyle \left (\frac{f}{g}\right )'=\frac{f'g-fg'}{g^2}.`}</M>
+          },
+          {
+            name: 'Regla de la cadena',
+            formula: <M>{r`\displaystyle (f \circ g)'=f(g)'=f'(g) \cdot g'.`}</M>
+          }
+        ]}
+      />
+      <p>
+        En las propiedades, las funciones se denotan sin argumento y usando la notación de Lagrange. Esto permite apreciar lo simples que son. Sin embargo, vale la pena mostrar la forma diferencial de la regla de la cadena, usando la notación de Leibniz y haciendo el cambio de variable al llamar <M>{r`u`}</M> a la función interna, de forma que <M>{r`( u=g(x) )`}</M>:
+      </p>
+      <M block>{r`\der{y}{x}=\der{y}{u}\cdot\der{u}{x}.`}</M>
+
+      <Tip>
+        La regla de la cadena se usa siempre que se deriva, mas solo se hace explícita cuando se derivan funciones compuestas.
+      </Tip>
+      <p>
+        El resto de reglas de derivación se expresan con una sola función, por lo que se usa la notación de Leibniz. Sean <M>{r`a, b \in \mathbb{R}`}</M> constantes y sea <M>{r`x`}</M> una variable.
+      </p>
+      <Properties
+        title="Reglas de derivación básicas"
+        initialCountValue={6}
+        properties={[
+          {
+            name: 'Derivada de una constante',
+            formula: <M>{r`\der{}{x} a = 0.`}</M>
+          },
+          {
+            name: 'Derivada de la variable (respecto a sí misma)',
+            formula: <M>{r`\der{}{x} x = 1.`}</M>
+          },
+          {
+            name: 'Regla de la potencia',
+            formula: <M>{r`\der{}{x} x^a = a \cdot x^{a-1}.`}</M>
+          },
+          {
+            name: 'Derivada de la función exponencial',
+            formula: <M>{r`\der{}{x} a^x = \ln(a) \cdot a^x.`}</M>,
+            note: <span>Si la base del exponente es <M>{r`\mathrm{e}`}</M>, la regla se reduce a <M>{r`\der{}{x} \mathrm{e}^x=\mathrm{e}^x.`}</M></span>
+          },
+          {
+            name: 'Derivada del logaritmo',
+            formula: <M>{r`\der{}{x} \log_b |x| = \dfrac{1}{x \cdot \ln(b)}.`}</M>,
+            note: <span>Si el logaritmo es natural, la regla se reduce a <M>{r`\der{}{x} \ln \abs{x} = \frac{1}{x}`}</M>.</span>
+          }
+        ]}
+      />
+      <p>
+        A partir de las últimas dos reglas, se puede calcular la derivada <M>{r`\der{}{x} x^x=x^x(1+\ln x)`}</M>, aunque para ello se requiere utilizar la propiedad <M>{r`\mathrm{e}^{\ln x^x}=\mathrm{e}^{x \ln x}`}</M> y la regla de la cadena.
+      </p>
+      <p>
+        En ocasiones, la regla para la derivada del logaritmo se expresa como <M>{r`\der{}{x} \log_b |f(x)| = \frac{f'(x)}{f(x) \cdot \ln(b)}`}</M>, que es simplemente lo que resulta tras aplicar la regla de la cadena en la regla escrita arriba.
+      </p>
+
+      <Properties
+        title="Derivadas de las funciones trigonométricas"
+        initialCountValue={6 + 3 + 2}
+        properties={[
+          {
+            name: 'Derivada de seno',
+            formula: <M>{r`\der{}{x} \sin x = \cos x.`}</M>
+          },
+          {
+            name: 'Derivada de coseno',
+            formula: <M>{r`\der{}{x} \cos x = - \sin x.`}</M>
+          },
+          {
+            name: 'Derivada de tangente',
+            formula: <M>{r`\der{}{x} \tan x = \sec^2 x.`}</M>
+          },
+          {
+            name: 'Derivada de cotangente',
+            formula: <M>{r`\der{}{x} \cot x = - \csc^2 x.`}</M>
+          },
+          {
+            name: 'Derivada de secante',
+            formula: <M>{r`\der{}{x} \sec x = \sec x \tan x.`}</M>
+          },
+          {
+            name: 'Derivada de cosecante',
+            formula: <M>{r`\der{}{x} \csc x = - \csc x \cot x.`}</M>
+          }
+        ]}
+      />
+      <p>
+        Para memorizar las derivadas de las funciones trigonométricas, resulta útil recordarlas de a pares:
+      </p>
+      <ul>
+        <li>La derivada del seno es coseno; la derivada del coseno es menos seno.</li>
+        <li>La derivada de tangente es secante al cuadrado; la derivada de cotangente es menos cosecante al cuadrado.</li>
+        <li>La derivada de secante es secante por tangente; la derivada de cosecante es menos cosecante por cotangente.</li>
+      </ul>
+
+      <Properties
+        title="Derivadas de las funciones trigonométricas inversas"
+        initialCountValue={6 + 3 + 2 + 6}
+        properties={[
+          {
+            name: 'Derivada de arco seno',
+            formula: <M>{r`\der{}{x} \arcsin x = \dfrac{1}{\sqrt{1-x^2}}.`}</M>
+          },
+          {
+            name: 'Derivada de arco coseno',
+            formula: <M>{r`\der{}{x} \arccos x = - \dfrac{1}{\sqrt{1-x^2}}.`}</M>
+          },
+          {
+            name: 'Derivada de arco tangente',
+            formula: <M>{r`\der{}{x} \arctan x = \dfrac{1}{1+x^2}.`}</M>
+          },
+          {
+            name: 'Derivada de arco cotangente',
+            formula: <M>{r`\der{}{x} \arccot x = - \dfrac{1}{1+x^2}.`}</M>
+          },
+          {
+            name: 'Derivada de arco secante',
+            formula: <M>{r`\der{}{x} \arcsec x = \dfrac{1}{x\sqrt{x^2-1}}.`}</M>
+          },
+          {
+            name: 'Derivada de arco cosecante',
+            formula: <M>{r`\der{}{x} \arccsc x = - \dfrac{1}{x\sqrt{x^2-1}}.`}</M>
+          }
+        ]}
+      />
+
+      <p>
+        También es recomendable memorizar las derivadas de las funciones trigonométricas inversas de a pares y es aún más fácil: nótese que la  derivada de la cofunción es igual a la derivada de la función pero con signo negativo.
+        <M block>
+          {r`\begin{gather*}
+                \der{}{x} \arcsin x = -\der{}{x} \arccos x = \dfrac{1}{\sqrt{1-x^2}}. \\
+                \der{}{x} \arcsec x = -\der{}{x} \arccsc x = \dfrac{1}{1+x^2}. \\
+                \der{}{x} \arctan x = -\der{}{x} \arccot x = \dfrac{1}{x\sqrt{x^2-1}}.
+              \end{gather*}`}
+        </M>
+      </p>
+
+      <Properties
+        title="Derivadas de las funciones hiperbólicas"
+        description="Las funciones hiperbólicas son análogas a las funciones trigonométricas, pero están definidas sobre la hipérbola, no sobre el círculo. Sus derivadas también son análogas a las de las funciones trigonométricas, salvo los signos."
+        initialCountValue={6 + 3 + 2 + 6 + 6}
+        properties={[
+          {
+            name: 'Derivada de seno hiperbólico',
+            formula: <M>{r`\der{}{x} \sinh x = \cosh x.`}</M>
+          },
+          {
+            name: 'Derivada de coseno hiperbólico',
+            formula: <M>{r`\der{}{x} \cosh x = \sinh x.`}</M>
+          },
+          {
+            name: 'Derivada de tangente hiperbólico',
+            formula: <M>{r`\der{}{x} \tanh x = \sech^2 x.`}</M>
+          },
+          {
+            name: 'Derivada de cotangente hiperbólico',
+            formula: <M>{r`\der{}{x} \coth x = -\csch^2 x.`}</M>
+          },
+          {
+            name: 'Derivada de secante hiperbólico',
+            formula: <M>{r`\der{}{x} \sech x = -\sech x \tanh x.`}</M>
+          },
+          {
+            name: 'Derivada de cosecante hiperbólico',
+            formula: <M>{r`\der{}{x} \csch x = -\csch x \coth x.`}</M>
+          }
+        ]}
+      />
+
+      <Properties
+        title="Derivadas de las funciones hiperbólicas inversas"
+        initialCountValue={6 + 3 + 2 + 6 + 6 + 6}
+        properties={[
+          {
+            name: 'Derivada de área de seno hiperbólico',
+            formula: <M>{r`\der{}{x} \arsinh x=  \dfrac{1}{\sqrt{1+x^2}}.`}</M>
+          },
+          {
+            name: 'Derivada de área de coseno hiperbólico',
+            formula: <M>{r`\der{}{x} \arcosh x= \dfrac{1}{\sqrt{x^2-1}}.`}</M>
+          },
+          {
+            name: 'Derivada de área de tangente hiperbólico',
+            formula: <M>{r`\der{}{x} \artanh x= \dfrac{1}{1-x^2}.`}</M>
+          },
+          {
+            name: 'Derivada de área de cotangente hiperbólico',
+            formula: <M>{r`\der{}{x} \arcoth x= \dfrac{1}{1-x^2}.`}</M>
+          },
+          {
+            name: 'Derivada de área de secante hiperbólico',
+            formula: <M>{r`\der{}{x} \arsech x= -\dfrac{1}{x\sqrt{1-x^2}}.`}</M>
+          },
+          {
+            name: 'Derivada de área de cosecante hiperbólico',
+            formula: <M>{r`\der{}{x} \arcsch x= -\dfrac{1}{\abs{x}\sqrt{x^2+1}}.`}</M>
+          }
+        ]}
+      />
+
+    </Section>
 
   </NoteDocument>
 );
