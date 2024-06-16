@@ -670,9 +670,11 @@ const CalculoDiferencial = () => (
         <li>Derivadas de las funciones hiperbólicas inversas  (6).</li>
       </ol>
       <p>
-        En total, son 34 reglas de derivación. Las últimas dos categorías son mucho menos comunes y se incluyen por completitud. Realmente, solo hace falta memorizar 16 reglas: las 5 propiedades, las 5 básicas y 6 pares correspondientes a las trigonométricas y a sus inversas.
+        En total, son 34 reglas de derivación. Las últimas dos categorías son mucho menos comunes y se incluyen por completitud.
       </p>
-
+      <Tip>
+        Realmente, solo hace falta memorizar 16 reglas: las 5 propiedades, las 5 básicas y 6 pares correspondientes a las trigonométricas y a sus inversas.
+      </Tip>
       <Properties
         title="Propiedades de la derivación"
         description={<p>Estas reglas corresponden realmente a propiedades que tiene la derivada como operación. Sean <M>{r`f`}</M> y <M>{r`g`}</M> funciones diferenciables:</p>}
@@ -914,49 +916,40 @@ const CalculoDiferencial = () => (
     </Section>
 
 
-    <Section title="Aplicaciones del cálculo diferencial">
-
-      <h3>Razones de cambio instantáneas</h3>
+    <Section title="Optimización y otras aplicaciones">
 
       <p>
-        La derivada representa la razón de cambio instantánea de una variable con relación a otra. Por ende, puede representar la velocidad instantánea en la que sucede cualquier fenómeno (la medida en que avanza, crece o  cambia en un instante), al igual que la aceleración instantánea (la medida en que la velocidad cambia en un instante).
-      </p>
-      <h4>Ejercicios de Razones de cambio instantáneas</h4>
-      <p>
-        El siguiente es un método para resolver problemas de razones de cambio instantáneas:
-      </p>
-      <ol>
-        <li> Identificar qué variables se dan en el enunciado y cuáles son razones de cambio. Las que son razones de cambio lo son porque se pueden expresar como derivadas con respecto al tiempo. </li>
-        <li> Identificar o formular una expresión que involucre todas las variables del problema.  </li>
-        <li> Derivar esa expresión con respecto al tiempo para obtener una expresión que incluye las variables y sus razones de cambio.</li>
-        <li> Reemplazar las variables y sus razones de cambio para calcular la variable o razón de cambio solicitada.</li>
-      </ol>
-
-      <h3>Extremos y crecimiento</h3>
-
-      <p>
-        Una de las principales aplicaciones del cálculo diferencial es hallar los <em>extremos</em> de una función, que son sus <em>máximos</em> y <em>mínimos</em> tanto <em>relativos</em>, es decir, en un intervalo específico, como <em>absolutos</em>, o sea, en todo su dominio. Con esa información, también es de interés determinar los intervalos en los que la función crece o decrece. A todo este proceso se le llama <em>optimización</em>.
+        La principal aplicación del cálculo diferencial es la <em>optimización</em>. La optimización consiste en hallar los valores <em>extremos</em> de una función, que son sus valores <em>máximos</em> y <em>mínimos</em>. Estos se pueden hallar localmente, con respecto sus puntos vecinos, en cuyo caso se llaman <em>extremos relativos</em>, o se pueden hallar de forma global con respecto al dominio de la función, en cuyo caso se denominan <em>extremos absolutos</em>.
       </p>
       <p>
-        Para optimizar con la primera derivada, se usan números y puntos críticos.
+        Hallar los extremos de una función resulta útil para problemas matemáticos, como graficar la función, pero sobretodo para problemas de la vida real, donde la función modela un fenómeno, medida o situación y se busca que tenga el mejor valor posible, que muchas veces es o lo máximo que puede alncazar o lo mínimo a lo que se puede reducir.
+      </p>
+
+      <h3>Teoremas importantes para optimizar</h3>
+      <p>
+        Para utilizar el cálculo diferencial para optimizar, se toman como base algunos resultados clave. Primeramente, el Teorema de Fermat indica que un extremo relativo existe solo cuando la derivada de la función en ese punto es igual a cero, si la derivada existe.
+      </p>
+      <Theorem name="Teorema de Fermat">
+        Si la función <M>{r`f`}</M> tiene un extremo relativo en <M>{r`x = c`}</M> y <M>{r`f'(c)`}</M> existe, entonces <M>{r`f'(c) = 0 `}</M>.
+      </Theorem>
+      <p>Nótese que el converso del teorema de Fermat no siempre es cierto: si <M>{r`f'(c) = 0`}</M>, no necesariamente hay un extremo relativo en <M>{r`c`}</M>, pues puede que allí haya un <em>punto de inflexión</em>.</p>
+      <Definition concept="Punto de inflexión">
+        Un <em>punto de inflexión</em> es un punto en el que la concavidad de la función cambia.
+      </Definition>
+      <p>
+        El teorema de Fermat indica entonces que los puntos en los que la derivada de una función es cero son de interés para encontrar puntos extremos. También lo son los puntos en los que la derivada no existe, ya que en ellos también puede haber extremos, en caso de que sean puntiagudos. Esto lleva a los conceptos de número y punto crítico.
       </p>
       <Definition concept="Número y punto crítico">
         Un número <M>{r` c \in \dom f`}</M> es un <em>numero crítico</em> de la función <M>{r` f`}</M> si  <M>{r`f'(c)= 0`}</M> o <M>{r` f'(c)`}</M> no existe. Si <M>{r`c`}</M> es un número crítico, <M>{r`(c,f(c))`}</M> es un <em>punto crítico</em>.
       </Definition>
       <p>
-        Se deben tener en cuenta una serie de teoremas para tener información sobre la existencia y ubicación de los extremos de una función. Primeramente, el Teorema de Fermat indica que un extremo relativo existe solo cuando la derivada de la función en ese punto es igual a cero.
-      </p>
-      <Theorem name="Teorema de Fermat">
-        Si la función <M>{r`f`}</M> tiene un extremo relativo en <M>{r`x = c`}</M> y <M>{r`f'(c)`}</M> existe, entonces <M>{r`f'(c) = 0 `}</M>.
-      </Theorem>
-      <p>
-        Sumado a eso, el Teorema de Rolle revela que si la función toma el mismo valor dos veces, necesariamente existirá un extremo relativo en alguno de los valores intermedios:
+        En la búsqueda de puntos en los que la derivada sea cero, resulta útil el Teorema de Rolle, que revela que si la función toma el mismo valor dos veces, necesariamente en alguno de los valores intermedios su derivada es cero.
       </p>
       <Theorem name="Teorema de Rolle">
-        Sea <M>{r`f`}</M> una función derivable en el intervalo abierto <M>{r`(a,b)`}</M>  y continua sobre el intervalo cerrado <M>{r`[a,b]`}</M> que satisface la igualdad <M>{r` f(a) = f(b)`}</M>, entonces existe un número <M>{r` c \in (a,b)`}</M> tal que <M>{r` f'(c)= 0 `}</M>.
+        Sea <M>{r`f`}</M> una función derivable en el intervalo abierto <M>{r`(a,b)`}</M>  y continua sobre el intervalo cerrado <M>{r`[a,b]`}</M>. Si satisface la igualdad <M>{r` f(a) = f(b)`}</M>, entonces existe un número <M>{r` c \in (a,b)`}</M> tal que <M>{r` f'(c)= 0 `}</M>.
       </Theorem>
       <p>
-        Adicionalmente, el Teorema del Valor Medio de Lagrange asocia la pendiente entre dos puntos con la derivada de un punto entre ellos, estableciendo que debe haber al menos un punto cuya derivada sea el valor de esa pendiente. Tiene consecuencias fundamentales para optimizar.
+        Como último teorema relevante, el Teorema del Valor Medio de Lagrange asocia la pendiente entre dos puntos con la derivada de algún punto entre ellos, estableciendo que para al menos uno de esos puntos la derivada es el valor de esa pendiente.
       </p>
       <Theorem name="Teorema del Valor Medio de Lagrange">
         Si <M>{r`f`}</M> es una función derivable y continua sobre el intervalo cerrado <M>{r`[a,b]`}</M>, entonces existe un número <M>{r` c \in (a,b) `}</M> tal que <M block>
@@ -964,29 +957,26 @@ const CalculoDiferencial = () => (
         </M>
       </Theorem>
       <p>
-        Como consecuencia de los teoremas enunciados, en particular del Teorema del Valor Medio de Lagrange, se tienen dos criterios de optimización con base en la primera derivada.
-      </p>
-      <p>
-        <b>Criterio de crecimiento (y decrecimiento)</b>
-      </p>
-      <ul>
-        <li> Sea <M>{r`f`}</M> una función, si <M>{r`f'`}</M> es positiva en <M>{r`(a,b)`}</M>, entonces <M>{r`f`}</M> es creciente en <M>{r`(a,b)`}</M>.</li>
-        <li> Sea <M>{r`f`}</M> una función, si <M>{r`f'`}</M> es negativa en <M>{r`(a,b)`}</M>, entonces <M>{r`f`}</M> es decreciente en <M>{r`(a,b)`}</M>.</li>
-      </ul>
-      <p>
-        <b>Criterio de la primera derivada (extremos relativos).</b>
-        Sea <M>{r`c`}</M> un punto crítico:
-      </p>
-      <ul>
-        <li> Sea <M>{r`f`}</M> una función, si <M>{r`f'`}</M> cambia de signo positivo a negativo en <M>{r`c`}</M>, entonces <M>{r`f`}</M> tiene un máximo relativo en <M>{r`c`}</M>.</li>
-        <li> Sea <M>{r`f`}</M> una función, si <M>{r`f'`}</M> cambia de signo negativo a positivo en <M>{r`c`}</M>, entonces <M>{r`f`}</M> tiene un mínimo relativo en <M>{r`c`}</M>.</li>
-        <li> Sea <M>{r`f`}</M> una función, si <M>{r`f'`}</M> no cambia de signo en <M>{r`c`}</M>, entonces <M>{r`f`}</M> no tiene un extremo relativo en <M>{r`c`}</M>.</li>
-      </ul>
-      <p>
-        Se puede aplicar el criterio de la primera derivada en un intervalo cerrado siguiendo el método expuesto a continuación.
+        Como consecuencia de los teoremas enunciados, en particular del Teorema del Valor Medio de Lagrange, se concluye que las derivadas de una función ofrecen información sobre su comportamiento. A continuación se resume la información que ofrecen.
       </p>
 
-      <h5>Método del intervalo cerrado (extremos absolutos).</h5>
+      <h3>Información que ofrecen las derivadas</h3>
+      <p>Sea <M>{r`f`}</M> una función de clase al menos <M>{r`C^2`}</M>.</p>
+
+      <p><b>Criterio de crecimiento y decrecimiento.</b> Si <M>{r`f'`}</M> es positiva en <M>{r`(a,b)`}</M>, entonces <M>{r`f`}</M> es creciente en <M>{r`(a,b)`}</M>. Análogamente, si <M>{r`f'`}</M> es negativa, <M>{r`f`}</M> es decreciente. Si, adicional a lo anterior, <M>{r`f'`}</M> es constante en el intervalo, entonces el comportamiento de <M>{r`f`}</M> es lineal en ese intervalo.</p>
+
+      <p><b>Criterio de concavidad.</b> Si <M>{r`f''`}</M> es positiva en el intervalo <M>{r`(a,b)`}</M> (o, lo que es lo mismo, <M>{r`f'`}</M> es creciente en ese intervalo), entonces <M>{r`f`}</M> es cóncava hacia arriba en <M>{r`(a,b)`}</M> . Análogamente, si <M>{r`f''`}</M> es negativa, <M>{r`f`}</M> es cóncava hacia abajo (también llamado convexa).</p>
+
+      <p><b>Criterio de extremos.</b> <M>{r`f`}</M> tiene un máximo local en <M>{r`(a,f(a))`}</M> si <M>{r`f'(a)=0`}</M> y <M>{r`f''(a)<0`}</M>. Análogamente, tiene un mínimo local si <M>{r`f'(a)=0`}</M> y <M>{r`f''(a)>0`}</M>. Si pasa que <M>{r`f''(a)=0`}</M> y además <M>{r`f'''(a) \neq 0`}</M>, entonces en <M>{r`(a,f(a))`}</M> hay un punto de inflexión.</p>
+
+      <p>Teniendo esa información en mente, la próxima subsección presenta métodos generales para abordar exitosamente distintos problemas de optimización o relacionados.</p>
+
+      <h3>Problemas de optimización y similares</h3>
+
+      <h4>Método del intervalo cerrado (extremos absolutos).</h4>
+      <p>
+        El método del intervalo cerrado permite hallar los extremos absolutos de una función en un intervalo cerrado, utilizando la información que ofrece la primera derivada.
+      </p>
       <p>
         Sea <M>{r`f`}</M> una función continua en <M>{r`[a,b]`}</M>, los siguientes pasos permiten hallar los extremos absolutos en ese intervalo:
       </p>
@@ -1000,63 +990,42 @@ const CalculoDiferencial = () => (
         Al enunciar los intervalos de crecimiento y decrecimiento, se debe recordar no incluir las ubicaciones de las asíntotas verticales en los intervalos, si las hay.
       </p>
 
-      <h4>Gráfica de la primera derivada</h4>
+      <h4>Problemas de aplicaciones de optimización</h4>
       <p>
-        La gráfica de la función derivada <M>{r`f'`}</M> provee información sobre la función <M>{r`f`}</M>.
+        La gran mayoría de problemas de optimización proponen un escenario de la vida real e la que se necesita hallar un valor máximo o mínimo para alguna aplicación. Para resolverlos, se pueden seguir los siguientes pasos genéricos:
       </p>
-      <ul>
-        <li> Si <M>{r`f'(a)=0`}</M>, <M>{r`f`}</M> tiene un extremo relativo (un máximo o un mínimo local) en el punto <M>{r`(a,f(a))`}</M>. </li>
-        <li> Si <M>{r`f'`}</M> es positiva en el intervalo <M>{r`(a,b)`}</M>, <M>{r`f`}</M> es creciente en <M>{r`(a,b)`}</M>. </li>
-        <li>  Si <M>{r`f'`}</M> es negativa en el intervalo <M>{r`(a,b)`}</M>, <M>{r`f`}</M> es decreciente en <M>{r`(a,b)`}</M>. </li>
-        <li> Si <M>{r`f'`}</M> es constante en el intervalo <M>{r`(a,b)`}</M>, <M>{r`f`}</M> es lineal en ese intervalo. </li>
-        <li> Si en el punto <M>{r`(a,f'(a))`}</M> hay un extremo relativo, <M>{r`f`}</M> tiene un punto de inflexión en el punto <M>{r`(a,f(a))`}</M>.</li>
-        <li> Si <M>{r`f'`}</M> es creciente en el intervalo <M>{r`(a,b)`}</M>, <M>{r`f`}</M> es cóncava hacia arriba en el intervalo <M>{r`(a,b)`}</M>.</li>
-        <li> Si <M>{r`f'`}</M> es decreciente en el intervalo <M>{r`(a,b)`}</M>, <M>{r`f`}</M> es cóncava hacia abajo en el intervalo <M>{r`(a,b)`}</M>.</li>
-        <li> En todo punto donde <M>{r`f`}</M> tenga "puntas" o "esquinas", o presente discontinuidades, la derivada <M>{r`f'`}</M> no existirá. </li>
-      </ul>
+      <ol>
+        <li> Identificar o formular la función que se va a optimizar. </li>
+        <li> Si la función cuenta con dos variables:</li>
+        <ol>
+          <li>  hallar una expresión auxiliar que relacione las dos variables, para expresar la función a optimizar en términos de una variable.</li>
+          <li> Despejar esa expresión auxiliar para una variable arbitraria y reemplazar la variable despejada de la ecuación auxiliar en la función a optimizar, de forma que quede en términos de una variable.</li>
+        </ol>
+        <li> Derivar la función a optimizar y hallar los números críticos.</li>
+        <li> Usar el criterio de extremos para conocer en qué números críticos hay máximos y mínimos.</li>
+      </ol>
 
-      <h4>Información de la segunda derivada: puntos de inflexión y concavidad</h4>
-      <p>
-        Haciendo uso de la segunda derivada de una función se pueden hallar sus puntos de inflexión y sus intervalos de concavidad. Se utilizan criterios similares a aquellos usados al optimizar con la primera derivada.
-      </p>
+      <h4>Problemas de razones de cambio instantáneas</h4>
 
       <p>
-        <b>Criterio de concavidad</b>
+        La derivada representa la razón de cambio instantánea de una variable con relación a otra. Por ende, puede representar la velocidad instantánea en la que sucede cualquier fenómeno (la medida en que avanza, crece o  cambia en un instante), al igual que la aceleración instantánea (la medida en que la velocidad cambia en un instante).
       </p>
-      <ul>
-        <li> Sea <M>{r`f`}</M> una función, si <M>{r`f''`}</M> es positiva en <M>{r`(a,b)`}</M>, entonces <M>{r`f`}</M> es cóncava hacia arriba en <M>{r`(a,b)`}</M>.</li>
-        <li> Sea <M>{r`f`}</M> una función, si <M>{r`f''`}</M> es negativa en <M>{r`(a,b)`}</M>, entonces <M>{r`f`}</M> es cóncava hacia abajo o convexa en <M>{r`(a,b)`}</M>.</li>
-      </ul>
       <p>
-        No se deben incluir las ubicaciones de las asíntotas verticales en los intervalos de concavidad.
+        El siguiente es un método para resolver problemas de razones de cambio instantáneas:
       </p>
+      <ol>
+        <li> Identificar qué variables se dan en el enunciado y cuáles son razones de cambio. Las que son razones de cambio lo son porque se pueden expresar como derivadas con respecto al tiempo. </li>
+        <li> Identificar o formular una expresión que involucre todas las variables del problema.  </li>
+        <li> Derivar esa expresión con respecto al tiempo para obtener una expresión que incluye las variables y sus razones de cambio.</li>
+        <li> Reemplazar las variables y sus razones de cambio para calcular la variable o razón de cambio solicitada.</li>
+      </ol>
 
+      <h4>Graficación de funciones con cálculo diferencial</h4>
       <p>
-        <b>Criterio de la segunda derivada (extremos relativos).</b>
-        Sea <M>{r`c`}</M> un punto crítico:
+        Combinando la información dada por los límites de una función, al igual que aquella obtenida usando las derivadas de distinto orden de <M>{r`f`}</M>, se sabe prácticamente todo sobre el comportamiento de su gráfica. A continuación, se compila.
       </p>
-      <ul>
-        <li> Sea <M>{r`f`}</M> una función, si <M>{r`f'(c)=0`}</M> y <M>{r`f''(c)<0`}</M>, entonces <M>{r`f`}</M> tiene un máximo relativo en <M>{r`c`}</M>.</li>
-        <li> Sea <M>{r`f`}</M> una función, si <M>{r`f'(c)=0`}</M> y <M>{r`f''(c)>0`}</M>, entonces <M>{r`f`}</M> tiene un mínimo relativo en <M>{r`c`}</M>.</li>
-      </ul>
-
-      <h4>Gráfica de la segunda derivada</h4>
       <p>
-        La función derivada de segundo orden <M>{r`f''`}</M> también presenta información sobre la función <M>{r`f`}</M>.
-      </p>
-      <ul>
-        <li> Si <M>{r`f''`}</M> es positiva en el intervalo <M>{r`(a,b)`}</M>, <M>{r`f`}</M> es cóncava hacia arriba en ese intervalo. </li>
-        <li>  Si <M>{r`f''`}</M> es negativa en el intervalo <M>{r`(a,b)`}</M>, <M>{r`f`}</M> es cóncava hacia arriba en ese intervalo.  </li>
-        <li> Si <M>{r`f''(a)=0`}</M>, <M>{r`f`}</M> puede tener un punto de inflexión en el punto <M>{r`(a,f(a))`}</M>.</li>
-      </ul>
-
-      <h4>Graficación con cálculo diferencial</h4>
-      <p>
-        Combinando la información dada por los límites de una función, al igual que aquella obtenida usando las derivadas de distinto orden de <M>{r`f`}</M>, se sabe lo siguiente sobre su gráfica.
-      </p>
-      <h5>Asíntotas verticales.</h5>
-      <p>
-        La función <M>{r`f`}</M> tiene una asíntota vertical <M>{r`x=c`}</M> si alguno de los siguientes límites existe:
+        <b>Asíntotas verticales.</b> La función <M>{r`f`}</M> tiene una asíntota vertical <M>{r`x=c`}</M> si alguno de los siguientes límites existe:
       </p>
       <ol>
         <li> <M>{r` \displaystyle \lim_{x \to c^+}f(x)= \infty `}</M></li>
@@ -1067,18 +1036,17 @@ const CalculoDiferencial = () => (
       <p>
         Algebraicamente, se sabe que hay asíntota vertical si los ceros en el denominador de la función racional no se cancelan al simplificar. Si sí se cancelan, la función tiene huecos en dichos ceros.
       </p>
-      <h5>Asíntotas horizontales.</h5>
+      
       <p>
-        La función <M>{r`f`}</M> tiene una asíntota horizontal <M>{r`y=c`}</M> si alguno de los siguientes límites existe:
+        <b>Asíntotas horizontales.</b> La función <M>{r`f`}</M> tiene una asíntota horizontal <M>{r`y=L`}</M> si alguno de los siguientes límites existe:
       </p>
       <ol>
-        <li> <M>{r` \displaystyle \lim_{x \to \infty}f(x)= c`}</M></li>
-        <li> <M>{r` \displaystyle \lim_{x \to -\infty}f(x)= c`}</M></li>
+        <li> <M>{r` \displaystyle \lim_{x \to \infty}f(x)= L`}</M></li>
+        <li> <M>{r` \displaystyle \lim_{x \to -\infty}f(x)= L`}</M></li>
       </ol>
       <p>
-        Es útil usar los números críticos y con ellos realizar el cementerio de signos; en la primera derivada para obtener intervalos de crecimiento y decrecimiento, máximos y mínimos y en la segunda derivada para conocer intervalos de concavidad y puntos de inflexión. De lo contrario, se puede usar la siguiente lista de referencia, que combina los criterios de la crecimiento, concavidad, primera y segunda derivada:
+        <b>Comportamiento de la gráfica.</b> Es útil determinar los números críticos y con ellos realizar el cementerio de signos: se realiza en la primera derivada para obtener intervalos de crecimiento y decrecimiento al igual que máximos y mínimos; se realiza en la segunda derivada para conocer intervalos de concavidad y puntos de inflexión. Se puede usar la siguiente lista de referencia, que sintetiza los criterios ya mencionados, pensando en graficar la función.
       </p>
-      <h5>Comportamiento de la gráfica</h5>
       <ul>
         <li> <M>{r`f`}</M> tiene un máximo local en <M>{r`(a,f(a))`}</M> si <M>{r`f'(a)=0`}</M> y <M>{r`f''(a)<0`}</M>.</li>
         <li> <M>{r`f`}</M> tiene un mínimo local en <M>{r`(a,f(a))`}</M> si <M>{r`f'(a)=0`}</M> y <M>{r`f''(a)>0`}</M>.</li>
@@ -1088,21 +1056,6 @@ const CalculoDiferencial = () => (
         <li> <M>{r`f`}</M> es cóncava hacia arriba en <M>{r`(a,b)`}</M> si <M>{r`f''`}</M> es positiva en <M>{r`(a,b)`}</M>.</li>
         <li> <M>{r`f`}</M> es cóncava hacia abajo en <M>{r`(a,b)`}</M> si <M>{r`f''`}</M> es negativa en <M>{r`(a,b)`}</M>.</li>
       </ul>
-
-      <h3>Optimización</h3>
-      <p>
-        La optimización es la selección del mejor elemento de un conjunto, bajo parámetros arbitrarios. Frecuentemente eso se reduce a encontrar el punto máximo o mínimo de una función. Para optimizarse usan los criterios enunciados en la sección anterior en aplicaciones de la vida real.
-      </p>
-
-      <h4>Ejercicios de optimización</h4>
-      <ol>
-        <li> Identificar o formular la función que se va a optimizar. </li>
-        <li> Si la función cuenta con dos variables, hallar una expresión auxiliar que relacione las dos variables.</li>
-        <li> Despejar esa expresión auxiliar para una variable arbitraria y reemplazar la variable despejada de la ecuación auxiliar en la función a optimizar, que queda en términos de una variable.</li>
-        <li> Derivar la función a optimizar y hallar los números críticos.</li>
-        <li> Obtener la segunda derivada de la función y usar el criterio de la segunda derivada para conocer en qué números críticos hay máximos y mínimos.</li>
-      </ol>
-
     </Section>
 
   </NoteDocument>
