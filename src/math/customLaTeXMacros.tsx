@@ -2,14 +2,11 @@
 
 const r = String.raw;
 
-export const macros = {
-    "\\abs": r`\left| #1 \right|`,
-  
+export const macros = {  
     // Miscellaneous symbols
-    "\\colonhyphen": r`\coloneq`,
+    "\\colonminus": r`\coloneq`,
   
     // Operations
-    "\\cbrt": r`\sqrt[3]{#1}`,
     "\\avg": r`\left< #1 \right>`,
     "\\sgn": r`\operatorname{sgn}`,
   
@@ -36,6 +33,8 @@ export const macros = {
     "\\tnparder": r`\tfrac{\partial^{#1} #2}{\partial #3^{#1}}`,
     "\\dnparder": r`\dfrac{\partial^{#1} #2}{\partial #3^{#1}}`,
 
+    "\\d": r`\mathrm{d}`,
+
     "\\indint": r`\int #1 \: \mathrm{d} #2`,
     "\\defint": r`\int_{#3}^{#4} #1 \: \mathrm{d} #2`,
 
@@ -58,7 +57,7 @@ export const macros = {
     "\\arcsch": r`\operatorname{arcsch}`,
   
     // Complex numbers
-    "\\iu": r`\mathrm{i}`,
+    "\\i": r`\mathrm{i}`,
     "\\Rep": r`\mathrm{Re}`,
     "\\Imp": r`\mathrm{Im}`,
   
