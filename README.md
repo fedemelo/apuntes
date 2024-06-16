@@ -1,20 +1,23 @@
+# Apuntes
 
-## Tech-stack
+### English
+React-based webpage showcasing my undergraduate notes on mathematics, physics, and programming, written in Spanish.
 
-This application is built using React, TypeScript, Vite with Yarn, and Tailwind. 
+The lack of license in this repository is intentional. See https://choosealicense.com/no-permission/.
 
-It incorporates all recommended ESLint configurations for a production-ready setup, including type-aware linting rules and plugins for optimized code quality and performance.
+### Español
+Página web basada en React que muestra mis apuntes de pregrado sobre matemáticas, física y programación, escritos en español.
 
-## Available environments for note formatting
-The following environments have been established to enhance the clarity of the notes, highlight important concepts and graciously introduce additional information in the notes:
-- **Theorem**: Utilized to highlight theorems, lemmas, corollaries, and similar propositions.
-- **Proof**: Accompanies theorems and similar structures, providing detailed proofs when appropriate.
-- **Definition**: Dedicated to defining key terms and concepts.
-- **Example**: Illustrates the application of theories or definitions through practical examples.
-- **Historical Note**: Offers historical context or background on the concepts discussed.
-- **Note for a Mathematician**: Exposes deeper or more formal mathematical insights that may only be of interest to more mathematically inclined readers.
-- **Analogy**: Provides real-world analogies to explain abstract concepts.
-- **Advise**: Alerts readers to common misconceptions or critical errors.
-- **Algorithm**: Demonstrates algorithms in programming and applied mathematics.
-- **Summary**: Summarizes key points at the end of chapters or sections.
-- **Problem**: Offers a problem or exercise for concepts that may particularly benefit from practice.
+La ausencia de licencia en este repositorio es intencional. Véase https://choosealicense.com/no-permission/.
+
+## Documentation / Documentación
+
+### English
+All documentation for this repository can be found on the [repo's wiki](https://github.com/fedemelo/apuntes/wiki). It is split into two parts:
+- Technical documentation (tech stack, setup, deployment, etc.) is written in English, as is the code.
+- Notes-related documentation (style guidelines, formatting, adding new notes) is written in Spanish, as are the notes.
+
+### Español
+Toda la documentación asociada a este repositorio se encuentra en la [wiki del repositorio](https://github.com/fedemelo/apuntes/wiki). Consta de dos partes:
+- La documentación técnica (tecnologías usadas, configuración, despliegue, etc.) está escrita en inglés, al igual que el código.
+- La documentación relacionada con los apuntes (guías de estilo, formato, añadir nuevos apuntes) está escrita en español, al igual que los apuntes.
