@@ -893,7 +893,7 @@ const CalculoDiferencial = () => (
 
       <h4>Derivación explícita</h4>
       <p>
-        Si la función <M>{r`f`}</M> está escrita con la variable dependiente expresada en términos de la independiente, de la forma <M>{r`y=f(x)`}</M>, se dice que <M>{r`f`}</M> está definida explícitamente. <M>{r`f'(x)`}</M> o <M>{r`\der{y}{}`}</M> se obtiene con la aplicación de las reglas de derivación a un lado de la igualdad.
+        Si la función <M>{r`f`}</M> está escrita en términos de la variable independiente e igualada a la variable dependiente, de la forma <M>{r`y=f(x)`}</M>, se dice que <M>{r`f`}</M> está definida <em>explícitamente</em>. <M>{r`f'(x)`}</M> o <M>{r`\der{y}{}`}</M> se obtiene con la aplicación de las reglas de derivación a un lado de la igualdad.
       </p>
 
       <h4>Derivación implícita</h4>
@@ -903,12 +903,12 @@ const CalculoDiferencial = () => (
 
       <h4>Derivación logarítmica</h4>
       <p>
-        La derivación logarítmica utiliza el logaritmo natural, sus propiedades y las  derivadas de funciones logarítmicas para facilitar derivar. Consiste en:
+        La derivación logarítmica utiliza el logaritmo natural, sus propiedades y las regla de derivada de la función logarítmica, para facilitar la derivación. La derivación logarítmica consiste de:
       </p>
       <ol>
-        <li> Sacar logaritmo natural a ambos lados de una expresión.</li>
-        <li> Utilizar las propiedades de logaritmos para pasar los productos a sumas, los cocientes a restas y "bajar" los exponentes.</li>
-        <li> Derivar implícitamente respecto a la variable independiente usando las derivadas de funciones logarítmicas.</li>
+        <li> Tomar logaritmo natural a ambos lados de una expresión.</li>
+        <li> Utilizar las propiedades de logaritmos para pasar los productos a sumas, los cocientes a restas y "bajar" los exponentes. Eso último, refiere al hecho de que si el argumento de un logaritmo tiene una potencia, esa potencia se puede reescribir como coeficiente del logaritmo.</li>
+        <li> Derivar implícitamente respecto a la variable independiente, usando la regla de la derivada del logaritmo.</li>
         <li> Despejar la derivada que se pretende hallar.</li>
       </ol>
     </Section>
@@ -922,8 +922,11 @@ const CalculoDiferencial = () => (
         La derivada representa la razón de cambio instantánea de una variable con relación a otra. Por ende, puede representar la velocidad instantánea en la que sucede cualquier fenómeno (la medida en que avanza, crece o  cambia en un instante), al igual que la aceleración instantánea (la medida en que la velocidad cambia en un instante).
       </p>
       <h4>Ejercicios de Razones de cambio instantáneas</h4>
+      <p>
+        El siguiente es un método para resolver problemas de razones de cambio instantáneas:
+      </p>
       <ol>
-        <li> Identificar qué variables se dan en el enunciado y cuáles son razones de cambio, es decir, las derivadas de variables con respecto al tiempo. </li>
+        <li> Identificar qué variables se dan en el enunciado y cuáles son razones de cambio. Las que son razones de cambio lo son porque se pueden expresar como derivadas con respecto al tiempo. </li>
         <li> Identificar o formular una expresión que involucre todas las variables del problema.  </li>
         <li> Derivar esa expresión con respecto al tiempo para obtener una expresión que incluye las variables y sus razones de cambio.</li>
         <li> Reemplazar las variables y sus razones de cambio para calcular la variable o razón de cambio solicitada.</li>
@@ -932,41 +935,36 @@ const CalculoDiferencial = () => (
       <h3>Extremos y crecimiento</h3>
 
       <p>
-        Una de las principales aplicaciones del cálculo diferencial es hallar los <em>extremos</em> de una función, que son sus <em>máximos</em> y <em>mínimos</em> tanto relativos y absolutos, y los intervalos de crecimiento y decrecimiento.
+        Una de las principales aplicaciones del cálculo diferencial es hallar los <em>extremos</em> de una función, que son sus <em>máximos</em> y <em>mínimos</em> tanto <em>relativos</em>, es decir, en un intervalo específico, como <em>absolutos</em>, o sea, en todo su dominio. Con esa información, también es de interés determinar los intervalos en los que la función crece o decrece. A todo este proceso se le llama <em>optimización</em>.
       </p>
-
       <p>
         Para optimizar con la primera derivada, se usan números y puntos críticos.
       </p>
       <Definition concept="Número y punto crítico">
-        Un número <M>{r` c \in \dom f`}</M> es un <em>numero crítico</em> de la función <M>{r` f`}</M> si  <M>{r`f'(c)=0`}</M> o <M>{r` f'(c)`}</M> no existe. Si <M>{r`c`}</M> es un número crítico, <M>{r` (c,f(c))`}</M> es un <em>punto crítico</em>.
+        Un número <M>{r` c \in \dom f`}</M> es un <em>numero crítico</em> de la función <M>{r` f`}</M> si  <M>{r`f'(c)= 0`}</M> o <M>{r` f'(c)`}</M> no existe. Si <M>{r`c`}</M> es un número crítico, <M>{r`(c,f(c))`}</M> es un <em>punto crítico</em>.
       </Definition>
-
       <p>
-        Se deben tener en cuenta una serie de teoremas para tener información sobre los extremos de una función. El Teorema de Fermat indica que una derivada igual a 0 implica la existencia de un extremo relativo:
+        Se deben tener en cuenta una serie de teoremas para tener información sobre la existencia y ubicación de los extremos de una función. Primeramente, el Teorema de Fermat indica que un extremo relativo existe solo cuando la derivada de la función en ese punto es igual a cero.
       </p>
       <Theorem name="Teorema de Fermat">
-        Si la función <M>{r`f`}</M> tiene un extremo relativo en <M>{r`x=c`}</M>, si <M>{r`f'(c)`}</M> existe, entonces <M>{r`f'(c)=0 `}</M>.
+        Si la función <M>{r`f`}</M> tiene un extremo relativo en <M>{r`x = c`}</M> y <M>{r`f'(c)`}</M> existe, entonces <M>{r`f'(c) = 0 `}</M>.
       </Theorem>
-
       <p>
-        El Teorema de Rolle revela la existencia de un extremo relativo dadas ciertas condiciones:
+        Sumado a eso, el Teorema de Rolle revela que si la función toma el mismo valor dos veces, necesariamente existirá un extremo relativo en alguno de los valores intermedios:
       </p>
       <Theorem name="Teorema de Rolle">
-        Si <M>{r`f`}</M> es una función derivable y continua sobre el intervalo cerrado <M>{r`[a,b]`}</M> que satisface la igualdad <M>{r` f(a)=f(b)`}</M>, entonces existe un número <M>{r` c \in (a,b)`}</M> tal que <M>{r` f'(c)=0 `}</M>.
+        Sea <M>{r`f`}</M> una función derivable en el intervalo abierto <M>{r`(a,b)`}</M>  y continua sobre el intervalo cerrado <M>{r`[a,b]`}</M> que satisface la igualdad <M>{r` f(a) = f(b)`}</M>, entonces existe un número <M>{r` c \in (a,b)`}</M> tal que <M>{r` f'(c)= 0 `}</M>.
       </Theorem>
-
       <p>
-        El Teorema del Valor Medio de Lagrange asocia la pendiente entre dos puntos con la derivada de un punto entre ellos. Tiene consecuencias fundamentales para optimizar.
+        Adicionalmente, el Teorema del Valor Medio de Lagrange asocia la pendiente entre dos puntos con la derivada de un punto entre ellos, estableciendo que debe haber al menos un punto cuya derivada sea el valor de esa pendiente. Tiene consecuencias fundamentales para optimizar.
       </p>
       <Theorem name="Teorema del Valor Medio de Lagrange">
-        Si <M>{r`f`}</M> es una función derivable y continua sobre el intervalo cerrado <M>{r` [a,b]`}</M>, entonces existe un número <M>{r` c \in (a,b) `}</M> tal que <M block>
-          {r`f'(c)=\dfrac{f(b)-f(a)}{b-a}=m_{(a,f(a)),(b,f(b))}`}
+        Si <M>{r`f`}</M> es una función derivable y continua sobre el intervalo cerrado <M>{r`[a,b]`}</M>, entonces existe un número <M>{r` c \in (a,b) `}</M> tal que <M block>
+          {r`f'(c) = \dfrac{f(b)-f(a)}{b-a} = m_{(a,f(a)),(b,f(b))}`}
         </M>
       </Theorem>
-
       <p>
-        Como consecuencia del Teorema del Valor Medio de Lagrange, se tienen dos criterios:
+        Como consecuencia de los teoremas enunciados, en particular del Teorema del Valor Medio de Lagrange, se tienen dos criterios de optimización con base en la primera derivada.
       </p>
       <p>
         <b>Criterio de crecimiento (y decrecimiento)</b>
@@ -975,7 +973,6 @@ const CalculoDiferencial = () => (
         <li> Sea <M>{r`f`}</M> una función, si <M>{r`f'`}</M> es positiva en <M>{r`(a,b)`}</M>, entonces <M>{r`f`}</M> es creciente en <M>{r`(a,b)`}</M>.</li>
         <li> Sea <M>{r`f`}</M> una función, si <M>{r`f'`}</M> es negativa en <M>{r`(a,b)`}</M>, entonces <M>{r`f`}</M> es decreciente en <M>{r`(a,b)`}</M>.</li>
       </ul>
-
       <p>
         <b>Criterio de la primera derivada (extremos relativos).</b>
         Sea <M>{r`c`}</M> un punto crítico:
@@ -986,21 +983,21 @@ const CalculoDiferencial = () => (
         <li> Sea <M>{r`f`}</M> una función, si <M>{r`f'`}</M> no cambia de signo en <M>{r`c`}</M>, entonces <M>{r`f`}</M> no tiene un extremo relativo en <M>{r`c`}</M>.</li>
       </ul>
       <p>
-        Se puede aplicar el criterio de la primera derivada en un intervalo cerrado con el siguiente método.
+        Se puede aplicar el criterio de la primera derivada en un intervalo cerrado siguiendo el método expuesto a continuación.
       </p>
 
       <h5>Método del intervalo cerrado (extremos absolutos).</h5>
       <p>
-        Sea <M>{r`f`}</M> una función continua en <M>{r`[a,b]`}</M>, para hallar los extremos absolutos en ese intervalo:
+        Sea <M>{r`f`}</M> una función continua en <M>{r`[a,b]`}</M>, los siguientes pasos permiten hallar los extremos absolutos en ese intervalo:
       </p>
       <ol>
-        <li>[1°.] Hallar los números críticos en <M>{r`[a,b]`}</M></li>
-        <li>[2°.] Evaluar la función en los extremos del intervalo y en los puntos críticos.</li>
-        <li>[3°.] Entre las imágenes obtenidas al evaluar, seleccionar el valor más grande como máximo absoluto y el más pequeño como mínimo absoluto del intervalo.</li>
-        <li>[4°.] Verificar que los valores seleccionados pertenezcan al intervalo cerrado dado <M>{r`[a,b]`}</M>.</li>
+        <li> Hallar los números críticos en <M>{r`[a,b]`}</M></li>
+        <li> Evaluar la función en los extremos del intervalo y en los puntos críticos.</li>
+        <li> Entre las imágenes obtenidas al evaluar, seleccionar el valor más grande como máximo absoluto y el más pequeño como mínimo absoluto del intervalo.</li>
+        <li> Verificar que los valores seleccionados pertenezcan al intervalo cerrado dado <M>{r`[a,b]`}</M>.</li>
       </ol>
       <p>
-        Al enunciar los intervalos de crecimiento y decrecimiento, se debe recordar no incluir las ubicaciones de las asíntotas verticales en los intervalos.
+        Al enunciar los intervalos de crecimiento y decrecimiento, se debe recordar no incluir las ubicaciones de las asíntotas verticales en los intervalos, si las hay.
       </p>
 
       <h4>Gráfica de la primera derivada</h4>
