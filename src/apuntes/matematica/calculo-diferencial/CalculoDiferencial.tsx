@@ -37,7 +37,13 @@ const CalculoDiferencial = () => (
 
       <p>El concepto de límite formaliza la noción de aproximarse a un valor tanto como se quiera sin tener que alcanzar el valor en sí. Es sencillo comprender la intuición del límite mediante un ejemplo.</p>
       <Example title={<>Límite cuando <M>x</M> tiende a <M>2</M></>} id="limite-cuando-x-tiende-a-2">
-        Considérese la función <M>f(x)=x-2</M>. Se toman valores de <M>x</M> cercanos a <M>2</M>, por ejemplo <M>1.9</M>, <M>2.05</M> o cualquier otro valor arbitrariamente cercano. Si se utilizan esos valores para evaluar la función, siempre se obtiene como resultado un número cercano a <M>0</M>:<M block>f(1.9)=1.9-2=-0.1 \\ f(2.05)=2.05-2=0.05</M>
+        Considérese la función <M>f(x)=x-2</M>. Se toman valores de <M>x</M> cercanos a <M>2</M>, por ejemplo <M>1.9</M>, <M>2.05</M> o cualquier otro valor arbitrariamente cercano. Si se utilizan esos valores para evaluar la función, siempre se obtiene como resultado un número cercano a <M>0</M>:
+        <M block>
+          {r`\begin{align*}
+              f(1.9)=1.9-2=-0.1 \\ 
+              f(2.05)=2.05-2=0.05.
+            \end{align*}`}
+          </M>
         Se dice, entonces, que el límite de <M>f(x)</M> cuando <M>x</M> tiende a <M>2</M> es igual a <M>0</M>. Eso se denota por <M>{r`\lim_{x \to 2} f(x) = 0`}</M>.
       </Example>
       <p>
