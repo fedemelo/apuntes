@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 
-const SectionAccordion = styled.div`
+export const SectionAccordion = styled.div`
   width: 100%;
   margin-bottom: 1em;
   display: block;
@@ -20,7 +20,7 @@ const SectionTitle = styled.h2<{ $expanded: boolean }>`
   cursor: pointer;
 `;
 
-const SectionContent = styled.div<{ $expanded: boolean }>`
+export const SectionContent = styled.div<{ $expanded: boolean }>`
   display: ${(props) => (props.$expanded ? 'block' : 'none')};
   width: 100%;
   padding: 0;
@@ -33,15 +33,11 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({ title, children }) => {
-  const [expanded, setExpanded] = useState(true);
-
-  const toggleExpand = () => {
-    setExpanded(!expanded);
-  };
+  const [expanded, setExpanded] = useState<boolean>(true);
 
   return (
     <SectionAccordion>
-      <SectionTitle $expanded={expanded} onClick={toggleExpand}>
+      <SectionTitle $expanded={expanded} onClick={() => {setExpanded(!expanded)}}>
         {title}
       </SectionTitle>
       <SectionContent $expanded={expanded}>
