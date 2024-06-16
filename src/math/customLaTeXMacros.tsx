@@ -2,7 +2,10 @@
 
 const r = String.raw;
 
-export const macros = {  
+export const macros = {
+    // Sets
+    "\\abs": r`\left| #1 \right|`,
+  
     // Miscellaneous symbols
     "\\colonminus": r`\coloneq`,
   
