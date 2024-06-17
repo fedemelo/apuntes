@@ -11,7 +11,7 @@ interface Property {
 }
 
 interface PropertiesProps {
-  title: string;
+  title?: string;
   description?: string | React.ReactNode;
   properties: Property[];
   initialCountValue?: number;
@@ -44,7 +44,7 @@ export default function Properties({ title, description, properties, initialCoun
 
   return (
     <SectionAccordion id={id}>
-      <h4>{title}</h4>
+      {title && <h4>{title}</h4>}
       {description && (typeof description === 'string' ? <p>{description}</p> : description)}
       <Grid container spacing={1} p={"0 0 0 1em"}>
         {properties.map((property, index) => (
