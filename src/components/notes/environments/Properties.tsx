@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Typography, Grid } from '@mui/material';
 import styled from 'styled-components';
 import convertToRomanNumeral from '@/components/utils/convertToRomanNumeral';
+import generateIdAutomatically from '@/components/utils/generateIdAutomatically';
 
 interface Property {
   name: string | React.ReactNode;
@@ -14,6 +15,7 @@ interface PropertiesProps {
   description?: string | React.ReactNode;
   properties: Property[];
   initialCountValue?: number;
+  id?: string;
 }
 
 const SectionAccordion = styled.div`
@@ -37,21 +39,23 @@ const NoteTypography = styled(Typography)`
   padding-left: calc(1.5em + 0.5em);
 `;
 
-export default function Properties({ title, description, properties, initialCountValue: startNumber = 1 }: PropertiesProps) {
+export default function Properties({ title, description, properties, initialCountValue: startNumber = 1, id }: PropertiesProps) {
+  id = id || generateIdAutomatically(title);
+
   return (
-    <SectionAccordion>
+    <SectionAccordion id={id}>
       <h4>{title}</h4>
       {description && (typeof description === 'string' ? <p>{description}</p> : description)}
       <Grid container spacing={1} p={"0 0 0 1em"}>
         {properties.map((property, index) => (
           <Fragment key={index}>
-            <Grid item xs={6} container alignItems="center">
+            <Grid item xs={5} container alignItems="center">
               <PropertyContainer>
                 <RomanNumeral>{convertToRomanNumeral(startNumber + index, true) + ". "}</RomanNumeral>
                 {property.name}
               </PropertyContainer>
             </Grid>
-            <Grid item xs={6} container alignItems="center">
+            <Grid item xs={7} container alignItems="center">
               <Typography>{property.formula}</Typography>
             </Grid>
             {property.note && (

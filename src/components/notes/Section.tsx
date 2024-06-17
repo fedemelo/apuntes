@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import generateIdAutomatically from '../utils/generateIdAutomatically';
 
 
 export const SectionAccordion = styled.div`
@@ -30,14 +31,18 @@ export const SectionContent = styled.div<{ $expanded: boolean }>`
 interface SectionProps {
   title: React.ReactNode | string;
   children: React.ReactNode;
+  id?: string;
 }
 
-const Section: React.FC<SectionProps> = ({ title, children }) => {
+const Section: React.FC<SectionProps> = ({ title, children, id }) => {
   const [expanded, setExpanded] = useState<boolean>(true);
+  id = id || generateIdAutomatically(title);
+
+  console.log(id);
 
   return (
     <SectionAccordion>
-      <SectionTitle $expanded={expanded} onClick={() => {setExpanded(!expanded)}}>
+      <SectionTitle $expanded={expanded} onClick={() => {setExpanded(!expanded)}} id={id}>
         {title}
       </SectionTitle>
       <SectionContent $expanded={expanded}>
