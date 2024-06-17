@@ -1,4 +1,5 @@
 import { Definition, Example, Theorem } from "@/components/notes/environments/Boxes";
+import Properties from "@/components/notes/environments/Properties";
 import { Notation, Tip, Warning } from "@/components/notes/environments/StickyNotes";
 import NoteDocument from "@/components/notes/NoteDocument";
 import Section from "@/components/notes/Section";
@@ -495,31 +496,47 @@ const CalculoVectorial = () => (
         Si se tiene dominio sobre la definición formal de límite, se puede tomar la definición y determinar un <M>{r`\delta`}</M> que garantice que la desigualdad se cumple para cada posible <M>{r`\varepsilon`}</M>, demostrando así la existencia del límite.
       </p>
 
-      {/* 
-<h4>Propiedades de los límites de múltiples variables</h4> \label{sssec:propiedades_limites_varias}
-
-Las propiedades de los límites de múltiples variables son análogas a las propiedades de los límites de una variable. Sean <M>{r`\bvec{F},\bvec{G}\colon U \subseteq \mathbb{R}^{m} \to \mathbb{R}^{n}`}</M> funciones vectoriales (se podrían tomar también ) donde <M>{r`U`}</M> es abierto y sea <M>{r`\bvec{v} \in U \cup \partial U`}</M>. Suponiendo que todos los límites a continuación existen, satisfacen las siguientes leyes: 
- 
-\begin{longtable}{lp{\textwidth/2-1.8cm}p{\textwidth/2}}
-	\rule[1ex]{0pt}{2.5ex}i.&Límite de una constante: &<M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{v}}a=a`}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}ii.&Límite de una variable: &<M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{v}} \bvec{x} = \bvec{v}`}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}iii.&Propiedad homogénea del límite: &<M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{v}}(c \cdot \bvec{F}(\bvec{x})) = c \lim_{\bvec{x}\to\bvec{v}} \bvec{F}(\bvec{x}) `}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}iv.&Propiedad de linealidad del límite: &<M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{v}} (\bvec{F}(\bvec{x}) \pm \bvec{G}(\bvec{x}))= \lim_{\bvec{x}\to\bvec{v}} \bvec{F}(\bvec{x}) \pm \lim_{\bvec{x}\to\bvec{v}} \bvec{G}(\bvec{x})`}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}v.&Límite del producto punto: &<M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{v}} (\bvec{F}(\bvec{x}) \cdot \bvec{G}(\bvec{x})) = \lim_{\bvec{x}\to\bvec{v}} \bvec{F}(\bvec{x}) \cdot \lim_{\bvec{x}\to\bvec{v}} \bvec{G}(\bvec{x}) `}</M>. \\
-	\rule[1ex]{0pt}{3.5ex}vi.&Límite del cociente: & Si <M>{r`n=1`}</M> y <M>{r`\lim_{\bvec{x}\to\bvec{v}} g(\bvec{x})\neq 0`}</M>, entonces \break <M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{v}} \frac{f(\bvec{x})}{g(\bvec{x})} = \cfrac{\lim\limits_{\bvec{x}\to\bvec{v}}f(\bvec{x})}{\lim\limits_{\bvec{x}\to\bvec{v}} g(\bvec{x})}`}</M>. \\ 
-	\rule[1ex]{0pt}{2.5ex}vii.&Límite del producto cruz: & Si <M>{r`n=3`}</M>, entonces <M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{v}} (\bvec{F}(\bvec{x}) \times \bvec{G}(\bvec{x})) = \lim_{\bvec{x}\to\bvec{v}} \bvec{F}(\bvec{x}) \times \lim_{\bvec{x}\to\bvec{v}} \bvec{G}(\bvec{x}) `}</M>. \\
-{/* 	\rule[1ex]{0pt}{3.5ex}OJO-ROM.&Límite de una potencia: &<M>{r`\displaystyle \lim_{x \to c}\bvec{F}(x)^{n }=\le\bvec{F}t(\lim_{x \to c}\bvec{F}(x) \right)^n \text{ si } n\in \mathbb{N}`}</M>. \\ % Dudo muchísisimo que esta propiedad exista para límites multivariables. No se mencionó en clase. 	\rule[1ex]{0pt}{2.5ex}viii.&Límite de una función compuesta: &Considérese <M>{r`\bvec{H}\colon \mathbb{R}^{n}\to\mathbb{R}^{k}`}</M>, tal que <M>{r`(\bvec{H} \circ \bvec{F})\colon \mathbb{R}^{m}\to\mathbb{R}^{k}`}</M>. Si <M>{r` \displaystyle \lim_{\bvec{x}\to\bvec{u}} \bvec{F}(\bvec{x}) = \bvec{v}`}</M> y <M>{r` \displaystyle \lim_{\bvec{y}\to\bvec{v}} \bvec{H}(\bvec{y}) = \bvec{w}`}</M>, entonces \break <M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{u}} (\bvec{H} \circ \bvec{F}) (\bvec{x}) = \bvec{w} `}</M>. \\
-\end{longtable}  */}
-
-      <Warning>
-        En las propiedades vi y vii se ponen condiciones para <M>{r`n`}</M>. Esto es necesario para que en el espacio de llegada <M>{r`\mathbb{R}^{n}`}</M> este definido el cociente (sólo definido en <M>{r`n=1`}</M>) y el producto cruz (sólo definido en <M>{r`n=3`}</M>).
-      </Warning>
-
-
-      <Tip>
-        En el límite del cociente, las funciones se denotan por <M>{r`f`}</M> y <M>{r`g`}</M> en lugar de <M>{r`\bvec{F}`}</M> y <M>{r`\bvec{G}`}</M> porque como <M>{r`n=1`}</M>, su codominio es <M>{r`\mathbb{R}`}</M> y las funciones son funciones escalares.
-      </Tip>
-
+      <Properties
+        title="Propiedades de los límites de múltiples variables"
+        description={<p>Las propiedades de los límites de múltiples variables son análogas a las propiedades de los límites de una variable, y por tanto igual de intuitivas. Sea <M>{r`U \subseteq \mathbb{R}^{m}`}</M> un conjunto abierto, sean <M>{r`\bvec{F},\bvec{G}\colon U \to \mathbb{R}^{n}`}</M> y sea <M>{r`\bvec{v} \in U \cup \partial U`}</M> un punto. Suponiendo que todos los límites a continuación existen, satisfacen las siguientes propiedades: </p>}
+        properties={[
+          {
+            name: "Límite de una constante",
+            formula: <M>{r`\displaystyle \lim_{\bvec{x} \to \bvec{v}} a = a`}</M>
+          },
+          {
+            name: "Límite de una variable",
+            formula: <M>{r`\displaystyle \lim_{\bvec{x} \to \bvec{v}} \bvec{x} = \bvec{v}`}</M>
+          },
+          {
+            name: "Propiedad homogénea del límite",
+            formula: <M>{r`\displaystyle \lim_{\bvec{x} \to \bvec{v}} (c \cdot \bvec{F}(\bvec{x})) = c \, \lim_{\bvec{x} \to \bvec{v}} \bvec{F}(\bvec{x})`}</M>
+          },
+          {
+            name: "Propiedad de linealidad del límite",
+            formula: <M>{r`\displaystyle \lim_{\bvec{x} \to \bvec{v}} (\bvec{F}(\bvec{x}) \pm \bvec{G}(\bvec{x})) = \lim_{\bvec{x} \to \bvec{v}} \bvec{F}(\bvec{x}) \pm \lim_{\bvec{x} \to \bvec{v}} \bvec{G}(\bvec{x})`}</M>
+          },
+          {
+            name: "Límite del producto punto",
+            formula: <M>{r`\displaystyle \lim_{\bvec{x} \to \bvec{v}} (\bvec{F}(\bvec{x}) \cdot \bvec{G}(\bvec{x})) = \lim_{\bvec{x} \to \bvec{v}} \bvec{F}(\bvec{x}) \cdot \lim_{\bvec{x} \to \bvec{v}} \bvec{G}(\bvec{x})`}</M>
+          },
+          {
+            name: "Límite del cociente",
+            formula: <span><M>{r`\displaystyle \lim_{\bvec{x} \to \bvec{v}} \frac{f(\bvec{x})}{g(\bvec{x})} = \cfrac{\lim\limits_{\bvec{x}\to\bvec{v}}f(\bvec{x})}{\lim\limits_{\bvec{x}\to\bvec{v}} g(\bvec{x})}`}</M>, si <M>{r`n=1`}</M> y <M>{r`\lim_{\bvec{x}\to\bvec{v}} g(\bvec{x})\neq 0`}</M>.</span>,
+            note: <span>Se necesita que <M>{r`n=1`}</M> para que las funciones sean escalares y la operación de división esté definida. Por eso se denotan por <M>{r`f`}</M> y <M>{r`g`}</M>.</span>
+          },
+          {
+            name: "Límite del producto cruz",
+            formula: <span><M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{v}} (\bvec{F}(\bvec{x}) \times \bvec{G}(\bvec{x})) = \lim_{\bvec{x}\to\bvec{v}} \bvec{F}(\bvec{x}) \times \lim_{\bvec{x}\to\bvec{v}} \bvec{G}(\bvec{x}) `}</M>, si <M>{r`n=3`}</M>.</span>,
+            note: <span>Se restringe el codominio a <M>{r`\mathbb{R}^3`}</M> para que la operación de producto cruz esté definida.</span>
+          },
+          {
+            name: "Límite de una función compuesta",
+            formula: <span>Considérese <M>{r`\bvec{H}\colon \mathbb{R}^{n}\to\mathbb{R}^{k}`}</M>, tal que <M>{r`(\bvec{H} \circ \bvec{F})\colon \mathbb{R}^{m}\to\mathbb{R}^{k}`}</M>. Si <M>{r` \displaystyle \lim_{\bvec{x}\to\bvec{u}} \bvec{F}(\bvec{x}) = \bvec{v}`}</M> y <M>{r` \displaystyle \lim_{\bvec{y}\to\bvec{v}} \bvec{H}(\bvec{y}) = \bvec{w}`}</M>, entonces \break <M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{u}} (\bvec{H} \circ \bvec{F}) (\bvec{x}) = \bvec{w} `}</M>.</span>
+          }
+        ]}
+      />
+{/* TODO: Revisar si esto existe.	\rule[1ex]{0pt}{3.5ex}OJO-ROM.&Límite de una potencia: &<M>{r`\displaystyle \lim_{x \to c}\bvec{F}(x)^{n }=\le\bvec{F}t(\lim_{x \to c}\bvec{F}(x) \right)^n \text{ si } n\in \mathbb{N}`}</M>. \\ % Dudo que esta propiedad exista para límites multivariables. No se mencionó en clase.*/}
 
       <Tip>
         En el límite de una función compuesta, las variables de <M>{r`\bvec{F}`}</M> y <M>{r`\bvec{H}`}</M> se denotan por letras distintas para enfatizar que <M>{r`\bvec{x}\in\mathbb{R}^{m}`}</M> mientras que <M>{r`\bvec{y}\in\mathbb{R}^{n}`}</M>.
@@ -534,25 +551,31 @@ Las propiedades de los límites de múltiples variables son análogas a las prop
       <h3>La derivada parcial</h3>
 
       <p>
-        Al definir la derivada para funciones escalares de una variable, se deriva sobre la única variable que tiene la función. En el caso de funciones escalares de múltiples variables, es posible derivar la función con respecto a cada una de sus variables de forma independiente. A esa operación se le denomina derivada parcial.
+        Al definir la derivada para funciones escalares de una variable, se deriva sobre la única variable que tiene la función. En el caso de funciones escalares de múltiples variables, es posible derivar la función con respecto a cada una de sus variables de forma independiente. A esa operación se le denomina <em>derivada parcial</em>.
       </p>
 
       <Definition concept="Derivada parcial">
-        Sean <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto, <M>{r`f\colon U \to \mathbb{R}`}</M> una función escalar de <M>{r`n`}</M> variables y <M>{r`\bvec{v}\in U`}</M> un punto. La <em>derivada parcial</em> de <M>{r`f`}</M> con respecto a la i-ésima variable <M>{r`x_i`}</M>, donde <M>{r`i \leq n`}</M>, se define como
+        Sean <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto, <M>{r`f\colon U \to \mathbb{R}`}</M> una función escalar de <M>{r`n`}</M> variables y <M>{r`\bvec{v}\in U`}</M> un punto. La <em>derivada parcial</em> de <M>{r`f`}</M> en el punto <M>{r`\bvec{v}\in U`}</M> con respecto a la i-ésima variable <M>{r`x_i`}</M>, donde <M>{r`i \leq n`}</M>, se define como
         <M block>
-          {r`\parder{f}{x_i} = \lim_{h\to 0} \frac{f(x_1,x_2,\ldots,x_{i-1},x_i+h,x_{i+1},\ldots,x_n)-f(x_1,x_2,\ldots,x_n)}{h}.`}
+          {r`\parder{f(\bvec{v})}{x_i} \coloneqq \lim_{h\to 0} \frac{f(v_1,\ldots,v_i+h,\ldots,v_n)-f(\bvec{v})}{h}.`}
         </M>
         Si y solamente si el límite existe.
       </Definition>
 
       <p>
-        La definición de derivada parcial es análoga a la {referenceById("definición de derivada", DIFFERENTIAL_CALCULUS, 'derivada')}: en el numerador, sólo se suma <M>{r`h`}</M> a la variable con respecto a la cual se está derivando. La derivada parcial <M>{r`\partial f /\partial x_i`}</M> indica cómo crece (o decrece) la función en la dirección de la variable <M>{r`x_i`}</M>, es decir, respecto al eje cartesiano <M>{r`x_i`}</M>. Para toda función escalar de múltiples variables, si esta es diferenciable, se pueden calcular sus derivadas parciales con respecto a cada una de sus variables. Nótese que la derivada parcial sólo está definida para funciones escalares.
+        La definición de derivada parcial en un punto es análoga a la definición de derivada. Recuérdese que <M>{r`h`}</M> representa la distancia entre el punto <M>{r`\bvec{v}`}</M> y un punto cercano <M>{r`f(v_1,\ldots,v_i+h,\ldots,v_n)`}</M>. En este caso, esa distancia es respecto al eje cartesiano <M>{r`x_i`}</M>. Se busca la pendiente de la recta secante entre los dos puntos, que cuando <M>{r`h`}</M> tiende a 0, la distancia entre los puntos se hace infinitesimalmente pequeña, y se convierte en la pendiente de la recta tangente a <M>{r`f`}</M> en el punto <M>{r`\bvec{v}`}</M>.
+      </p>
+      <Tip>
+        El párrafo anterior es bastante sucinto; si no es claro, se recomienda leer la {referenceById("sección sobre la definición de derivada en una variable.", DIFFERENTIAL_CALCULUS, "definicion-de-derivada")}
+      </Tip>
+      <p>
+        La derivada parcial <M>{r`\partial f /\partial x_i`}</M> indica cómo crece (o decrece) la función en la dirección de la variable <M>{r`x_i`}</M>, es decir, respecto al eje cartesiano <M>{r`x_i`}</M>. Para toda función escalar de múltiples variables, si esta es diferenciable, se pueden calcular sus derivadas parciales con respecto a cada una de sus variables. Nótese que la derivada parcial sólo está definida para funciones escalares.
       </p>
       <p>
-        Para calcular la derivada parcial <M>{r`\partial f /\partial x_i`}</M>, se hace uso de las reglas de derivación del cálculo diferencial tomando <M>{r`x_i`}</M> como si fuera la única variable de la función y todas las demás variables como si fueran constantes. A causa de eso, el procedimiento para calcular una derivada parcial es el mismo que se sigue para calcular la derivada de una función escalar de una variable. Consecuentemente, la derivación parcial tiene las mismas propiedades que la derivación de funciones escalares de una variable.
+        Al calcular la derivada parcial <M>{r`\partial f /\partial x_i`}</M> solo interesa la variación con respecto al eje <M>{r`x_i`}</M>. Por ende, se toma <M>{r`x_i`}</M> como si fuera la única variable de la función y todas las demás variables como si fueran constantes. Con eso, el procedimiento para calcular una derivada parcial es el mismo que se sigue para calcular la derivada de una función escalar de una variable, haciendo uso de las mismas {referenceById("propiedades y reglas de derivación", DIFFERENTIAL_CALCULUS, "reglas-de-derivacion")}.
       </p>
 
-      <Example>
+      <Example title="Calcular derivadas parciales">
         Partiendo de una función <M>{r`f\colon U\subseteq \mathbb{R}^{3}\to \mathbb{R}`}</M> dada por <M>{r`f(x,y,z)=\sin(x^2-y)+\mathrm{e}^{z^2}x`}</M>, hallar la derivada parcial para cada variable.
         <M block>
           {r`\begin{gather*}
@@ -563,26 +586,14 @@ Las propiedades de los límites de múltiples variables son análogas a las prop
         </M>
       </Example>
 
-      <p>
-        Sean <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto y <M>{r`f,g\colon U\to\mathbb{R}`}</M> funciones escalares de múltiples variables, si <M>{r`\partial f / \partial x_i`}</M> y <M>{r`\partial g / \partial x_i`}</M> existen, las propiedades de la derivada parcial respecto a cualquier variable <M>{r`x_i`}</M> de <M>{r`f`}</M> y <M>{r`g`}</M> son idénticas a las propiedades de la derivada de funciones escalares de una variable:
-      </p>
-
-      {/* \begin{longtable" id="lp{\textwidth/2-1.3cm">
-    p{\textwidth/2-0.5cm}}
-	\rule[1ex]{0pt}{2.5ex}i.&Propiedad de homogeneidad de la derivada parcial: &<M>{r` \dparder{cf}{x_i}  = c\dparder{f}{x_i} `}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}ii.&Propiedad de linealidad de la derivada parcial: &<M>{r` \dparder{(f+g)}{x_i} = \dparder{f}{x_i} + \dparder{g}{x_i} `}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}iii.&Regla del producto de la derivada parcial: &<M>{r` \dparder{(fg)}{x_i} = g\dparder{f}{x_i} + f \dparder{g}{x_i} `}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}iv.&Regla del cociente de la derivada parcial: &En los puntos <M>{r`\bvec{x}`}</M> donde <M>{r`g(\bvec{x})\neq0`}</M>,\newline <M>{r`\displaystyle \dparder{(f/g)}{x_i} =\cfrac{g\dparder{f}{x_i} -f\dparder{g}{x_i}}{g^2}`}</M>. \\
-{/*	\rule[1ex]{0pt}{2.5ex}v.&Regla de la cadena: &<M>{r`\displaystyle (f \circ g)'=(f(g(x)))'=f'(g(x)) \cdot g'(x)`}</M>.  \end{longtable} */}
-
       <h4>Derivada parcial de enésimo orden</h4>
 
       <p>
-        Al igual que pasa en la derivación de funciones escalares de una variable, existen derivadas parciales de múltiples órdenes. Sin embargo, como existe una derivada parcial por cada variable, se pueden calcular múltiples derivadas parciales de segundo orden y más aún de ordenes superiores.
+        Al igual que pasa en la derivación de funciones escalares de una variable, existen derivadas parciales de múltiples órdenes. Sin embargo, como existe una derivada parcial por cada variable, se pueden calcular múltiples derivadas parciales de segundo orden y más aún de órdenes superiores.
       </p>
 
       <p>
-        Sean <M>{r`U`}</M> un conjunto abierto y <M>{r`f\colon U \subseteq \mathbb{R}^{n} \to \mathbb{R}`}</M> una función escalar diferenciable de <M>{r`n`}</M> variables, para cada derivada parcial <M>{r`\partial f /\partial x_i`}</M>, se puede calcular a su vez la derivada parcial para cada una de sus variables. A eso se le denomina <em>segunda derivada parcial</em> o <em>derivada parcial de segundo orden</em> y se debe especificar respecto a qué variable se calcula. La segunda derivada parcial con respecto a <M>{r`x_j`}</M> de la derivada parcial con respecto a <M>{r`x_i`}</M> de la función <M>{r`f`}</M> se denota por
+        Sea <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto y sea <M>{r`f\colon U \to \mathbb{R}`}</M> una función escalar diferenciable de <M>{r`n`}</M> variables, para cada derivada parcial <M>{r`\partial f /\partial x_i`}</M>, se puede calcular a su vez la derivada parcial para cada una de sus variables. A eso se le denomina <em>segunda derivada parcial</em> o <em>derivada parcial de segundo orden</em> y se debe especificar respecto a qué variable se calcula. La segunda derivada parcial con respecto a <M>{r`x_j`}</M> de la derivada parcial con respecto a <M>{r`x_i`}</M> de la función <M>{r`f`}</M> se denota por
         <M block>
           {r`\begin{gather*}
 	\frac{\partial f}{\partial x_j} \left(\frac{\partial f}{\partial x_i}\right)
@@ -609,7 +620,7 @@ Las propiedades de los límites de múltiples variables son análogas a las prop
         A esa propiedad se le denomina la <em>simetría de la derivada parcial</em>.
       </p>
 
-      <Example>
+      <Example title="Calcular segundas derivadas parciales">
         Halle las segundas derivadas parciales de <M>{r`f(x,y,z)=x^2\cos(y-z)`}</M>.
 
         Se hallan las derivadas parciales de primer orden:
@@ -649,6 +660,8 @@ Las propiedades de los límites de múltiples variables son análogas a las prop
 	\end{gather*}`}
         </M>
       </Example>
+
+      {/* TODO: Study session until here */}
 
       <p>
         Dada una función escalar de <M>{r`m`}</M> variables  <M>{r`f\colon U\subseteq \mathbb{R}^{m}\to\mathbb{R}`}</M>, si la función de clase <M>{r`C^{n}`}</M> tal que es <M>{r`n`}</M> veces continuamente diferenciable, es posible calcular <M>{r`m^n`}</M> <em>derivadas parciales de enésimo orden</em>. Sin embargo, entre ellas hay varias repetidas por simetría de la derivada parcial. A razón de eso, el número de derivadas parciales de enésimo orden únicas para una función con <M>{r`m`}</M> variables es un problema equivalente al número de formas en las cuales es posible distribuir <M>{r`n`}</M> elementos en <M>{r`m`}</M> contenedores. Haciendo uso de combinatoria, se llega a que la respuesta está dada por el siguiente coeficiente binomial:
