@@ -124,7 +124,7 @@ const CalculoVectorial = () => (
       <Definition concept="Gráfica de una función escalar">
         Dada una función escalar <M>{r`f\colon A\subseteq\mathbb{R}^{n}\to\mathbb{R}`}</M>, su <em>gráfica</em> es el conjunto de los puntos <M>{r`(x_1,x_2,\ldots,x_n,f(x_1,x_2,\ldots,x_n))`}</M> para todo <M>{r`\bvec{x}\in A`}</M>. Definido por compresión:
         <M block>
-          {r`\text{gráfica } f = \set{(x_1,x_2,\ldots,x_n,f(x_1,x_2,\ldots,x_n)) \in \mathbb{R}^{n+1} \mid (x_1,x_2,\ldots,x_n) \in A}`}
+          {r`\text{gráfica } f \coloneqq \set{(x_1,x_2,\ldots,x_n,f(x_1,x_2,\ldots,x_n)) \in \mathbb{R}^{n+1} \mid (x_1,x_2,\ldots,x_n) \in A}`}
         </M>
       </Definition>
 
@@ -138,7 +138,7 @@ const CalculoVectorial = () => (
       <Definition concept="Conjunto de nivel">
         Sea <M>{r`f\colon A\subseteq \mathbb{R}^n\to\mathbb{R}`}</M> y <M>{r`c\in \mathbb{R}`}</M>, el <em>conjunto de nivel de <M>f</M> en <M>c</M></em> es el conjunto de todos los puntos en el dominio cuya imagen es <M>{r`c`}</M>.
         <M block>
-          {r`\text{conjunto de nivel de } f \text{ en } c = \{\bvec{x} \in A\mid f(\bvec{x})=c\} \subseteq \mathbb{R}^{n}`}
+          {r`\text{conjunto de nivel de } f \text{ en } c \coloneqq \{\bvec{x} \in A\mid f(\bvec{x})=c\} \subseteq \mathbb{R}^{n}`}
         </M>
       </Definition>
       <p>
@@ -200,7 +200,7 @@ const CalculoVectorial = () => (
         Antes de entrar en detalle con los conjuntos abiertos, es necesario definir el concepto de entorno. Para ello, vale la pena tener presente la noción de distancia entre dos puntos en <M>{r`\mathbb{R}^{n}`}</M>.
       </p>
       <Tip>
-        Al igual que la distancia entre dos valores <M>{`a, b \in \mathbb{R}`}</M>se puede expresar matemáticamente por <M>|a-b|</M> o por <M>|b-a|</M>, la distancia entre dos puntos <M>{r`\bvec{v}, \bvec{w} \in \mathbb{R}^{n}`}</M> se puede expresar por <M>{r`\norm{\bvec{v}-\bvec{w}}`}</M> o por <M>{r`\norm{\bvec{w}-\bvec{v}}`}</M>. Es conveniente leer <M>{r`\norm{\bvec{v}-\bvec{w}}`}</M> como "la distancia entre <M>{r`\bvec{v}`}</M> y <M>{r`\bvec{w}`}</M>".
+        Al igual que la distancia entre dos valores <M>{r`a, b \in \mathbb{R}`}</M>se puede expresar matemáticamente por <M>|a-b|</M> o por <M>|b-a|</M>, la distancia entre dos puntos <M>{r`\bvec{v}, \bvec{w} \in \mathbb{R}^{n}`}</M> se puede expresar por <M>{r`\norm{\bvec{v}-\bvec{w}}`}</M> o por <M>{r`\norm{\bvec{w}-\bvec{v}}`}</M>. Es conveniente leer <M>{r`\norm{\bvec{v}-\bvec{w}}`}</M> como "la distancia entre <M>{r`\bvec{v}`}</M> y <M>{r`\bvec{w}`}</M>".
       </Tip>
 
       <p>
@@ -210,7 +210,7 @@ const CalculoVectorial = () => (
       <Definition concept="Entorno">
         Sea <M>{r`\bvec{v}\in\mathbb{R}^{n}`}</M> un punto y <M>{r`\varepsilon \in \mathbb{R}_{>0}`}</M> un escalar. Un <em>entorno</em> con centro en <M>{r`\bvec{v}`}</M> y radio <M>{r`\varepsilon`}</M> se denota por <M>{r`B_{\varepsilon}(\bvec{v})`}</M> y es el conjunto dado por
         <M block>
-          {r`B_{\varepsilon}(\bvec{v}) = \{\bvec{x}\in\mathbb{R}^{n}\colon\norm{\bvec{x}-\bvec{v}} < \varepsilon\}.`}
+          {r`B_{\varepsilon}(\bvec{v}) \coloneqq \{\bvec{x}\in\mathbb{R}^{n}\colon\norm{\bvec{x}-\bvec{v}} < \varepsilon\}.`}
         </M>
       </Definition>
 
@@ -221,11 +221,11 @@ const CalculoVectorial = () => (
       <Definition concept="Disco abierto">
         Sea <M>{r`\bvec{v}\in\mathbb{R}^{2}`}</M> un punto y <M>{r`\varepsilon \in \mathbb{R}`}</M> un escalar tal que <M>{r`\varepsilon>0`}</M>. Un <em>disco abierto</em> con radio <M>{r`\varepsilon`}</M> y centro en <M>{r`\bvec{v}`}</M> es un entorno en <M>{r`\mathbb{R}^{2}`}</M> de la forma
         <M block>
-          {r`B_\varepsilon(\bvec{v})=\{\bvec{x}\in\mathbb{R}^{2}\colon\norm{\bvec{x}-\bvec{v}} < \varepsilon\}.`}
+          {r`B_\varepsilon(\bvec{v}) \coloneqq \{\bvec{x}\in\mathbb{R}^{2}\colon\norm{\bvec{x}-\bvec{v}} < \varepsilon\}.`}
         </M>
         Si <M>{r`\bvec{v}=(v_x,v_y)`}</M>, el disco abierto se describe en coordenadas cartesianas como
         <M block>
-          {r`B_\varepsilon(v_x,v_y)=\{(x,y)\colon (x-v_x)^2+(y-v_y)^2<\varepsilon^2\}.`}
+          {r`B_\varepsilon(v_x,v_y) = \{(x,y)\colon (x-v_x)^2+(y-v_y)^2<\varepsilon^2\}.`}
         </M>
       </Definition>
 
@@ -236,11 +236,11 @@ const CalculoVectorial = () => (
       <Definition concept="Bola abierta">
         Sea <M>{r`\bvec{v}\in\mathbb{R}^{3}`}</M> un punto y <M>{r`\varepsilon \in \mathbb{R}`}</M> un escalar tal que <M>{r`\varepsilon>0`}</M>. Una <em>bola abierta</em> con radio <M>{r`\varepsilon`}</M> y centro en <M>{r`(\bvec{v})`}</M> es un entorno en <M>{r`\mathbb{R}^{3}`}</M> de la forma
         <M block>
-          {r`B_\varepsilon(\bvec{v})=\{\bvec{x}\in\mathbb{R}^{3}\colon\norm{\bvec{x}-\bvec{v}} < \varepsilon\}.`}
+          {r`B_\varepsilon(\bvec{v}) \coloneqq \{\bvec{x}\in\mathbb{R}^{3}\colon\norm{\bvec{x}-\bvec{v}} < \varepsilon\}.`}
         </M>
         Si <M>{r`\bvec{v}=(v_x,v_y,v_z)`}</M>, la bola abierta se describe en coordenadas cartesianas como
         <M block>
-          {r`B_\varepsilon(v_x,v_y)=\{(x,y,z)\colon (x-v_x)^2+(y-v_y)^2+(z-v_z)^2<\varepsilon^2\}.`}
+          {r`B_\varepsilon(v_x,v_y) = \{(x,y,z)\colon (x-v_x)^2+(y-v_y)^2+(z-v_z)^2<\varepsilon^2\}.`}
         </M>
       </Definition>
 
@@ -251,7 +251,7 @@ const CalculoVectorial = () => (
       <Definition concept="Conjunto abierto">
         <M>{r`U\subseteq \mathbb{R}^{n}`}</M> es un <em>conjunto abierto</em> si para todo punto <M>{r`\bvec{v}\in U`}</M> existe un entorno centrado en ese punto con radio <M>{r`\varepsilon \in \mathbb{R}_{>0}`}</M>.
         <M block>
-          {r`\{\bvec{x}\in\mathbb{R}^{n}\colon\norm{\bvec{x}-\bvec{v}} < \varepsilon\}\subseteq U.`}
+          {r`\{\bvec{x}\in\mathbb{R}^{n}\colon\norm{\bvec{x}-\bvec{v}} < \varepsilon\} \subseteq U.`}
         </M>
       </Definition>
 
@@ -532,7 +532,7 @@ const CalculoVectorial = () => (
           },
           {
             name: "Límite de una función compuesta",
-            formula: <span>Considérese <M>{r`\bvec{H}\colon \mathbb{R}^{n}\to\mathbb{R}^{k}`}</M>, tal que <M>{r`(\bvec{H} \circ \bvec{F})\colon \mathbb{R}^{m}\to\mathbb{R}^{k}`}</M>. Si <M>{r` \displaystyle \lim_{\bvec{x}\to\bvec{u}} \bvec{F}(\bvec{x}) = \bvec{v}`}</M> y <M>{r` \displaystyle \lim_{\bvec{y}\to\bvec{v}} \bvec{H}(\bvec{y}) = \bvec{w}`}</M>, entonces \break <M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{u}} (\bvec{H} \circ \bvec{F}) (\bvec{x}) = \bvec{w} `}</M>.</span>
+            formula: <span>Considérese <M>{r`\bvec{H}\colon \mathbb{R}^{n}\to\mathbb{R}^{k}`}</M>, tal que <M>{r`(\bvec{H} \circ \bvec{F})\colon \mathbb{R}^{m}\to\mathbb{R}^{k}`}</M>. Si <M>{r` \displaystyle \lim_{\bvec{x}\to\bvec{u}} \bvec{F}(\bvec{x}) = \bvec{v}`}</M> y <M>{r` \displaystyle \lim_{\bvec{y}\to\bvec{v}} \bvec{H}(\bvec{y}) = \bvec{w}`}</M>, entonces <M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{u}} (\bvec{H} \circ \bvec{F}) (\bvec{x}) = \bvec{w} `}</M>.</span>
           }
         ]}
       />
@@ -555,15 +555,14 @@ const CalculoVectorial = () => (
       </p>
 
       <Definition concept="Derivada parcial">
-        Sean <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto, <M>{r`f\colon U \to \mathbb{R}`}</M> una función escalar de <M>{r`n`}</M> variables y <M>{r`\bvec{v}\in U`}</M> un punto. La <em>derivada parcial</em> de <M>{r`f`}</M> en el punto <M>{r`\bvec{v}\in U`}</M> con respecto a la i-ésima variable <M>{r`x_i`}</M>, donde <M>{r`i \leq n`}</M>, se define como
+        Sea <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto y sea <M>{r`f\colon U \to \mathbb{R}`}</M> una función escalar de <M>{r`n`}</M> variables. La <em>derivada parcial</em> de <M>{r`f`}</M> con respecto a la i-ésima variable de la función, <M>{r`x_i`}</M>, se define como la función
         <M block>
-          {r`\parder{f(\bvec{v})}{x_i} \coloneqq \lim_{h\to 0} \frac{f(v_1,\ldots,v_i+h,\ldots,v_n)-f(\bvec{v})}{h}.`}
+          {r`\parder{f(\bvec{x})}{x_i} \coloneqq \lim_{h\to 0} \frac{f(x_1, x_2, \ldots, x_i+h, \ldots, x_n)-f(\bvec{x})}{h}.`}
         </M>
         Si y solamente si el límite existe.
       </Definition>
-
       <p>
-        La definición de derivada parcial en un punto es análoga a la definición de derivada. Recuérdese que <M>{r`h`}</M> representa la distancia entre el punto <M>{r`\bvec{v}`}</M> y un punto cercano <M>{r`f(v_1,\ldots,v_i+h,\ldots,v_n)`}</M>. En este caso, esa distancia es respecto al eje cartesiano <M>{r`x_i`}</M>. Se busca la pendiente de la recta secante entre los dos puntos, que cuando <M>{r`h`}</M> tiende a 0, la distancia entre los puntos se hace infinitesimalmente pequeña, y se convierte en la pendiente de la recta tangente a <M>{r`f`}</M> en el punto <M>{r`\bvec{v}`}</M>.
+        La definición de derivada parcial es análoga a la definición de derivada. Recuérdese que en aquella definición, la idea es obtener una función que determine, para cualquier punto en <M>{r`f`}</M>, la pendiente de la recta tangente a él. <M>{r`\bvec{x}`}</M> representa cualquier punto en el dominio de <M>{r`f`}</M>. Se busca determinar la pendiente de la recta secante entre <M>{r`(\bvec{x}, f(\bvec{x}))`}</M> y otro punto muy cercano a él, tan cercano, que esa pendiente sea realmente la de la recta tangente. Con eso en mente, <M>{r`h`}</M> representa la distancia entre los puntos. En este caso, esa distancia es con respecto al eje cartesiano <M>{r`x_i`}</M>, por lo cual se selecciona a <M>{r`((x_1, x_2, \ldots, x_i+h, \ldots, x_n), f(x_1, x_2, \ldots, x_i+h, \ldots, x_n))`}</M> como punto cercano. La fracción en la definición corresponde entonces a la pendiente de la recta secante entre los dos puntos. Cuando <M>{r`h`}</M> tiende a 0, la distancia entre los puntos se hace infinitesimalmente pequeña y la pendiente de la recta secante se convierte en la pendiente de la recta tangente a <M>{r`f`}</M> en el punto <M>{r`(\bvec{x}, f(\bvec{x}))`}</M> en la dirección de <M>{r`x_i`}</M>.
       </p>
       <Tip>
         El párrafo anterior es bastante sucinto; si no es claro, se recomienda leer la {referenceById("sección sobre la definición de derivada en una variable.", DIFFERENTIAL_CALCULUS, "definicion-de-derivada")}
@@ -585,6 +584,31 @@ const CalculoVectorial = () => (
 	\end{gather*}`}
         </M>
       </Example>
+
+      <Properties
+        title="Propiedades de la derivada parcial"
+        description={<span><p>Las propiedades de la derivada parcial respecto a cualquier variable son idénticas a las propiedades de la derivada clásica, salvo la regla de la cadena.</p><p> Sea <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto, sean <M>{r`f,g\colon U \to \mathbb{R}`}</M> funciones escalares de múltiples variables y sea <M>{r`c \in \mathbb{R}`}</M> una constante. Si las derivadas parciales <M>{r`\partial f / \partial x_i`}</M> y <M>{r`\partial g / \partial x_i`}</M>, entonces se cumplen las siguientes propiedades:</p></span>}
+        properties={[
+          {
+            name: "Propiedad de homogeneidad",
+            formula: <M>{r`\dparder{cf}{x_i} = c \, \dparder{f}{x_i}`}</M>
+          },
+          {
+            name: "Propiedad de linealidad",
+            formula: <M>{r`\dparder{f \pm g}{x_i} = \dparder{f}{x_i} \pm \dparder{g}{x_i}`}</M>
+          },
+          {
+            name: "Regla del producto",
+            formula: <M>{r`\dparder{fg}{x_i} = g\dparder{f}{x_i} + f \dparder{g}{x_i}`}</M>
+          },
+          {
+            name: "Regla del cociente",
+            formula: <span><M>{r`\dparder{\dfrac{f}{g}}{x_i} =\cfrac{g\dparder{f}{x_i} -f\dparder{g}{x_i}}{g^2}`}</M>, en los puntos <M>{r`\bvec{x}`}</M> donde <M>{r`g(\bvec{x})\neq0`}</M>.</span>
+          }
+        ]}
+      />
+
+      <p>Respecto a la regla de la cadena, nótese que para poder componer la función <M>{r`f\colon U \subseteq \mathbb{R}^n \to \mathbb{R}`}</M> con otra función, esa segunda función debe ser vectorial, de la forma <M>{r`\bvec{G} \colon \mathbb{R} \to \mathbb{R}^n`}</M>. Por ende, no existe una regla de la cadena para derivadas parciales, sino más bien una regla de la cadena multivariable, la cual se estudia más adelante. </p>
 
       <h4>Derivada parcial de enésimo orden</h4>
 
@@ -661,46 +685,47 @@ const CalculoVectorial = () => (
         </M>
       </Example>
 
-      {/* TODO: Study session until here */}
-
       <p>
-        Dada una función escalar de <M>{r`m`}</M> variables  <M>{r`f\colon U\subseteq \mathbb{R}^{m}\to\mathbb{R}`}</M>, si la función de clase <M>{r`C^{n}`}</M> tal que es <M>{r`n`}</M> veces continuamente diferenciable, es posible calcular <M>{r`m^n`}</M> <em>derivadas parciales de enésimo orden</em>. Sin embargo, entre ellas hay varias repetidas por simetría de la derivada parcial. A razón de eso, el número de derivadas parciales de enésimo orden únicas para una función con <M>{r`m`}</M> variables es un problema equivalente al número de formas en las cuales es posible distribuir <M>{r`n`}</M> elementos en <M>{r`m`}</M> contenedores. Haciendo uso de combinatoria, se llega a que la respuesta está dada por el siguiente coeficiente binomial:
+        Dada una función escalar de <M>{r`m`}</M> variables  <M>{r`f\colon U\subseteq \mathbb{R}^{m}\to\mathbb{R}`}</M>, si la función es de clase <M>{r`C^{n}`}</M>, tal que es <M>{r`n`}</M> veces continuamente diferenciable, es posible calcular <M>{r`m^n`}</M> <em>derivadas parciales de enésimo orden</em>. Sin embargo, entre ellas hay varias repetidas por simetría de la derivada parcial. A razón de eso, el número de derivadas parciales de enésimo orden únicas para una función con <M>{r`m`}</M> variables es un problema equivalente al número de formas en las cuales es posible distribuir <M>{r`n`}</M> elementos en <M>{r`m`}</M> contenedores. Haciendo uso de combinatoria, se llega a que la respuesta está dada por el siguiente coeficiente binomial:
         <M block>
           {r`\begin{pmatrix}
 	n+m-1\\m-1
 	\end{pmatrix}.`}
         </M>
       </p>
+      {/* TODO: Aclarar esta combinatoria y mirar bien: qué da? */}
 
-      <h3>Notación nabla</h3>
+      <h3>El operador Nabla</h3>
 
       <p>
-        <em>Nabla</em> o <em>del</em>, denotado por el símbolo <M>{r`\nabla`}</M>, es el vector de operadores de derivadas parciales.
-        <M block>
-          {r`\nabla = \left(\frac{\partial}{\partial x_1},\frac{\partial}{\partial x_2},\ldots,\frac{\partial}{\partial x_n}\right).`}
-        </M>
-        Haciendo uso de vectores unitarios de base estándar, nabla se define en el sistema coordenado cartesiano como
+        <Definition concept="Operador nabla">
+          El operador <em>nabla</em> o <em>del</em>, denotado por el símbolo <M>{r`\nabla`}</M>, es un operador unario definido como el vector fila de operadores de derivadas parciales:
+          <M block>
+            {r`\nabla \coloneqq \left(\frac{\partial}{\partial x_1},\frac{\partial}{\partial x_2},\ldots,\frac{\partial}{\partial x_n}\right).`}
+          </M>
+          donde <M>{r`n`}</M> es el número de variables de la función, vector o escalar con el que se opera.
+        </Definition>
+        
+        Haciendo uso de vectores unitarios de base estándar, nabla se define en términos de la base canónica de <M>{r`\mathbb{R}^n`}</M> como
         <M block>
           {r`\nabla = \sum_{i=1}^n \bvec{e}_i \frac{\partial}{\partial x_i}.`}
         </M>
-      </p>
+      </p> 
 
       <p>
-        Nabla no es un vector, sino un <em>operador vectorial</em>, por lo que sus propiedades se deben derivar con delicadeza. Nabla no tiene magnitud ni dirección, mas puede ser operado con funciones de múltiples variables para obtener un vector, o con vectores o escalares para obtener el vector cero. Están definidas para nabla la multiplicación por escalar y los productos punto y cruz.
+        Nabla no es un vector, pues no tiene magnitud ni dirección, es un <em>operador vectorial</em>. Para nabla, están definidas la multiplicación por escalar y los productos punto y cruz. Por ende, puede ser operado con una función de múltiples variables para obtener un vector, con una función de una variable para obtener su derivada, y con cualquier vector o escalar para obtener el vector cero. 
       </p>
-
       <ul>
-        <li> La multiplicación de nabla por una función escalar da origen al gradiente.</li>
-        <li> El producto punto de nabla con una función vectorial  da origen a la divergencia.</li>
-        <li> El producto cruz de nabla con una función vectorial da origen al rotacional.</li>
+        <li> La multiplicación de nabla por una función escalar da origen al <em>gradiente</em>. Si la función escalar es de una variable, se convierte en la derivada convencional en una dimensión.</li>
+        <li> El producto punto de nabla con una función vectorial  da origen a la <em>divergencia</em>.</li>
+        <li> El producto cruz de nabla con una función vectorial da origen al <em>rotacional</em>.</li>
       </ul>
-
       <Warning>
         Nabla no conmuta en el producto punto como sí lo hacen los vectores.
       </Warning>
 
       <p>
-        El número de componentes de nabla, <M>{r`n`}</M>, está dado por el número de variables que tiene la función con la cuál está siendo operada. Para funciones de tres variables, nabla se define como
+        Como el número de componentes de nabla, <M>{r`n`}</M>, está dado por el número de variables que tiene su operando, para funciones y vectores de tres variables, nabla se puede expresar como
         <M block>
           {r`\begin{gather*}
 	\nabla = \left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right)\\
@@ -712,19 +737,18 @@ const CalculoVectorial = () => (
       <h3>El gradiente</h3>
 
       <p>
-        El gradiente es la generalización de la derivada de funciones escalares de una variable para funciones escalares de múltiples variables. En general, derivar una función escalar consiste en calcular su gradiente, incluso para funciones escalares de una variable.
+        El gradiente es la generalización de la derivada convencional para cualquier función escalar, independientemente de su número de variables.
       </p>
 
       <Definition concept="Gradiente">
-        Sean <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto y <M>{r`f\colon U \to \mathbb{R}`}</M> una función escalar de múltiples variables, si todas las derivadas parciales <M>{r` \partial f / \partial x_i `}</M> existen para <M>{r`i \in \mathbb{N}\mid 1\leq i \leq n`}</M>, entonces el <em>gradiente</em> de <M>{r`f`}</M>, denotado por <M>{r`\nabla f`}</M>, está dado por
+        Sean <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto y <M>{r`f\colon U \to \mathbb{R}`}</M> una función escalar de múltiples variables, si todas las derivadas parciales <M>{r` \partial f / \partial x_i `}</M> existen para <M>{r`i \in \mathbb{N}\mid 1\leq i \leq n`}</M>, entonces el <em>gradiente</em> de <M>{r`f`}</M>, denotado por <M>{r`\nabla f`}</M>, es el campo vectorial definido por
         <M block>
           {r`\begin{align*}
-	\nabla f &= \left(\frac{\partial}{\partial x_1},\frac{\partial}{\partial x_2},\ldots,\frac{\partial}{\partial x_n}\right)f\\
-	\nabla f &= \left(\parder{f}{x_1},\parder{f}{x_2},\ldots,\parder{f}{x_n}\right)\\
-	\nabla f &= \bvec{e}_1 \parder{f}{x_1} + \bvec{e}_2 \parder{f}{x_2} + \cdots + \bvec{e}_n \parder{f}{x_n}
+	\nabla f & \coloneqq  \left(\frac{\partial f}{\partial x_1},\frac{\partial f}{\partial x_2},\ldots,\frac{\partial f}{\partial x_n}\right)\\
+	\nabla f & = \bvec{e}_1 \parder{f}{x_1} + \bvec{e}_2 \parder{f}{x_2} + \cdots + \bvec{e}_n \parder{f}{x_n}
 \end{align*}`}
         </M>
-        donde los vectores <M>{r`\bvec{e}_i`}</M> son los vectores unitarios de base estándar.
+        donde los vectores <M>{r`\bvec{e}_i`}</M> son los vectores unitarios de base estándar, aquellos que conforman la base canónica de <M>{r`\mathbb{R}^n`}</M>.
       </Definition>
 
       <p>
@@ -735,68 +759,51 @@ const CalculoVectorial = () => (
       </p>
 
       <p>
-        Calcular el gradiente de una función escalar de <M>{r`n`}</M> variables resulta en un vector <M>{r`\nabla f \in \mathbb{R}^{n}`}</M>. Si no se evalúa la gradiente en ningún punto, las componentes del vector son funciones escalares. Si se evalúa en un punto <M>{r`\bvec{ \in \mathbb{R}^{n}}`}</M>, las componentes del vector <M>{r`\nabla f (\bvec{v})`}</M> son números. Esto es análogo a lo que sucede con la derivada del cálculo diferencial: si se evalúa, es un número; de lo contrario, es una función escalar de una variable.
+        Calcular el gradiente de una función escalar <M>f</M> de <M>{r`n`}</M> variables resulta en un vector <M>{r`\nabla f`}</M>, que es un campo vectorial. Si no se evalúa el gradiente en algún punto, cada componente del vector es función escalar: la derivada parcial de <M>f</M> respecto a la variable correspondiente. Si se evalúa el gradiente en un punto <M>{r`\bvec{v} \in \mathbb{R}^{n}`}</M>, las componentes del vector <M>{r`\nabla f(\bvec{v}) \in \mathbb{R}^{n}`}</M> son números. Esto es análogo a lo que sucede con la derivada de una dimensión: si se evalúa en un punto, es un número; de lo contrario, es una función escalar de una variable.
       </p>
 
-      <p>
-        El gradiente presenta las mismas propiedades de la derivada del cálculo diferencial (pues <i>es</i> la derivada). Sean <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto y <M>{r`f,g\colon U\to\mathbb{R}`}</M> funciones escalares de múltiples variables, si <M>{r`\nabla f`}</M> y <M>{r`\nabla g`}</M> existen, se cumple que
-      </p>
+      <Properties
+        title="Propiedades del gradiente"
+        description={<p>Similar a la derivada parcial, el gradiente presenta las mismas propiedades que la derivada en una dimensión, salvo la regla de la cadena. Sean <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto y <M>{r`f,g\colon U\to\mathbb{R}`}</M> funciones escalares de múltiples variables, si <M>{r`\nabla f`}</M> y <M>{r`\nabla g`}</M> existen, se cumple que</p>}
+        properties={[
+          {
+            name: "Propiedad de homogeneidad",
+            formula: <M>{r`\nabla (cf) = c\nabla f`}</M>
+          },
+          {
+            name: "Propiedad de linealidad",
+            formula: <M>{r`\nabla (f+g) = \nabla f + \nabla g`}</M>
+          },
+          {
+            name: "Regla del producto",
+            formula: <M>{r`\nabla (fg) = g \nabla f + f \nabla g`}</M>
+          },
+          {
+            name: "Regla del cociente",
+            formula: <span><M>{r`\displaystyle \nabla \left (\frac{f}{g}\right ) =\frac{g\nabla f -f\nabla g}{g^2}`}</M>, en los puntos <M>{r`\bvec{x}`}</M> donde <M>{r`g(\bvec{x})\neq0`}</M></span>
+          }
+        ]}
+      />
 
-      {/*\begin{longtable}{lp{\textwidth/2-1.3cm}p{\textwidth/2-0.5cm}}
-	\rule[1ex]{0pt}{2.5ex}i.&Propiedad de homogeneidad del gradiente: &<M>{r` \nabla (cf) = c\nabla f `}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}ii.&Propiedad de linealidad del gradiente: &<M>{r`\nabla (f+g) = \nabla f + \nabla g`}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}iii.&Regla del producto del gradiente: &<M>{r` \nabla (fg) = g\nabla f + f \nabla g `}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}iv.&Regla del cociente del gradiente: &En los puntos <M>{r`\bvec{x}`}</M> donde <M>{r`g(\bvec{x})\neq0`}</M>,\newline <M>{r`\displaystyle \nabla \left (\frac{f}{g}\right ) =\frac{g\nabla f -f\nabla g}{g^2}`}</M>. \\
-{/* 	\rule[1ex]{0pt}{2.5ex}v.&Regla de la cadena: &<M>{r`\displaystyle (f \circ g)'=(f(g(x)))'=f'(g(x)) \cdot g'(x)`}</M>.  \end{longtable}
-*/}
+      <Properties
+        description={<p>También se pueden demostrar propiedades del gradiente que involucran campos vectoriales</p>}
+        properties={[
+          {
+            name: "Gradiente del producto punto de campos vectoriales",
+            formula: <M>{r`\nabla (\bvec{F}\cdot\bvec{G}) = (\bvec{F}\cdot \nabla)\bvec{G} + (G\cdot\nabla)\bvec{F} + \bvec{F}\times \rot \bvec{G} + \bvec{G}\times \rot \bvec{F}.`}</M>
+          },
+          {
+            name: "Gradiente del producto punto de un campo vectorial por sí mismo",
+            formula: <M>{r`\nabla (\bvec{F}\cdot\bvec{F}) = 2(\bvec{F}\cdot \nabla)\bvec{F} + 2\bvec{F} \times (\rot \bvec{F}).`}</M>
+          },
+          {
+            name: "Gradiente al cuadrado del producto de funciones escalares",
+            formula: <M>{r`\nabla^2 (fg) = f\nabla^2g+g\nabla^2f+2(\nabla f\cdot\nabla g)`}</M>
+          }
+        ]}
+      />
 
-      {/* También se pueden demostrar propiedades del gradiente que involucran campos vectoriales
-\begin{longtable}{lp{\textwidth/2-1.8cm}p{\textwidth/2}}
-	\rule[1ex]{0pt}{2.5ex}v.&Gradiente del producto punto de campos vectoriales: &<M>{r` \nabla (\bvec{F}\cdot\bvec{G}) = (\bvec{F}\cdot \nabla)\bvec{G} + (G\cdot\nabla)\bvec{F} + \bvec{F}\times \rot \bvec{G} + \bvec{G}\times \rot \bvec{F}.`}</M> \\
-	\rule[1ex]{0pt}{2.5ex}vi.&Gradiente del producto punto de un campo vectorial por sí mismo: &<M>{r` \nabla (\bvec{F}\cdot\bvec{F}) = 2(\bvec{F}\cdot \nabla)\bvec{F} + 2\bvec{F} \times (\rot \bvec{F}).`}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}vii.&Gradiente al cuadrado del producto de funciones escalares: &<M>{r`\nabla^2 (fg) = f\nabla^2g+g\nabla^2f+2(\nabla f\cdot\nabla g)`}</M>. \\
-\end{longtable} */}
-
-      <h4>Planos tangentes</h4>
-
-      <p>
-        El gradiente de una función siempre es normal a los conjuntos de nivel de la función. Ese hecho se utiliza para hallar planos tangentes a una superficie o superficie de nivel en un punto determinado.
-      </p>
-
-      <h5>Planos tangentes a superficies de nivel</h5>
-
-      <p>
-        Sea <M>{r`f`}</M> una función diferenciable <M>{r`f\colon U\subseteq\mathbb{R}^{3}\to\mathbb{R}`}</M> y <M>{r`d\in \mathbb{R}`}</M>, uno de sus conjuntos de nivel es <M>{r`f(x,y,z)=d`}</M>, que es concretamente una superficie de nivel. Sea <M>{r`(a,b,c)`}</M> un punto en la superficie de nivel, de forma que satisface <M>{r` f(a,b,c)=d `}</M>. Para hallar el plano tangente a la superficie de nivel <M>{r`f(x,y,z)=d`}</M> en el punto <M>{r`(a,b,c)`}</M>, se usa el hecho de que el vector <M>{r`\nabla f(a,b,c)`}</M> es normal a la superficie en el punto <M>{r`(a,b,c)`}</M>. Se tiene entonces un vector normal al plano tangente y un punto en él, por lo que se puede escribir la ecuación del plano como
-        <M block>
-          {r`(x-a,y-b,z-c) \cdot (\nabla f(a,b,c)) = 0.`}
-        </M>
-        Se iguala el producto punto a 0 para que el plano consista de todos los posibles vectores cuyo punto inicial es <M>{r`(a,b,c)`}</M>, que están dados por <M>{r` (x-a,y-b,z-c) `}</M>, que satisfagan ser perpendiculares al vector normal <M>{r`\bvec{n}=\nabla f(a,b,c)`}</M>.
-      </p>
-
-      <h5>Planos tangentes a superficies</h5>
-
-      <p>
-        Sea <M>{r`f`}</M> una función diferenciable <M>{r`f\colon U\subseteq\mathbb{R}^{2}\to\mathbb{R}`}</M>, su superficie está dada por <M>{r`f(x,y)=z`}</M>. Dados <M>{r`a,b \in U\subseteq \mathbb{R}`}</M>, se sabe que el punto <M>{r`(a,b,f(a,b))`}</M> se encuentra en la superficie. Se quiere implementar el procedimiento para hallar planos tangentes a superficies de nivel. Para ello se define una función <M>{r`g\colon U\subseteq\mathbb{R}^{3}\to\mathbb{R}`}</M> por
-        <M block>
-          {r`g(x,y,z)\coloneqq f(x,y)-z`}
-        </M>
-        con lo que se reescribe la superficie \(\) como una superficie de nivel:
-        <M block>
-          {r`\begin{align*}
-	f(x,y)&=z \\
-	f(x,y)-z&=0 \\
-	g(x,y,z)&=0 
-\end{align*}`}
-        </M>
-        Con eso, se puede usar el método para planos tangentes a superficies de nivel. Se obtiene la gradiente evaluada en el punto, <M>{r`\nabla g(a,b,f(a,b))`}</M> y se escribe la ecuación del plano como
-        <M block>
-          {r`(x-a,y-b,z-f(a,b)) \cdot (\nabla g(a,b,f(a,b))) = 0.`}
-        </M>
-      </p>
-
-      <Tip>
-        Si el gradiente de una función <M>{r`f`}</M> evaluado en un punto sea igual a <M>{r`\bvec{0}`}</M>, entonces el plano tangente a <M>{r`f`}</M> en ese punto es paralelo al plano <M>{r`xy`}</M>.
-      </Tip>
+      {/* TODO: Regla de la cadena multivariable! */}
 
       <h3>La derivada direccional</h3>
 
@@ -805,21 +812,26 @@ const CalculoVectorial = () => (
       </p>
 
       <Definition concept="Derivada direccional">
-        Sea <M>{r`f\colon U\subseteq \mathbb{R}^{n}\to \mathbb{R}`}</M> una función escalar de <M>{r`n`}</M> variables que es diferenciable en <M>{r`\bvec{x}`}</M> y sea <M>{r`\bvec{v}\in\mathbb{R}^{n} \mid \bvec{v}\neq \bvec{0}`}</M> un vector, la <em>derivada direccional</em> de <M>{r`f`}</M> en la dirección de <M>{r`\bvec{v}`}</M> en el punto <M>{r`\bvec{x}`}</M>, denotada por <M>{r`\mathrm{D}_{\bvec{v}} f`}</M>, está definida por
+      Sean <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto, <M>{r`f\colon U \to \mathbb{R}`}</M> una función escalar de <M>{r`n`}</M> variables y <M>{r`\bvec{v}\in\mathbb{R}^{n} \mid \bvec{v}\neq \bvec{0}`}</M> un vector. La <em>derivada direccional</em> de <M>{r`f`}</M> la dirección de <M>{r`\bvec{v}`}</M>, denotada por <M>{r`\mathrm{D}_{\bvec{v}} f`}</M>, está definida como la función
         <M block>
-          {r`\mathrm{D}_{\bvec{v}} f = \lim_{h\to 0} \frac{f(\bvec{x}+h\uvec{v})-f(\bvec{x})}{h}`}
+          {r`\mathrm{D}_{\bvec{v}} f(\bvec{x}) \coloneqq \lim_{h\to 0} \frac{f(\bvec{x}+h\uvec{v})-f(\bvec{x})}{h}`}
         </M>
-        donde <M>{r`\uvec{v}`}</M> es el vector unitario de <M>{r`\bvec{v}`}</M>, <M>{r`\uvec{v} = \bvec{v}/\norm{\bvec{v}}`}</M>.
+        donde <M>{r`\uvec{v}`}</M> es el vector unitario de <M>{r`\bvec{v}`}</M>, es decir, su dirección..
       </Definition>
 
       <p>
-        En la definición, se elige el vector unitario <M>{r`\uvec{v}`}</M> en lugar del vector <M>{r`\bvec{v}`}</M> porque de dicho vector únicamente interesa su dirección.
+        En la definición, se elige el vector unitario <M>{r`\uvec{v}`}</M>, que representa la dirección en la que apunta el vector <M>{r`\bvec{v}`}</M>. Ese vector unitario se calcula como <M>{r`\uvec{v} = \bvec{v}/\norm{\bvec{v}}`}</M> y tiene norma <M>1</M>. 
+      </p>
+      <p>
+        La definición anterior es una abstracción de la definición de derivada parcial. Al igual que se recordó en la definición de derivada parcial, <M>h</M> representa la distancia entre dos puntos para los cuales se quiere obtener la pendiente de su recta secante. En la definición de derivada parcial, se quiere separar los puntos <M>h</M> unidades en la dirección de alguno de los ejes cartesianos, por lo que basta con sumar <M>h</M> a uno de los componentes de <M>{r`\bvec{x}`}</M> para obtener el punto cercano. En esta definición, se busca separar los puntos <M>h</M> unidades en la dirección arbitraria <M>{r`\uvec{v}`}</M>, por lo que se realiza la suma <M>{r`\bvec{x}+h\uvec{v}`}</M>. Los puntos para los que se quiere hallar la pendiente de la recta secante son entonces <M>{r`(\bvec{x}, f(\bvec{x}))`}</M> y <M>{r`(\bvec{x}+h\uvec{v}, f(\bvec{x}+h\uvec{v})`}</M>, a eso corresponde la fracción en la definición. Cuando <M>h</M> tiende a <M>0</M>, se convierte en la pendiente de la recta tangente al punto <M>{r`(\bvec{x}, f(\bvec{x}))`}</M> en la dirección <M>{r`\uvec{v}`}</M>.
       </p>
 
+      {/* TODO: ESTUDIO HASTA AQUÍ */}
+
       <p>
-        A causa de la definición anterior, la derivada direccional de de <M>{r`f`}</M> en la dirección de <M>{r`\bvec{v}`}</M> en el punto <M>{r`\bvec{x}`}</M> se puede escribir como
+         La derivada direccional de <M>{r`f`}</M> en la dirección de <M>{r`\bvec{v}`}</M> en el punto <M>{r`\bvec{x}`}</M> se puede escribir como
         <M block>
-          {r`\mathrm{D}_{\bvec{v}} f =\der{}{t} f(\bvec{x}+t\bvec{v}) \mid_{t=0}`}
+          {r`\mathrm{D}_{\bvec{v}} f(\bvec{x}) = \der{}{t} f(\bvec{x}+t\bvec{v}) \mid_{t=0}`}
         </M>
         donde <M>{r`\bvec{x}+t\bvec{v}`}</M> es la ecuación vectorial de una recta <M>{r`\ell`}</M>. Si el punto es <M>{r`\bvec{x}=(a,b,c)`}</M>, se tiene
         <M block>
@@ -835,7 +847,7 @@ const CalculoVectorial = () => (
       <Theorem>
         Sea <M>{r`f`}</M> una función diferenciable, su derivada direccional en la dirección de <M>{r`\bvec{v}`}</M> en el punto <M>{r`\bvec{x}`}</M> se puede calcular como
         <M block>
-          {r`\mathrm{D}_{\bvec{v}} f =\nabla f(\bvec{x}) \cdot \uvec{v}`}
+          {r`\mathrm{D}_{\bvec{v}} f(\bvec{x}) = \nabla f(\bvec{x}) \cdot \uvec{v}`}
         </M>
       </Theorem>
 
@@ -883,7 +895,6 @@ const CalculoVectorial = () => (
         El valor negativo de ese vector unitario es la dirección de mayor decrecimiento de <M>{r`f`}</M > en el punto <M>{r`\bvec{v}`}</M >.La norma del gradiente es igual al valor de la derivada direccional máxima.
       </p>
 
-
       <h5>
         Puntos estacionarios
       </h5>
@@ -899,6 +910,54 @@ const CalculoVectorial = () => (
       <Definition concept="Punto estacionario">
         Un <em>punto estacionario</em> es un punto en el que una función no presenta crecimiento ni decrecimiento. Todo punto estacionario es o bien un extremo relativo (máximo o mínimo local) o bien un punto de silla.
       </Definition>
+
+      <h4>Planos tangentes</h4>
+
+      <p>
+        El siguiente teorema abre la puerta a usar el gradiente para aplicaciones geométricas:
+      </p>
+      <Theorem environmentName="Lema" name="El gradiente es ortogonal a toda curva de nivel">
+        Para cualquier función escalar de más de una variable, su gradiente siempre es ortogonal a cualquiera de sus conjuntos de nivel.
+      </Theorem>
+      
+      <p>
+        Se eximen explícitamente del teorema las funciones escalares de una variable puesto que su gradiente evaluado en un punto es un escalar, no un vector, y no tiene sentido hablar de ortogonalidad en ese caso.
+      </p> 
+
+      <h5>Planos tangentes a superficies de nivel</h5>
+
+      <p>
+        Sea <M>{r`f`}</M> una función diferenciable <M>{r`f\colon U\subseteq\mathbb{R}^{3}\to\mathbb{R}`}</M> y <M>{r`d\in \mathbb{R}`}</M>, uno de sus conjuntos de nivel es <M>{r`f(x,y,z)=d`}</M>, que es concretamente una superficie de nivel. Sea <M>{r`(a,b,c)`}</M> un punto en la superficie de nivel, de forma que satisface <M>{r` f(a,b,c)=d `}</M>. Para hallar el plano tangente a la superficie de nivel <M>{r`f(x,y,z)=d`}</M> en el punto <M>{r`(a,b,c)`}</M>, se usa el hecho de que el vector <M>{r`\nabla f(a,b,c)`}</M> es normal a la superficie en el punto <M>{r`(a,b,c)`}</M>. Se tiene entonces un vector normal al plano tangente y un punto en él, por lo que se puede escribir la ecuación del plano como
+        <M block>
+          {r`(x-a,y-b,z-c) \cdot (\nabla f(a,b,c)) = 0.`}
+        </M>
+        Se iguala el producto punto a 0 para que el plano consista de todos los posibles vectores cuyo punto inicial es <M>{r`(a,b,c)`}</M>, que están dados por <M>{r` (x-a,y-b,z-c) `}</M>, que satisfagan ser perpendiculares al vector normal <M>{r`\bvec{n}=\nabla f(a,b,c)`}</M>.
+      </p>
+
+      <h5>Planos tangentes a superficies</h5>
+
+      <p>
+        Sea <M>{r`f`}</M> una función diferenciable <M>{r`f\colon U\subseteq\mathbb{R}^{2}\to\mathbb{R}`}</M>, su superficie está dada por <M>{r`f(x,y)=z`}</M>. Dados <M>{r`a,b \in U\subseteq \mathbb{R}`}</M>, se sabe que el punto <M>{r`(a,b,f(a,b))`}</M> se encuentra en la superficie. Se quiere implementar el procedimiento para hallar planos tangentes a superficies de nivel. Para ello se define una función <M>{r`g\colon U\subseteq\mathbb{R}^{3}\to\mathbb{R}`}</M> por
+        <M block>
+          {r`g(x,y,z)\coloneqq f(x,y)-z`}
+        </M>
+        con lo que se reescribe la superficie \(\) como una superficie de nivel:
+        <M block>
+          {r`\begin{align*}
+	f(x,y)&=z \\
+	f(x,y)-z&=0 \\
+	g(x,y,z)&=0 
+\end{align*}`}
+        </M>
+        Con eso, se puede usar el método para planos tangentes a superficies de nivel. Se obtiene la gradiente evaluada en el punto, <M>{r`\nabla g(a,b,f(a,b))`}</M> y se escribe la ecuación del plano como
+        <M block>
+          {r`(x-a,y-b,z-f(a,b)) \cdot (\nabla g(a,b,f(a,b))) = 0.`}
+        </M>
+      </p>
+
+      <Tip>
+        Si el gradiente de una función <M>{r`f`}</M> evaluado en un punto sea igual a <M>{r`\bvec{0}`}</M>, entonces el plano tangente a <M>{r`f`}</M> en ese punto es paralelo al plano <M>{r`xy`}</M>.
+      </Tip>
 
       <h3>Diferenciabilidad de funciones escalares</h3>
 
