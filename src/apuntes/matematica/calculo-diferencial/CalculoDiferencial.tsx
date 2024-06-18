@@ -3,6 +3,7 @@ import Properties from "@/components/notes/environments/Properties";
 import { Notation, Tip, Warning } from "@/components/notes/environments/StickyNotes";
 import NoteDocument from "@/components/notes/NoteDocument";
 import Section from "@/components/notes/Section";
+import H3 from "@/components/notes/Subsection";
 import { referenceById } from "@/components/utils/hyperlinkManager";
 import M, { r } from "@/math/LaTeX";
 import { DIFFERENTIAL_CALCULUS, VECTOR_CALCULUS } from "@/Router";
@@ -55,7 +56,7 @@ const CalculoDiferencial = () => (
 
       {/* TODO: Explicar o al menos introducir que el límite bien podría no existir! */}
 
-      <h3>Definición de límite</h3>
+      <H3>Definición de límite</H3>
       <Tip>
         Como antesala a la definición, que trata distancias entre valores, es útil tener en mente lo siguiente:
         <ul>
@@ -83,7 +84,7 @@ const CalculoDiferencial = () => (
         A continuación, se presentan múltiples definiciones de distintos tipos de límites. Todas son esencialmente leves variaciones de la definición general de límite presentada arriba. Es crucial comprender la definición general antes de abordar las definiciones específicas.
       </Warning>
 
-      <h3>Límites laterales</h3>
+      <H3>Límites laterales</H3>
 
       <p>
         En el Ejemplo 1, se toman valores de <M>x</M> cercanos a <M>2</M> para mostrar que <M>{r`\lim_{x \to 2}f(x)=0`}</M> para la función <M>f(x)=x-2</M>. Ahora, supóngase que se toman valores cercanos a <M>2</M>, pero solo mayores que <M>2</M>, o sea, a la derecha del <M>2</M> en la recta real. Posibles candidatos son <M>2.1</M>, <M>2.05</M> o cualquier valor arbitrariamente cercano a <M>2</M>. Evaluando esos valores en la función, se obtiene un resultado similar a antes, mas se concluye que el límite de <M>f(x)</M> cuando <M>x</M> tiende a <M>2</M> por derecha es <M>0</M>.
@@ -113,7 +114,7 @@ const CalculoDiferencial = () => (
         </M>
       </Definition>
 
-      <h3>Inexistencia del límite</h3>
+      <H3>Inexistencia del límite</H3>
 
       <p>
         Si los límites laterales de una función cuando se tiende al mismo valor no son iguales, el límite general no existe. Eso se debe a que el contorno de <M>c</M> no tiende hacia un mismo valor. Ocurre cuando hay saltos, o crecimientos o decrecimientos abruptos hacia el infinito o menos infinito.
@@ -125,7 +126,7 @@ const CalculoDiferencial = () => (
         {r`\lim_{x \to c^-}f(x) \neq \lim_{x \to c^+}f(x) \implies \lim_{x\to c} f(x)  \text{ no existe.}`}
       </M>
 
-      <h3>Límites al infinito</h3>
+      <H3>Límites al infinito</H3>
 
       <p>
         Hasta el momento, se han considerado límites en los que <M>x</M> tiende a un valor <M>{r`c \in \mathbb{R}`}</M>. Sin embargo, también es posible estudiar límites en los que <M>x</M> tiende a infinito o menos infinito, denominados límites al infinito. En estos casos, se estudia el comportamiento de la función cuando <M>x</M> crece o decrece sin límite. Eso se denota por <M>{r`\lim_{x \to \infty} f(x) = L`}</M> o <M>{r`\lim_{x \to -\infty} f(x) = L`}</M>.
@@ -168,7 +169,7 @@ const CalculoDiferencial = () => (
         Es un comportamiento típico en funciones racionales. La gráfica de la función puede interceptar o cruzar la asíntota horizontal en algún punto. Sin embargo, a medida que <M>x</M> se torna muy grande (o muy pequeño, si el límite existente es el segundo), la función se acerca cada vez más a <M>L</M>, sin llegar a tomar nunca ese valor.
       </p>
 
-      <h3>Límites infinitos</h3>
+      <H3>Límites infinitos</H3>
 
       <p>
         Los límites infinitos son todos aquellos que, al ser evaluados, son iguales a más o menos infinito, de la forma <M>{r`\lim_{x \to c}f(x)=\infty`}</M> o <M>{r`\lim_{x \to c}f(x)=-\infty`}</M>. En estos casos, la función <M>f(x)</M> crece o decrece sin límite a medida que <M>x</M> se acerca a <M>c</M>.
@@ -213,7 +214,7 @@ const CalculoDiferencial = () => (
         Igual que antes, suele suceder en funciones racionales.
       </p>
 
-      <h3>Continuidad</h3>
+      <H3>Continuidad</H3>
 
       <p>
         El concepto de continuidad se define formalmente mediante el uso de límites. Intuitivamente, una función es continua si no tiene cambios abruptos de valor. Gráficamente, es continua si su gráfica se puede realizar con un solo trazo. En términos más exactos, una función es continua si el límite de la función en un punto es igual a la imagen de la función en ese punto.
@@ -280,7 +281,7 @@ const CalculoDiferencial = () => (
         </li>
       </ul>
 
-      <h3>Cálculo de límites</h3>
+      <H3>Cálculo de límites</H3>
       <p>
 
         La gran mayoría de límites no se pueden determinar trivialmente, por lo que para el cálculo de límites se utilizan varias técnicas, que en esencia son tres:
@@ -294,22 +295,47 @@ const CalculoDiferencial = () => (
         Una vez se introduzca la diferenciación, en adición a esos métodos se podrá hacer uso de la Regla de L'Hôpital para calcular límites de funciones indeterminadas.
       </p>
 
-      <h4>Propiedades de los límites</h4>
-
-      <p>
+      <Properties
+        title="Propiedades de los límites"
+        description={<p>
         Sea <M>{r`a \in \mathbb{R}`}</M> y sean <M>f</M> y <M>g</M> funciones definidas en un intervalo abierto que contiene a <M>c</M>. Si los límites <M>{r`L = \lim_{x \to c}f(x)`}</M> y <M>{r`M = \lim_{x \to c}g(x)`}</M> existen, entonces se cumplen las siguientes propiedades:
-      </p>
-      {/* 
-        \begin{longtable}{lp{\textwidth/2-1.8cm}p{\textwidth/2}}
-	\rule[1ex]{0pt}{2.5ex}i.&Límite de una constante: &\(\displaystyle \lim_{x \to c}a=a\). \\
-	\rule[1ex]{0pt}{2.5ex}ii.&Límite de una variable: &\(\displaystyle \lim_{x \to c} x = c\). \\
-	\rule[1ex]{0pt}{2.5ex}iii.&Propiedad homogénea del límite: &\(\displaystyle \lim_{x \to c}(c \cdot f(x)) = c \lim_{x \to c} f(x) \). \\
-	\rule[1ex]{0pt}{2.5ex}iv.&Propiedad de linealidad del límite: &\(\displaystyle \lim_{x \to c} (f(x) \pm g(x))= \lim_{x \to c} f(x) \pm \lim_{x \to c} g(x)\). \\
-	\rule[1ex]{0pt}{2.5ex}v.&Límite del producto: &\(\displaystyle \lim_{x \to c} (f(x) \cdot g(x)) = \lim_{x \to c} f(x) \cdot \lim_{x \to c} g(x) \). \\
-	\rule[1ex]{0pt}{3.5ex}vi.&Límite del cociente: &\(\displaystyle \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim_{x \to c}f(x)}{\lim_{x \to c}g(x)} \text{ si } \lim_{x \to c}g(x) \ne 0 \). \\
-	\rule[1ex]{0pt}{3.5ex}vii.&Límite de una potencia: &\(\displaystyle \lim_{x \to c}f(x)^{n }=\left(\lim_{x \to c}f(x) \right)^n \text{ si } n\in \mathbb{N}\). \\
-	\rule[1ex]{0pt}{2.5ex}viii.&Límite de una función compuesta: &\(\displaystyle \lim_{x \to c}(f \circ g)(x)=\lim_{x \to c}f(g(x)) 	= f\left(\lim_{x \to c}g(x) \right)\). \\
-\end{longtable}  */}
+      </p>}
+        properties={[
+          {
+            name: "Límite de una constante",
+            formula: <M>{r`\displaystyle \lim_{x \to c}a=a`}</M>
+          },
+          {
+            name: "Límite de una variable",
+            formula: <M>{r`\displaystyle \lim_{x \to c} x = c`}</M>
+          },
+          {
+            name: "Propiedad homogénea del límite",
+            formula: <M>{r`\displaystyle \lim_{x \to c}(c \cdot f(x)) = c \lim_{x \to c} f(x)`}</M>
+          },
+          {
+            name: "Propiedad de linealidad del límite",
+            formula: <M>{r`\displaystyle \lim_{x \to c} (f(x) \pm g(x))= \lim_{x \to c} f(x) \pm \lim_{x \to c} g(x)`}</M>
+          },
+          {
+            name: "Límite del producto",
+            formula: <M>{r`\displaystyle \lim_{x \to c} (f(x) \cdot g(x)) = \lim_{x \to c} f(x) \cdot \lim_{x \to c} g(x)`}</M>
+          },
+          {
+            name: "Límite del cociente",
+            formula: <M>{r`\displaystyle \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim_{x \to c}f(x)}{\lim_{x \to c}g(x)} \text{ si } \lim_{x \to c}g(x) \ne 0`}</M>
+          },
+          {
+            name: "Límite de una potencia",
+            formula: <M>{r`\displaystyle \lim_{x \to c}f(x)^{n }=\left(\lim_{x \to c}f(x) \right)^n \text{ si } n\in \mathbb{N}`}</M>
+          },
+          {
+            name: "Límite de una función compuesta",
+            formula: <M>{r`\displaystyle \lim_{x \to c}(f \circ g)(x)=\lim_{x \to c}f(g(x)) = f\left(\lim_{x \to c}g(x) \right)`}</M>
+          }
+        ]}
+      />
+      <p>Las propiedades de los límites son muy probablemente las más intuitivas de todas las que se estudian en el cálculo.</p>
 
       <h4>Cálculo de límites para funciones continuas</h4>
 
@@ -529,7 +555,7 @@ const CalculoDiferencial = () => (
 
     <Section title="Derivación">
 
-      <h3>Definición de derivada</h3>
+      <H3>Definición de derivada</H3>
 
       <Tip>
         Una recta es <em>tangente</em> a una curva en un punto si únicamente interseca a la curva en ese punto. Si la interseca en dos puntos, la recta es <em>secante</em>.
@@ -558,7 +584,7 @@ const CalculoDiferencial = () => (
       <p>
         En consonancia con lo mencionado anteriormente, a la pendiente de la recta tangente a la función en un punto se le da el nombre de <em>derivada</em> en ese punto.
       </p>
-      <Definition concept="Derivada">
+      <Definition concept="Derivada en un punto">
         La <em>derivada</em> <M>{r`f'(a)`}</M> de la función <M>{r`f`}</M> en el número <M>{r`a`}</M> se define como la pendiente de la recta tangente a la gráfica de la función en el punto <M>{r`(a, f(a))`}</M> en <M>{r`f`}</M>.
         <M block>
           {r`f'(a) \coloneqq\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}.`}
@@ -570,15 +596,15 @@ const CalculoDiferencial = () => (
         Si se reemplaza el número <M>{r`a`}</M> por una variable <M>{r`x`}</M>, se puede extrapolar el concepto de derivada en un punto y obtener la derivada como una función.
       </p>
 
-      <Definition concept="Función derivada">
-        La <em>función derivada</em> <M>{r`f'`}</M> de la función <M>{r`f`}</M> es aquella función que, para cualquier punto <M>{r`(x, f(x))`}</M> de <M>{r`f`}</M>, da la pendiente de la recta que es tangente a <M>{r`f`}</M> en ese punto.
+      <Definition concept="Derivada">
+        La <em>derivada</em> <M>{r`f'`}</M> de la función <M>{r`f`}</M> es aquella función que, para cualquier punto <M>{r`(x, f(x))`}</M> de <M>{r`f`}</M>, da la pendiente de la recta que es tangente a <M>{r`f`}</M> en ese punto.
         <M block>
           {r`f'(x) \coloneqq\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}.`}
         </M>
         Si y solamente si el límite existe.
       </Definition>
       <p>
-        Usualmente, se denominada "derivada" de forma indiscriminada tanto a la derivada en un punto como a la función derivada. Aunque es importante tener presente la distinción, resulta sencillo inferir cuál de las dos se está mencionando en un contexto específico.
+        Usualmente, se denominada "derivada" de forma indiscriminada tanto a la derivada en un punto como a la derivada como función. Aunque es importante tener presente la distinción, resulta sencillo inferir cuál de las dos se está mencionando en un contexto específico.
       </p>
 
       <h4>Orden de la derivada</h4>
@@ -600,7 +626,7 @@ const CalculoDiferencial = () => (
         Otra posibilidad es la <em>notación de Newton</em>, frecuentemente utilizada en la física para denotar la derivada con respecto al tiempo, que representa el orden de la derivada por el número de puntos: < M>{r`\dot{y}, \ddot{y}, \ldots`}</M>
       </Notation>
 
-      <h3>Diferenciabilidad</h3>
+      <H3>Diferenciabilidad</H3>
 
       <h4>Derivadas laterales</h4>
 
@@ -657,7 +683,7 @@ const CalculoDiferencial = () => (
         Una función es de clase <M>{r`C^n`}</M> si existen todas sus derivadas desde su derivada de primer orden hasta su derivada de orden <M>{r`n`}</M> y todas son funciones continuas. En ese caso, la función es <em><M>{r`n`}</M> veces continuamente diferenciable</em>. Si una función es de clase <M>{r`C^n`}</M> para un <M>{r`n \in \mathbb{N}\setminus \{0\}`}</M> arbitrariamente grande, entonces la función es <em>infinitamente diferenciable</em> y se cataloga como de clase <M>{r`C^\infty`}</M>.
       </p>
 
-      <h3>Reglas de derivación</h3>
+      <H3>Reglas de derivación</H3>
       <p>
         Las famosas <em>reglas de derivación</em> son un conjunto de casos simples y comunes de derivadas que se utilizan para derivar funciones complejas de forma más rápida y mecánica, en lugar de hacer uso de la definición de derivada, que frecuentemente requiere calcular límites intrincados. En estos apuntes se dividen en 7 categorías:
       </p>
@@ -680,11 +706,11 @@ const CalculoDiferencial = () => (
         description={<p>Estas reglas corresponden realmente a propiedades que tiene la derivada como operación. Sean <M>{r`f`}</M> y <M>{r`g`}</M> funciones diferenciables:</p>}
         properties={[
           {
-            name: 'Propiedad de homogeneidad de la derivación',
+            name: 'Homogeneidad de la derivación',
             formula: <M>{r`\displaystyle (a\cdot f)'=a \cdot f'.`}</M>
           },
           {
-            name: 'Propiedad de linealidad de la derivación',
+            name: 'Linealidad de la derivación',
             formula: <M>{r`\displaystyle (f \pm g)'=f' \pm g'.`}</M>
           },
           {
@@ -891,7 +917,7 @@ const CalculoDiferencial = () => (
         ]}
       />
 
-      <h3>Métodos de derivación</h3>
+      <H3>Métodos de derivación</H3>
 
       <h4>Derivación explícita</h4>
       <p>
@@ -925,7 +951,7 @@ const CalculoDiferencial = () => (
         Hallar los extremos de una función resulta útil para problemas matemáticos, como graficar la función, pero sobretodo para problemas de la vida real, donde la función modela un fenómeno, medida o situación y se busca que tenga el mejor valor posible, que muchas veces es o lo máximo que puede alncazar o lo mínimo a lo que se puede reducir.
       </p>
 
-      <h3>Teoremas importantes para optimizar</h3>
+      <H3>Teoremas importantes para optimizar</H3>
       <p>
         Para utilizar el cálculo diferencial para optimizar, se toman como base algunos resultados clave. Primeramente, el Teorema de Fermat indica que un extremo relativo existe solo cuando la derivada de la función en ese punto es igual a cero, si la derivada existe.
       </p>
@@ -960,7 +986,7 @@ const CalculoDiferencial = () => (
         Como consecuencia de los teoremas enunciados, en particular del Teorema del Valor Medio de Lagrange, se concluye que las derivadas de una función ofrecen información sobre su comportamiento. A continuación se resume la información que ofrecen.
       </p>
 
-      <h3>Información que ofrecen las derivadas</h3>
+      <H3>Información que ofrecen las derivadas</H3>
       <p>Sea <M>{r`f`}</M> una función de clase al menos <M>{r`C^2`}</M>.</p>
 
       <p><b>Criterio de crecimiento y decrecimiento.</b> Si <M>{r`f'`}</M> es positiva en <M>{r`(a,b)`}</M>, entonces <M>{r`f`}</M> es creciente en <M>{r`(a,b)`}</M>. Análogamente, si <M>{r`f'`}</M> es negativa, <M>{r`f`}</M> es decreciente. Si, adicional a lo anterior, <M>{r`f'`}</M> es constante en el intervalo, entonces el comportamiento de <M>{r`f`}</M> es lineal en ese intervalo.</p>
@@ -971,7 +997,7 @@ const CalculoDiferencial = () => (
 
       <p>Teniendo esa información en mente, la próxima subsección presenta métodos generales para abordar exitosamente distintos problemas de optimización o relacionados.</p>
 
-      <h3>Problemas de optimización y similares</h3>
+      <H3>Problemas de optimización y similares</H3>
 
       <h4>Método del intervalo cerrado (extremos absolutos).</h4>
       <p>
