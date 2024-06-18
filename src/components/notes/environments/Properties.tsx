@@ -49,7 +49,7 @@ export default function Properties({ title, description, properties, initialCoun
       <Grid container spacing={1} p={"0 0 0 1em"}>
         {properties.map((property, index) => (
           <Fragment key={index}>
-            <Grid item xs={5} container alignItems="center">
+            <Grid item xs={5} container alignItems="center" paddingInlineEnd={3}>
               <PropertyContainer>
                 <RomanNumeral>{convertToRomanNumeral(startNumber + index, true) + ". "}</RomanNumeral>
                 {property.name}
