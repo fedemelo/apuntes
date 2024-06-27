@@ -1,4 +1,4 @@
-import{r as j,j as n}from"./index-sVpC4TKC.js";import{p as h,g as u,B as f,a as v,d as C,b as g,T as c,c as b,f as A,C as $,A as N,h as l}from"./Section-B9In7uKC.js";const w=h(N)`
+import{r as j,j as n}from"./index-BO-gdHVi.js";import{p as h,g as u,B as f,a as v,d as C,b as g,T as c,c as b,f as A,C as $,A as N,h as l}from"./Section-88bpuQDq.js";const w=h(N)`
   width: 100%;
   border: 2px solid ${e=>e.color};
   border-radius: 0 10px 10px 10px;
