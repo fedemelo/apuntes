@@ -536,7 +536,7 @@ const CalculoVectorial = () => (
           }
         ]}
       />
-{/* TODO: Revisar si esto existe.	\rule[1ex]{0pt}{3.5ex}OJO-ROM.&Límite de una potencia: &<M>{r`\displaystyle \lim_{x \to c}\bvec{F}(x)^{n }=\le\bvec{F}t(\lim_{x \to c}\bvec{F}(x) \right)^n \text{ si } n\in \mathbb{N}`}</M>. \\ % Dudo que esta propiedad exista para límites multivariables. No se mencionó en clase.*/}
+      {/* TODO: Revisar si esto existe.	\rule[1ex]{0pt}{3.5ex}OJO-ROM.&Límite de una potencia: &<M>{r`\displaystyle \lim_{x \to c}\bvec{F}(x)^{n }=\le\bvec{F}t(\lim_{x \to c}\bvec{F}(x) \right)^n \text{ si } n\in \mathbb{N}`}</M>. \\ % Dudo que esta propiedad exista para límites multivariables. No se mencionó en clase.*/}
 
       <Tip>
         En el límite de una función compuesta, las variables de <M>{r`\bvec{F}`}</M> y <M>{r`\bvec{H}`}</M> se denotan por letras distintas para enfatizar que <M>{r`\bvec{x}\in\mathbb{R}^{m}`}</M> mientras que <M>{r`\bvec{y}\in\mathbb{R}^{n}`}</M>.
@@ -697,23 +697,23 @@ const CalculoVectorial = () => (
 
       <h3>El operador Nabla</h3>
 
+      <Definition concept="Operador nabla">
+        El operador <em>nabla</em> o <em>del</em>, denotado por el símbolo <M>{r`\nabla`}</M>, es un operador unario definido como el vector fila de operadores de derivadas parciales:
+        <M block>
+          {r`\nabla \coloneqq \left(\frac{\partial}{\partial x_1},\frac{\partial}{\partial x_2},\ldots,\frac{\partial}{\partial x_n}\right).`}
+        </M>
+        donde <M>{r`n`}</M> es el número de variables de la función, vector o escalar con el que se opera.
+      </Definition>
+
       <p>
-        <Definition concept="Operador nabla">
-          El operador <em>nabla</em> o <em>del</em>, denotado por el símbolo <M>{r`\nabla`}</M>, es un operador unario definido como el vector fila de operadores de derivadas parciales:
-          <M block>
-            {r`\nabla \coloneqq \left(\frac{\partial}{\partial x_1},\frac{\partial}{\partial x_2},\ldots,\frac{\partial}{\partial x_n}\right).`}
-          </M>
-          donde <M>{r`n`}</M> es el número de variables de la función, vector o escalar con el que se opera.
-        </Definition>
-        
         Haciendo uso de vectores unitarios de base estándar, nabla se define en términos de la base canónica de <M>{r`\mathbb{R}^n`}</M> como
         <M block>
           {r`\nabla = \sum_{i=1}^n \bvec{e}_i \frac{\partial}{\partial x_i}.`}
         </M>
-      </p> 
+      </p>
 
       <p>
-        Nabla no es un vector, pues no tiene magnitud ni dirección, es un <em>operador vectorial</em>. Para nabla, están definidas la multiplicación por escalar y los productos punto y cruz. Por ende, puede ser operado con una función de múltiples variables para obtener un vector, con una función de una variable para obtener su derivada, y con cualquier vector o escalar para obtener el vector cero. 
+        Nabla no es un vector, pues no tiene magnitud ni dirección, es un <em>operador vectorial</em>. Para nabla, están definidas la multiplicación por escalar y los productos punto y cruz. Por ende, puede ser operado con una función de múltiples variables para obtener un vector, con una función de una variable para obtener su derivada, y con cualquier vector o escalar para obtener el vector cero.
       </p>
       <ul>
         <li> La multiplicación de nabla por una función escalar da origen al <em>gradiente</em>. Si la función escalar es de una variable, se convierte en la derivada convencional en una dimensión.</li>
@@ -728,9 +728,9 @@ const CalculoVectorial = () => (
         Como el número de componentes de nabla, <M>{r`n`}</M>, está dado por el número de variables que tiene su operando, para funciones y vectores de tres variables, nabla se puede expresar como
         <M block>
           {r`\begin{gather*}
-	\nabla = \left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right)\\
-	\nabla = \uveci\frac{\partial}{\partial x} + \uvecj\frac{\partial}{\partial y} + \uvec{k}\frac{\partial}{\partial z}.
-\end{gather*}`}
+            \nabla = \left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right)\\
+            \nabla = \uveci\frac{\partial}{\partial x} + \uvecj\frac{\partial}{\partial y} + \uvec{k}\frac{\partial}{\partial z}.
+          \end{gather*}`}
         </M>
       </p>
 
@@ -744,9 +744,9 @@ const CalculoVectorial = () => (
         Sean <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto y <M>{r`f\colon U \to \mathbb{R}`}</M> una función escalar de múltiples variables, si todas las derivadas parciales <M>{r` \partial f / \partial x_i `}</M> existen para <M>{r`i \in \mathbb{N}\mid 1\leq i \leq n`}</M>, entonces el <em>gradiente</em> de <M>{r`f`}</M>, denotado por <M>{r`\nabla f`}</M>, es el campo vectorial definido por
         <M block>
           {r`\begin{align*}
-	\nabla f & \coloneqq  \left(\frac{\partial f}{\partial x_1},\frac{\partial f}{\partial x_2},\ldots,\frac{\partial f}{\partial x_n}\right)\\
-	\nabla f & = \bvec{e}_1 \parder{f}{x_1} + \bvec{e}_2 \parder{f}{x_2} + \cdots + \bvec{e}_n \parder{f}{x_n}
-\end{align*}`}
+            \nabla f & \coloneqq  \left(\frac{\partial f}{\partial x_1},\frac{\partial f}{\partial x_2},\ldots,\frac{\partial f}{\partial x_n}\right)\\
+            \nabla f & = \bvec{e}_1 \parder{f}{x_1} + \bvec{e}_2 \parder{f}{x_2} + \cdots + \bvec{e}_n \parder{f}{x_n}
+          \end{align*}`}
         </M>
         donde los vectores <M>{r`\bvec{e}_i`}</M> son los vectores unitarios de base estándar, aquellos que conforman la base canónica de <M>{r`\mathbb{R}^n`}</M>.
       </Definition>
@@ -790,7 +790,7 @@ const CalculoVectorial = () => (
         properties={[
           {
             name: "Gradiente del producto punto de campos vectoriales",
-            formula: <M>{r`\nabla (\bvec{F}\cdot\bvec{G}) = (\bvec{F}\cdot \nabla)\bvec{G} + (G\cdot\nabla)\bvec{F} + \bvec{F}\times \rot \bvec{G} + \bvec{G}\times \rot \bvec{F}.`}</M>
+            formula: <M>{r`\nabla (\bvec{F}\cdot\bvec{G}) = (\bvec{F}\cdot \nabla)\bvec{G} + (\bvec{G}\cdot\nabla)\bvec{F} + \bvec{F}\times \rot \bvec{G} + \bvec{G}\times \rot \bvec{F}.`}</M>
           },
           {
             name: "Gradiente del producto punto de un campo vectorial por sí mismo",
@@ -808,50 +808,55 @@ const CalculoVectorial = () => (
       <h3>La derivada direccional</h3>
 
       <p>
-        La derivada direccional es la generalización de la derivación parcial. Dada una función escalar diferenciable <M>{r`f\colon U\subseteq \mathbb{R}^{n}\to \mathbb{R}`}</M>,  la derivación parcial permite derivar <M>{r`f`}</M> con respecto a sus <M>{r`n`}</M> variables, es decir respecto a la dirección de cada uno de los <M>{r`n`}</M> ejes cartesianos de <M>{r`\mathbb{R}^{n}`}</M>. La derivada direccional permite derivar <M>{r`f`}</M> con respecto a cualquier dirección posible en <M>{r`\mathbb{R}^{n}`}</M>.
+        La derivada direccional es la generalización de la derivación parcial. Dada una función escalar diferenciable <M>{r`f\colon U\subseteq \mathbb{R}^{n}\to \mathbb{R}`}</M>, la derivación parcial permite derivar <M>{r`f`}</M> con respecto a sus <M>{r`n`}</M> variables, es decir, con respecto a la dirección de cada uno de los <M>{r`n`}</M> ejes cartesianos de <M>{r`\mathbb{R}^{n}`}</M>. En contraste, la derivada direccional permite derivar <M>{r`f`}</M> con respecto a cualquier dirección posible en <M>{r`\mathbb{R}^{n}`}</M>.
       </p>
 
       <Definition concept="Derivada direccional">
-      Sean <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto, <M>{r`f\colon U \to \mathbb{R}`}</M> una función escalar de <M>{r`n`}</M> variables y <M>{r`\bvec{v}\in\mathbb{R}^{n} \mid \bvec{v}\neq \bvec{0}`}</M> un vector. La <em>derivada direccional</em> de <M>{r`f`}</M> la dirección de <M>{r`\bvec{v}`}</M>, denotada por <M>{r`\mathrm{D}_{\bvec{v}} f`}</M>, está definida como la función
+        Sean <M>{r`U \subseteq \mathbb{R}^{n}`}</M> un conjunto abierto, <M>{r`f\colon U \to \mathbb{R}`}</M> una función escalar de <M>{r`n`}</M> variables y <M>{r`\bvec{v}\in\mathbb{R}^{n} \mid \bvec{v}\neq \bvec{0}`}</M> un vector. La <em>derivada direccional</em> de <M>{r`f`}</M> en la dirección de <M>{r`\bvec{v}`}</M>, denotada por <M>{r`\mathrm{D}_{\bvec{v}} f`}</M>, está definida como la función
         <M block>
           {r`\mathrm{D}_{\bvec{v}} f(\bvec{x}) \coloneqq \lim_{h\to 0} \frac{f(\bvec{x}+h\uvec{v})-f(\bvec{x})}{h}`}
         </M>
-        donde <M>{r`\uvec{v}`}</M> es el vector unitario de <M>{r`\bvec{v}`}</M>, es decir, su dirección..
+        donde <M>{r`\uvec{v}`}</M> es el vector unitario de <M>{r`\bvec{v}`}</M>, es decir, su dirección.
       </Definition>
 
       <p>
-        En la definición, se elige el vector unitario <M>{r`\uvec{v}`}</M>, que representa la dirección en la que apunta el vector <M>{r`\bvec{v}`}</M>. Ese vector unitario se calcula como <M>{r`\uvec{v} = \bvec{v}/\norm{\bvec{v}}`}</M> y tiene norma <M>1</M>. 
+        En la definición el vector unitario <M>{r`\uvec{v}`}</M> representa la dirección en la que apunta el vector <M>{r`\bvec{v}`}</M>, se calcula como <M>{r`\uvec{v} = \bvec{v}/\norm{\bvec{v}}`}</M> y tiene norma <M>1</M>.
       </p>
       <p>
-        La definición anterior es una abstracción de la definición de derivada parcial. Al igual que se recordó en la definición de derivada parcial, <M>h</M> representa la distancia entre dos puntos para los cuales se quiere obtener la pendiente de su recta secante. En la definición de derivada parcial, se quiere separar los puntos <M>h</M> unidades en la dirección de alguno de los ejes cartesianos, por lo que basta con sumar <M>h</M> a uno de los componentes de <M>{r`\bvec{x}`}</M> para obtener el punto cercano. En esta definición, se busca separar los puntos <M>h</M> unidades en la dirección arbitraria <M>{r`\uvec{v}`}</M>, por lo que se realiza la suma <M>{r`\bvec{x}+h\uvec{v}`}</M>. Los puntos para los que se quiere hallar la pendiente de la recta secante son entonces <M>{r`(\bvec{x}, f(\bvec{x}))`}</M> y <M>{r`(\bvec{x}+h\uvec{v}, f(\bvec{x}+h\uvec{v})`}</M>, a eso corresponde la fracción en la definición. Cuando <M>h</M> tiende a <M>0</M>, se convierte en la pendiente de la recta tangente al punto <M>{r`(\bvec{x}, f(\bvec{x}))`}</M> en la dirección <M>{r`\uvec{v}`}</M>.
+        La definición anterior es una abstracción de la definición de derivada parcial. Al igual que se recordó en la definición de derivada parcial, <M>h</M> representa la distancia entre dos puntos para los cuales se quiere obtener la pendiente de su recta secante. En la definición de derivada parcial, se quiere separar los puntos <M>h</M> unidades en la dirección de alguno de los ejes cartesianos, por lo que basta con sumar <M>h</M> a uno de los componentes de <M>{r`\bvec{x}`}</M> para obtener el punto cercano. En esta definición, se busca separar los puntos <M>h</M> unidades en la dirección arbitraria <M>{r`\uvec{v}`}</M>, por lo que se realiza la suma <M>{r`\bvec{x}+h\uvec{v}`}</M>. Los puntos para los que se quiere hallar la pendiente de la recta secante son entonces <M>{r`(\bvec{x}, f(\bvec{x}))`}</M> y <M>{r`(\bvec{x}+h\uvec{v}, f(\bvec{x}+h\uvec{v}))`}</M>. La fracción en la definición corresponde a la fórmula que calcula esa pendiente. Cuando <M>h</M> tiende a <M>0</M>, los puntos se acercan tanto que se convierte en la fórmula que calcula la pendiente de la recta tangente al punto <M>{r`(\bvec{x}, f(\bvec{x}))`}</M> en la dirección <M>{r`\uvec{v}`}</M>.
       </p>
 
-      {/* TODO: ESTUDIO HASTA AQUÍ */}
+      <Notation>
+        Existen varias notaciones para la derivada direccional. En estos apuntes, utilizo <M>{r`\mathrm{D}_{\bvec{v}} f`}</M>, pero puede toparse también con <M>{r`\nabla_{\bvec{v}} f`}</M>, <M>{r`\parder{f}{\bvec{v}}`}</M>, <M>{r`\partial_{\bvec{v}} f`}</M> y <M>{r`f'_{\bvec{v}}`}</M>
+      </Notation>
 
       <p>
-         La derivada direccional de <M>{r`f`}</M> en la dirección de <M>{r`\bvec{v}`}</M> en el punto <M>{r`\bvec{x}`}</M> se puede escribir como
+        La derivada derivada direccional de una función en la dirección <M>{r`\uvec{v}`}</M> en un punto <M>{r`\bvec{u}`}</M> representa la razón de cambio de la función en esa dirección desde ese punto. Entre más positiva es <M>{r`\mathrm{D}_{\bvec{v}} f(\bvec{u})`}</M>, mayor es la tasa de crecimiento de la función en la dirección <M>{r`\uvec{v}`}</M> desde el punto <M>{r`\bvec{u}`}</M> y entre más negativa, más rápido decrece la función en esa dirección.
+      </p>
+
+      {/* TODO! En este punto terminé la revisión de la parte de Diferencial de estos apuntes cuando fui monitor de Cálculo Vectorial en 2024-19. A partir de aquí y hasta el próximo TODO, los apuntes están tal como se tomaron originalmente en 2021-20. */}
+
+      <p>
+        {/* TODO: Ahondar en esto. ¿Por qué? ¿Intuición detrás? */}
+        La derivada direccional de <M>{r`f`}</M> en la dirección de <M>{r`\bvec{v}`}</M> en el punto <M>{r`\bvec{x}`}</M> se puede escribir como
         <M block>
           {r`\mathrm{D}_{\bvec{v}} f(\bvec{x}) = \der{}{t} f(\bvec{x}+t\bvec{v}) \mid_{t=0}`}
         </M>
-        donde <M>{r`\bvec{x}+t\bvec{v}`}</M> es la ecuación vectorial de una recta <M>{r`\ell`}</M>. Si el punto es <M>{r`\bvec{x}=(a,b,c)`}</M>, se tiene
-        <M block>
-          {r`
-	\ell \coloneqq \begin{pmatrix}
-	x\\y\\z
-	\end{pmatrix} = (a,b,c) + \bvec{v}t.
-`}
-        </M>
-        Sumado a lo anterior, se puede usar la gradiente para facilitar el cálculo de la derivada direccional, como se enuncia en el siguiente teorema.
+        donde <M>{r`\bvec{x}+t\bvec{v}`}</M> es la ecuación vectorial de una recta: <M>{r`\bvec{x}`}</M> es un punto en la recta y <M>{r`\bvec{v}`}</M> es el vector director.
+      </p>
+
+      <p>
+        Por último, se puede usar el gradiente para facilitar el cálculo de la derivada direccional, como se enuncia en el siguiente teorema.
       </p>
 
       <Theorem>
-        Sea <M>{r`f`}</M> una función diferenciable, su derivada direccional en la dirección de <M>{r`\bvec{v}`}</M> en el punto <M>{r`\bvec{x}`}</M> se puede calcular como
+        Sea <M>{r`f`}</M> una función diferenciable, su derivada direccional en la dirección de <M>{r`\bvec{v}`}</M> se puede calcular como el producto punto entre su gradiente y la dirección <M>{r`\uvec{v}`}</M>.
         <M block>
           {r`\mathrm{D}_{\bvec{v}} f(\bvec{x}) = \nabla f(\bvec{x}) \cdot \uvec{v}`}
         </M>
       </Theorem>
 
-      La derivada parcial <M>{r`\partial f /\partial x_i`}</M> indica cómo crece o decrece la función en la dirección <M>{r`x_i`}</M>. La derivada direccional generaliza esa noción para cualquier dirección:  <M>{r`\mathrm{D}_{\bvec{v}} f`}</M> indica cómo crece o decrece la función en la dirección <M>{r`\uvec{v}`}</M>, dando su tasa de cambio. Al evaluar la derivada direccional en la dirección <M>{r`\uvec{v}`}</M> en un punto <M>{r`\bvec{u}`}</M>, se obtiene la tasa de crecimiento o decrecimiento en ese punto en esa dirección. Entre más positiva es <M>{r`\mathrm{D}_{\bvec{v}} f(\bvec{u})`}</M>, mayor es la tasa o rapidez en la que crece la función en el punto <M>{r`\bvec{u}`}</M> en la dirección <M>{r`\uvec{v}`}</M> y entre más negativa es <M>{r`\mathrm{D}_{\bvec{v}} f(\bvec{u})`}</M>, mayor es la rapidez en la que la función decrece en <M>{r`\bvec{u}`}</M> hacia la dirección <M>{r`\uvec{v}`}</M>.
+      Lo anterior se debe a que 
 
       <Example title="Derivada direccional">
         Sean <M>{r`f\colon \mathbb{R}^{3}\to\mathbb{R}`}</M> dada por <M>{r`f(x,y,z)=3x+y^2+4\cos(z)`}</M>, <M>{r`\bvec{u}=(2,3,\uppi/2)`}</M> y  <M>{r`\uvec{v}=(-1/\sqrt{2},1/\sqrt{2},0)`}</M>, halle la derivada direccional de <M>{r`f(\bvec{u})`}</M> en la dirección <M>{r`\uvec{v}`}</M>.
@@ -919,10 +924,10 @@ const CalculoVectorial = () => (
       <Theorem environmentName="Lema" name="El gradiente es ortogonal a toda curva de nivel">
         Para cualquier función escalar de más de una variable, su gradiente siempre es ortogonal a cualquiera de sus conjuntos de nivel.
       </Theorem>
-      
+
       <p>
         Se eximen explícitamente del teorema las funciones escalares de una variable puesto que su gradiente evaluado en un punto es un escalar, no un vector, y no tiene sentido hablar de ortogonalidad en ese caso.
-      </p> 
+      </p>
 
       <h5>Planos tangentes a superficies de nivel</h5>
 
@@ -964,7 +969,7 @@ const CalculoVectorial = () => (
       <h4>Diferenciabilidad de funciones escalares de dos variables</h4>
 
       <p>
-        Sea <M>{r`f\colon U\subseteq \mathbb{R}^{2}\to\mathbb{R}`}</M > una función escalar de dos variables y sea <M>{r`(a,b)\in A`}</M > un punto. Se dice que <M>{r`f`}</M > es < em > diferenciable</em > en <M>{r`(a,b)`}</M > si y solamente si
+        Sea <M>{r`f\colon U\subseteq \mathbb{R}^{2}\to\mathbb{R}`}</M > una función escalar de dos variables y sea <M>{r`(a,b)\in U`}</M > un punto. Se dice que <M>{r`f`}</M > es < em > diferenciable</em > en <M>{r`(a,b)`}</M > si y solamente si
       </p>
       < ul >
         <li>[i.] <M>{r`\dparder{f}{x}`}</M> y <M>{r`\dparder{f}{y}`}</M> existen en <M>{r`(a,b)`}</M>.</li>
@@ -976,6 +981,13 @@ const CalculoVectorial = () => (
 	z = f(a,b)+\left(\parder{f(a,b)}{x}\right)(x-a)+\left(\parder{f(a,b)}{y}\right)(y-b). \tag{plano tangente a <M>{r`f`}</M> en <M>{r`(a,b)`}</M >}
 `}</M> */}
       </p>
+
+      <p>
+        En ocasiones se puede demostrar diferenciabilidad de forma más sencilla, a partir de la siguiente condición necesaria.
+      </p>
+      <Theorem>
+        Sea <M>{r`f\colon U\subseteq \mathbb{R}^{2}\to\mathbb{R}`}</M > una función escalar de dos variables y sea <M>{r`(a,b)\in U`}</M > un punto. Si <M>f</M> y una o ambas de sus primeras derivadas parciales son continuas en un entorno del punto <M>(a,b)</M>, entonces  <M>f(x,y)</M> es diferenciable en <M>(a,b)</M>.
+      </Theorem>
 
       <h4>Diferenciabilidad continua</h4>
 
@@ -993,8 +1005,8 @@ const CalculoVectorial = () => (
         Sea <M>{r`f\subseteq \mathbb{R}^{n}\colon U\to\mathbb{R}`}</M> una función escalar de ene variables, <M>{r`f`}</M> tiene un <em>mínimo local</em> en el punto <M>{r`\bvec{v}`}</M> si existe un entorno en el que la imagen de <M>{r`\bvec{v}`}</M> es menor a cualquier otra imagen.
         <M block>
           {r`
-	\text{Existe }\varepsilon >0\text{ tal que para todo }\bvec{x} \in B_\varepsilon(\bvec{v})\text{ se satisface } f(\bvec{v}) \leq f(\bvec{x}).
-`}
+            \text{Existe }\varepsilon >0\text{ tal que para todo }\bvec{x} \in B_\varepsilon(\bvec{v})\text{ se satisface } f(\bvec{v}) \leq f(\bvec{x}).
+          `}
         </M>
         En ese caso, <M>{r`\bvec{v}, f(\bvec{v})`}</M> es el <em>punto mínimo local</em> y <M>{r`f(\bvec{v})`}</M> es el <em>valor mínimo</em> de <M>{r`f`}</M> en <M>{r`B_\varepsilon(\bvec{v})`}</M>.
       </Definition>
@@ -1003,8 +1015,8 @@ const CalculoVectorial = () => (
         Sea <M>{r`f\subseteq \mathbb{R}^{n}\colon U\to\mathbb{R}`}</M> una función escalar de ene variables, <M>{r`f`}</M> tiene un <em>máximo local</em> en el punto <M>{r`\bvec{v}`}</M> si existe un entorno en el que la imagen de <M>{r`\bvec{v}`}</M> es mayor a cualquier otra imagen.
         <M block>
           {r`
-	\text{Existe }\varepsilon >0\text{ tal que para todo }\bvec{x} \in B_\varepsilon(\bvec{v})\text{ se satisface }  f(\bvec{v}) \geq f(\bvec{x}).
-`}
+            \text{Existe }\varepsilon >0\text{ tal que para todo }\bvec{x} \in B_\varepsilon(\bvec{v})\text{ se satisface }  f(\bvec{v}) \geq f(\bvec{x}).
+          `}
         </M>
         En ese caso, <M>{r`\bvec{v}, f(\bvec{v})`}</M> es el <em>punto máximo local</em> y <M>{r`f(\bvec{v})`}</M> es el <em>valor máximo</em> de <M>{r`f`}</M> en <M>{r`B_\varepsilon(\bvec{v})`}</M>.
       </Definition>
@@ -1106,14 +1118,14 @@ const CalculoVectorial = () => (
         Sea <M>{r`U\subseteq \mathbb{R}^{n}`}</M> un conjunto abierto y <M>{r`f\colon U \to \mathbb{R}`}</M> una función escalar de ene variables de clase <M>{r`C^2`}</M>. La <em>matriz hessiana</em> de <M>{r`f`}</M> es la matriz cuadrada de tamaño <M>{r` n\times n `}</M> de sus segundas derivadas parciales.
         <M block>
           {r`\begin{align*}
-		(H(f))_{ij} &= \dfrac{\partial^2 f}{\partial x_i \partial x_j}. \\
-		H(f) &= \begin{pmatrix}
-			\dfrac{\partial^2 f}{\partial x_1^2} & \dfrac{\partial ^2 f}{\partial x_1 \partial x_2} & \cdots& \dfrac{\partial^2 f}{\partial x_1 \partial x_n} \\[1em]
-			\dfrac{\partial^2 f}{\partial x_2 \partial x_1} & \dfrac{\partial^2 f}{\partial x_2^2} & \cdots& \dfrac{\partial^2 f}{\partial x_2 \partial x_n} \\[1em]
-			\vdots & \vdots & \ddots & \vdots \\[0.5em]
-			\dfrac{\partial^2 f}{\partial x_n \partial x_1} & \dfrac{\partial^2 f}{\partial x_n \partial x_2} & \cdots&\dfrac{\partial^2 f}{\partial x_n^2} \\[1em]
-		\end{pmatrix}
-	\end{align*}`}
+            (H(f))_{ij} &= \dfrac{\partial^2 f}{\partial x_i \partial x_j}. \\
+            H(f) &= \begin{pmatrix}
+              \dfrac{\partial^2 f}{\partial x_1^2} & \dfrac{\partial ^2 f}{\partial x_1 \partial x_2} & \cdots& \dfrac{\partial^2 f}{\partial x_1 \partial x_n} \\[1em]
+              \dfrac{\partial^2 f}{\partial x_2 \partial x_1} & \dfrac{\partial^2 f}{\partial x_2^2} & \cdots& \dfrac{\partial^2 f}{\partial x_2 \partial x_n} \\[1em]
+              \vdots & \vdots & \ddots & \vdots \\[0.5em]
+              \dfrac{\partial^2 f}{\partial x_n \partial x_1} & \dfrac{\partial^2 f}{\partial x_n \partial x_2} & \cdots&\dfrac{\partial^2 f}{\partial x_n^2} \\[1em]
+            \end{pmatrix}
+          \end{align*}`}
         </M>
 
         Por la propiedad de simetría de la derivada parcial, la matriz hessiana es una matriz simétrica. Esa proposición se conoce como el teorema de Clairaut o teorema de Schwarz.
@@ -1127,8 +1139,8 @@ const CalculoVectorial = () => (
         Sea <M>{r`U\subseteq \mathbb{R}^{n}`}</M> un conjunto abierto y <M>{r`f\colon U \to \mathbb{R}`}</M> una función escalar de ene variables de clase <M>{r`C^2`}</M>. El <em>hessiano</em> de <M>{r`f`}</M> en el punto <M>{r`\bvec{v}`}</M> es la función escalar de múltiples variables <M>{r`Hf(\bvec{v})`}</M> dada por
         <M block>
           {r`
-		(Hf(\bvec{v}))(\bvec{x}) = \frac{1}{2} \sum_{i,j=1}^{n} \frac{\partial ^2 f(\bvec{v})}{\partial x_i \partial x_j} (x_i-v_i)(x_j-v_j).
-	`}
+            (Hf(\bvec{v}))(\bvec{x}) = \frac{1}{2} \sum_{i,j=1}^{n} \frac{\partial ^2 f(\bvec{v})}{\partial x_i \partial x_j} (x_i-v_i)(x_j-v_j).
+          `}
         </M>
       </Definition>
       {/*  El hessiano no es este. En ningún lado aparece como hessiano esta función pero así la enseñó Berenstein. Según lo leído, creería que el hessiano es la matriz y esta función es el tercer término del polinomio de taylor de segundo orden. */}
@@ -1580,6 +1592,8 @@ const CalculoVectorial = () => (
 </Definition>*/}
 
     </Section>
+
+    {/* TODO! En este punto inicio la revisión de la parte de Integral de estos apuntes cuando fui monitor de Cálculo Vectorial en 2024-19. */}
 
     <Section title="Integración">
 

@@ -38,8 +38,6 @@ const Section: React.FC<SectionProps> = ({ title, children, id }) => {
   const [expanded, setExpanded] = useState<boolean>(true);
   id = id || generateIdAutomatically(title);
 
-  console.log(id);
-
   return (
     <SectionAccordion>
       <SectionTitle $expanded={expanded} onClick={() => {setExpanded(!expanded)}} id={id}>
