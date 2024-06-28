@@ -1,0 +1,1 @@
+import{j as i}from"./index-Cx661xQe.js";import{g as o}from"./NoteDocument-oJ09v5Cv.js";import{B as s}from"./Section-2593zorh.js";function x({children:e,concept:r,id:n}){return n=n||o(r),i.jsxs(s,{children:[i.jsx("p",{children:e}),i.jsx("div",{className:"definition-concept-side",id:n,children:i.jsx("strong",{children:r})})]})}export{x as I};
