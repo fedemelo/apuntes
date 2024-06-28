@@ -6,18 +6,13 @@ const Custom404 = React.lazy(() => import("@/pages/Custom404"));
 
 const baseUrl = "apuntes";
 const math = "matematica";
-const differentialCalculus = "calculo-diferencial";
-const vectorCalculus = "calculo-vectorial";
-const linearAlgebra = "algebra-lineal";
-const notation = "notacion";
-const graphTheory = "teoria-de-grafos";
-const gameTheory = "teoria-de-juegos";
-export const DIFFERENTIAL_CALCULUS = `/${baseUrl}/${math}/${differentialCalculus}`;
-export const VECTOR_CALCULUS = `/${baseUrl}/${math}/${vectorCalculus}`;
-export const LINEAR_ALGEBRA = `/${baseUrl}/${math}/${linearAlgebra}`;
-export const NOTATION = `/${baseUrl}/${math}/${notation}`;
-export const GRAPH_THEORY = `/${baseUrl}/${math}/${graphTheory}`;
-export const GAME_THEORY = `/${baseUrl}/${math}/${gameTheory}`;
+export const DIFFERENTIAL_CALCULUS = `/${baseUrl}/${math}/calculo-diferencial`;
+export const INTEGRAL_CALCULUS = `/${baseUrl}/${math}/calculo-integral`;
+export const VECTOR_CALCULUS = `/${baseUrl}/${math}/calculo-vectorial`;
+export const LINEAR_ALGEBRA = `/${baseUrl}/${math}/algebra-lineal`;
+export const NOTATION = `/${baseUrl}/${math}/notacion`;
+export const GRAPH_THEORY = `/${baseUrl}/${math}/teoria-de-grafos`;
+export const GAME_THEORY = `/${baseUrl}/${math}/teoria-de-juegos`;
 
 const files = [
   {
@@ -27,6 +22,10 @@ const files = [
   {
     Component: React.lazy(() => import("@/apuntes/matematica/calculo-diferencial/CalculoDiferencial")),
     path: DIFFERENTIAL_CALCULUS
+  },
+  {
+    Component: React.lazy(() => import("@/apuntes/matematica/calculo-integral/CalculoIntegral")),
+    path: INTEGRAL_CALCULUS
   },
   {
     Component: React.lazy(() => import("@/apuntes/matematica/calculo-vectorial/CalculoVectorial")),
