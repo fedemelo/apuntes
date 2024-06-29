@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const ProofContainer = styled.div`
   margin: 1em 0 0 0;
@@ -8,29 +10,42 @@ const ProofContainer = styled.div`
   position: relative;
 `;
 
+const ProofContent = styled.div<{ $expanded: boolean }>`
+  display: ${(props) => (props.$expanded ? 'block' : 'none')};
+  margin: 0;
+  padding: 0;
+`;
+
 const ProofLabel = styled.div`
   position: absolute;
-  top: 0;
+  top: -2px;
   left: 5%;
 
-  color: white;
+  color: var(--theorem-color);
 
-  padding: 0em 1.5em 0.5em 1.5em;
-  margin: 0 0 0em 0;
+  margin: 0;
+  padding: 0.5em 1em;
   border-radius: 0px 0px 10px 10px;
-
+  border: 2px solid var(--theorem-color);
 
   text-align: center;
 
   font-weight: bold;
-  padding: 0.5em 1em;
-  background-color: var(--theorem-color);
+  background-color: white;
+`;
+
+const IconContainer = styled.div`
+  position: absolute;
+  top: 3px;
+  right: 5%;
+  cursor: pointer;
 `;
 
 const QED = styled.div`
-  font-style: italic;
-  margin-top: 1em;
   text-align: right;
+  padding: 0 1em 0 0;
+  margin: -1em 0 0 0;
+  color: var(--theorem-color);
 `;
 
 interface ProofProps {
@@ -38,11 +53,20 @@ interface ProofProps {
 }
 
 export default function Proof({ children }: ProofProps) {
+  const [expanded, setExpanded] = useState<boolean>(true);
+  
   return (
-    <ProofContainer>
-      <ProofLabel>Demostración</ProofLabel>
-      <div>{children}</div>
-      <QED>QED</QED>
+    <ProofContainer onClick={() => setExpanded(!expanded)}>
+      <ProofLabel>
+        Demostración
+      </ProofLabel>
+      <IconContainer >
+        {expanded ? <VisibilityIcon /> : <VisibilityOffIcon />}
+      </IconContainer>
+      <ProofContent $expanded={expanded}>
+        {children}
+        <QED>■</QED>
+      </ProofContent>
     </ProofContainer>
   );
 };
