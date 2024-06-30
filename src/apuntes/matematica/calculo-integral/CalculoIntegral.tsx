@@ -1,14 +1,13 @@
-import { Definition, Example, Theorem } from "@/components/notes/environments/Boxes";
+import { Definition, Theorem } from "@/components/notes/environments/Boxes";
 import Proof from "@/components/notes/environments/Proof";
 import Properties from "@/components/notes/environments/Properties";
-import { Notation, Tip, Warning } from "@/components/notes/environments/StickyNotes";
+import { Notation, Tip } from "@/components/notes/environments/StickyNotes";
 import Epigraph from "@/components/notes/Epigraph";
 import NoteDocument from "@/components/notes/NoteDocument";
 import Section from "@/components/notes/Section";
-import H3 from "@/components/notes/Subsection";
 import { referenceById } from "@/components/utils/hyperlinkManager";
 import M, { r } from "@/math/LaTeX";
-import { DIFFERENTIAL_CALCULUS, INTEGRAL_CALCULUS, VECTOR_CALCULUS } from "@/Router";
+import { DIFFERENTIAL_CALCULUS, INTEGRAL_CALCULUS } from "@/Router";
 
 const CalculoIntegral = () => (
   <NoteDocument>
@@ -1017,6 +1016,8 @@ const CalculoIntegral = () => (
       </p>
 
     </Section>
+
+    {/* TODO: Agregar sucesiones, series, curvas paramétricas. */}
 
   </NoteDocument >
 );
