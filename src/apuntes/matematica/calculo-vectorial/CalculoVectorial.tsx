@@ -5,7 +5,7 @@ import NoteDocument from "@/components/notes/NoteDocument";
 import Section from "@/components/notes/Section";
 import { referenceById } from "@/components/utils/hyperlinkManager";
 import M, { r } from "@/math/LaTeX";
-import { DIFFERENTIAL_CALCULUS } from "@/Router";
+import { DIFFERENTIAL_CALCULUS, INTEGRAL_CALCULUS } from "@/Router";
 
 const CalculoVectorial = () => (
   <NoteDocument>
@@ -1595,61 +1595,137 @@ const CalculoVectorial = () => (
 
     {/* TODO! En este punto inicio la revisión de la parte de Integral de estos apuntes cuando fui monitor de Cálculo Vectorial en 2024-19. */}
 
-    <Section title="Integración">
-
-      <h3>Integrales dobles</h3>
+    <Section title="Integrales dobles">
 
       <p>
-        Una <em>integral doble</em> es la manera de integrar funciones de dos variables. La integral doble se interpreta geométricamente como el volumen debajo de la superficie.
+        En esta sección se estudia la integración de funciones escalares de dos variables, denominadas <em>integrales dobles</em>, como antesala al estudio de la integración de funciones de múltiples variables, en la sección de integrales triples.
+      </p>
+
+      <h3>Integrales dobles sobre regiones rectangulares</h3>
+
+      <p>
+        Se estudian primero integrales dobles exclusivamente sobre regiones rectangulares. Esto facilita definirla formalmente como la generalización natural de las integrales definidas de funciones de una variable. Naturalmente, es conveniente recapitular la {referenceById("definición de la integral definida", INTEGRAL_CALCULUS, "la-integral-definida")} del cálculo integral antes de proceder.
+      </p>
+      <p> 
+        Sea <M>{r`f\colon R\to \mathbb{R}`}</M> una función escalar de dos variables, donde <M>{r`R = [a,b] \times [c,d]`}</M> es un rectángulo en el plano <M>{r`xy`}</M>. Supóngase que <M>{r`f`}</M> es positiva y continua. Se predetende calcular el volumen debajo de <M>{r`f`}</M>, que corresponde al volumen de la región en el espacio tridimensional que es, informalmente, una caja cuya base es <M>{r`R`}</M> y cuya tapa es la gráfica de <M>{r`f(x, y)`}</M>.
+      </p>
+      <p>
+        Para aproximar ese volumen, se utiliza una suma de Riemman, al igual que en integrales de funciones de una variable. La diferencia es que en este caso, se deben sumar cajas cuya base esté en el plano <M>{r`xy`}</M>, en lugar de rectángulos con base en el eje <M>{r`x`}</M>.
+      </p>
+      <p>
+        Para que todos los <M>{r`n`}</M> rectángulos tengan la misma base, las dimensiones de la base deben ser <M>{r`\Delta x = \frac{b-a}{n}`}</M> y <M>{r`\Delta y = \frac{d-c}{n}`}</M>. A partir de eso, se puede definir una diferencia de área como <M>{r`\Delta A = \Delta x \Delta y`}</M>. Para la altura <M>{r`h`}</M> de cada caja, se escoge un punto arbitrario <M>{r`(x_i, y_i)`}</M> de su base y se evalúa, de forma que <M>{r`h = f(x_i, y_i)`}</M>. Con eso, el volumen de cada caja está dado por
+        <M block>
+          {r`V_{\text{caja}} = f(x_i, y_i) \Delta A = f(x_i, y_i) \Delta x \Delta y.`}
+        </M>
+        y la suma de los volúmenes de todas las cajas es entonces la siguiente suma de Riemann:
+        <M block>
+          {r`\sum_{i,j=1}^n f(x_i, y_j) \Delta A = \sum_{i,j=1}^n f(x_i, y_j) \Delta x \Delta y.`}
+        </M>
+      </p>
+      <Notation>
+        La sumatoria sobre dos variables, <M>{r`\sum_{i,j=1}^n`}</M>, también se puede denotar usando una suma por cada variable, <M>{r`\sum_{i=1}^{n} \sum_{j=1}^{n}`}</M>. En estos apuntes, prefiero la primera notación porque es más compacta, escribir las dos sumatorias no añade información adicional.
+      </Notation>
+      <p>
+        Para calcular con exactitud el volumen bajo la caja, hace falta hacer uso de infinitos rectángulos, es decir, tomar el límite cuando <M>{r`n \to \infty`}</M> de la suma de Riemman. Con eso en mente, se define la integral doble de <M>{r`f`}</M> sobre <M>{r`R`}</M>.
+      </p>
+      <Definition concept="Integral doble sobre región rectangular">
+        Sea <M>{r`f(x, y)`}</M> una función escalar definida sobre la región rectangular <M>{r`R = [a, b] \times [c, d]`}</M>. Se define la <em>integral doble</em> de <M>{r`f`}</M> sobre <M>{r`R`}</M> como
+        <M block>
+          {r`\int_{R} f(x, y) \: \mathrm{d}A = \lim_{n \to \infty} \sum_{i,j=1}^{n} f(x_i, y_j) \Delta A.`}
+        </M>
+        si el límite existe y no depende de la elección de los puntos <M>{r`(x_i, y_j)`}</M>.
+      </Definition>
+
+      <Notation>
+        Hay múltiples notaciones para la integral doble de una función sobre una región <M>{r`R`}</M>. Se pueden usar uno o dos símbolos de integración y se puede escribir el diferencial como <M>{r`\mathrm{d}A`}</M> o <M>{r`\mathrm{d}x \: \mathrm{d}y`}</M>. También se puede omitir el diferencial, que se sobreentiende al especificar la región.
+        <M block>{r`\int_{R} f = \int_{R} f(x, y) \: \mathrm{d}A = \iint_{R} f(x, y) \: \mathrm{d}x \: \mathrm{d}y.`}</M>
+        A partir de este punto, se opta por la notación más sucinta.
+      </Notation>
+      <p>
+        Siempre que el límite de la suma de Riemann exista, sea cual sea la elección de los puntos <M>{r`(x_i, y_j)`}</M>, se dice que la función <M>{r`f`}</M> es <em>integrable</em> sobre la región <M>{r`R`}</M>.
+      </p>
+      <Theorem name="Función integrable">
+        Sea <M>{r`f(x, y)`}</M> una función escalar definida sobre la región rectangular <M>{r`R = [a, b] \times [c, d]`}</M>. 
+        <ul>
+          <li>Si <M>{r`f`}</M> es continua en <M>{r`R`}</M>, entonces <M>{r`f`}</M> es integrable en <M>{r`R`}</M>.</li>
+          <li>Si <M>{r`f`}</M> es una función acotada sobre <M>{r`R`}</M> y el conjunto de puntos donde <M>{r`f`}</M> es discontinua consiste de la unión de finita de gráficas de funciones continuas, entonces <M>{r`f`}</M> es integrable sobre <M>{r`R`}</M>.</li>
+        </ul>
+      </Theorem>
+        
+      <Properties
+        title="Propiedades de la integral doble en regiones rectangulares"
+        description={<p>Las propiedades de la integral doble son, en esencia, las mismas de la integral definida de una variable. Sean <M>{r`f, g`}</M> funciones escalares integrables sobre la región rectangular <M>{r`R`}</M> y <M>{r`c`}</M> una constante.</p>}
+        properties={[
+          {
+            name: "Linealidad",
+            formula: <M>{r`\int_{R} f \pm g = \int_{R} f \pm \int_{R} g.`}</M>
+          },
+          {
+            name: "Homogeneidad",
+            formula: <M>{r`\int_{R} cf = c \int_{R} f.`}</M>
+          },
+          {
+            name: "Monotonía",
+            formula: <span>Si <M>{r`f(x, y) \geq g(x, y)`}</M> para todo <M>{r`(x, y) \in R`}</M>, entonces <M>{r`\int_{R} f \geq \int_{R} g.`}</M></span> 
+          },
+          {
+            name: "Aditividad",
+            formula: <span><M>{r`\int_{R} f = \int_{R_1} f + \int_{R_2} f`}</M> si y solamente si <M>{r`R = R_1 \cup R_2`}</M> y <M>{r`R_1 \cap R_2 = \varnothing`}</M>.</span>,
+            note: <span>Esta propiedad se puede extender a cualquier número de regiones disjuntas cuya unión sea <M>{r`R`}</M>.</span>
+          }
+        ]}
+      />
+        
+      <h4>Calcular integrales dobles en regiones rectangulares</h4>
+        
+      <p>
+        Tras definir formalmente la integral doble, se aborda cómo calcularla. Nótese que en la definición de la integral doble como suma de Riemann, se puede separar la sumatoria en dos, una para cada variable.
+        <M block>
+          {r`\int_{R} f = \lim_{n \to \infty} \sum_{i,j=1}^{n} f(x_i, y_j) \Delta A = \lim_{n \to \infty}  \sum_{j=1}^{n} \left( \sum_{i=1}^{n} f(x_i, y_j) \Delta x \right) \Delta y.`}
+        </M>
+        En esa expresión, la suma interna es el límite de una suma de Riemman y por ende se puede expresar como una integral definida con respecto a <M>{r`x`}</M>. Como la suma tiene lugar en la región rectangular <M>{r`R = [a, b] \times [c, d]`}</M>, la integral interna está definida sobre el intervalo <M>{r`[a, b]`}</M>:
+        <M block>
+          {r`\lim_{n \to \infty}  \sum_{j=1}^{n} \left( \sum_{i=1}^{n} f(x_i, y_j) \Delta x \right) \Delta y = \lim_{n \to \infty}  \sum_{j=1}^{n} \left( \int_{a}^{b} f(x, y_j) \: \mathrm{d}x \right) \Delta y.`}
+        </M>
+        Similarmente, la suma externa también se puede expresar como una integral definida, donde el integrando es la integral interna. Esa integral interna es, una vez calculada, una función con respecto a <M>{r`y`}</M>. Así, la integral doble se puede expresar como
+        <M block>
+          {r`\int_{R} f = \int_{c}^{d} \left( \int_{a}^{b} f(x, y) \: \mathrm{d}x \right) \: \mathrm{d}y.`}
+        </M>
+        Los paréntesis usualmente se omiten, pero es importante recordar que la integral interna se evalúa primero. 
       </p>
 
       <p>
-        Se realizan integrales dobles en funciones cuyo dominio está restringido por una región rectangular <M>{r`R`}</M>, dada por
+        El racionamiento anterior se puede interpretar geométricamente mediante el <em>principio de Cavalieri</em>, que es un método para calcular volúmenes. Este establece que, para calcular el volumen bajo una superficie, se deben sumar infinitas áreas de secciones transversales. Una <em>sección transversal</em> se obtiene al cortar la región bajo la superficie con un plano perpendicular al eje <M>{r`x`}</M> o <M>{r`y`}</M>. Sea <M>{r`A(y)`}</M> el área de una sección transversal paralela al plano <M>{r`xz`}</M> a la altura <M>{r`y`}</M>, el volumen bajo la superficie es entonces
         <M block>
-          {r`R = [a,b]\times[b,c]`}
+          {r`\int_{c}^{d} A(y) \: \mathrm{d}y.`}
         </M>
-        donde <M>{r`R`}</M> es un rectángulo en el plano <M>{r`x,y`}</M>, el intervalo <M>{r`[a,b]`}</M> contiene todos los puntos en <M>{r`x`}</M> tales que <M>{r`a\leq x\leq b`}</M> y el intervalo <M>{r`[c,d]`}</M> contiene todos los puntos en <M>{r`y`}</M> tales que <M>{r`c\leq y\leq d`}</M>.
+        Sin embargo, para calcular el área de la sección transversal, se debe realizar precisamente la integral definida con respecto a <M>{r`x`}</M>. Por ende, se arriba a la misma fórmula que antes,
+        <M block>
+          {r`\int_{R} f = \int_{c}^{d} \int_{a}^{b} f(x, y) \: \mathrm{d}x \: \mathrm{d}y.`}
+        </M>
+        Este racionamiento permite visualizar que la integral sería equivalente si se hubiesen tomado secciones transversales perpendiculares al eje <M>{r`x`}</M>, en lugar de al eje <M>{r`y`}</M>. Eso sería como cambiar el orden de las sumatorias arriba, lo cual también es posible. Se concluye entonces que no importa cuál integral sea la interna:
+        <M block>
+          {r`\int_{c}^{d} \int_{a}^{b} f(x, y) \: \mathrm{d}x \: \mathrm{d}y = \int_{a}^{b} \int_{c}^{d} f(x, y) \: \mathrm{d}y \: \mathrm{d}x.`}
+        </M>
       </p>
-
       <p>
-        Se define entonces, para <M>{r`n \in \mathbb{N} \setminus \{0\}`}</M>, el tamaño de cada subintervalo como
-        <M block>
-          {r`\begin{align*}
-	&\Delta x = \frac{b-a}{n} && \Delta y = \frac{d-c}{n}
-\end{align*}`}
-        </M>
-        De forma que <M>{r`x_0=a`}</M>, <M>{r`x_i = a+i\Delta x`}</M>, <M>{r`x_n = a+n\Delta x=b`}</M>. Se puede definir entonces una diferencia de área como
-        <M block>
-          {r`\Delta A = \delta x \Delta y`}
-        </M>
+        El resultado formal que resume lo anterior es el <em>Teorema de Fubini</em>. 
       </p>
-
-      <p>
-        De esa forma, la enésima suma de Riemann está dada por
+      <Theorem name="Teorema de Fubini">
+        Sea <M>{r`f(x, y)`}</M> una función escalar integrable sobre la región rectangular <M>{r`R = [a, b] \times [c, d]`}</M>. Entonces, se tiene que
         <M block>
-          {r`\sum_{i=1}^{n}\sum_{j=1}^{n} f(C_{ij}) \Delta A.`}
+          {r`\int_{R} f = \int_{c}^{d} \int_{a}^{b} f(x, y) \: \mathrm{d}x \: \mathrm{d}y = \int_{a}^{b} \int_{c}^{d} f(x, y) \: \mathrm{d}y \: \mathrm{d}x.`}
         </M>
-      </p>
+      </Theorem>
 
-      <p>
-        La función <M>{r`f(x,y)`}</M> es integrable si
-        <M block>
-          {r`\lim_{n\to \infty} \sum_{i=1}^{n}\sum_{j=1}^{n} f(C_{ij}) \Delta A.`}
-        </M>
-        existe y no depende de la escogencia de los puntos <M>{r`c_{ij}`}</M>.
-      </p>
+      <h3>Integrales dobles sobre regiones generales</h3>
 
-      <p>
-        la integral doble de la función <M>{r`f(x,y)`}</M> se denota por
-        <M block>
-          {r`\int_{c}^{d} \int_{a}^{b}  f(x,y) \, \mathrm{d}x \, \mathrm{d}y.`}
-        </M>
-      </p>
-
-      {/*  Principio de Cavalieri */}
+      
+        
       {/* <h3>Regla de integración de Leibniz</h3> */}
-      {/* La regla de integración de Leibniz rara vez es enseñada en las universidades. El físico Richard Feynman, nobel laurate, in his best-selling memoir Surely You're Joking, Mr. Feynman!, One thing I never did learn was contour integration. I had learned to do integrals by various methods shown in a book that my high school physics teacher Mr. Bader had given me. One day he told me to stay after class. "Feynman," he said, "you talk too much and you make too much noise. I know why. You're bored. So I'm going to give you a book. You go up there in the back, in the corner, and study this book, and when you know everything that's in this book, you can talk again." So every physics class, I paid no attention to what was going on with Pascal's Law, or whatever they were doing. I was up in the back with this book: "Advanced Calculus", by Woods. Bader knew I had studied "Calculus for the Practical Man" a little bit, so he gave me the real works—it was for a junior or senior course in college. It had Fourier series, Bessel functions, determinants, elliptic functions—all kinds of wonderful stuff that I didn't know anything about. That book also showed how to differentiate parameters under the integral sign—it's a certain operation. It turns out that's not taught very much in the universities; they don't emphasize it. But I caught on how to use that method, and I used that one damn tool again and again. So because I was self-taught using that book, I had peculiar methods of doing integrals. The result was, when guys at MIT or Princeton had trouble doing a certain integral, it was because they couldn't do it with the standard methods they had learned in school. If it was contour integration, they would have found it; if it was a simple series expansion, they would have found it. Then I come along and try differentiating under the integral sign, and often it worked. So I got a great reputation for doing integrals, only because my box of tools was different from everybody else's, and they had tried all their tools on it before giving the problem to me.  */}
-      <h3>Integrales triples</h3>
+      {/* Richard Feynman, nobel laurate, in his best-selling memoir Surely You're Joking, Mr. Feynman!
+      
+      One thing I never did learn was contour integration. I had learned to do integrals by various methods shown in a book that my high school physics teacher Mr. Bader had given me. One day he told me to stay after class. "Feynman," he said, "you talk too much and you make too much noise. I know why. You're bored. So I'm going to give you a book. You go up there in the back, in the corner, and study this book, and when you know everything that's in this book, you can talk again." So every physics class, I paid no attention to what was going on with Pascal's Law, or whatever they were doing. I was up in the back with this book: "Advanced Calculus", by Woods. Bader knew I had studied "Calculus for the Practical Man" a little bit, so he gave me the real works—it was for a junior or senior course in college. It had Fourier series, Bessel functions, determinants, elliptic functions—all kinds of wonderful stuff that I didn't know anything about. That book also showed how to differentiate parameters under the integral sign—it's a certain operation. It turns out that's not taught very much in the universities; they don't emphasize it. But I caught on how to use that method, and I used that one damn tool again and again. So because I was self-taught using that book, I had peculiar methods of doing integrals. The result was, when guys at MIT or Princeton had trouble doing a certain integral, it was because they couldn't do it with the standard methods they had learned in school. If it was contour integration, they would have found it; if it was a simple series expansion, they would have found it. Then I come along and try differentiating under the integral sign, and often it worked. So I got a great reputation for doing integrals, only because my box of tools was different from everybody else's, and they had tried all their tools on it before giving the problem to me.*/}
 
     </Section>
 
