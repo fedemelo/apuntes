@@ -44,7 +44,7 @@ const CalculoDiferencial = () => (
               f(1.9)=1.9-2=-0.1 \\ 
               f(2.05)=2.05-2=0.05.
             \end{align*}`}
-          </M>
+        </M>
         Se dice, entonces, que el límite de <M>f(x)</M> cuando <M>x</M> tiende a <M>2</M> es igual a <M>0</M>. Eso se denota por <M>{r`\lim_{x \to 2} f(x) = 0`}</M>.
       </Example>
       <p>
@@ -298,8 +298,8 @@ const CalculoDiferencial = () => (
       <Properties
         title="Propiedades de los límites"
         description={<p>
-        Sea <M>{r`a \in \mathbb{R}`}</M> y sean <M>f</M> y <M>g</M> funciones definidas en un intervalo abierto que contiene a <M>c</M>. Si los límites <M>{r`L = \lim_{x \to c}f(x)`}</M> y <M>{r`M = \lim_{x \to c}g(x)`}</M> existen, entonces se cumplen las siguientes propiedades:
-      </p>}
+          Sea <M>{r`a \in \mathbb{R}`}</M> y sean <M>f</M> y <M>g</M> funciones definidas en un intervalo abierto que contiene a <M>c</M>. Si los límites <M>{r`L = \lim_{x \to c}f(x)`}</M> y <M>{r`M = \lim_{x \to c}g(x)`}</M> existen, entonces se cumplen las siguientes propiedades:
+        </p>}
         properties={[
           {
             name: "Límite de una constante",
@@ -1062,7 +1062,6 @@ const CalculoDiferencial = () => (
       <p>
         Algebraicamente, se sabe que hay asíntota vertical si los ceros en el denominador de la función racional no se cancelan al simplificar. Si sí se cancelan, la función tiene huecos en dichos ceros.
       </p>
-      
       <p>
         <b>Asíntotas horizontales.</b> La función <M>{r`f`}</M> tiene una asíntota horizontal <M>{r`y=L`}</M> si alguno de los siguientes límites existe:
       </p>

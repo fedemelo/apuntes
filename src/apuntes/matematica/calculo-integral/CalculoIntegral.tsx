@@ -603,7 +603,7 @@ const CalculoIntegral = () => (
 
       <h4>Potencias de seno y coseno con el mismo ángulo</h4>
       <p>
-        Para evaluar integrales con potencias de seno y coseno, de la forma <M>{r` \displaystyle \indint{\sin^mx\cos^nx}{x} `}</M>, se usa el hecho de que <M>{r`\der \sin x = \cos x`}</M> y que <M>{r`\der \cos x = - \sin x`}</M>. Se contemplan tres casos:
+        Para evaluar integrales con potencias de seno y coseno, de la forma <M>{r` \displaystyle \indint{\sin^mx\cos^nx}{x} `}</M>, se usa el hecho de que <M>{r`\der{}{x} \sin x = \cos x`}</M> y que <M>{r`\der{}{x} \cos x = - \sin x`}</M>. Se contemplan tres casos:
       </p>
       <ol>
         <li> Si la potencia de coseno es impar, <M>{r`n=2k+1, k \in \mathbb{Z}`}</M>, se aparta un factor coseno y se usa la identidad pitagórica <M>{r`\cos^2x=1-\sin^2x `}</M> para expresar los demás factores como seno y usar la sustitución <M>{r`u=\sin x`}</M>:</li>
@@ -625,31 +625,31 @@ const CalculoIntegral = () => (
 
       <h4>Potencias de tangente y secante con el mismo ángulo</h4>
       <p>
-        Para resolver integrales de forma <M>{r` \displaystyle \indint{\tan^mx\sec^nx}{x} `}</M> se usa una estrategia similar a la anterior, que se sirve del hecho de que <M>{r` \der\tan x=\sec^2x `}</M> y que <M>{r` \der\sec x=\tan x \sec x `}</M>. Se contemplan tres casos:
+        Para resolver integrales de forma <M>{r` \displaystyle \indint{\tan^mx\sec^nx}{x} `}</M> se usa una estrategia similar a la anterior, que se sirve del hecho de que <M>{r` \der{}{x} \tan x=\sec^2x `}</M> y que <M>{r` \der{}{x} \sec x=\tan x \sec x `}</M>. Se contemplan tres casos:
       </p>
       <ol>
         <li> Si la potencia de secante es par, <M>{r`n=2k, k \in \mathbb{Z}`}</M>, se aparta un factor secante cuadrado y se usa la identidad pitagórica <M>{r`\sec^2x=\tan^2x+1 `}</M> para expresar los demás factores como tangente:</li>
         <M block>
-          {r`\indint{\tan^mx\sec^{2k}x}{x} = \indint{\tan^mx(\sec^2x)^{k-1}\sec^2x}{x} = \indint{\tan^mx(\tan^2x+1)^{k-1}\sec^2x}{x}`}
+          {r`\indint{\tan^mx\sec^{2k}x}{x} = \indint{\tan^mx(\sec^2x)^{k-1}\sec^2x}{x} = \indint{\tan^mx(\tan^2x+1)^{k-1}\sec^2x}{x}.`}
         </M>
         Luego se usa la sustitución <M>{r`u=\tan x`}</M>, para que <M>{r`\mathrm{d}u=\sec^2 x`}</M>:
         <M block>
-          {r`\indint{u^m(u^2+1)^{k-1}}{u}`}
+          {r`\indint{u^m(u^2+1)^{k-1}}{u}.`}
         </M>
         <li> Si la potencia de tangente es impar, <M>{r`m=2k+1, k \in \mathbb{Z}`}</M>, se aparta un factor secante por tangente y se usa la identidad pitagórica <M>{r`\tan^2x=\sec^2x-1 `}</M> para expresar los demás factores como secante:</li>
         <M block>
-          {r`\indint{\tan^{2k+1}x\sec^nx}{x} = \indint{(\tan^2x)^k\sec^{n-1}x\tan x\sec x}{x} = \indint{(\sec^2x-1)^k\sec^{n-1}x\tan x\sec x}{x}`}
+          {r`\indint{\tan^{2k+1}x\sec^nx}{x} = \indint{(\tan^2x)^k\sec^{n-1}x\tan x\sec x}{x} = \indint{(\sec^2x-1)^k\sec^{n-1}x\tan x\sec x}{x}.`}
         </M>
         Luego se usa la sustitución <M>{r`u=\sec x`}</M>, para que <M>{r`\mathrm{d}u=\sec x \tan x `}</M>:
         <M block>
-          {r`\indint{(u^2-1)^ku^{n-1}}{u}`}
+          {r`\indint{(u^2-1)^ku^{n-1}}{u}.`}
         </M>
         <li> Si la potencia de tangente es par y la potencia de secante es impar, no hay una regla específica para proceder. Se debe apelar a las derivadas mencionadas arriba, a las integrales de tangente y secante, y posiblemente a integración por partes.  </li>
       </ol>
 
       <h4>Potencias de cotangente y cosecante con el mismo ángulo</h4>
       <p>
-        Para resolver integrales de forma <M>{r` \displaystyle \indint{\cot^mx\csc^nx}{x} `}</M> se usa un método idéntico al previo a excepción de los signos. Se usan las derivadas <M>{r` \der\cot x=-\csc^2x `}</M> y <M>{r` \der\csc x=-\cot x \csc x `}</M>. Se contemplan tres casos:
+        Para resolver integrales de forma <M>{r` \displaystyle \indint{\cot^mx\csc^nx}{x} `}</M> se usa un método idéntico al previo a excepción de los signos. Se usan las derivadas <M>{r` \der{}{x} \cot x=-\csc^2x `}</M> y <M>{r` \der{}{x} \csc x=-\cot x \csc x `}</M>. Se contemplan tres casos:
       </p>
       <ol>
         <li> Si la potencia de cosecante es par, <M>{r`n=2k, k \in \mathbb{Z}`}</M>, se aparta un factor cosecante cuadrado y se usa la identidad pitagórica <M>{r`\csc^2x=1+\cot^2x`}</M> para expresar los demás factores como cotangente:</li>
@@ -847,6 +847,176 @@ const CalculoIntegral = () => (
       </ol>
 
     </Section >
+
+    <Section title="Aplicaciones geométricas de la integración">
+
+      <h3>Área entre curvas</h3>
+
+      <p>
+        Para hallar el área de la región entre dos curvas <M>{r`y=f(x)`}</M> y <M>{r`y=g(x)`}</M> se procede con un método similar al usado para hallar el área bajo una curva con el que se definió la integral definida. Se inscriben en la región <M>{r`n`}</M> rectángulos de base <M>{r`\Delta x = \frac{b-a}{n}`}</M> y altura <M>{r`f(x_i^*)-g(x_i^*)`}</M> para plantear una suma de Riemann:
+        <M block>
+          {r`A \approx \sum_{i=1}^n (f(x_i^*)-g(x_i^*)) \Delta x.`}
+        </M>
+        Se sabe que entre mayor es el número de rectángulos inscritos mejor es la aproximación del área. Ergo, de la misma forma que se hizo para hallar el área bajo una curva, se saca el límite al infinito de una suma de Riemann:
+        <M block>
+          {r`A=\lim_{n \to \infty}\sum_{i=1}^n (f(x_i^*)-g(x_i^*)) \Delta x.`}
+        </M>
+        El límite al infinito de una suma de Riemann constituye una integral definida.
+      </p>
+      <Definition concept="Área entre curvas">
+        El área de la región limitada por las curvas <M>{r`y=f(x)`}</M> y <M>{r`y=g(x)`}</M> en el intervalo <M>{r`[a,b]`}</M>, cuando <M>{r`f(x) \geq g(x)`}</M> para toda <M>{r`x \in [a,b]`}</M>, está dada por:
+        <M block>
+          {r`A=\defint{(f(x_i^*)-g(x_i^*))}{x}{a}{b}.`}
+        </M>
+      </Definition>
+      <p>
+        Si no se conoce el intervalo <M>{r`[a,b]`}</M> es útil hallar los puntos de intersección de las dos funciones, dado por el valor de <M>{r`x`}</M> en la ecuación <M>{r`f(x)=g(x)`}</M>. Si no se sabe qué función es la mayor, se puede proceder de dos formas:
+      </p>
+      <ul>
+        <li> Realizar un bosquejo de las gráficas de las funciones en el intervalo <M>{r`[a,b]`}</M> en un mismo plano cartesiano.</li>
+        <li> Determinar una función <M>{r`h(x)=f(x)-g(x)`}</M> y derivarla: si <M>{r`h'(x)>0`}</M>, entonces <M>{r`f(x)>g(x)`}</M>; si <M>{r`h'(x)<0`}</M>, entonces <M>{r`g(x)>f(x)`}</M>; y si <M>{r`h'(x)=0`}</M>, entonces <M>{r`f(x)=g(x)`}</M>.</li>
+      </ul>
+      <p>
+        Como alternativa al proceso anterior, se puede usar la siguiente fórmula, más general, para el área entre curvas, que no requiere conocer qué función es mayor:
+        <M block>
+          {r`A=\defint{\abs{f(x_i^*)-g(x_i^*)}}{x}{a}{b}.`}
+        </M>
+        No obstante, como el integrando está encerrado en un valor absoluto, resulta necesario conocer en cuáles intervalos la resta de las funciones es positiva y en cuáles negativa, por lo que, a final de cuentas, sí se necesita saber cuál función es mayor en cada intervalo.
+      </p>
+      <p>
+        En ocasiones es más conveniente integrar con respecto a <M>{r`y`}</M> que con respecto a <M>{r`x`}</M>, dependiendo de cómo se pueda obtener con mayor facilidad un intervalo para la integral definida.
+      </p>
+
+      <h3>Volumen de sólidos de revolución</h3>
+      <p>
+        Un sólido de revolución es un sólido generado al tomar una región plana y rotarla una revolución completa, <M>{r`2 \uppi`}</M> radianes, respecto a un eje de rotación. Entre los sólidos de revolución se encuentran la esfera, el cilindro y el cono. La fórmulas para los volúmenes de esos sólidos, y de cualquier sólido de revolución, se obtienen haciendo uso del cálculo integral.
+      </p>
+      <p>
+        Sea <M>{r`S`}</M> un sólido de revolución en el intervalo <M>{r`[a,b]`}</M>, se puede atravesar con un plano <M>{r`P_x`}</M> para obtener una región bidimensional denominada <em>sección transversal</em>. El área de la sección transversal puede entenderse como un área entre curvas, para lo que cual ya se conoce una fórmula, por lo que ese área se puede expresar como una función de puntos de muestra <M>{r`A(x_i^*)`}</M>. Si se divide <M>{r`S`}</M> en <M>{r`n`}</M> "rebanadas", es decir sólidos que se forman al tomar el sólido entre dos secciones transversales, de ancho <M>{r`\Delta x`}</M>, se puede obtener el volumen de cada "rebanada", como el área de la sección transversal por el ancho:
+        <M block>
+          {r`V_{\text{"rebanada"}} = A(x_i^*) \Delta x.`}
+        </M>
+        Con lo anterior, se puede plantear una suma de Riemann de "rebanadas" para aproximar el volumen del sólido:
+        <M block>
+          {r`V \approx \sum_{i=1}^n A(x_i^*) \Delta x.`}
+        </M>
+        Al igual que antes, se saca el límite cuando el número <M>{r`n`}</M> de "rebanadas" tiende al infinito,
+        <M block>
+          {r`V = \lim_{n \to \infty} \sum_{i=1}^n A(x_i^*)\Delta x,`}
+        </M>
+        lo cual resulta en una integral definida. Con eso, se obtiene el volumen de un sólido de revolución en función del área transversal.
+      </p>
+      <Definition concept="Volumen de un sólido de revolución">
+        Sea <M>{r`S`}</M> un sólido de revolución en el intervalo <M>{r`[a,b]`}</M>, si <M>{r`A(x_i^*)`}</M> es el área de una sección transversal de <M>{r`S`}</M>, entonces el <em>volumen de <M>{r`S`}</M></em> está dado por:
+        <M block>
+          {r`V = \defint{A(x_i^*)}{x}{a}{b}.`}
+        </M>
+      </Definition>
+      <p>
+        Se pueden clasificar las "rebanadas" como discos o arandelas para tener una función de área de la sección transversal <M>{r`A(x_i^*)`}</M> definida.
+      </p>
+
+      <h4>Método de discos</h4>
+      <p>
+        Se puede generar un sólido a partir de la rotación de una región bidimensional delimitada por la curva <M>{r`y=f(x)`}</M> y el eje <M>{r`x`}</M> en un intervalo <M>{r`[a,b]`}</M>, usando el eje <M>{r`x`}</M> como eje de rotación. Ese sólido será un sólido compacto. Para hallar el volumen de esa figura, se puede dividir en discos de igual altura perpendiculares al eje <M>{r`x`}</M>. Si se cuenta con <M>{r`n`}</M> discos, la altura <M>{r`h`}</M> de cada uno es <M>{r`\Delta x = \frac{b-a}{n}`}</M>. Cada disco tendrá un radio <M>{r`r=f(x_i^*)`}</M> y por tanto el área de su base, que es un círculo, será <M>{r`A_B = \uppi r^2 = \uppi f^2(x_i^*)`}</M>. Su volumen está dado por:
+        <M block>
+          {r`V_{\text{disco}} = A_B \cdot h = \uppi r^2 h = \uppi f^2(x_i^*) \Delta x.`}
+        </M>
+        Siguiendo la misma idea que se ha seguido antes, para obtener el área exacta, se debe contemplar el volumen de infinitos discos, por lo que se toma el límite cuando el número de discos <M>{r`n`}</M> tiende a infinito de la suma de los volúmenes de los discos,
+        <M block>
+          {r`V=\lim_{n \to \infty}\sum_{i=1}^{n}\uppi f^2(x_i^*) \Delta x,`}
+        </M>
+        lo cual constituye una integral definida.
+      </p>
+      <Theorem name="Método de discos" environmentName="Método">
+        El volumen del sólido que se genera al rotar la región plana acotada por la curva <M>{r`y=f(x)`}</M> y el eje <M>{r`x`}</M> en el intervalo <M>{r`[a,b]`}</M> usando el eje <M>{r`x`}</M> como eje de rotación es:
+        <M block>
+          {r`V = \uppi \defint{f^2(x)}{x}{a}{b}.`}
+        </M>
+      </Theorem>
+
+      <h4>Método de arandelas</h4>
+      <p>
+        Este método es análogo al anterior, pero trata sólidos huecos. Se puede generar un sólido a partir de la rotación de una región bidimensional delimitada por las curvas <M>{r`y=f(x)`}</M> y <M>{r`y=g(x)`}</M> en un intervalo <M>{r`[a,b]`}</M>, usando una recta horizontal <M>{r`y=L`}</M> como eje de rotación. Ese sólido será un sólido hueco. Para hallar el volumen de esa figura, se puede dividir en arandelas de igual altura, donde, si se tiene <M>{r`n`}</M> arandelas, la altura <M>{r`h`}</M> de cada una es <M>{r`\Delta x = \frac{b-a}{n}`}</M>. El área de la base de cada arandela está dada por el área de un círculo menos el área del hueco, que también se calcula como un círculo. Se tiene entonces un círculo grande de radio <M>{r`R = f(x_i^*) - L`}</M> y uno pequeño de radio <M>{r`r = g(x_i^*) - L`}</M>, para un área de la base de <M>{r`A_B = \uppi R^2- \uppi r^2 = \uppi(f(x_i^*)-L)^2 - \uppi (g(x_i^*)-L)^2`}</M>. Con lo anterior, sabiendo que el volumen de una arandela está dado por el producto entre el área de la base y la altura, se tiene:
+        <M block>
+          {r`V_{\text{arandela}}=A_B\cdot h=(\uppi R^2- \uppi r^2)h = (\uppi(f(x_i^*)-L)^2-\uppi (g(x_i^*)-L)^2 )\Delta x.`}
+        </M>
+        Como antes, para obtener el área exacta, se toma el límite cuando el número de arandelas <M>{r`n`}</M> tiende a infinito,
+        <M block>
+          {r`V=\lim_{n \to \infty}\sum_{i=1}^{n} (\uppi(f(x_i^*)-L)^2-\uppi (g(x_i^*)-L)^2) \Delta x,`}
+        </M>
+        lo cual puede ser escrito en forma de integral definida para obtener el método de arandelas:
+      </p>
+      <Theorem name="Método de arandelas" environmentName="Método">
+        El volumen del sólido que se genera al rotar la región plana acotada por las curvas <M>{r`y=f(x)`}</M> y <M>{r`y=g(x)`}</M> sobre el intervalo <M>{r`[a,b]`}</M> usando la recta horizontal <M>{r`y=L`}</M> como eje de rotación es:
+        <M block>
+          {r`V = \uppi \defint{((f(x)-L)^2-(g(x)-L)^2)}{x}{a}{b}.`}
+        </M>
+      </Theorem>
+      <p>
+        Nótese que, si se usa el eje <M>{r`x`}</M> como eje de rotación para la formación de una arandela, entonces <M>{r`L=0`}</M> y la fórmula se reduce a:
+        <M block>
+          {r`V = \uppi \defint{(f^2(x)-g^2(x))}{x}{a}{b}`}
+        </M>
+        Más aún, para el caso especial en que <M>{r`g(x)=0`}</M>, es decir, la segunda función es el eje <M>{r`x`}</M>, el sólido deja de ser hueco y la fórmula se reduce a la usada en el método de discos.
+      </p>
+
+      <h3>Longitud de arco</h3>
+      <p>
+        Para hallar la longitud de una curva, comúnmente denominada <em>longitud de arco</em>, dada por la gráfica de una función <M>{r`f`}</M> en el intervalo <M>{r`[a,b]`}</M>, se procede de forma similar a las aplicaciones anteriores. Se inscriben bajo la curva <M>{r`n`}</M> cuadriláteros de base <M>{r`\Delta x = \frac{b-a}{n}`}</M> cuyos vértices superiores <M>{r`M_i`}</M> son puntos en la curva, de forma que los lados superiores de los rectángulos se aproximan a la forma de la curva. Así, la suma de las aristas superiores de los rectángulos es una aproximación a la longitud <M>{r`L`}</M> de la curva:
+        <M block>
+          {r` L \approx \sum_{i=1}^n \overline{M_i M_{i-1}}.`}
+        </M>
+        Los lados superiores de los rectángulos se pueden expresar en términos de sus vértices inferiores, <M>{r`x_i`}</M>, y sus imágenes, <M>{r`f(x_i)`}</M>, haciendo uso del teorema de Pitágoras,
+        <M block>
+          {r` \overline{M_iM_{i-1}} = \sqrt{(x_i-x_{i-1})^2+(f(x_i)-f(x_{i-1}))^2},`}
+        </M>
+        con lo que se puede expresar la suma de los lados superiores de los rectángulos como sigue:
+        <M block>
+          {r`L \approx \sum_{i=1}^n \sqrt{(x_i-x_{i-1})^2+(f(x_i)-f(x_{i-1}))^2}.`}
+        </M>
+      </p>
+      <p>
+        Por el {referenceById("Teorema del Valor Medio", DIFFERENTIAL_CALCULUS, "teorema-del-valor-medio-de-lagrange")}, se sabe que la diferencia entre las imágenes de una función es igual a la derivada de un valor intermedio por la diferencia de las variables. Por ello, se puede expresar <M>{r`(f(x_i)-f(x_{i-1}))`}</M> como <M>{r`f'(x_i^*)(x_i-x_{i-1})`}</M>. Sea <M>{r`\Delta x_i=x_i-x_{i-1}`}</M>, se simplifica la expresión anterior en mayor medida a <M>{r`f'(x_i^*)\Delta x`}</M>, lo cual se reemplaza para llegar a
+        <M block>
+          {r`L \approx \sum_{i=1}^n \sqrt{\Delta x_i^2+(f'(x_i^*))^2\Delta x_i^2}.`}
+        </M>
+      </p>
+      <p>
+        Para obtener la longitud exacta, se debe tomar el límite cuando el número <M>{r`n`}</M> de rectángulos tiende a infinito. Con eso se obtiene un límite de una suma de Riemann,
+        <M block>
+          {r` L = \lim_{n \to \infty}\sum_{i=1}^n \sqrt{1+(f'(x_i^*))^2}\Delta x_i,`}
+        </M>
+        que se puede expresar como integral definida para obtener la fórmula para la longitud de una curva:
+      </p>
+      <Definition concept="Longitud de arco">
+        Sea <M>{r`f`}</M> una función continua en <M>{r`[a,b]`}</M>, la <em>longitud</em> <M>{r`L`}</M> de la curva <M>{r`y=f(x), x \in [a,b]`}</M> está dada por
+        <M block>
+          {r`L = \defint{\sqrt{1+(f'(x))^2}}{x}{a}{b}.`}
+        </M>
+        Si se tiene una curva que medida desde el eje <M>{r`y`}</M>, de forma <M>{r`x=g(y), y \in [c,d]`}</M>, la fórmula se convierte en
+        <M block>
+          {r`L = \defint{\sqrt{1+(g'(y))^2}}{y}{c}{d}.`}
+        </M>
+      </Definition>
+      <p>
+        A partir de lo anterior, se puede establecer también una función para obtener la longitud de una curva <M>{r`f`}</M> definida en <M>{r`[a,b]`}</M>, desde un número inicial <M>{r`(a,f(a))`}</M> hasta un un punto cualquiera <M>{r`(t,f(t))`}</M>:
+        <M block>
+          {r`L(t) = \defint{\sqrt{1+(f'(x))^2}}{x}{a}{t}.`}
+        </M>
+        Que se puede escribir en forma paramétrica si se toma el integrando como <M>{r`\mathrm{d}s = \sqrt{1+(f'(x))^2} \: \mathrm{d}x`}</M>:
+        <M block>
+          {r`\begin{gather*}
+          \mathrm{d}s^2=(1+(f'(x))^2)(\mathrm{d}x)^2 \\
+          \mathrm{d}s^2=\left(1+\left(\der[y][x]\right)^2\right)(\mathrm{d}x)^2 \\
+          \mathrm{d}s^2=\left(\frac{\mathrm{d}x^2}{\mathrm{d}x^2}+\frac{\mathrm{d}y^2}{\mathrm{d}x^2}\right)(\mathrm{d}x)^2 \\
+          \mathrm{d}s^2=\mathrm{d}x^2+\mathrm{d}y^2.
+          \end{gather*}`}
+        </M>
+        {/* TODO: Mirar esto de la forma paramétrica... qué está pasando? */}
+      </p>
+
+    </Section>
 
   </NoteDocument >
 );
