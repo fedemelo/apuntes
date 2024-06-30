@@ -595,14 +595,14 @@ const CalculoIntegral = () => (
         Para evaluar integrales de productos de seno y coseno con diferente ángulo se usa la identidad trigonométrica apropiada para convertir el producto en una suma.
       </p>
       <ol>
-        <li> Para integrales de la forma <M>{r` \displaystyle \indint{\sin mx\cos nx}{x} `}</M> se usa la identidad <M>{r`\sin \alpha \cos \beta=\frac{1}{2} [\sin(\alpha - \beta )+\sin(\alpha + \beta)]`}</M>.</li>
-        <li> Para integrales de la forma  <M>{r` \displaystyle \indint{\sin mx\sin nx}{x} `}</M> se usa la identidad <M>{r`\sin \alpha \sin \beta=\frac{1}{2} [\cos(\alpha - \beta)-\cos(\alpha + \beta)]`}</M>.</li>
-        <li> Para integrales de la forma <M>{r` \displaystyle \indint{\cos mx\cos nx}{x} `}</M> se usa la identidad <M>{r`\cos \alpha \cos \beta=\frac{1}{2} [\cos(\alpha - \beta)+\cos(\alpha + \beta)]`}</M>.</li>
+        <li> Para integrales de la forma <M>{r`\indint{\sin mx\cos nx}{x} `}</M> se usa la identidad <M>{r`\sin \alpha \cos \beta=\frac{1}{2} [\sin(\alpha - \beta )+\sin(\alpha + \beta)]`}</M>.</li>
+        <li> Para integrales de la forma  <M>{r`\indint{\sin mx\sin nx}{x} `}</M> se usa la identidad <M>{r`\sin \alpha \sin \beta=\frac{1}{2} [\cos(\alpha - \beta)-\cos(\alpha + \beta)]`}</M>.</li>
+        <li> Para integrales de la forma <M>{r`\indint{\cos mx\cos nx}{x} `}</M> se usa la identidad <M>{r`\cos \alpha \cos \beta=\frac{1}{2} [\cos(\alpha - \beta)+\cos(\alpha + \beta)]`}</M>.</li>
       </ol>
 
       <h4>Potencias de seno y coseno con el mismo ángulo</h4>
       <p>
-        Para evaluar integrales con potencias de seno y coseno, de la forma <M>{r` \displaystyle \indint{\sin^mx\cos^nx}{x} `}</M>, se usa el hecho de que <M>{r`\der{}{x} \sin x = \cos x`}</M> y que <M>{r`\der{}{x} \cos x = - \sin x`}</M>. Se contemplan tres casos:
+        Para evaluar integrales con potencias de seno y coseno, de la forma <M>{r`\indint{\sin^mx\cos^nx}{x} `}</M>, se usa el hecho de que <M>{r`\der{}{x} \sin x = \cos x`}</M> y que <M>{r`\der{}{x} \cos x = - \sin x`}</M>. Se contemplan tres casos:
       </p>
       <ol>
         <li> Si la potencia de coseno es impar, <M>{r`n=2k+1, k \in \mathbb{Z}`}</M>, se aparta un factor coseno y se usa la identidad pitagórica <M>{r`\cos^2x=1-\sin^2x `}</M> para expresar los demás factores como seno y usar la sustitución <M>{r`u=\sin x`}</M>:</li>
@@ -624,7 +624,7 @@ const CalculoIntegral = () => (
 
       <h4>Potencias de tangente y secante con el mismo ángulo</h4>
       <p>
-        Para resolver integrales de forma <M>{r` \displaystyle \indint{\tan^mx\sec^nx}{x} `}</M> se usa una estrategia similar a la anterior, que se sirve del hecho de que <M>{r` \der{}{x} \tan x=\sec^2x `}</M> y que <M>{r` \der{}{x} \sec x=\tan x \sec x `}</M>. Se contemplan tres casos:
+        Para resolver integrales de forma <M>{r`\indint{\tan^mx\sec^nx}{x} `}</M> se usa una estrategia similar a la anterior, que se sirve del hecho de que <M>{r` \der{}{x} \tan x=\sec^2x `}</M> y que <M>{r` \der{}{x} \sec x=\tan x \sec x `}</M>. Se contemplan tres casos:
       </p>
       <ol>
         <li> Si la potencia de secante es par, <M>{r`n=2k, k \in \mathbb{Z}`}</M>, se aparta un factor secante cuadrado y se usa la identidad pitagórica <M>{r`\sec^2x=\tan^2x+1 `}</M> para expresar los demás factores como tangente:</li>
@@ -648,7 +648,7 @@ const CalculoIntegral = () => (
 
       <h4>Potencias de cotangente y cosecante con el mismo ángulo</h4>
       <p>
-        Para resolver integrales de forma <M>{r` \displaystyle \indint{\cot^mx\csc^nx}{x} `}</M> se usa un método idéntico al previo a excepción de los signos. Se usan las derivadas <M>{r` \der{}{x} \cot x=-\csc^2x `}</M> y <M>{r` \der{}{x} \csc x=-\cot x \csc x `}</M>. Se contemplan tres casos:
+        Para resolver integrales de forma <M>{r`\indint{\cot^mx\csc^nx}{x} `}</M> se usa un método idéntico al previo a excepción de los signos. Se usan las derivadas <M>{r` \der{}{x} \cot x=-\csc^2x `}</M> y <M>{r` \der{}{x} \csc x=-\cot x \csc x `}</M>. Se contemplan tres casos:
       </p>
       <ol>
         <li> Si la potencia de cosecante es par, <M>{r`n=2k, k \in \mathbb{Z}`}</M>, se aparta un factor cosecante cuadrado y se usa la identidad pitagórica <M>{r`\csc^2x=1+\cot^2x`}</M> para expresar los demás factores como cotangente:</li>
@@ -673,7 +673,7 @@ const CalculoIntegral = () => (
 
       <h3>Integración por sustitución trigonométrica</h3>
       <p>
-        Para evaluar integrales con sumas dentro de radicales, de la forma <M>{r`\displaystyle \indint{\sqrt{\pm a^2\pm x^2}}{x}`}</M>, es útil sustituir <M>{r`x`}</M> por funciones trigonométricas, con el propósito de para utilizar identidades pitagóricas para remover la raíz. Se usa entonces la regla de sustitución de forma inversa, haciendo una sustitución de la forma <M>{r`x = g(\theta)`}</M>, con la variable original como función de la nueva variable <M>{r`\theta`}</M>, donde <M>{r`g(\theta)`}</M> es generalmente una función trigonométrica. Esto solo es posible si existe una función <M>{r`g^{-1}(\theta)`}</M>, por lo que es necesario que <M>{r`g(\theta)`}</M> sea una función inyectiva. {/* TODO: Por qué se necesita función inversa? El libro dice que para facilita el cálculo pero por qué eso facilita el cálculo? */}
+        Para evaluar integrales con sumas (o restas) de cuadrados dentro de radicales, de la forma <M>{r`\indint{\sqrt{\pm a^2\pm x^2}}{x}`}</M>, es útil sustituir <M>{r`x`}</M> por funciones trigonométricas, con el propósito de para utilizar identidades pitagóricas para remover la raíz. Se usa entonces la regla de sustitución de forma inversa, haciendo una sustitución de la forma <M>{r`x = g(\theta)`}</M>, con la variable original como función de la nueva variable <M>{r`\theta`}</M>, donde <M>{r`g(\theta)`}</M> es generalmente una función trigonométrica. Esto solo es posible si existe una función <M>{r`g^{-1}(\theta)`}</M>, por lo que es necesario que <M>{r`g(\theta)`}</M> sea una función inyectiva. {/* TODO: Por qué se necesita función inversa? El libro dice que para facilita el cálculo pero por qué eso facilita el cálculo? */}
       </p>
       <Theorem name="Regla de sustitución inversa">
         Sea <M>{r`g(\theta)`}</M> una función inyectiva:
@@ -686,17 +686,17 @@ const CalculoIntegral = () => (
         Como <M>{r`g(\theta)`}</M> debe ser inyectiva, los valores de <M>{r`\theta`}</M> deben restringirse. A continuación se muestran las sustituciones eficaces para tres integrandos con radicales, con sus respectivas restricciones para <M>{r`\theta`}</M>:
       </p>
       <ul>
-        <li> Para <M>{r`\displaystyle \indint{\sqrt{a^2+x^2}}{x}`}</M> se usa la sustitución <M>{r`x = a\tan \theta, \theta \in (-\frac{\uppi}{2},\frac{\uppi}{2})`}</M>. El intervalo de <M>{r`\theta`}</M> se elige para que <M>{r`\sec \theta > 0`}</M>. La remoción de la raíz del integrando es como sigue: </li>
+        <li> Para <M>{r`\indint{\sqrt{a^2+x^2}}{x}`}</M> se usa la sustitución <M>{r`x = a\tan \theta, \theta \in (-\frac{\uppi}{2},\frac{\uppi}{2})`}</M>. El intervalo de <M>{r`\theta`}</M> se elige para que <M>{r`\sec \theta > 0`}</M>. La remoción de la raíz del integrando es como sigue: </li>
         <M block>
           {r`\sqrt{a^2+x^2}=\sqrt{a^2+a^2\tan^2\theta}=\sqrt{a^2(1+\tan^2\theta)}=\sqrt{a^2(\sec^2\theta)}=a\abs{\sec \theta}=a \sec \theta`}
         </M>
 
-        <li> Para <M>{r`\displaystyle \indint{\sqrt{a^2-x^2}}{x}`}</M> se usa la sustitución <M>{r`x = a\sin \theta, \theta \in [-\frac{\uppi}{2},\frac{\uppi}{2}]`}</M>. El intervalo de <M>{r`\theta`}</M> se elige para que <M>{r`\cos \theta \geq 0`}</M>. La remoción de la raíz del integrando es como sigue: </li>
+        <li> Para <M>{r`\indint{\sqrt{a^2-x^2}}{x}`}</M> se usa la sustitución <M>{r`x = a\sin \theta, \theta \in [-\frac{\uppi}{2},\frac{\uppi}{2}]`}</M>. El intervalo de <M>{r`\theta`}</M> se elige para que <M>{r`\cos \theta \geq 0`}</M>. La remoción de la raíz del integrando es como sigue: </li>
         <M block>
           {r` \sqrt{a^2-x^2} = \sqrt{a^2-a^2\sin^2\theta}=\sqrt{a^2(1-\sin^2\theta)}=\sqrt{a^2\cos^2\theta}=a\abs{\cos \theta}=a\cos \theta`}
         </M>
 
-        <li> Para <M>{r`\displaystyle \indint{\sqrt{x^2-a^2}}{x}`}</M> se usa la sustitución <M>{r`x = a\sec \theta, \theta \in [0,\frac{\uppi}{2}) \text{ o } \theta \in [\uppi,\frac{3\uppi}{2})`}</M>. Los intervalos de <M>{r`\theta`}</M> se eligen para que <M>{r`\tan \theta \geq 0`}</M>. La remoción de la raíz del integrando es como sigue:</li>
+        <li> Para <M>{r`\indint{\sqrt{x^2-a^2}}{x}`}</M> se usa la sustitución <M>{r`x = a\sec \theta, \theta \in [0,\frac{\uppi}{2}) \text{ o } \theta \in [\uppi,\frac{3\uppi}{2})`}</M>. Los intervalos de <M>{r`\theta`}</M> se eligen para que <M>{r`\tan \theta \geq 0`}</M>. La remoción de la raíz del integrando es como sigue:</li>
         <M block>
           {r`\sqrt{x^2-a^2}=\sqrt{a^2\sec^2\theta-a^2}=\sqrt{a^2(\sec^2\theta-1)}=\sqrt{a^2\tan^2\theta}=a\abs{\tan \theta}=a \tan \theta `}
         </M>
