@@ -5,7 +5,7 @@ import NoteDocument from "@/components/notes/NoteDocument";
 import Section from "@/components/notes/Section";
 import { referenceById } from "@/components/utils/hyperlinkManager";
 import M, { r } from "@/math/LaTeX";
-import { DIFFERENTIAL_CALCULUS, INTEGRAL_CALCULUS } from "@/Router";
+import { DIFFERENTIAL_CALCULUS, INTEGRAL_CALCULUS, VECTOR_CALCULUS } from "@/Router";
 
 const CalculoVectorial = () => (
   <NoteDocument>
@@ -856,7 +856,7 @@ const CalculoVectorial = () => (
         </M>
       </Theorem>
 
-      Lo anterior se debe a que 
+      Lo anterior se debe a que
 
       <Example title="Derivada direccional">
         Sean <M>{r`f\colon \mathbb{R}^{3}\to\mathbb{R}`}</M> dada por <M>{r`f(x,y,z)=3x+y^2+4\cos(z)`}</M>, <M>{r`\bvec{u}=(2,3,\uppi/2)`}</M> y  <M>{r`\uvec{v}=(-1/\sqrt{2},1/\sqrt{2},0)`}</M>, halle la derivada direccional de <M>{r`f(\bvec{u})`}</M> en la dirección <M>{r`\uvec{v}`}</M>.
@@ -1604,9 +1604,9 @@ const CalculoVectorial = () => (
       <h3>Integrales dobles sobre regiones rectangulares</h3>
 
       <p>
-        Se estudian primero integrales dobles exclusivamente sobre regiones rectangulares. Esto facilita definirla formalmente como la generalización natural de las integrales definidas de funciones de una variable. Naturalmente, es conveniente recapitular la {referenceById("definición de la integral definida", INTEGRAL_CALCULUS, "la-integral-definida")} del cálculo integral antes de proceder.
+        Se estudian primero integrales dobles exclusivamente sobre regiones rectangulares. Esto facilita definir la integral doble formalmente, como la generalización natural de las integrales definidas de funciones de una variable. Naturalmente, es conveniente recapitular la {referenceById("definición de la integral definida", INTEGRAL_CALCULUS, "la-integral-definida")} del cálculo integral antes de proceder.
       </p>
-      <p> 
+      <p>
         Sea <M>{r`f\colon R\to \mathbb{R}`}</M> una función escalar de dos variables, donde <M>{r`R = [a,b] \times [c,d]`}</M> es un rectángulo en el plano <M>{r`xy`}</M>. Supóngase que <M>{r`f`}</M> es positiva y continua. Se predetende calcular el volumen debajo de <M>{r`f`}</M>, que corresponde al volumen de la región en el espacio tridimensional que es, informalmente, una caja cuya base es <M>{r`R`}</M> y cuya tapa es la gráfica de <M>{r`f(x, y)`}</M>.
       </p>
       <p>
@@ -1645,13 +1645,13 @@ const CalculoVectorial = () => (
         Siempre que el límite de la suma de Riemann exista, sea cual sea la elección de los puntos <M>{r`(x_i, y_j)`}</M>, se dice que la función <M>{r`f`}</M> es <em>integrable</em> sobre la región <M>{r`R`}</M>.
       </p>
       <Theorem name="Función integrable">
-        Sea <M>{r`f(x, y)`}</M> una función escalar definida sobre la región rectangular <M>{r`R = [a, b] \times [c, d]`}</M>. 
+        Sea <M>{r`f(x, y)`}</M> una función escalar definida sobre la región rectangular <M>{r`R = [a, b] \times [c, d]`}</M>.
         <ul>
           <li>Si <M>{r`f`}</M> es continua en <M>{r`R`}</M>, entonces <M>{r`f`}</M> es integrable en <M>{r`R`}</M>.</li>
           <li>Si <M>{r`f`}</M> es una función acotada sobre <M>{r`R`}</M> y el conjunto de puntos donde <M>{r`f`}</M> es discontinua consiste de la unión de finita de gráficas de funciones continuas, entonces <M>{r`f`}</M> es integrable sobre <M>{r`R`}</M>.</li>
         </ul>
       </Theorem>
-        
+
       <Properties
         title="Propiedades de la integral doble en regiones rectangulares"
         description={<p>Las propiedades de la integral doble son, en esencia, las mismas de la integral definida de una variable. Sean <M>{r`f, g`}</M> funciones escalares integrables sobre la región rectangular <M>{r`R`}</M> y <M>{r`c`}</M> una constante.</p>}
@@ -1666,7 +1666,7 @@ const CalculoVectorial = () => (
           },
           {
             name: "Monotonía",
-            formula: <span>Si <M>{r`f(x, y) \geq g(x, y)`}</M> para todo <M>{r`(x, y) \in R`}</M>, entonces <M>{r`\int_{R} f \geq \int_{R} g.`}</M></span> 
+            formula: <span>Si <M>{r`f(x, y) \geq g(x, y)`}</M> para todo <M>{r`(x, y) \in R`}</M>, entonces <M>{r`\int_{R} f \geq \int_{R} g.`}</M></span>
           },
           {
             name: "Aditividad",
@@ -1675,9 +1675,9 @@ const CalculoVectorial = () => (
           }
         ]}
       />
-        
+
       <h4>Calcular integrales dobles en regiones rectangulares</h4>
-        
+
       <p>
         Tras definir formalmente la integral doble, se aborda cómo calcularla. Nótese que en la definición de la integral doble como suma de Riemann, se puede separar la sumatoria en dos, una para cada variable.
         <M block>
@@ -1691,7 +1691,7 @@ const CalculoVectorial = () => (
         <M block>
           {r`\int_{R} f = \int_{c}^{d} \left( \int_{a}^{b} f(x, y) \: \mathrm{d}x \right) \: \mathrm{d}y.`}
         </M>
-        Los paréntesis usualmente se omiten, pero es importante recordar que la integral interna se evalúa primero. 
+        Los paréntesis usualmente se omiten, pero es importante recordar que la integral interna se evalúa primero.
       </p>
 
       <p>
@@ -1709,7 +1709,7 @@ const CalculoVectorial = () => (
         </M>
       </p>
       <p>
-        El resultado formal que resume lo anterior es el <em>Teorema de Fubini</em>. 
+        El resultado formal que resume lo anterior es el <em>Teorema de Fubini</em>.
       </p>
       <Theorem name="Teorema de Fubini">
         Sea <M>{r`f(x, y)`}</M> una función escalar integrable sobre la región rectangular <M>{r`R = [a, b] \times [c, d]`}</M>. Entonces, se tiene que
@@ -1718,16 +1718,78 @@ const CalculoVectorial = () => (
         </M>
       </Theorem>
 
-      <h3>Integrales dobles sobre regiones generales</h3>
+      <h3>Integrales dobles sobre regiones elementales</h3>
 
-      
-        
-      {/* <h3>Regla de integración de Leibniz</h3> */}
-      {/* Richard Feynman, nobel laurate, in his best-selling memoir Surely You're Joking, Mr. Feynman!
-      
-      One thing I never did learn was contour integration. I had learned to do integrals by various methods shown in a book that my high school physics teacher Mr. Bader had given me. One day he told me to stay after class. "Feynman," he said, "you talk too much and you make too much noise. I know why. You're bored. So I'm going to give you a book. You go up there in the back, in the corner, and study this book, and when you know everything that's in this book, you can talk again." So every physics class, I paid no attention to what was going on with Pascal's Law, or whatever they were doing. I was up in the back with this book: "Advanced Calculus", by Woods. Bader knew I had studied "Calculus for the Practical Man" a little bit, so he gave me the real works—it was for a junior or senior course in college. It had Fourier series, Bessel functions, determinants, elliptic functions—all kinds of wonderful stuff that I didn't know anything about. That book also showed how to differentiate parameters under the integral sign—it's a certain operation. It turns out that's not taught very much in the universities; they don't emphasize it. But I caught on how to use that method, and I used that one damn tool again and again. So because I was self-taught using that book, I had peculiar methods of doing integrals. The result was, when guys at MIT or Princeton had trouble doing a certain integral, it was because they couldn't do it with the standard methods they had learned in school. If it was contour integration, they would have found it; if it was a simple series expansion, they would have found it. Then I come along and try differentiating under the integral sign, and often it worked. So I got a great reputation for doing integrals, only because my box of tools was different from everybody else's, and they had tried all their tools on it before giving the problem to me.*/}
+      <p>
+        Se estudian ahora integrales dobles sobre regiones bidimensionales más generales. Para ello, se clasifican en tres tipos, que se denominan <em>regiones elementales</em>. La unión de regiones elementales permite describir cualquier región bidimensional. Las regiones elementales sobre el plano <M>{r`xy`}</M> son:
+      </p>
+      <ol>
+        <li><b>Región de tipo 1:</b> Toda región que está delimitada por un intervalo <M>{r`[a, b]`}</M> en el eje <M>{r`x`}</M> y por dos curvas continuas, <M>{r`\phi_1(y)`}</M> y <M>{r`\phi_2(y)`}</M>, en el eje <M>{r`y`}</M>. Se toma como convención que <M>{r`\phi_2(x) > \phi_1(x)`}</M> para todos los <M>{r`x`}</M> en el intervalo <M>{r`[a, b]`}</M>.</li>
+        <li><b>Región de tipo 2:</b> Toda región que está delimitada por un intervalo <M>{r`[c, d]`}</M> en el eje <M>{r`y`}</M> y por dos curvas continuas, <M>{r`\psi_1(x)`}</M> y <M>{r`\psi_2(x)`}</M>, en el eje <M>{r`x`}</M>. Igual que antes, se presume que <M>{r`\psi_2 > \psi_1`}</M> en el intervalo <M>{r`[c, d]`}</M>.</li>
+        <li><b>Región de tipo 3:</b> Toda región que se puede representar o bien como una región de tipo 1 o bien como una región de tipo 2. Por ejemplo, el círculo unitario.</li>
+      </ol>
+
+      <p>
+        Para extender la definición que ya se conoce de integral doble sobre regiones rectangulares para que incluya las regiones elementales, se toma un rectángulo <M>{r`R`}</M> que contenga a la región elemental <M>{r`D`}</M>. Dada una función <M>{r`f`}</M> definida en <M>{r`D`}</M>, se fabrica una función <M>{r`g`}</M> cuyo valor sea igual al de <M>{r`f`}</M> en <M>{r`D`}</M> y sea cero en el complemento de <M>{r`D`}</M>. Con eso, la integral doble de <M>{r`f`}</M> sobre <M>{r`D`}</M> se define como la integral doble de <M>{r`g`}</M> sobre <M>{r`R`}</M>, donde esa última integral está definida porque es una integral doble sobre una región rectangular.
+      </p>
+      <Definition concept="Integral doble sobre región elemental">
+        Sea <M>{r`D`}</M> una región elemental en el plano y sea <M>{r`R`}</M> una región rectangular tal que <M>{r`D \subseteq R`}</M>. Sea <M>{r`f(x, y)`}</M> una función escalar continua sobre <M>{r`D`}</M>. Se define la función escalar <M>{r`g(x, y)`}</M> en el rectángulo <M>{r`R`}</M> como
+        <M block>
+          {r`g(x, y) = \begin{cases}
+            f(x, y) & (x, y) \in D, \\
+            0 & (x, y) \notin D \land (x, y) \in R. 
+           \end{cases}`}
+        </M>
+        La <em>integral doble</em> de <M>{r`f`}</M> sobre <M>{r`D`}</M> se define como la integral doble de <M>{r`g`}</M> sobre <M>{r`R`}</M>:
+        <M block>
+          {r`\int_{D} f = \int_{R} g.`}
+        </M>
+      </Definition>
+      <p>
+        En la definición, <M>{r`g`}</M> es continua al interior de <M>{r`D`}</M> porque allí su valor es <M>{r`f`}</M> y <M>{r`f`}</M> es continua. También es continua en <M>{r`R \setminus D`}</M> porque allí su valor es <M>{r`0`}</M>. No hay garantías de que <M>{r`g`}</M> no sea continua en la frotera de la región elemental, <M>{r`\partial D`}</M>, no obstante, por la definición de región elemental, esa frontera está formada por la unión de gráficas de funciones continuas. Esto hace que, por el {referenceById("teorema de funciones integrables", VECTOR_CALCULUS, "funcion-integrable")}, <M>{r`g`}</M> sea integrable en <M>{r`R`}</M>.
+      </p>
+
+      <h4>Calcular integrales dobles en regiones elementales</h4>
+
+      <p>
+        Para calcular la integral doble sobre una región elemental, se sigue el mismo razonamiento que en el caso de regiones rectangulares. La diferencia fundamental es que la integral interna tendrá como límites las curvas que delimitan la región elemental. Para una región de tipo 1, la integral doble se calcula como
+        <M block>
+          {r`\int_{D} f = \int_{a}^{b} \int_{\phi_1(y)}^{\phi_2(y)} f(x, y) \: \mathrm{d}x \: \mathrm{d}y.`}
+        </M>
+        Nótese que la integral interna, que es con respecto a <M>{r`x`}</M>, tiene como límites las curvas con respecto a <M>{r`y`}</M>, de forma que tras evaluarla se obtiene una función con respeto a <M>{r`y`}</M> como integrando de la integral externa. Similarmente, para una región de tipo 2, la integral doble es
+        <M block>
+          {r`\int_{D} f = \int_{c}^{d} \int_{\psi_1(x)}^{\psi_2(x)} f(x, y) \: \mathrm{d}y \: \mathrm{d}x.`}
+        </M>
+        Para regiones de tipo 3, se puede optar por cualquiera de las fórmulas. En ocasiones, una de las dos puede resultar mucho más sencilla que la otra.
+      </p>
+
+      <Warning>
+        Es importante enfatizar que la integral cuyos límites son funciones debe ser la interna y los límites deben estar en función de la variable de la integral externa, para que al evaluarla se obtenga una función con respecto a la variable restante. De lo contrario, no se podrá obtener un valor numérico.
+      </Warning>
+
+      <Tip>
+        Antes de evaluar una integral doble, siempre debe inspeccionarse el tipo de la región. Si se descubre que la región es de tipo 3, debe ponderarse si cambiar el orden de integración puede simplificar el cálculo o, incluso, posibilitarlo.
+      </Tip>
+
+      <h4>El teorema del valor medio para integrales dobles</h4>
+
+      <p>
+        Para finalizar el estudio de las integrales dobles, se enuncia el teorema del valor medio para integrales dobles, análogo al teorema del valor medio del cálculo integral. El teorema establece que, para cualquier función continua sobre una región elemental, existe un punto en la región donde la función toma un valor tal que, si se multiplica por el área de la región, arroja el volumen entre la superficie y la región. Es decir, en algún punto de la región, la función toma el promedio de los valores de la función en la región.
+      </p>
+      <Theorem name="Teorema del valor medio para integrales dobles">
+        Sea <M>{r`f(x, y)`}</M> una función continua sobre una región elemental <M>{r`D`}</M>. Existe un punto <M>{r`(x_0, y_0)`}</M> en <M>{r`D`}</M> tal que
+        <M block>
+          {r`\int_{D} f = f(x_0, y_0) \cdot A(D).`}
+        </M>
+        donde <M>{r`A(D)`}</M> denota el área de <M>{r`D`}</M>.
+      </Theorem>
 
     </Section>
+
+    {/* <h3>Regla de integración de Leibniz</h3> */}
+    {/* Richard Feynman, nobel laurate, in his best-selling memoir Surely You're Joking, Mr. Feynman!
+      
+      One thing I never did learn was contour integration. I had learned to do integrals by various methods shown in a book that my high school physics teacher Mr. Bader had given me. One day he told me to stay after class. "Feynman," he said, "you talk too much and you make too much noise. I know why. You're bored. So I'm going to give you a book. You go up there in the back, in the corner, and study this book, and when you know everything that's in this book, you can talk again." So every physics class, I paid no attention to what was going on with Pascal's Law, or whatever they were doing. I was up in the back with this book: "Advanced Calculus", by Woods. Bader knew I had studied "Calculus for the Practical Man" a little bit, so he gave me the real works—it was for a junior or senior course in college. It had Fourier series, Bessel functions, determinants, elliptic functions—all kinds of wonderful stuff that I didn't know anything about. That book also showed how to differentiate parameters under the integral sign—it's a certain operation. It turns out that's not taught very much in the universities; they don't emphasize it. But I caught on how to use that method, and I used that one damn tool again and again. So because I was self-taught using that book, I had peculiar methods of doing integrals. The result was, when guys at MIT or Princeton had trouble doing a certain integral, it was because they couldn't do it with the standard methods they had learned in school. If it was contour integration, they would have found it; if it was a simple series expansion, they would have found it. Then I come along and try differentiating under the integral sign, and often it worked. So I got a great reputation for doing integrals, only because my box of tools was different from everybody else's, and they had tried all their tools on it before giving the problem to me.*/}
 
   </NoteDocument >
 );
