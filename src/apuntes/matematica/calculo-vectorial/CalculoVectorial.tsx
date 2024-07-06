@@ -1960,10 +1960,54 @@ const CalculoVectorial = () => (
         Para poder sacar provecho del teorema, naturalmente es necesario conocer al menos algunos sistemas coordenados alternativos al cartesiano, por lo cual, como antesala al teorema, se presentan los sistemas coordenados polar, cilíndrico y esférico. Se inicia con una formalización del ya familiar sistema cartesiano, para luego presentar los sistemas alternativos.
       </p>
 
-    </Section>
+      <h3>Sistemas coordenados</h3>
 
-    {/* <h3>Regla de integración de Leibniz</h3> */}
-    {/* Richard Feynman, nobel laurate, in his best-selling memoir Surely You're Joking, Mr. Feynman!
+      <Definition concept="Sistema coordenado">
+        Un <em>sistema coordenado</em> es un sistema que utiliza uno o más números, denominados <em>coordenadas</em>, para determinar unívocamente la posición de puntos y otros elementos geométricos en una variedad.
+      </Definition>
+      <p>
+        La definición de <em>variedad</em> requiere de mucha más matemática que la que se aborda en estos apuntes. Como definición informal, una variedad es un espacio geométrico que localmente se parece a un <em>espacio euclidiano</em>. Un espacio euclidiano es un espacio en el que se satisfacen los axiomas de Euclides, lo cual esencialmente significa que es un espacio en el que se pueden medir distancias y ángulos. <M>{r`\mathbb{R}^n`}</M> para cualquier <M>{r`n \in \mathbb{N} \setminus \{0\}`}</M> es un espacio euclidiano.
+      </p>
+      <p>
+        Existen múltiples sistemas coordenados para determinar puntos en alguna variedad, dependiendo de su dimensión. Sin embargo, todo sistema coordenado de <M>{r`n`}</M> dimensiones sastisface lo siguiente:
+      </p>
+      <ul>
+        <li> Se fija arbitrariamente un punto <M>{r`\mathcal{O}`}</M> del espacio como <em>origen</em> del sistema coordenado.</li>
+        <li> Cada punto se determina por <M>{r`n`}</M> coordenadas, una <M>{r`n`}</M>-tupla, que se puede entender como un <em>vector posición</em> dirigido desde el origen al punto.</li>
+      </ul>
+      
+      <h4>Orientación de sistemas coordenados</h4>
+      <p>
+        En los sistemas coordenados de dos y tres dimensiones, es imprescindible definir la orientación del sistema, así sea de forma tácita. Se distingue entre sistemas <em>de mano derecha</em> y <em>de mano izquierda</em>. En la inmensa mayoría de casos, al igual que en el resto de estos apuntes, se utilizan sistemas de mano derecha, por lo que no se menciona explícitamente la orientación del sistema. Sin embargo, en algunas aplicaciones específicas, particularmente en gráficos de computadora, se utilizan sistemas de mano izquierda. A continuación se detalla la diferencia entre ambos.
+      </p>
+      <p>
+        En sistemas coordenados bidimensionales, la distinción radica únicamente en la dirección que se toma como la positiva al medir ángulos. En sistemas tridimensionales, es además relevante la dirección que se toma como positiva para el tercer eje, con respecto a las direcciones positivas de los otros dos.
+      </p>
+      <p>
+        Primero, con respecto a la dirección positiva de mediciones de ángulos:
+      </p>
+      <ul>
+        <li>En un <b>sistema de mano derecha</b>, la dirección positiva es el sentido <b>contrario a las manecillas del reloj</b>. Usando la regla de la mano derecha, si el pulgar apunta en la dirección positiva del eje ortogonal a la rotación, la dirección positiva es aquella en la que es posible doblar los demás dedos de la mano.
+        </li>
+        <li>En un <b>sistema de mano izquierda</b>, la dirección positiva es el sentido <b>de las manecillas del reloj</b>. Análogamente, usando la regla de la mano izquierda, la dirección positiva es la aquella en la que es posible doblar los dedos de la mano izquierda si el pulgar apunta en la dirección positiva del eje ortogonal a la rotación.</li>
+      </ul>
+      <p>
+        Segundo, para definir la dirección positiva del tercer eje respecto a la de los otros dos, sea el dedo pulgar la dirección positiva del eje <M>{r`x`}</M> y el dedo índice la dirección positiva del eje <M>{r`y`}</M>. Esa convención es hasta ahora independiente de la mano y de su orientación, pues simplemente representa dos ejes ortogonales. Con eso en mente:
+      </p>
+      <ul>
+        <li>En un <b>sistema de mano derecha</b>, la dirección positiva del eje <M>{r`z`}</M> es aquella en la que apunta el dedo corazón (o el anular) cuando está doblado perpendicular a la palma, usando, por supuesto, la mano derecha.</li>
+        <li>En un <b>sistema de mano izquierda</b>, la dirección positiva del eje <M>{r`z`}</M> es aquella en la que apunta el dedo corazón cuando está doblado perpendicular a la palma, usando la mano izquierda.</li>
+      </ul>
+
+      <Tip>
+        Rara vez se menciona la orientación de un sistema coordenado: se presume universalmente que es de mano derecha. En los sistemas coordenados que se estudiarán, esto afecta la dirección del eje <M>{r`z`}</M> y sobretodo la forma en la que se miden los ángulos. 
+      </Tip>
+
+
+    </Section >
+
+  {/* <h3>Regla de integración de Leibniz</h3> */ }
+{/* Richard Feynman, nobel laurate, in his best-selling memoir Surely You're Joking, Mr. Feynman!
       
       One thing I never did learn was contour integration. I had learned to do integrals by various methods shown in a book that my high school physics teacher Mr. Bader had given me. One day he told me to stay after class. "Feynman," he said, "you talk too much and you make too much noise. I know why. You're bored. So I'm going to give you a book. You go up there in the back, in the corner, and study this book, and when you know everything that's in this book, you can talk again." So every physics class, I paid no attention to what was going on with Pascal's Law, or whatever they were doing. I was up in the back with this book: "Advanced Calculus", by Woods. Bader knew I had studied "Calculus for the Practical Man" a little bit, so he gave me the real works—it was for a junior or senior course in college. It had Fourier series, Bessel functions, determinants, elliptic functions—all kinds of wonderful stuff that I didn't know anything about. That book also showed how to differentiate parameters under the integral sign—it's a certain operation. It turns out that's not taught very much in the universities; they don't emphasize it. But I caught on how to use that method, and I used that one damn tool again and again. So because I was self-taught using that book, I had peculiar methods of doing integrals. The result was, when guys at MIT or Princeton had trouble doing a certain integral, it was because they couldn't do it with the standard methods they had learned in school. If it was contour integration, they would have found it; if it was a simple series expansion, they would have found it. Then I come along and try differentiating under the integral sign, and often it worked. So I got a great reputation for doing integrals, only because my box of tools was different from everybody else's, and they had tried all their tools on it before giving the problem to me.*/}
 
