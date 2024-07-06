@@ -12,7 +12,13 @@ const CalculoVectorial = () => (
 
     <h1>Cálculo Vectorial</h1>
 
-    El cálculo vectorial es una rama de las matemáticas que estudia el cálculo en funciones con valores vectoriales. En particular, se enfoca en funciones escalares y vectoriales de múltiples variables. En este documento se estudian las funciones con valores reales, los límites de múltiples variables, las derivadas parciales, las derivadas direccionales, los diferenciales, los gradientes, las integrales múltiples y los teoremas de la divergencia y de Stokes.
+    <p>
+      El <em>cálculo vectorial</em> es la rama de las matemáticas que estudia el cálculo en funciones de múltiples variables y en funciones vectoriales. En estos apuntes se estudia el cálculo vectorial en dos partes diferenciadas: el cálculo vectorial diferencial, que generaliza el cálculo diferencial a múltiples variables, y el cálculo vectorial integral, que hace lo propio con el cálculo integral.
+    </p>
+
+    <p>
+      Antes de comenzar con el cálculo vectorial, es imprescindible tener claros los conceptos básicos de funciones con valores reales. Por ello, se inicia con una introducción a las funciones con valores reales y a los conjuntos con valores reales.
+    </p>
 
     <Section title="Funciones con valores reales">
 
@@ -20,7 +26,7 @@ const CalculoVectorial = () => (
         Una función es una regla que asigna un elemento a otro específico, mas nunca asigna al mismo elemento dos distintos.
       </p>
       <p>
-        En las funciones con valores reales, dichos elementos pueden ser tanto escalares <M>{r`x \in \mathbb{R}`}</M> como vectores <M>{r`\bvec{x}\in\mathbb{R}^{n}`}</M>, con <M>{r`n \in \mathbb{N} \setminus \{0, 1\}`}</M>. Ergo, toda <em>función con valores reales</em> tiene la forma <M>{r`f\colon A\subseteq\mathbb{R}^{m}\to\mathbb{R}^{n}`}</M>. A cada elemento del conjunto <M>{r`A=\dom f`}</M>, que puede ser un vector o escalar dependiendo del valor de <M>{r`m \in \mathbb{N} \setminus \{0\}`}</M>, le corresponde un único elemento <M>{r`f(\bvec{x}) \in \ran f \subseteq \mathbb{R}^{n}`}</M>, vector o escalar dependiendo de <M>{r`n \in \mathbb{N} \setminus \{0\}`}</M>. Las funciones con valores reales se clasifican de acuerdo a qué son sus elementos.
+        En las funciones con valores reales, dichos elementos pueden ser tanto escalares, es decir, números <M>{r`x \in \mathbb{R}`}</M>, como vectores <M>{r`\bvec{x}\in\mathbb{R}^{n}`}</M>, con <M>{r`n \in \mathbb{N} \setminus \{0, 1\}`}</M>. Ergo, toda <em>función con valores reales</em> tiene la forma <M>{r`f\colon A\subseteq\mathbb{R}^{m}\to\mathbb{R}^{n}`}</M>. A cada elemento del conjunto <M>{r`A = \dom f`}</M>, que puede ser un vector o escalar dependiendo del valor de <M>{r`m \in \mathbb{N} \setminus \{0\}`}</M>, le corresponde un único elemento <M>{r`f(\bvec{x}) \in \ran f \subseteq \mathbb{R}^{n}`}</M>, vector o escalar dependiendo de <M>{r`n \in \mathbb{N} \setminus \{0\}`}</M>. Las funciones con valores reales se clasifican de acuerdo a qué son sus elementos.
       </p>
 
       <Definition concept="Función escalar">
@@ -177,6 +183,14 @@ const CalculoVectorial = () => (
     */}
 
     </Section>
+
+    <h1>Parte 1: Cálculo Vectorial Diferencial</h1>
+
+    <p>
+      En esta primera parte del cálculo vectorial se generaliza el cálculo diferencial de funciones escalares de una variable a funciones vectoriales y a funciones de múltiples variables. Se estudian, en orden: límites de funciones de múltiples variables; derivación de funciones escalares de múltiples variables, mediante la derivación parcial, el gradiante y la derivada direccional; optimización de funciones escalares de múltiples variables; y diferenciación de funciones vectoriales, mediante el rotacional, la divergencia y el laplaciano.
+    </p>
+
+    {/* TODO: A partir de la mitad de la sección de derivada direccional, estos apuntes están incompletos, tomados por encima. Las secciones de cinemática y derivación de funciones vectoriales sospecho que están muy incompletas.  */}
 
     <Section title="Límites de múltiples variables">
 
@@ -1595,10 +1609,23 @@ const CalculoVectorial = () => (
 
     {/* TODO! En este punto inicio la revisión de la parte de Integral de estos apuntes cuando fui monitor de Cálculo Vectorial en 2024-19. */}
 
+    <h1>Parte 2: Cálculo Vectorial Integral</h1>
+
+    <p>
+      En esta segunda parte del cálculo vectorial se generaliza el cálculo integral de funciones escalares de una variable a funciones vectoriales y a funciones de múltiples variables. Se estudian, en orden: integrales dobles, integrales múltiples, integrales de línea y de superficie.
+    </p>
+    <p>
+      Adicionalmente, para terminar el estudio de cálculo vectorial, la última parte de esta sección aborda los teoremas de Green, Gauss y Stokes, que requieren conocimientos tanto de cálculo vectorial diferencial como de cálculo vectorial integral.
+    </p>
+
     <Section title="Integrales dobles">
 
       <p>
-        En esta sección se estudia la integración de funciones escalares de dos variables, denominadas <em>integrales dobles</em>, como antesala al estudio de la integración de funciones de múltiples variables, en la sección de integrales triples.
+        En esta sección se estudia una de las muchas formas de generalizar la integración a funciones escalares de dos variables. Las <em>integrales dobles</em> son la generalización más natural a dos dimensiones de las integrales definidas de funciones de una variable. Esta sección sirve como antesala al estudio de las integrales múltiples.
+      </p>
+
+      <p>
+        Puede resultar clarificador mencionar que, como al derivar funciones de múltiples variables siempre se deriva respecto a alguna dirección, entonces no existe algo así como la antiderivada general de una función de dos o más variables, a diferencia de lo que sucede con funciones de una variable. Por ende, no hay tal cosa como integrales múltiples <em>indefinidas</em>: todas las integrales múltiples son <em>definidas</em>.
       </p>
 
       <h3>Integrales dobles sobre regiones rectangulares</h3>
@@ -1606,6 +1633,7 @@ const CalculoVectorial = () => (
       <p>
         Se estudian primero integrales dobles exclusivamente sobre regiones rectangulares. Esto facilita definir la integral doble formalmente, como la generalización natural de las integrales definidas de funciones de una variable. Naturalmente, es conveniente recapitular la {referenceById("definición de la integral definida", INTEGRAL_CALCULUS, "la-integral-definida")} del cálculo integral antes de proceder.
       </p>
+
       <p>
         Sea <M>{r`f\colon R\to \mathbb{R}`}</M> una función escalar de dos variables, donde <M>{r`R = [a,b] \times [c,d]`}</M> es un rectángulo en el plano <M>{r`xy`}</M>. Supóngase que <M>{r`f`}</M> es positiva y continua. Se predetende calcular el volumen debajo de <M>{r`f`}</M>, que corresponde al volumen de la región en el espacio tridimensional que es, informalmente, una caja cuya base es <M>{r`R`}</M> y cuya tapa es la gráfica de <M>{r`f(x, y)`}</M>.
       </p>
@@ -1623,10 +1651,10 @@ const CalculoVectorial = () => (
         </M>
       </p>
       <Notation>
-        La sumatoria sobre dos variables, <M>{r`\sum_{i,j=1}^n`}</M>, también se puede denotar usando una suma por cada variable, <M>{r`\sum_{i=1}^{n} \sum_{j=1}^{n}`}</M>. En estos apuntes, prefiero la primera notación porque es más compacta, escribir las dos sumatorias no añade información adicional.
+        La sumatoria sobre dos variables, <M>{r`\sum_{i,j=1}^n`}</M>, también se puede denotar usando una suma por cada variable, <M>{r`\sum_{i=1}^{n} \sum_{j=1}^{n}`}</M>. En estos apuntes, prefiero la primera notación porque es más compacta: escribir las dos sumatorias no añade información adicional.
       </Notation>
       <p>
-        Para calcular con exactitud el volumen bajo la caja, hace falta hacer uso de infinitos rectángulos, es decir, tomar el límite cuando <M>{r`n \to \infty`}</M> de la suma de Riemman. Con eso en mente, se define la integral doble de <M>{r`f`}</M> sobre <M>{r`R`}</M>.
+        Para calcular con exactitud el volumen bajo la superficie, hace falta hacer uso de infinitas cajas, es decir, tomar el límite cuando <M>{r`n \to \infty`}</M> de la suma de Riemman. Con eso en mente, se define la integral doble de <M>{r`f`}</M> sobre <M>{r`R`}</M>.
       </p>
       <Definition concept="Integral doble sobre región rectangular">
         Sea <M>{r`f(x, y)`}</M> una función escalar definida sobre la región rectangular <M>{r`R = [a, b] \times [c, d]`}</M>. Se define la <em>integral doble</em> de <M>{r`f`}</M> sobre <M>{r`R`}</M> como
@@ -1642,7 +1670,7 @@ const CalculoVectorial = () => (
         A partir de este punto, se opta por la notación más sucinta.
       </Notation>
       <p>
-        Siempre que el límite de la suma de Riemann exista, sea cual sea la elección de los puntos <M>{r`(x_i, y_j)`}</M>, se dice que la función <M>{r`f`}</M> es <em>integrable</em> sobre la región <M>{r`R`}</M>.
+        Siempre que el límite de la suma de Riemann exista independientemente de la elección de los puntos <M>{r`(x_i, y_j)`}</M>, se dice que la función <M>{r`f`}</M> es <em>integrable</em> sobre la región <M>{r`R`}</M>.
       </p>
       <Theorem name="Función integrable">
         Sea <M>{r`f(x, y)`}</M> una función escalar definida sobre la región rectangular <M>{r`R = [a, b] \times [c, d]`}</M>.
@@ -1658,7 +1686,7 @@ const CalculoVectorial = () => (
         properties={[
           {
             name: "Linealidad",
-            formula: <M>{r`\int_{R} f \pm g = \int_{R} f \pm \int_{R} g.`}</M>
+            formula: <M>{r`\int_{R} (f \pm g) = \int_{R} f \pm \int_{R} g.`}</M>
           },
           {
             name: "Homogeneidad",
@@ -1671,7 +1699,7 @@ const CalculoVectorial = () => (
           {
             name: "Aditividad",
             formula: <span><M>{r`\int_{R} f = \int_{R_1} f + \int_{R_2} f`}</M> si y solamente si <M>{r`R = R_1 \cup R_2`}</M> y <M>{r`R_1 \cap R_2 = \varnothing`}</M>.</span>,
-            note: <span>Esta propiedad se puede extender a cualquier número de regiones disjuntas cuya unión sea <M>{r`R`}</M>.</span>
+            note: <span>Esta última propiedad se puede extender a cualquier número de regiones disjuntas cuya unión sea <M>{r`R`}</M>.</span>
           }
         ]}
       />
@@ -1721,11 +1749,19 @@ const CalculoVectorial = () => (
       <h3>Integrales dobles sobre regiones elementales</h3>
 
       <p>
-        Se estudian ahora integrales dobles sobre regiones bidimensionales más generales. Para ello, se clasifican en tres tipos, que se denominan <em>regiones elementales</em>. La unión de regiones elementales permite describir cualquier región bidimensional. Las regiones elementales sobre el plano <M>{r`xy`}</M> son:
+        Se estudian ahora integrales dobles sobre regiones bidimensionales más generales. Para ello, se clasifican en tres tipos, que se denominan <em>regiones elementales</em>. La unión de regiones elementales permite describir cualquier región bidimensional acotada, es decir, cualquier región bidimensional tal que existe alguna región rectangular que la contiene. Las regiones elementales sobre el plano <M>{r`xy`}</M> son:
       </p>
       <ol>
-        <li><b>Región de tipo 1:</b> Toda región que está delimitada por un intervalo <M>{r`[a, b]`}</M> en el eje <M>{r`x`}</M> y por dos curvas continuas, <M>{r`\phi_1(y)`}</M> y <M>{r`\phi_2(y)`}</M>, en el eje <M>{r`y`}</M>. Se toma como convención que <M>{r`\phi_2(x) > \phi_1(x)`}</M> para todos los <M>{r`x`}</M> en el intervalo <M>{r`[a, b]`}</M>.</li>
-        <li><b>Región de tipo 2:</b> Toda región que está delimitada por un intervalo <M>{r`[c, d]`}</M> en el eje <M>{r`y`}</M> y por dos curvas continuas, <M>{r`\psi_1(x)`}</M> y <M>{r`\psi_2(x)`}</M>, en el eje <M>{r`x`}</M>. Igual que antes, se presume que <M>{r`\psi_2 > \psi_1`}</M> en el intervalo <M>{r`[c, d]`}</M>.</li>
+        <li><b>Región de tipo 1:</b> Toda región que está delimitada por un intervalo <M>{r`[a, b]`}</M> en el eje <M>{r`x`}</M> y por dos curvas continuas, <M>{r`\phi_1(x)`}</M> y <M>{r`\phi_2(x)`}</M>, en el eje <M>{r`y`}</M>. Se toma como convención que <M>{r`\phi_2(x) > \phi_1(x)`}</M> para todos los <M>{r`x`}</M> en el intervalo <M>{r`[a, b]`}</M>.
+          <M block>
+            {r`D = \{(x, y) \in \mathbb{R}^2 \mid a \leq x \leq b \ \land \ \phi_1(x) \leq y \leq \phi_2(x)\}.`}
+          </M>
+        </li>
+        <li><b>Región de tipo 2:</b> Toda región que está delimitada por un intervalo <M>{r`[c, d]`}</M> en el eje <M>{r`y`}</M> y por dos curvas continuas, <M>{r`\psi_1(y)`}</M> y <M>{r`\psi_2(y)`}</M>, en el eje <M>{r`x`}</M>. Igual que antes, se presume que <M>{r`\psi_2 > \psi_1`}</M> en el intervalo <M>{r`[c, d]`}</M>.
+          <M block>
+            {r`D = \{(x, y) \in \mathbb{R}^2 \mid c \leq y \leq d \ \land \ \psi_1(y) \leq x \leq \psi_2(y)\}.`}
+          </M>
+        </li>
         <li><b>Región de tipo 3:</b> Toda región que se puede representar o bien como una región de tipo 1 o bien como una región de tipo 2. Por ejemplo, el círculo unitario.</li>
       </ol>
 
@@ -1783,6 +1819,146 @@ const CalculoVectorial = () => (
         </M>
         donde <M>{r`A(D)`}</M> denota el área de <M>{r`D`}</M>.
       </Theorem>
+
+    </Section>
+
+    <Section title="Integrales múltiples">
+
+      <p>
+        En esta sección se estudia una de las formas de generalizar la integración a funciones escalares de múltiples variables. Se inicia generalizando las integrales dobles a <em>integrales triples</em>, algunas de las cuales aún mantienen una interpretación geométrica como un volumen en el espacio tridimensional. Luego, se generaliza a <em>integrales múltiples</em> sobre regiones de <M>{r`n`}</M> dimensiones, con su interpretación geométrica, menos tangible, como hipervolúmenes.
+      </p>
+
+      <h3>Integrales triples</h3>
+
+      <p>
+        Las integrales triples se definen de forma análoga a las integrales dobles. Se definen primero sobre paralelepípedos rectangulares y luego sobre cualquier región en el espacio tridimensional.
+      </p>
+      <p>
+        Sea <M>{r`f\colon R\to \mathbb{R}`}</M> una función escalar de tres variables, donde <M>{r`R`}</M> es un paralelepípedo rectangular en el espacio tridimensional, de forma que <M>{r`R = [a, b] \times [c, d] \times [e, f]`}</M>. Al igual que antes, cada dimensión de <M>{r`R`}</M> se segmenta en partes de igual tamaño: <M>{r`\Delta x = \frac{b-a}{n}`}</M>, <M>{r`\Delta y = \frac{d-c}{n}`}</M> y <M>{r`\Delta z = \frac{f-e}{n}`}</M>, con lo cual se obtiene una diferencia de volumen, <M>{r`\Delta V = \Delta x \Delta y \Delta z`}</M>. En este caso, cada parte de igual tamaño es a su vez un paralelepípedo rectangular, una caja. Se multiplica la diferencia de volumen de cada caja por la función evaluada en un punto arbitrario de la caja, <M>{r`f(x_i, y_j, z_k)`}</M>. Nótese que ese producto ya no es un volumen, sino un volumen multiplicado por un valor escalar, en ocasiones denominado <em>hipervolumen</em>. La suma de esos productos es la suma de Riemann,
+        <M block>
+          {r`\sum_{i,j,k=1}^n f(x_i, y_j, z_k) \Delta V,`}
+        </M>
+        que se convierte en la integral triple de <M>{r`f`}</M> sobre <M>{r`R`}</M> al tomar el límite cuando <M>{r`n \to \infty`}</M>.
+      </p>
+
+      <Definition concept="Integral triple sobre paralelepípedo rectangular">
+        Sea <M>{r`f(x, y, z)`}</M> una función escalar definida sobre el paralelepípedo rectangular <M>{r`R = [a, b] \times [c, d] \times [e, f]`}</M>. Se define la <em>integral triple</em> de <M>{r`f`}</M> sobre <M>{r`R`}</M> como
+        <M block>
+          {r`\int_{R} f(x, y, z) \: \mathrm{d}V = \lim_{n \to \infty} \sum_{i,j,k=1}^{n} f(x_i, y_j, z_k) \Delta V.`}
+        </M>
+        si el límite existe y no depende de la elección de los puntos <M>{r`(x_i, y_j, z_k)`}</M>.
+      </Definition>
+
+      <Notation>
+        Similar a antes, la integral triple se puede denotar de varias maneras,
+        <M block>
+          {r`\int_{R} f = \int_{R} f(x, y, z) \: \mathrm{d}V = \iiint_{R} f(x, y, z) \: \mathrm{d}x \: \mathrm{d}y \: \mathrm{d}z.`}
+        </M>
+      </Notation>
+
+      <p>
+        La mayoría de resultados sobre integrales dobles se extienden a integrales triples. Si una función es continua sobre un paralelepípedo rectangular, entonces es integrable. Las funciones acotadas que tienen discontinuidades confinadas a gráficas de funciones continuas también son integrables. Las propiedades de linealidad, homogeneidad, monotonía y aditividad se mantienen. Además, el teorema de Fubini también se extiende a integrales triples, por lo que, si la función es continua, las seis integrales iteradas posibles son equivalentes. En general, se puede cambiar el orden de integración si eso facilita el cálculo. Al igual que en las integrales dobles, el orden de los diferenciales determina el orden de integración, donde prima el diferencial más interno.
+      </p>
+
+      <p>
+        Se pueden generalizar las integrales triples para toda región tridimensional acotada, es decir, que pueda estar contenida en un paralelepípedo rectangular, de la misma manera que se establecieron las integrales dobles para regiones elementales. Se define una función auxiliar <M>{r`g`}</M> que sea igual a la función original <M>{r`f`}</M> en la región <M>{r`W`}</M> y cero en el complemento de la región dentro del paralelepípedo <M>{r`R`}</M>. La integral triple de la función original sobre la región se define como la integral triple de la función auxiliar sobre el paralelepípedo,
+        <M block>
+          {r`\int_{W} f = \int_{R} g.`}
+        </M>
+        Al igual que en dos dimensiones, las regiones se clasifican en tipos:
+      </p>
+      <ol>
+        <li><b>Región tridimensional de tipo 1:</b> Delimitada por una región bidimensional <M>{r`D`}</M> tipo 1 o tipo 2 en el plano <M>{r`xy`}</M> y por dos superficies continuas en el eje <M>{r`z`}</M>, que bien pueden ser de la forma <M>{r`\gamma_1(x,y) \leq z \leq \gamma_2(x,y)`}</M> o <M>{r`\gamma_1(y,x) \leq z \leq \gamma_2(y,x)`}</M>.
+
+          Las funciones <M>{r`\gamma_1, \gamma_2\colon D \to \mathbb{R}`}</M> son continuas y acotadas en <M>{r`D`}</M> que, si intersecan, solo lo hacen en la frontera de <M>{r`D`}</M>. Se toma como convención que <M>{r`\gamma_2 > \gamma_1`}</M> en <M>{r`D`}</M>.
+          <M block>
+            {r`\begin{gather*}
+            W = \{(x, y, z) \in \mathbb{R}^3 \mid a \leq x \leq b \ \land \ \phi_1(x) \leq y \leq \phi_2(x) \ \land \ \gamma_1(x, y) \leq z \leq \gamma_2(x, y)\} \\
+            W = \{(x, y, z) \in \mathbb{R}^3 \mid c \leq y \leq d \ \land \ \psi_1(y) \leq x \leq \psi_2(y) \ \land \ \gamma_1(y, x) \leq z \leq \gamma_2(y, x)\}.
+          \end{gather*}`}
+          </M>
+        </li>
+        <li><b>Región tridimensional de tipo 2:</b> Prácticamente, se define igual que una región tridimensional de tipo 1, pero intercambiando la variable <M>{r`x`}</M> por <M>{r`z`}</M>. Es decir, una región elemental en el plano <M>{r`yz`}</M> y dos superficies continuas en el eje <M>{r`x.`}</M>
+          <M block>
+            {r`\begin{gather*}
+            W = \{(x, y, z) \in \mathbb{R}^3 \mid e \leq z \leq f \ \land \ \chi_1(z) \leq y \leq \chi_2(z) \ \land \ \gamma_1(z, y) \leq z \leq \gamma_2(z, y)\} \\
+            W = \{(x, y, z) \in \mathbb{R}^3 \mid c \leq y \leq d \ \land \ \psi_1(y) \leq z \leq \psi_2(y) \ \land \ \gamma_1(y, z) \leq z \leq \gamma_2(y, z)\}.
+          \end{gather*}`}
+          </M>
+        </li>
+        <li><b>Región tridimensional de tipo 3:</b> Definida igual que una región tridimensional de tipo 1, pero intercambiando <M>{r`y`}</M> por <M>{r`z`}</M>, con lo que se tiene una región elemental en el plano <M>{r`xz`}</M> y dos superficies continuas en el eje <M>{r`y`}</M>.
+          <M block>
+            {r`\begin{gather*}
+            W = \{(x, y, z) \in \mathbb{R}^3 \mid a \leq x \leq b \ \land \ \phi_1(x) \leq z \leq \phi_2(x) \ \land \ \gamma_1(x, z) \leq z \leq \gamma_2(x, z)\} \\
+            W = \{(x, y, z) \in \mathbb{R}^3 \mid e \leq z \leq f \ \land \ \chi_1(z) \leq x \leq \chi_2(z) \ \land \ \gamma_1(z, x) \leq z \leq \gamma_2(z, x)\}.
+          \end{gather*}`}
+          </M>
+        </li>
+        <li><b>Región tridimensional de tipo 4:</b> Análoga a las regiones bidimensionales de tipo 3, toda región que pueda ser expresada como una región de tipo 1, 2 o 3. Esencialmente el mismo ejemplo dado para regiones bidimensionales de tipo 3, el círculo unitario, es válido para regiones tridimensionales de tipo 4, ahora en forma de la esfera unitaria.</li>
+      </ol>
+      <p>
+        Las integrales triples sirven para expresar directamente los volumenes de las regiones tridimensionales <M>{r`W`}</M>, si se integra sobre la función constante <M>{r`1`}</M>. Por ejemplo, para deducir la fórmula del volumen de la esfera, se puede integrar la función constante <M>{r`1`}</M> sobre la región de una la esfera de radio <M>{r`r`}</M> centrada en el origen. Si, por el contrario, el integrando es una función, la integral triple se interpreta como el promedio de los valores de la función en la región, multiplicado por el volumen de la región.
+      </p>
+
+      <Example title="Deducir la fórmula del volumen de una esfera, parte 1">
+        Se desea deducir la fórmula del volumen de una esfera de radio arbitrario <M>{r`r`}</M>. Para ello, se integra la función constante <M>{r`1`}</M> sobre la esfera de radio <M>{r`r`}</M> centrada en el origen. La esfera de radio <M>{r`r`}</M> se puede expresar como
+        <M block>
+          {r`W = \{(x, y, z) \in \mathbb{R}^3 \mid x^2 + y^2 + z^2 \leq r^2\}.`}
+        </M>
+        Que, como región tridimensional de tipo 1, se puede expresar como
+        <M block>
+          {r`W = \{(x, y, z) \in \mathbb{R}^3 \mid -r \leq x \leq r \ \land \ -\sqrt{r^2-x^2} \leq y \leq \sqrt{r^2-x^2} \ \land \ -\sqrt{r^2-x^2-y^2} \leq z \leq \sqrt{r^2-x^2-y^2}\}.`}
+        </M>
+        Con eso en mente, la integral triple resultante es
+        <M block>
+          {r`\int_{W} 1 = \int_{-r}^{r} \int_{-\sqrt{r^2-x^2}}^{\sqrt{r^2-x^2}} \int_{-\sqrt{r^2-x^2-y^2}}^{\sqrt{r^2-x^2-y^2}} \: \mathrm{d}z \: \mathrm{d}y \: \mathrm{d}x.`}
+        </M>
+        Esa integral se puede resolver, pero su resolución es bastante extensa. Resulta mucho más sencillo si se cambia a coordenadas esféricas. Por ende, se pausa este ejemplo y se reanuda la sección de cambio de variable.
+      </Example>
+
+      <h3>Integrales múltiples</h3>
+
+      <p>
+        De la misma manera en que se extrapolaron las integrales dobles a integrales triples, se pueden definir, de forma general, las integrales múltiples. Esta definición realmente abarca las integrales dobles y triples, y además se extiende a integrales de cualquier número de variables.
+      </p>
+
+      <p>
+        Similar a antes, sea <M>{r`f\colon R\to \mathbb{R}`}</M> una función escalar de <M>{r`n`}</M> variables, donde <M>{r`R \subseteq \mathbb{R}^n`}</M> es un hiperrectángulo, formalmente definido como el producto cartesiano de <M>{r`n`}</M> intervalos,
+        <M block>
+          {r`R = [a_1, b_1] \times [a_2, b_2] \times \cdots \times [a_n, b_n].`}
+        </M>
+        Similar a antes, se divide cada intervalo en partes de igual tamaño, <M>{r`\Delta x_i = \frac{b_i-a_i}{n}`}</M>, que son a su vez hiperrectángulos, y se obtiene una diferencia de hipervolumen dada por <M>{r`\prod_{i=1}^n \Delta x_i`}</M>.  Se toma un punto arbitrario <M>{r`\bvec{x}_i`}</M> en cada hiperrectángulo y se evalúa la función en cada uno de esos puntos, <M>{r`f(\bvec{x}_i)`}</M>. La suma de esos productos es la suma de Riemann,
+        <M block>
+          {r`\sum_{i_1,i_2,\ldots,i_n=1}^n f(\bvec{x}_i) \prod_{i=1}^n \Delta x_i,`}
+        </M>
+        que se convierte en la integral múltiple de <M>{r`f`}</M> sobre <M>{r`R`}</M> al tomar el límite cuando <M>{r`n \to \infty`}</M>,
+        <M block>
+          {r`\int_{R} f = \lim_{n \to \infty} \sum_{i_1,i_2,\ldots,i_n=1}^{n} f(\bvec{x}_i) \prod_{i=1}^n \Delta x_i.`}
+        </M>
+        solamente si el límite existe y no depende de la elección de los puntos <M>{r`\bvec{x}_i`}</M>.
+      </p>
+
+      <p>
+        Expresada como integrales interadas en <M>{r`n`}</M> dimensiones, la integral múltiple se puede escribir como
+        <M block>
+          {r`\int_{R} f = \int_{R} f(\bvec{x}) \: \mathrm{d}^n\bvec{x} = \int_{a_n}^{b_n} \cdots \int_{a_2}^{b_2} \int_{a_1}^{b_1} f(x_1, x_2, \ldots, x_n) \: \mathrm{d}x_1 \: \mathrm{d}x_2 \cdots \mathrm{d}x_n.`}
+        </M>
+        Al igual que antes, las propiedades de las integrales iteradas, el teorema de Fubini y las circunstanicas bajo las cuales una función es integrable se extienden a integrales en <M>{r`n`}</M> dimensiones. Más aún, de la misma forma que se hizo con las integrales dobles y triples, la definición se puede extender a cualquier región acotada de <M>{r`n`}</M> dimensiones, definiendo una función auxiliar que sea igual a la función original en la región y cero en el complemento de la región dentro del hiperrectángulo.
+      </p>
+
+      <p>
+        La interpretación geométrica de las integrales múltiples es análoga a la de las integrales dobles y triples: se entiende como la magnitud del espacio entre la gráfica de <M>{r`x_{n+1} = f(\bvec{x})`}</M> y la región de integración. También se puede entender como el promedio de los valores de la función en la región, multiplicado por el hipervolumen de la región. Si el integrando es <M>{r`1`}</M>, la integral múltiple es el hipervolumen de la región de integración en <M>{r`\mathbb{R}^n`}</M>.
+      </p>
+
+    </Section>
+
+    <Section title="Sistemas coordenados y el teorema del cambio de variables">
+      <p>
+        Esta sección pretende exponer el teorema del cambio de variables. Este traza equivalencias entre una integral dada en términos de un sistema coordenado y otra integral expresada en términos de otro sistema coordenado. Suele suceder que una de las dos integrales es notablemente más sencilla que la otra y puede suceder que alguna sea incalculable de forma directa, por lo que el teorema es una herramienta muy valiosa.
+      </p>
+      <p>
+        Para poder sacar provecho del teorema, naturalmente es necesario conocer al menos algunos sistemas coordenados alternativos al cartesiano, por lo cual, como antesala al teorema, se presentan los sistemas coordenados polar, cilíndrico y esférico. Se inicia con una formalización del ya familiar sistema cartesiano, para luego presentar los sistemas alternativos.
+      </p>
 
     </Section>
 
