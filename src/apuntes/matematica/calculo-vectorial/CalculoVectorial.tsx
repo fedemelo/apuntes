@@ -23,60 +23,66 @@ const CalculoVectorial = () => (
     <Section title="Funciones con valores reales">
 
       <p>
-        Una función es una regla que asigna un elemento a otro específico, mas nunca asigna al mismo elemento dos distintos.
+        Una función es una regla que asigna un elemento a otro específico, mas nunca asigna al mismo elemento dos distintos. En las funciones con valores reales, esos elementos pueden ser números reales (escalares) o vectores reales.
       </p>
       <p>
-        En las funciones con valores reales, dichos elementos pueden ser tanto escalares, es decir, números <M>{r`x \in \mathbb{R}`}</M>, como vectores <M>{r`\bvec{x}\in\mathbb{R}^{n}`}</M>, con <M>{r`n \in \mathbb{N} \setminus \{0, 1\}`}</M>. Ergo, toda <em>función con valores reales</em> tiene la forma <M>{r`f\colon A\subseteq\mathbb{R}^{m}\to\mathbb{R}^{n}`}</M>. A cada elemento del conjunto <M>{r`A = \dom f`}</M>, que puede ser un vector o escalar dependiendo del valor de <M>{r`m \in \mathbb{N} \setminus \{0\}`}</M>, le corresponde un único elemento <M>{r`f(\bvec{x}) \in \ran f \subseteq \mathbb{R}^{n}`}</M>, vector o escalar dependiendo de <M>{r`n \in \mathbb{N} \setminus \{0\}`}</M>. Las funciones con valores reales se clasifican de acuerdo a qué son sus elementos.
+        A causa de lo anterior, toda <em>función con valores reales</em> tiene la forma <M>{r`f\colon A\subseteq\mathbb{R}^{m}\to\mathbb{R}^{n}`}</M>, donde <M>{r`m, n \in \mathbb{N}_{>0}`}</M>. A cada elemento del conjunto <M>{r`A = \dom f`}</M>, que puede ser un vector o escalar dependiendo del valor de <M>{r`m`}</M>, le corresponde un único elemento <M>{r`f(\bvec{x}) \in \ran f \subseteq \mathbb{R}^{n}`}</M>, vector o escalar dependiendo del valor de <M>{r`n`}</M>. Las funciones con valores reales se clasifican precisamente de acuerdo a qué forma tienen sus elementos.
+      </p>
+
+      <Definition concept="Función de una variable">
+        Una función <M>{r`f`}</M> es <em>de una variable</em> o <em>univariada</em> si tiene la forma <M>{r`f\colon A\subseteq\mathbb{R}\to \mathbb{R}^{n}`}</M>, tal que los elementos en su dominio son escalares.
+      </Definition>
+      <p>
+        Las funciones de una variable se denotan por letras minúsculas.
+      </p>
+      <Definition concept="Función de múltiples variables">
+        Una función <M>{r`f`}</M> es <em>de múltiples variables</em> o <em>multivariada</em> si tiene la forma <M>{r`f \colon A\subseteq\mathbb{R}^{m}\to \mathbb{R}^{n}`}</M> donde <M>{r`m>1`}</M>, tal que los elementos en su dominio son vectores.
+      </Definition>
+      <p>
+        Nótese que las dos definiciones anteriores clasifican a las funciones de acuerdo con la forma de los elementos en su dominio. También existen clasificaciones complementarias de acuerdo con la forma de los elementos en su rango.
       </p>
 
       <Definition concept="Función escalar">
-        Una <em>función escalar</em> <M>{r`f`}</M> es una función de forma <M>{r`f\colon A\subseteq\mathbb{R}^{m} \to \mathbb{R}`}</M> donde <M>{r`m \in \mathbb{N} \setminus \{0\}`}</M>, tal que los elementos en su rango son escalares.
+        Una <em>función escalar</em> <M>{r`f`}</M> es una función de forma <M>{r`f\colon A\subseteq\mathbb{R}^{m} \to \mathbb{R}`}</M>, tal que los elementos en su rango son escalares.
       </Definition>
 
       <Definition concept="Función vectorial">
-        Una <em>función vectorial</em> <M>{r`\bvec{F}`}</M> es una función de de forma <M>{r`\bvec{F}\colon A\subseteq\mathbb{R}^{m} \to \mathbb{R}^{n}`}</M> donde <M>{r`m \in \mathbb{N} \setminus \{0\}`}</M> y <M>{r`n \in \mathbb{N} \setminus \{0,1\}`}</M>, tal que los elementos en su rango son vectores.
+        Una <em>función vectorial</em> <M>{r`\bvec{F}`}</M> es una función de forma <M>{r`\bvec{F}\colon A\subseteq\mathbb{R}^{m} \to \mathbb{R}^{n}`}</M> donde <M>{r`n > 1`}</M>, tal que los elementos en su rango son vectores.
       </Definition>
-
       <p>
-        Una función vectorial de forma <M>{r`\bvec{F}\colon A \subseteq \mathbb{R}^{m}\to \mathbb{R}^{n}`}</M>, recibe un escalar o un vector elemento de <M>{r`\mathbb{R}^{m}`}</M> y tiene como imagen un vector <M>{r`\bvec{F}(\bvec{x}) \in \mathbb{R}^{n}`}</M>. Por eso, se puede expresar una función vectorial como un vector con <M>{r`n`}</M> funciones escalares,
+        Las funciones vectoriales se denotan por letras en negrilla para enfatizar que los elementos en su rango son vectores, <M>{r`\bvec{F}(\bvec{x}) \in \mathbb{R}^{n}`}</M>, en contraposición a las funciones escalares. Si la función vectorial es de una variable, se suele denotar por letras minúsculas; si es de múltiples variables, por letras mayúsculas. En la definición se optó por una letra mayúscula puesto que refiere tanto a funciones vectoriales de una variable como de múltiples variables.
+      </p>
+      <p>
+        Como la función vectorial toma un elemento y le asigna un vector de valores, se puede expresar una función vectorial como un vector con <M>{r`n`}</M> funciones escalares, cada una de las cuales toma ese elemento y le asigna un valor,
         <M block>
           {r`\bvec{F}=(F_1,F_2,\ldots,F_n).`}
         </M>
+        Esas funciones escalares se denominan sus <em>funciones escalares componentes</em>. Los componentes de una función vectorial se denotan por la letra de la función vectorial, sin negrilla (pues son funciones escalares), seguida de un subíndice.
       </p>
 
-      <Notation>
-        Las funciones escalares se denotan por letras minúsculas, usualmente las letras <M>{r`f`}</M>, <M>{r`g`}</M> y <M>{r`h`}</M>. Las funciones vectoriales se denotan por letras mayúsculas en negrilla,  usualmente las letras <M>{r`\bvec{F}`}</M>, <M>{r`\bvec{G}`}</M> y <M>{r`\bvec{H}`}</M>.
-      </Notation>
-
-      <Definition concept="Función de una variable">
-        Una <em>función de una variable</em> <M>{r`f`}</M> es una función de forma <M>{r`f\colon A\subseteq\mathbb{R}\to \mathbb{R}^{n}`}</M>, tal que los elementos en su dominio son escalares.
-      </Definition>
-
-      <Definition concept="Función de múltiples variables">
-        Una <em>función de múltiples variables</em> <M>{r`f`}</M> es una función de forma <M>{r`f\colon A\subseteq\mathbb{R}^{m}\to \mathbb{R}^{n}`}</M> donde <M>{r`m>1`}</M>, tal que los elementos en su dominio son vectores.
-      </Definition>
       <p>
-        Una función de una variable puede ser escalar o vectorial. Lo mismo sucede para una función de múltiples variables. En las definiciones se denotan como si fueran funciones escalares, pero bien podrían haberse denotado como funciones vectoriales. Así pues, existen funciones escalares de una o varias variables y funciones vectoriales de una o varias variables. Probablemente, las funciones que ha estudiado hasta el momento son funciones escalares de una variable.
+        La última clasificación de funciones con valores reales describe a las funciones que toman un vector y devuelven un vector.
       </p>
-
       <Definition concept="Campo vectorial">
         Un campo vectorial <M>{r`\bvec{F}`}</M> es una función vectorial de múltiples variables.
       </Definition>
       <p>
-        De acuerdo con la definición anterior, un campo vectorial tiene la forma <M>{r`\bvec{F}\colon A\subseteq\mathbb{R}^{m} \to \mathbb{R}^{n}`}</M> donde <M>{r`m,n \in \mathbb{N} \setminus \{0,1\}`}</M>, tal que los elementos en su dominio y rango son vectores: recibe un vector <M>{r`\bvec{x}\in \mathbb{R}^{m}`}</M> y tiene como imagen un vector <M>{r`\bvec{F}(\bvec{x}) \in \mathbb{R}^{n}`}</M>. Como es una función vectorial, se puede expresar de forma
+        De acuerdo con la definición anterior, un campo vectorial tiene la forma <M>{r`\bvec{F}\colon A\subseteq\mathbb{R}^{m} \to \mathbb{R}^{n}`}</M> donde <M>{r`m, n > 1`}</M>, tal que los elementos tanto en su dominio como en su rango son vectores: recibe un vector <M>{r`\bvec{x}\in \mathbb{R}^{m}`}</M> y tiene como imagen un vector <M>{r`\bvec{F}(\bvec{x}) \in \mathbb{R}^{n}`}</M>. Como es una función vectorial, se puede expresar de forma
         <M block>
-          {r`
-	\bvec{F}=(F_1,F_2,\ldots,F_n)
-`}
+          {r`\bvec{F}=(F_1,F_2,\ldots,F_n)`}
         </M>
-        y se evalúa de la siguiente manera:
+        donde a sus funciones escalares componentes se les denomina en ocasiones <em>campos escalares componentes</em>. Se evalúa de la siguiente manera:
         <M block>
           {r`\begin{gather*}
-	\bvec{F}(\bvec{x})=(F_1(\bvec{x}),F_2(\bvec{x}),\ldots,F_n(\bvec{x}))\\
-	\bvec{F}(x_1,x_2,\ldots,x_m)=(F_1(x_1,x_2,\ldots,x_m),F_2(x_1,x_2,\ldots,x_m),\ldots,F_n(x_1,x_2,\ldots,x_m)).
-\end{gather*}`}
+            \bvec{F}(\bvec{x})=(F_1(\bvec{x}),F_2(\bvec{x}),\ldots,F_n(\bvec{x}))\\
+            \bvec{F}(x_1,x_2,\ldots,x_m)=(F_1(x_1,x_2,\ldots,x_m),F_2(x_1,x_2,\ldots,x_m),\ldots,F_n(x_1,x_2,\ldots,x_m)).
+          \end{gather*}`}
         </M>
       </p>
+
+      <Notation>
+        La convención usada para denotar funciones permite saber rápidamente si la función es escalar o vectorial, estando las segundas en negrilla. Más aún, permite saber si una función vectorial es de una variable o de múltiples variables, pues las primeras se denotan con letras minúsculas y las segundas con letras mayúsculas.
+      </Notation>
 
       <Example title="Ejemplos de funciones escalares y vectoriales">
         Un ejemplo de una función escalar de una variable, <M>{r`f\colon\mathbb{R}\to\mathbb{R}`}</M>:
@@ -187,7 +193,7 @@ const CalculoVectorial = () => (
     <h1>Parte 1: Cálculo Vectorial Diferencial</h1>
 
     <p>
-      En esta primera parte del cálculo vectorial se generaliza el cálculo diferencial de funciones escalares de una variable a funciones vectoriales y a funciones de múltiples variables. Se estudian, en orden: límites de funciones de múltiples variables; derivación de funciones escalares de múltiples variables, mediante la derivación parcial, el gradiante y la derivada direccional; optimización de funciones escalares de múltiples variables; y diferenciación de funciones vectoriales, mediante el rotacional, la divergencia y el laplaciano.
+      En esta primera parte del cálculo vectorial se generaliza el cálculo diferencial de funciones escalares de una variable a funciones vectoriales y a funciones de múltiples variables. Se estudian, en orden: los límites de funciones de múltiples variables; landerivación de funciones escalares de múltiples variables, mediante la derivación parcial, el gradiante y la derivada direccional; la optimización de funciones escalares de múltiples variables; la diferenciación de funciones vectoriales de una variable, ejemplificada por el estudio de trayectorias; y la derivación de campos vectoriales, mediante el rotacional y la divergencia
     </p>
 
     {/* TODO: A partir de la mitad de la sección de derivada direccional, estos apuntes están incompletos, tomados por encima. Las secciones de cinemática y derivación de funciones vectoriales sospecho que están muy incompletas.  */}
@@ -819,6 +825,21 @@ const CalculoVectorial = () => (
 
       {/* TODO: Regla de la cadena multivariable! */}
 
+      <h4>Campos gradientes</h4>
+
+      <p>
+        Si un campo vectorial se puede expresar como el gradiente de una función escalar, se denomina <em>campo gradiente</em>.
+      </p>
+
+      <Definition concept="Campo gradiente">
+        Sea <M>{r`f\colon \mathbb{R}^{n}\to\mathbb{R}`}</M> una función escalar de múltiples variables. Un <em>campo gradiente</em> es un campo vectorial <M>{r`\bvec{F}`}</M> que tiene la forma
+        <M>{r`\bvec{F} = \nabla f.`}</M>
+      </Definition>
+
+      <p>
+        Los campos gradientes se denominan alternativamente <em>campos conservativos</em> porque en física, el trabajo en todo campo conservativo es cerrado. En ese contexto, la función escalar <M>{r`f\colon \mathbb{R}^{n}\to\mathbb{R}`}</M> es el <em>potencial</em> y el campo gradiente es el <em>campo de fuerza</em>.
+      </p>
+
       <h3>La derivada direccional</h3>
 
       <p>
@@ -848,7 +869,7 @@ const CalculoVectorial = () => (
         La derivada derivada direccional de una función en la dirección <M>{r`\uvec{v}`}</M> en un punto <M>{r`\bvec{u}`}</M> representa la razón de cambio de la función en esa dirección desde ese punto. Entre más positiva es <M>{r`\mathrm{D}_{\bvec{v}} f(\bvec{u})`}</M>, mayor es la tasa de crecimiento de la función en la dirección <M>{r`\uvec{v}`}</M> desde el punto <M>{r`\bvec{u}`}</M> y entre más negativa, más rápido decrece la función en esa dirección.
       </p>
 
-      {/* TODO! En este punto terminé la revisión de la parte de Diferencial de estos apuntes cuando fui monitor de Cálculo Vectorial en 2024-19. A partir de aquí y hasta el próximo TODO, los apuntes están tal como se tomaron originalmente en 2021-20. */}
+      {/* TODO! En este punto terminé la revisión de la parte de Diferencial de estos apuntes cuando fui monitor de Cálculo Vectorial en 2024-19. A partir de aquí y hasta el próximo TODO!, los apuntes están tal como se tomaron originalmente en 2021-20. */}
 
       <p>
         {/* TODO: Ahondar en esto. ¿Por qué? ¿Intuición detrás? */}
@@ -1360,62 +1381,165 @@ const CalculoVectorial = () => (
 
     </Section>
 
-    <Section title="Cinemática">
+    <Section title="Derivación de funciones vectoriales">
 
+      <p>Esta sección generaliza la derivación a funciones vectoriales. Tras eso, se enfoca en la derivación de funciones vectoriales de una variable y estudia la principal aplicación de la derivación de funciones vectoriales de una variable, que son las trayectorias. </p>
+
+      <h3>Derivación de funciones vectoriales</h3>
+
+      <p>
+        Sea <M>{r`\bvec{F}\colon U \subseteq \mathbb{R}^{m} \to \mathbb{R}^{n}`}</M> una función vectorial, de forma que <M>{r`n > 1`}</M>. Su derivada, denotada por <M>{r`\mathrm{D}\bvec{F}`}</M>, está dada por el vector columna de gradientes de sus funciones escalares componentes:
+        <M block>
+          {r`\mathrm{D}\bvec{F} = \begin{pmatrix}
+            \nabla F_1 \\ \nabla F_2 \\ \vdots \\ \nabla F_n
+          \end{pmatrix}`}
+        </M>
+        Eso a su vez genera una matriz de derivadas parciales, donde cada fila está asociada a una función y cada columna a una variable. La derivada es entonces la siguiente matriz de tamaño <M>{r`n \times m`}</M>:
+        <M block>
+          {r`\mathrm{D}\bvec{F} = \begin{pmatrix}
+            \dfrac{\partial F_1}{\partial x_1} & \dfrac{\partial F_1}{\partial x_2} & \cdots & \dfrac{\partial F_1}{\partial x_m} \\[1em]
+            \dfrac{\partial F_2}{\partial x_1} & \dfrac{\partial F_2}{\partial x_2} & \cdots & \dfrac{\partial F_2}{\partial x_m} \\[1em]
+            \vdots & \vdots & \ddots & \vdots \\[0.5em]
+            \dfrac{\partial F_n}{\partial x_1} & \dfrac{\partial F_n}{\partial x_2} & \cdots & \dfrac{\partial F_n}{\partial x_m}
+          \end{pmatrix} `}
+        </M>
+        Evaluar la derivada de una función vectorial en un vector <M>{r`\bvec{v}\in U`}</M> se denota por <M>{r`\mathrm{D}\bvec{F}(\bvec{v})`}</M> y consiste en evaluar cada uno de los elementos de la matriz de derivadas en dicho vector.
+      </p>
+
+      <Warning>
+        Tenga presente la definición como vector columna de gradientes antes que la definición como matriz. De lo contrario, puede que construya la matriz confundiendo filas con columnas.
+      </Warning>
+
+      <h4>Diferenciabilidad de funciones vectoriales</h4>
+
+      <p>
+        Sean <M>{r`\bvec{F}\colon U\subseteq\mathbb{R}^{n} \to\mathbb{R}^{m}`}</M> una función vectorial de múltiples variables y <M>{r`\bvec{v} \in U`}</M>, se dice que <M>{r`\bvec{F}`}</M> es diferenciable en <M>{r`\bvec{v}`}</M> si y solamente si
+      </p>
+      <ol>
+        <li> Todas las derivadas parciales de la matriz, <M>{r`\dparder{F_i(\bvec{v})}{x_j}`}</M>, existen.</li>
+        <li> <M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{v}} \cfrac{\norm{\bvec{F}(\bvec{x})- \left[\bvec{F}(\bvec{v})+\mathrm{D}\bvec{F}(\bvec{v})(\bvec{x}-\bvec{v})\right]}}{\norm{\bvec{x}-\bvec{v}}} = 0`}</M> </li>
+
+      </ol>
+
+      <Properties
+        title="Propiedades de la derivación de funciones vectoriales"
+        description={<p>Sea <M>{r`\bvec{F},\bvec{G}\colon \mathbb{R}^{n}\to \mathbb{R}^{m}`}</M> diferenciables en <M>{r`\bvec{v}\in\mathbb{R}^{n}`}</M> y <M>{r`\bvec{H}\colon\mathbb{R}^{m}\to\mathbb{R}^{k}`}</M> diferenciable en <M>{r`\bvec{F}(\bvec{v})`}</M>. Entonces, se cumplen las siguientes propiedades:</p>}
+        properties={[
+          {
+            name: "Homogeneidad",
+            formula: <M>{r`\mathrm{D}(c\bvec{F})(\bvec{v}) = c\mathrm{D}\bvec{F}(\bvec{v})`}</M>
+          },
+          {
+            name: "Linealidad",
+            formula: <M>{r`\mathrm{D}(\bvec{F} \pm \bvec{G})(\bvec{v}) = \mathrm{D}\bvec{F}(\bvec{v}) \pm  \mathrm{D}\bvec{G}(\bvec{v}) `}</M>
+          },
+          {
+            name: "Regla de la cadena",
+            formula: <M>{r`\mathrm{D} (\bvec{H} \circ \bvec{F}) (\bvec{v}) = \mathrm{D}\bvec{H}(\bvec{F}(\bvec{v})) \, \mathrm{D}\bvec{F}(\bvec{v}).`}</M>
+          }
+        ]}
+      />
+
+      <h3>Derivación de funciones vectoriales de una variable</h3>
+
+      <p>
+        Esta sección se centra en la derivación de funciones vectoriales de una variable. Recuérdese que una función vectorial de una variable es una función de la forma <M>{r`\bvec{f}\colon A \subseteq \mathbb{R} \to \mathbb{R}^{n}`}</M>, que asigna vectores en el espacio a números reales.
+      </p>
+
+      <p>
+        Las funciones vectoriales de una variable permiten describir con facilidad figuras y curvas con base en un parámetro. Por ejemplo, la recta <M>{r`\bvec{\ell}`}</M> en <M>{r`\mathbb{R}^n`}</M> que pasa por el punto <M>{r`\bvec{p}`}</M> y tiene dirección <M>{r`\bvec{v}`}</M> se puede describir como
+        <M block>
+          {r`\bvec{\ell}(t) = \bvec{p} + t\bvec{v}, \quad t\in \mathbb{R}.`}
+        </M>
+        Donde <M>{r`t`}</M> es el parámetro que describe la recta. Similarmente, <M>{r`\bvec{f}(t) = (\cos t, \sin t)`}</M> representa el círculo unitario y <M>{r`\bvec{f}(t) = (t-\sin t, 1-\cos t)`}</M> es la cicloide. Más aún, fácilmente se pueden parametrizar funciones escalares de una variable, como <M>{r`y=x^2`}</M>, como funciones vectoriales de una variable, <M>{r`\bvec{f}(t) = (t,t^2)`}</M>.
+      </p>
+
+      <Tip>
+        Para graficar una función vectorial de una variable, y en general una curva paramétrica, es conveniente hacer una tabla de datos con columnas para la variable y para cada componente de la función vectorial: <M>{r`x, f_1(x), f_2(x), \ldots, f_n(x)`}</M>.
+      </Tip>
+
+      <p>
+        La derivada de una función vectorial de una variable es simplemente un caso particular de la derivada de funciones vectoriales, en la cual, como solo se tiene una variable, la matriz de derivadas parciales solo tiene una columna y la derivada es un vector columna.
+      </p>
+
+      <Definition concept="Derivada de una función vectorial de una variable">
+        Sea <M>{r`\bvec{f}\colon A \subseteq \mathbb{R} \to \mathbb{R}^{n}`}</M> una función vectorial de una variable. La <em>derivada</em> de <M>{r`\bvec{f}`}</M> en un punto <M>{r`t`}</M> es el vector
+        <M block>
+          {r`\bvec{f}'(t) = \lim_{{h\to 0}} \frac{\bvec{f}(t+h)-\bvec{f}(t)}{h}.`}
+        </M>
+        dado por
+        <M block>
+          {r`\bvec{f}' = \begin{pmatrix}
+            f_1' \\ f_2' \\ \vdots \\ f_n'
+          \end{pmatrix} = \begin{pmatrix}
+          \der{}{t}f_1 \\ \der{}{t}f_2 \\ \vdots \\ \der{}{t}f_n
+        \end{pmatrix}.`}
+        </M>
+      </Definition>
+
+      <p>
+        La derivada <M>{r`\bvec{f}'`}</M> de una función vectorial de una variable evaluada en un punto es paralela a la recta tangente a la función en ese punto. Por ende, la recta tangente a la función en el valor <M>{r`t`}</M> está dada por una función
+        <M block>
+          {r`\bvec{\ell}(\lambda) = \bvec{f}(t) + \lambda \bvec{f}'(t).`}
+        </M>
+      </p>
+
+      <h3>Trayectorias</h3>
+
+      <p>
+        La aplicación más cotidiana de las funciones vectoriales de una variable es la descripción de trayectorias. Una <em>trayectoria</em> describe el movimiento de un cuerpo en el espacio durante un intervalo de tiempo. La posición del cuerpo en un instante de tiempo <M>{r`t`}</M> se describe por un vector posición <M>{r`\mathbb{R}^{n}`}</M> en el espacio, por lo que resulta apropiado modelar la trayectoria como una función vectorial de una variable.
+      </p>
       <Definition concept="Trayectoria">
         Una <em>trayectoria</em> en <M>{r`\mathbb{R}^{n}`}</M> es una función vectorial de una variable <M>{r`\sigma\colon [a,b]\subseteq \mathbb{R} \to \mathbb{R}^{n}`}</M>, dada por
         <M block>
           {r`\sigma (t) = (x_1(t),x_2(t),\ldots,x_n(t)).`}
         </M>
-        El <em>punto inicial</em> de la trayectoria es <M>{r`\sigma (a)`}</M> y <M>{r`\sigma(b)`}</M> es el <em>punto final</em>.
       </Definition>
-
       <p>
-        Si <M>{r`\sigma`}</M> es diferenciable en <M>{r`[a,b]`}</M>, entonces la trayectoria es diferenciable. En general, si <M>{r`\sigma`}</M> es de clase <M>{r`C^n`}</M>, la trayectoria es <M>{r`n`}</M> veces continuamente diferenciable. Al modelar situaciones reales, la trayectoria es una función del tiempo con codominio en <M>{r`\mathbb{R}^{2}`}</M> y <M>{r`\mathbb{R}^{3}`}</M>.
-        <M block>
-          {r`\sigma (t) = (x(t), y(t), z(t)).`}
-        </M>
-        Se deben parametrizar las funciones <M>{r` x(t)`}</M>, <M>{r` y(t)`}</M> y <M>{r` z(t) `}</M> para obtener una expresión única para <M>{r` \sigma (t) `}</M>.  La gráfica de la trayectoria es una curva en <M>{r`\mathbb{R}^{2}`}</M> o <M>{r`\mathbb{R}^{3}`}</M> que conecta los puntos inicial y final. Al graficar la trayectoria, es importante mostrar con flechas en la curva cuál es el sentido de la trayectoria para distinguir los puntos inicial y final.
+        Traduciendo la definición a términos de física, <M>{r`a`}</M> representa el tiempo inicial y <M>{r`b`}</M> el tiempo final en el que se mide el movimiento. A cada tiempo <M>{r`t`}</M> entre esos dos instantes, la función le asigna una posición del cuerpo en el espacio, <M>{r`\sigma(t) \in \mathbb{R}^{n}`}</M>. El punto inicial de la trayectoria es entonces <M>{r`\sigma(a)`}</M> y <M>{r`\sigma(b)`}</M> corresponde al punto final.
       </p>
-
-      <Tip>
-        Para graficar una trayectoria, y en general una curva paramétrica, puede ser útil hacer una tabla de datos con columnas <M>{r`t`}</M>, <M>{r` x(t)`}</M>, <M>{r` y(t)`}</M> y <M>{r` z(t) `}</M>.
-      </Tip>
+      <p>
+        Una trayectoria está descrita sobre el plano si <M>{r`n=2`}</M> y sobre el espacio si <M>{r`n=3`}</M>. En general, una trayectoria en <M>{r`\mathbb{R}^{n}`}</M> es una curva en el espacio de <M>{r`n`}</M> dimensiones.
+      </p>
+      <p>
+        Se puede tomar la suposición de que las trayectorias de los cuerpos en el espacio son suaves, o que por lo menos una trayectoria que no lo es puede construirse a partir de trayectorias suaves. Por lo tanto, se asume que las trayectorias son funciones de clase al menos <M>{r`C^1`}</M>. Con eso en mente, se puede definir la velocidad, rapidez, aceleración y longitud de la trayectoria.
+      </p>
 
       <Definition concept="Velocidad">
-        Sea <M>{r`\sigma\colon [a,b]\subseteq \mathbb{R} \to \mathbb{R}^{n}`}</M> una trayectoria diferenciable en <M>{r` \mathbb{R}^{n} `}</M>. La <em>velocidad</em>, denotada por <M>{r`\sigma'`}</M>, es la derivada de la trayectoria:
+        Sea <M>{r`\sigma\colon [a,b]\subseteq \mathbb{R} \to \mathbb{R}^{n}`}</M> una trayectoria diferenciable en <M>{r`\mathbb{R}^{n}`}</M>. La <em>velocidad</em>, denotada por <M>{r`\sigma'`}</M>, es la derivada de la trayectoria con respecto al tiempo:
         <M block>
-          {r`\sigma' (t) = (x_1'(t),x_2'(t),\ldots,x_n'(t)).`}
+          {r`\sigma'(t) = (x_1'(t), x_2'(t), \ldots, x_n'(t)).`}
         </M>
       </Definition>
-
       <p>
-        La velocidad es un vector, y es siempre tangente a la curva de la trayectoria.
+        La velocidad es una función vectorial de una variable que describe la rapidez y la dirección del movimiento del cuerpo en el espacio. Si se evalúa en un instantge de tiempo <M>{r`t`}</M>, se obtiene un vector tangente a la trayectoria en ese punto, que representa la <em>velocidad instantánea</em>. La magnitud de la velocidad es la rapidez.
       </p>
-
       <Definition concept="Rapidez">
-        Sea <M>{r`\sigma\colon [a,b]\subseteq \mathbb{R} \to \mathbb{R}^{n}`}</M> una trayectoria diferenciable en <M>{r` \mathbb{R}^{n} `}</M>, la <em>rapidez</em> es la magnitud de la velocidad.
+        Sea <M>{r`\sigma\colon [a,b]\subseteq \mathbb{R} \to \mathbb{R}^{n}`}</M> una trayectoria diferenciable en <M>{r`\mathbb{R}^{n}`}</M>, la <em>rapidez</em> es la magnitud de la velocidad.
         <M block>
-          {r`\norm{\sigma' (t)} = \sqrt{(x_1'(t))^2+(x_2'(t))^2+\cdots+(x_n'(t))^2}`}
+          {r`\norm{\sigma'(t)} = \sqrt{(x_1'(t))^2+(x_2'(t))^2+\cdots+(x_n'(t))^2}`}
         </M>
       </Definition>
-
+      <p>
+        La rapidez es una función escalar de una variable que simplemente describe la magnitud de la velocidad. La rapidez nunca es negativa, pues es una magnitud; atribuirle un valor negativo sería un intento de describir su dirección, lo cual le corresponde a la velocidad. La rapidez es cero si y solamente si la velocidad es el vector nulo, lo que implica que el cuerpo no se mueve.
+      </p>
       <Definition concept="Aceleración">
         Sea <M>{r`\sigma\colon [a,b]\subseteq \mathbb{R} \to \mathbb{R}^{n}`}</M> una trayectoria de clase <M>{r`C^2`}</M> en <M>{r` \mathbb{R}^{n} `}</M>. La <em>aceleración</em>, denotada por <M>{r`\sigma''`}</M>, es la derivada de la velocidad:
         <M block>
           {r`\sigma'' (t) = (x_1''(t),x_2''(t),\ldots,x_n''(t)).`}
         </M>
       </Definition>
-
+      <p>
+        La aceleración es una función vectorial de una variable que describe en qué medida cambia la velocidad del cuerpo en el espacio. Nótese que contempla tanto los cambios en la rapidez como los cambios en la dirección de la velocidad. La aceleración es el vector cero si y solamente si la velocidad es constante, lo que implica que la rapidez es constante y además el cuerpo se mueve en línea recta (de lo contrario, la dirección de la velocidad cambiaría y habría aceleración).
+      </p>
       <Definition concept="Longitud de la trayectoria">
-        Sea <M>{r`\sigma\colon [a,b]\subseteq \mathbb{R} \to \mathbb{R}^{n}`}</M> una trayectoria diferenciable en <M>{r` \mathbb{R}^{n} `}</M>. La <em>longitud de la trayectoria</em>, denotada por <M>{r`L (\sigma)`}</M>, es la longitud de arco de la trayectoria, dada por
+        Sea <M>{r`\sigma\colon [a,b]\subseteq \mathbb{R} \to \mathbb{R}^{n}`}</M> una trayectoria diferenciable en <M>{r`\mathbb{R}^{n}`}</M>. La <em>longitud de la trayectoria</em>, denotada por <M>{r`L (\sigma)`}</M>, es la longitud de arco de la trayectoria, dada por
         <M block>
-          {r`L (\sigma) = \defint{\norm{\sigma' (t)}}[t]{a}{b} \geq 0.`}
+          {r`L(\sigma) = \defint{\norm{\sigma' (t)}}{t}{a}{b} \geq 0.`}
         </M>
       </Definition>
-
       <p>
-        La longitud de la trayectoria siempre mayor o igual es a la distancia entre el punto inicial y el punto final. Solo es igual a dicha distancia si la trayectoria es una recta entre los dos puntos.
+        La longitud de la trayectoria siempre es mayor o igual a la distancia entre el punto inicial y el punto final. Solamente es igual a dicha distancia si la trayectoria es una recta entre los dos puntos.
       </p>
 
 
@@ -1444,82 +1568,22 @@ const CalculoVectorial = () => (
 
     </Section>
 
-    <Section title="Derivación de funciones vectoriales">
+    <Section title="Derivación de campos vectoriales">
 
       <p>
-        La derivada de una función vectorial <M>{r`\bvec{F}`}</M>, denotada por <M>{r`\mathrm{D}\bvec{F}`}</M>, está dada por el vector columna de gradientes de las funciones escalares que son sus componentes. Eso a su vez genera una matriz de derivadas parciales donde cada fila está asociada a una función y cada columna a una variable. Sea <M>{r`\bvec{F}\colon U \subseteq \mathbb{R}^{n}\to \mathbb{R}^{m}`}</M>, de forma que
-        <M block>
-          {r`\bvec{F} = (F_1,F_2,\ldots,F_m)`}
-        </M>
-        la derivada es una matriz de tamaño <M>{r`m \times n`}</M> dada por
-        <M block>
-          {r`\begin{align*}
-	\mathrm{D}\bvec{F} &= \begin{pmatrix}
-			\nabla F_1 \\ \nabla F_2 \\ \vdots \\ \nabla F_m
-	\end{pmatrix} \\
-	\mathrm{D}\bvec{F} &= \begin{pmatrix}
-		\dfrac{\partial F_1}{\partial x_1} & \dfrac{\partial F_1}{\partial x_2} & \cdots & \dfrac{\partial F_1}{\partial x_n} \\[1em]
-		\dfrac{\partial F_2}{\partial x_1} & \dfrac{\partial F_2}{\partial x_2} & \cdots & \dfrac{\partial F_2}{\partial x_n} \\[1em]
-		\vdots & \vdots & \ddots & \vdots \\[0.5em]
-		\dfrac{\partial F_m}{\partial x_1} & \dfrac{\partial F_m}{\partial x_2} & \cdots & \dfrac{\partial F_m}{\partial x_n}
-	\end{pmatrix} 
-\end{align*}`}
-        </M>
-        Evaluar la derivada de una función vectorial en un vector <M>{r`\bvec{v}\in U`}</M> se denota por <M>{r`\mathrm{D}\bvec{F}(\bvec{v})`}</M> y consiste en evaluar cada uno de los elementos de la matriz de derivadas en dicho vector.
-      </p>
-
-      <Tip>
-        Al construir la matriz de derivadas, téngase en cuenta que por cada fila se tiene el gradiente de una de las funciones escalares que componen la imagen de la función vectorial y a cada columna le corresponde una variable, no al contrario.
-      </Tip>
-
-      <h4>Diferenciabilidad de funciones vectoriales</h4>
-
-      <p>
-        Sean <M>{r`\bvec{F}\colon U\subseteq\mathbb{R}^{n} \to\mathbb{R}^{m}`}</M> una función vectorial de múltiples variables y <M>{r`\bvec{v} \in U`}</M>, se dice que <M>{r`\bvec{F}`}</M> es diferenciable en <M>{r`\bvec{v}`}</M> si y solamente si
-        {/* \begin{longtable}{ll}
-	\rule[1ex]{0pt}{3ex}i.& Todas las derivadas parciales <M>{r`\dparder{F_i(\bvec{v})}{x_j}`}</M> existen.\\
-	\rule[1ex]{0pt}{2.5ex}ii.&<M>{r`\displaystyle \lim_{\bvec{x}\to\bvec{v}} \cfrac{\norm{\bvec{F}(\bvec{x})- \left[\bvec{F}(\bvec{v})+\mathrm{D}\bvec{F}(\bvec{v})(\bvec{x}-\bvec{v})\right]}}{\norm{\bvec{x}-\bvec{v}}} = 0`}</M>.\\
-	\rule[1ex]{0pt}{1.5ex}&
-\end{longtable} */}
-      </p>
-
-      <p>
-        Si <M>{r`\bvec{F},\bvec{G}\colon \mathbb{R}^{n}\to \mathbb{R}^{m}`}</M> son diferenciables en <M>{r`\bvec{v}\in\mathbb{R}^{n}`}</M> y <M>{r`\bvec{H}\colon\mathbb{R}^{m}\to\mathbb{R}^{k}`}</M> es diferenciable en <M>{r`\bvec{F}(\bvec{v})`}</M>, entonces se satisfacen las siguientes propiedades
-      </p>
-
-      {/* \begin{longtable}{lp{\textwidth/2-1cm}p{\textwidth/2-0.8cm}}
-	\rule[1ex]{0pt}{2.5ex}i.&Propiedad de homogeneidad de la derivación: &<M>{r` \mathrm{D}(c\bvec{F})(\bvec{v}) = c\mathrm{D}\bvec{F}(\bvec{v})`}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}ii.&Propiedad de linealidad de la derivación: &<M>{r` \mathrm{D}(\bvec{F} \pm \bvec{G})(\bvec{v}) = \mathrm{D}\bvec{F}(\bvec{v}) \pm  \mathrm{D}\bvec{G}(\bvec{v}) `}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}iii.&Regla de la cadena: & <M>{r`\bvec{H} \circ \bvec{F}`}</M> es diferenciable en <M>{r`\bvec{v}`}</M>: \newline <M>{r` \mathrm{D} (\bvec{H} \circ \bvec{F}) (\bvec{v}) = [\mathrm{D}\bvec{H}(\bvec{F}(\bvec{v}))][\mathrm{D}\bvec{F}(\bvec{v})]`}</M> . \\
-	\rule[1ex]{0pt}{2.5ex}iv.&NOMBRE4: &PROPIEDAD4. \\  	\rule[1ex]{0pt}{2.5ex}v.&NOMBRE5: &PROPIEDAD5. \\  	\rule[1ex]{0pt}{2.5ex}vi.&NOMBRE6: &PROPIEDAD6. \\  	\rule[1ex]{0pt}{2.5ex}vii.&NOMBRE7: &PROPIEDAD7. \\  	\rule[1ex]{0pt}{2.5ex}viii.&NOMBRE8: &PROPIEDAD8. \\  	\rule[1ex]{0pt}{2.5ex}ix.&NOMBRE9: &PROPIEDAD9. \\  	\rule[1ex]{0pt}{2.5ex}x.&NOMBRE10: &PROPIEDAD10. \\  	\rule[1ex]{0pt}{2.5ex}xi.&NOMBRE11: &PROPIEDAD11. \\  	\rule[1ex]{0pt}{2.5ex}xii.&NOMBRE12: &PROPIEDAD12. \\  	\rule[1ex]{0pt}{2.5ex}xiii.&NOMBRE13: &PROPIEDAD13. \\  	\rule[1ex]{0pt}{2.5ex}xiv.&NOMBRE14: &PROPIEDAD14. \\  	\rule[1ex]{0pt}{2.5ex}xv.&NOMBRE15: &PROPIEDAD15. \\  	\rule[1ex]{0pt}{2.5ex}xvi.&NOMBRE16: &PROPIEDAD16. \\  	\rule[1ex]{0pt}{2.5ex}xvii.&NOMBRE17: &PROPIEDAD17. \\  	\rule[1ex]{0pt}{2.5ex}xviii.&NOMBRE18: &PROPIEDAD18. \\  	\rule[1ex]{0pt}{2.5ex}xix.&NOMBRE19: &PROPIEDAD19. \\  	\rule[1ex]{0pt}{2.5ex}xx.&NOMBRE20: &PROPIEDAD20. \\\end{longtable} */}
-
-      <p>
-        {/*  TODO: Quizá añadir tip para comprender regla de la cadena. Minuto 36:14 de la clase que dura 1:21:50 */}
-        Para probar que una función vectorial es diferenciable en un punto. {/*  TODO. En qué clase está esto?? */}
-        Si cada una de las derivadas parciales en la matriz de derivadas evaluada en <M>{r`\bvec{v}`}</M> es continua, entonces la función es continua en <M>{r`\bvec{v}`}</M> y por ende diferenciable en <M>{r`\bvec{v}`}</M>.
-      </p>
-
-      <h3>Campos gradientes</h3>
-
-      <Definition concept="Campo gradiente">
-        Sea <M>{r`f\colon \mathbb{R}^{n}\to\mathbb{R}`}</M> una función escalar de múltiples variables. Un <em>campo gradiente</em> o <em>campo conservativo</em> es un campo vectorial <M>{r`\bvec{F}`}</M> que tiene la forma
-        <M>{r`\bvec{F} = \nabla (f) = \left(\parder{f}{x_1},\parder{f}{x_2},\ldots,\parder{f}{x_n} \right)`}</M>
-      </Definition>
-
-      <p>
-        Los campos gradientes se denominan alternativamente campos conservativos porque en física, el trabajo en un campo conservativo es cerrado. En ese contexto, la función escalar <M>{r`f\colon \mathbb{R}^{n}\to\mathbb{R}`}</M> es el <em>potencial</em> y el campo gradiente es el <em>campo de fuerza</em>.
+        Esta sección se hace énfasis en la derivación de campos vectoriales, pues para estos existen operadores diferenciales que no tienen análogos en el cálculo de funciones escalares o vectoriales de una variable. 
       </p>
 
       <h3>La divergencia</h3>
 
       <Definition concept="Divergencia">
-        Sea <M>{r`\bvec{F}\colon \mathbb{R}^{m}\to \mathbb{R}^{n}`}</M> un campo vectorial de clase <M>{r`C^1`}</M>, de forma que <M>{r`\bvec{F}= (F_1,F_2,\ldots,F_n)`}</M>. La <em>divergencia</em> de <M>{r`\bvec{F}`}</M>, denotada por <M>{r`\div\bvec{F}`}</M>, es una función escalar dada por el siguiente producto punto:
+        Sea <M>{r`\bvec{F}\colon \mathbb{R}^{m}\to \mathbb{R}^{n}`}</M> un campo vectorial de clase <M>{r`C^1`}</M>, de forma que <M>{r`\bvec{F}= (F_1,F_2,\ldots,F_n)`}</M>. La <em>divergencia</em> de <M>{r`\bvec{F}`}</M>, denotada por <M>{r`\div\bvec{F}`}</M>, es la función escalar dada por el producto punto entre el operador nabla y el campo vectorial:
         <M block>
           {r`\begin{align*}
-		\div\bvec{F} &= \nabla \cdot \bvec{F} \\
-		\div\bvec{F} &= \left(\dparder{}{x_1}, \dparder{}{x_2},\ldots,\dparder{}{x_n}\right) \cdot (F_1,F_2,\ldots,F_n)\\
-		\div\bvec{F} &= \sum_{i=1}^{n}\parder{F_i}{x_i}.
-	\end{align*}`}
+            \div\bvec{F} &= \nabla \cdot \bvec{F} \\
+            \div\bvec{F} &= \left(\dparder{}{x_1}, \dparder{}{x_2},\ldots,\dparder{}{x_n}\right) \cdot (F_1,F_2,\ldots,F_n)\\
+            \div\bvec{F} &= \sum_{i=1}^{n}\parder{F_i}{x_i}.
+          \end{align*}`}
         </M>
       </Definition>
 
@@ -1531,28 +1595,55 @@ const CalculoVectorial = () => (
       </Warning>
 
       <p>
-        Para un campo vectorial <M>{r`\bvec{G}\colon \mathbb{R}^{3}\to \mathbb{R}^{3}`}</M> de clase <M>{r`C^1`}</M>, <M>{r`\bvec{G}= (G_1,G_2,G_3)`}</M>, se tiene que
+        Para un campo vectorial en el espacio, <M>{r`\bvec{G}\colon \mathbb{R}^{3}\to \mathbb{R}^{3}`}</M>, de clase <M>{r`C^1`}</M>, <M>{r`\bvec{G}= (G_1,G_2,G_3)`}</M>, se tiene que
         <M block>
           {r`\begin{align*}
-		\div\bvec{G} &= \nabla \cdot \bvec{G} \\
-		\div\bvec{G} &= \left(\dparder{}{x}, \dparder{}{y},  \dparder{}{z}\right) \cdot (G_1,G_2,G_3)\\
-		\div\bvec{G} &= \parder{G_1}{x_1}+ \parder{G_2}{x_2} + \parder{G_3}{x_3}.
-	\end{align*}`}
+            \div\bvec{G} &= \nabla \cdot \bvec{G} \\
+            \div\bvec{G} &= \left(\dparder{}{x}, \dparder{}{y},  \dparder{}{z}\right) \cdot (G_1,G_2,G_3)\\
+            \div\bvec{G} &= \parder{G_1}{x_1}+ \parder{G_2}{x_2} + \parder{G_3}{x_3}.
+          \end{align*}`}
         </M>
       </p>
 
       <p>
-        Sean <M>{r`U_1,U_2 \subseteq \mathbb{R}^{m}`}</M> un conjunto abierto, <M>{r`\bvec{F},\bvec{G}\colon U_1\to \mathbb{R}^{n}`}</M> campos vectoriales de clase <M>{r`C^1`}</M> y <M>{r`f,g\colon U_2 \to \mathbb{R}^{n}`}</M> funciones escalares, es posible demostrar las siguientes propiedades de la divergencia:
+        
       </p>
 
-      {/* \begin{longtable}{lp{\textwidth/2-1.8cm}p{\textwidth/2}}
-	\rule[1ex]{0pt}{2.5ex}i.&Propiedad de linealidad de la divergencia: & <M>{r` \div(\bvec{F}+\bvec{G}) = \nabla \cdot (\bvec{F}+\bvec{G}) = \div\bvec{F}+\div\bvec{G}`}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}ii.&Divergencia de producto de campos escalar y vectorial:&<M>{r`\div (f\bvec{F}) = \nabla \cdot (f\bvec{F}) = f\div\bvec{F}+\bvec{F}\cdot \nabla f`}</M> \\
-	\rule[1ex]{0pt}{2.5ex}iii.&Divergencia de producto cruz entre campos vectoriales: &<M>{r`\div (\bvec{F} \times \bvec{G}) = \nabla \cdot (\bvec{F} \times \bvec{G}) = \bvec{G}\cdot \rot\bvec{F} - \bvec{F}\cdot \rot \bvec{G}.`}</M> \\
-	\rule[1ex]{0pt}{2.5ex}iv.&Divergencia de producto cruz entre campos gradientes: & <M>{r`\div(\nabla f \times \nabla g) = \nabla \cdot(\nabla f \times \nabla g) = 0.`}</M> \\
-	\rule[1ex]{0pt}{2.5ex}v.&Divergencia del rotacional: &<M>{r`\displaystyle \div \rot \bvec{F} = \nabla \cdot (\nabla \times \bvec{F}) = 0`}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}vi.&\multicolumn{2}{l}{<M>{r`\displaystyle \div(f\nabla g-g\nabla f) = \nabla \cdot(f\nabla g-g\nabla f) = f\nabla^2g-g\nabla^2f`}</M>.}
-\end{longtable} */}
+      <Properties
+        title="Propiedades de la divergencia"
+        description={<p>Sean <M>{r`U_1, U_2 \subseteq \mathbb{R}^{m}`}</M> conjuntos abiertos, <M>{r`\bvec{F},\bvec{G}\colon U_1\to \mathbb{R}^{n}`}</M> campos vectoriales de clase <M>{r`C^1`}</M> y <M>{r`f,g\colon U_2 \to \mathbb{R}^{n}`}</M> funciones escalares, es posible demostrar las siguientes propiedades de la divergencia:</p>}
+        properties={[
+          {
+            name: "Linealidad",
+            formula: <M>{r`\div (\bvec{F}+\bvec{G}) = \div\bvec{F}+\div\bvec{G}`}</M>
+          },
+          {
+            name: "Producto escalar",
+            formula: <M>{r`\div (f\bvec{F}) = \nabla \cdot (f\bvec{F}) = f\div\bvec{F}+\bvec{F}\cdot \nabla f`}</M>
+          },
+          {
+            name: "Producto cruz",
+            formula: <M>{r`\div (\bvec{F} \times \bvec{G}) = \nabla \cdot (\bvec{F} \times \bvec{G}) = \bvec{G} \cdot \rot\bvec{F} - \bvec{F} \cdot \rot \bvec{G}.`}</M>
+          },
+          {
+            name: "Producto cruz de gradientes",
+            formula: <M>{r`\div(\nabla f \times \nabla g) = \nabla \cdot(\nabla f \times \nabla g) = 0.`}</M>
+          },
+          {
+            name: "Divergencia del rotacional",
+            formula: <M>{r`\div \rot \bvec{F} = \nabla \cdot (\nabla \times \bvec{F}) = 0`}</M>
+          },
+          {
+            name: "Divergencia y laplaciano",
+            formula: <M>{r`\div(f\nabla g - g\nabla f) = \nabla \cdot(f\nabla g-g\nabla f) = f\nabla^2g-g\nabla^2f`}</M>,
+            note: <span>Al operador <M>{r`\nabla^2`}</M> se le denomina en ocasiones el <em>laplaciano</em> u <em>operador de Laplace</em>. También se denota por <M>{r`\Delta `}</M>.</span>
+          }
+        ]}
+      />
+
+      <p>
+        Para las propiedades que contienen producto cruz, considérese que los campos vectoriales están definidos en <M>{r`\mathbb{R}^{3}`}</M>.
+      </p>
 
       <p>
         Por la propiedad v, la divergencia del rotacional de un campo vectorial es siempre nula. Por ende, se puede usar la divergencia de un campo vectorial para saber si dicho campo podría ser el resultado de una operación de rotacional. Sea <M>{r`\bvec{F}`}</M> un campo vectorial,
@@ -1565,30 +1656,45 @@ const CalculoVectorial = () => (
       <h3>El rotacional</h3>
 
       <Definition concept="Rotacional">
-        Sea <M>{r`\bvec{F}\colon \mathbb{R}^{3}\to \mathbb{R}^{3}`}</M> un campo vectorial de clase <M>{r`C^1`}</M> de forma que <M>{r`\bvec{F}= (F_x,F_y,F_z)`}</M>. La <em>rotacional</em> de <M>{r`\bvec{F}`}</M>, denotada por <M>{r`\rot\bvec{F}`}</M>, es un campo vectorial dado por el producto cruz a continuación:
+        Sea <M>{r`\bvec{F}\colon \mathbb{R}^{3}\to \mathbb{R}^{3}`}</M> un campo vectorial de clase <M>{r`C^1`}</M> de forma que <M>{r`\bvec{F}= (F_x,F_y,F_z)`}</M>. La <em>rotacional</em> de <M>{r`\bvec{F}`}</M>, denotada por <M>{r`\rot\bvec{F}`}</M>, es un campo vectorial dado por el producto cruz entre el operador nabla y el campo vectorial:
         <M block>
           {r`\begin{align*}
-		\mathrm{rot}\bvec{F} &= \nabla \times \bvec{F} \\
-		\rot\bvec{F} &= \left(\dparder{}{x}, \dparder{}{y},  \dparder{}{z}\right) \times (F_x,F_y,F_z) \\
-		\rot\bvec{F} &= \begin{vmatrix}
-					\uveci & \uvecj & \uvec{k} \\[0.5	ex] \dparder{}{x} & \dparder{}{y} & \dparder{}{z} \\[1.7ex] F_x & F_y & F_z
-				\end{vmatrix} \\
-		\rot\bvec{F} &= \left(\dparder{F_z}{y}-\dparder{F_y}{z}\right) \uveci + \left( \dparder{F_z}{x} - \dparder{F_x}{z}\right) \uvecj +\left(\dparder{F_y}{x} - \dparder{F_x}{y} \right) \uvec{k}
-	\end{align*}`}
+            \mathrm{rot}\bvec{F} &= \nabla \times \bvec{F} \\
+            \rot\bvec{F} &= \left(\dparder{}{x}, \dparder{}{y},  \dparder{}{z}\right) \times (F_x,F_y,F_z) \\
+            \rot\bvec{F} &= \begin{vmatrix}
+                  \uveci & \uvecj & \uvec{k} \\[0.5	ex] \dparder{}{x} & \dparder{}{y} & \dparder{}{z} \\[1.7ex] F_x & F_y & F_z
+                \end{vmatrix} \\
+            \rot\bvec{F} &= \left(\dparder{F_z}{y}-\dparder{F_y}{z}\right) \uveci + \left( \dparder{F_z}{x} - \dparder{F_x}{z}\right) \uvecj +\left(\dparder{F_y}{x} - \dparder{F_x}{y} \right) \uvec{k}.
+          \end{align*}`}
         </M>
       </Definition>
 
-      <p>
-        Sean <M>{r`U_1,U_2 \subseteq \mathbb{R}^{m}`}</M> un conjunto abierto, <M>{r`\bvec{F},\bvec{G}\colon U_1\to \mathbb{R}^{n}`}</M> campos vectoriales de clase <M>{r`C^1`}</M> y <M>{r`f,g\colon U_2 \to \mathbb{R}^{n}`}</M> funciones escalares, se pueden probar las propiedades del rotacional que se enuncian a continuación::
-      </p>
-
-      {/* \begin{longtable}{lp{\textwidth/2-1.8cm}p{\textwidth/2}}
-	\rule[1ex]{0pt}{2.5ex}i.&Propiedad de linealidad del rotacional:&<M>{r` \rot(\bvec{F}+\bvec{G}) = \nabla \times (\bvec{F}+\bvec{G})= \rot\bvec{F}+\rot\bvec{G}`}</M>. \\
-	\rule[1ex]{0pt}{2.5ex}ii.&Rotacional de producto de campos escalar y vectorial:& <M>{r`\rot (f\bvec{F}) = \nabla \times (f\bvec{F}) = f\rot\bvec{F}+\nabla f \times \bvec{F}`}</M>\\
-	\rule[1ex]{0pt}{2.5ex}iii.&Rotacional de producto cruz entre campos vectoriales: &<M>{r`\rot (\bvec{F} \times \bvec{G}) = \nabla \times (\bvec{F}\times \bvec{G}) =`}</M>\newline<M>{r` \bvec{F}\div \bvec{G} - \bvec{G}\div \bvec{F} + (\bvec{G} \cdot \nabla)\bvec{F} - (\bvec{F} \cdot \nabla)\bvec{G}.`}</M> \\
-	\rule[1ex]{0pt}{2.5ex}iv.&Rotacional de un campo gradiente: & <M>{r`\rot \nabla f = \nabla \times (\nabla f) = \bvec{0}.`}</M> \\
-	\rule[1ex]{0pt}{2.5ex}v.&Rotacional del rotacional: &<M>{r`\displaystyle \rot\rot \bvec{F} = \nabla \times (\nabla \times \bvec{F}) = \nabla (\div \bvec{F}) - \nabla^2 \bvec{F}`}</M>. 
-\end{longtable} */}
+      <Properties
+        title="Propiedades del rotacional"
+        description={<p>Sean <M>{r`U_1, U_2 \subseteq \mathbb{R}^{3}`}</M> conjuntos abiertos, <M>{r`\bvec{F},\bvec{G}\colon U_1\to \mathbb{R}^{3}`}</M> campos vectoriales en el espacio de clase <M>{r`C^1`}</M> y <M>{r`f,g\colon U_2 \to \mathbb{R}^{3}`}</M> funciones escalares, se pueden probar las propiedades del rotacional que se enuncian a continuación:</p>}
+        properties={[
+          {
+            name: "Linealidad",
+            formula: <M>{r`\rot(\bvec{F}+\bvec{G}) = \rot\bvec{F}+\rot\bvec{G}.`}</M>
+          },
+          {
+            name: "Producto de campos escalar y vectorial",
+            formula: <M>{r`\rot(f\bvec{F}) = f\rot\bvec{F}+\nabla f \times \bvec{F}.`}</M>
+          },
+          {
+            name: "Producto cruz entre campos vectoriales",
+            formula: <M>{r`\rot(\bvec{F} \times \bvec{G}) = \bvec{F}\div \bvec{G} - \bvec{G}\div \bvec{F} + (\bvec{G} \cdot \nabla)\bvec{F} - (\bvec{F} \cdot \nabla)\bvec{G}.`}</M>
+          },
+          {
+            name: "Rotacional de un campo gradiente",
+            formula: <M>{r`\rot \nabla f = \nabla \times (\nabla f) = \bvec{0}`}</M>
+          },
+          {
+            name: "Rotacional del rotacional",
+            formula: <M>{r`\rot\rot \bvec{F} = \nabla (\div \bvec{F}) - \nabla^2 \bvec{F}`}</M>
+          }
+        ]}
+      />
 
       <p>
         Por la propiedad iv, el rotacional de un campo vectorial es cero si y solamente si el campo vectorial es un campo gradiente. A causa de eso, el rotacional sirve para detectar si un campo vectorial puede ser el gradiente de una función escalar. Los campos gradientes no causan rotaciones. Sea <M>{r`\bvec{F}`}</M> un campo vectorial,
@@ -2006,6 +2112,27 @@ const CalculoVectorial = () => (
         Rara vez se menciona la orientación de un sistema coordenado: se presume universalmente que es de mano derecha. En los sistemas coordenados que se estudiarán, esto afecta la dirección del eje <M>{r`z`}</M> y sobretodo la forma en la que se miden los ángulos.
       </Tip>
 
+      <h4>Conversión entre sistemas coordenados</h4>
+
+      <p>
+        Dadas coordenadas de un sistema coordenado, siempre es posible expresarlas en términos de otro sistema coordenado, mientras ambos sean de la misma dimensión. Para hacerlo, se utilizan las <em>transformaciones de coordenadas</em>, que son funciones que toman las coordenadas de un punto en un sistema coordenado y devuelven las coordenadas del mismo punto en otro sistema coordenado.
+      </p>
+      <p>
+        En general, una transformación de coordenadas es un campo vectorial <M>{r`\bvec{F}\colon \mathbb{R}^n \to \mathbb{R}^n`}</M> donde <M>{r`n`}</M> es la dimensión de los sistemas coordenados. La forma general de una función que transforma de un sistema coordenado a otro es
+        <M block>{r`
+          \bvec{F}(\bvec{x}) = (f_1(\bvec{x}), f_2(\bvec{x}), \ldots, f_n(\bvec{x})),
+        `}</M>
+        donde <M>{r`\bvec{x}`}</M> son las coordenadas del sistema de origen y cada función <M>{r`f_i`}</M>, componente del campo vectorial, transforma las coordenadas del sistema de origen en la <M>{r`i`}</M>-ésima coordenada del sistema coordenado de destino.
+      </p>
+      <p>
+        Para que se puedan realizar conversiones en ambas direcciones de forma unívoca, las transformaciones de coordenadas deben ser <em>biyectivas</em>, es decir, deben ser: <em>inyectivas</em>, de forma que a cada elemento del dominio se le asigna uno distinto del codominio, y <em>sobreyectivas</em>, de forma que todos los elementos del codominio están cubiertos por esa asignación. Esto garantiza que a cada punto del sistema coordenado de origen le corresponde exactamante un punto del sistema coordenado de destino y viceversa.
+      </p>
+      <p>
+        Para que eso suceda, la derivada de la transformación (que, por ser la transformación un campo vectorial, es la matriz de derivadas parciales) debe ser no singular, es decir, su determinante no puede ser cero. Esto garantiza que la transformación sea invertible, lo que a su vez garantiza que sea biyectiva.
+      </p>
+
+
+
       <h3>Coordenadas cartesianas</h3>
 
       <p>
@@ -2103,15 +2230,29 @@ const CalculoVectorial = () => (
       </p>
 
       <p>
-        Se puede trazar una equivalencia entre coordenadas polares y coordenadas cartesianas, si ambos sistemas se superponen de forma que el polo coincida con el origen de un plano cartesiano y el eje polar coincida con el eje <M>{r`x`}</M>. Dado un punto con coordenadas cartesianas <M>{r`(x,y)`}</M>,
+        Es fácil identificar la equivalencia entre coordenadas polares y coordenadas cartesianas, si ambos sistemas se superponen de forma que el polo coincida con el origen de un plano cartesiano y el eje polar coincida con el eje <M>{r`x`}</M>. Dado un punto con coordenadas cartesianas <M>{r`(x,y)`}</M>,
       </p>
       <ol>
-        <li> El radio polar está dado por el Teorema de Pitágoras como <M>{r`r=\sqrt{x^2+y^2}`}</M>.</li>
-        <li> El ángulo polar se puede obtener por trigonometría como <M>{r`\displaystyle \theta=\arctan\frac{y}{x}`}</M>.</li>
-        <Warning>
-          Si el punto <M>{r`(x,y)`}</M> se encuentra en los cuadrantes II o III del plano cartesiano, la fórmula para el ángulo polar <M>{r`\theta`}</M> será inexacta por la arcotangente. En esos casos debe sumarse <M>{r`\uppi`}</M> radianes a <M>{r`\theta`}</M>.
-        </Warning>
+        <li> El radio polar está dado por el Teorema de Pitágoras como <M>{r`r(x, y) = \sqrt{x^2+y^2}`}</M>.</li>
+        <li> El ángulo polar se puede obtener por trigonometría simple cuando el punto está en el primer o cuarto cuadrante como <M>{r`\displaystyle \theta=\arctan\frac{y}{x}`}</M>.</li>
       </ol>
+      <Warning>
+        Si el punto <M>{r`(x,y)`}</M> se encuentra en los cuadrantes II o III del plano cartesiano, la fórmula para el ángulo polar <M>{r`\theta`}</M> será inexacta por la arcotangente. En esos casos debe sumarse <M>{r`\uppi`}</M> radianes a <M>{r`\theta`}</M>.
+      </Warning>
+      <p>
+        De acuerdo con lo anterior, el campo vectorial <M>{r`\bvec{F}\colon \mathbb{R}^2 \to \mathbb{R}^2`}</M> que toma un punto en coordenadas cartesianas y devuelve uno en coordenadas polares está dado por
+        <M block>
+          {r`\bvec{F}(x,y) = (r(x,y), \theta(x,y))`}
+        </M>
+        donde <M>{r`r(x,y) = \sqrt{x^2+y^2}`}</M> y
+        <M block>{r`
+          \theta(x,y) = \begin{cases}
+            \arctan\frac{y}{x} & \text{si } x > 0 \ \land \ y \geq 0, \\
+            \arctan\frac{y}{x} + \uppi & \text{si } x < 0, \\
+            \arctan\frac{y}{x} + 2\uppi & \text{si } x > 0 \ \land \ y < 0.
+          \end{cases}
+        `}</M>.
+      </p>
 
       {/* y el ángulo polar que se muestra en la , se pueden hallar el radio y el ángulo. */}
 
@@ -2251,8 +2392,6 @@ const CalculoVectorial = () => (
       <p>
         Es importante aclarar que los ángulos de las coordenadas geográficas no se miden en unidades absolutas como radianes, sino en un sistema sexagesimal constituido por grados (<M>{r`°`}</M>), minutos angulares (<M>{r`^{\prime}`}</M>) y segundos angulares (<M>{r`^{\prime\prime}`}</M>). Los grados se definen de forma tal que la circunferencia de la Tierra se divide en <M>{r`360°`}</M>. Un minuto ángular equivale a la sexagésima parte de un grado, <M>{r`1° = 60^{\prime}`}</M> y un segundo ángular equivale a la sexagésima parte de un minuto ángular, <M>{r`1^{\prime} = 60^{\prime\prime}`}</M>. Las mediciones inferiores al segundo angular se realizan con un sistema decimal.
       </p>
-
-          
 
     </Section >
 
