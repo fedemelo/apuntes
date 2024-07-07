@@ -148,7 +148,7 @@ const CalculoVectorial = () => (
         </M>
       </Definition>
       <p>
-        En funciones escalares de tres variables los conjuntos de nivel son subconjuntos de <M>{r`\mathbb{R}^{3}`}</M > y se denominan <em>superficies de nivel</em >. Similarmente, en funciones escalares de dos variables los conjuntos de nivel se llaman <em> curvas de nivel</em> por ser subconjuntos de <M>{r`\mathbb{R}^{2}`}</M >.
+        En funciones escalares de tres variables los conjuntos de nivel son subconjuntos de <M>{r`\mathbb{R}^{3}`}</M> y se denominan <em>superficies de nivel</em >. Similarmente, en funciones escalares de dos variables los conjuntos de nivel se llaman <em> curvas de nivel</em> por ser subconjuntos de <M>{r`\mathbb{R}^{2}`}</M>.
       </p>
 
       <h4> Gráficas de funciones escalares de dos variables</h4 >
@@ -156,16 +156,16 @@ const CalculoVectorial = () => (
         Se estudian con más especificidad las gráficas de funciones escalares de dos variables, debido a que, por ser subconjuntos de <M>{r`\mathbb{R}^{3}`}</M>, se pueden visualizar en el espacio tridimensional y dibujar en el plano. Para todas las demás funciones escalares de múltiples variables, es complicado siquiera imaginar cómo se ven sus gráficas.
       </p>
       <p>
-        Cada curva de nivel de una función definida en <M>{r`\mathbb{R}^{2}`}</M >, de forma <M>{r`f(x, y) = z`}</M>, se obtiene asignándole un valor constante <M>{r`c \in \mathbb{R}`}</M > a la variable <M>{r`z`}</M>. Así, toda curva de nivel es la intersección entre la superficie que es gráfica de la función y el plano <M>{r`z=c`}</M>, por lo que son paralelas al plano <M>{r`xy`}</M >.
+        Cada curva de nivel de una función definida en <M>{r`\mathbb{R}^{2}`}</M>, de forma <M>{r`f(x, y) = z`}</M>, se obtiene asignándole un valor constante <M>{r`c \in \mathbb{R}`}</M> a la variable <M>{r`z`}</M>. Así, toda curva de nivel es la intersección entre la superficie que es gráfica de la función y el plano <M>{r`z=c`}</M>, por lo que son paralelas al plano <M>{r`xy`}</M>.
       </p>
       <p>
         Tiene sentido entonces pensar en las curvas de nivel como "rebanadas horizontales" de la superficie. Al unir todas las curvas de nivel se obtiene la gráfica de la función. Análogamente, tiene sentido pensar también en "rebanadas verticales" de la superficie, que son las <em>secciones</em> de la gráfica.
       </p>
       < Definition concept="Sección">
-        Sea <M>{r`f\colon A\subseteq\mathbb{R}^{2}\to\mathbb{R}`}</M > una función escalar de dos variables, una < em > sección</em > de la gráfica de <M>{r`f`}</M > es la intersección de la gráfica con un plano vertical.
+        Sea <M>{r`f\colon A\subseteq\mathbb{R}^{2}\to\mathbb{R}`}</M> una función escalar de dos variables, una < em > sección</em > de la gráfica de <M>{r`f`}</M> es la intersección de la gráfica con un plano vertical.
       </Definition >
       <p>
-        Las secciones se pueden obtener de dos maneras: o asignándole un valor constante a la variable <M>{r`x`}</M >, para obtener una sección paralela al plano <M>{r`yz`}</M >, o asignándole un valor constante a la variable <M>{r`y`}</M >, obteniendo una sección paralela al plano <M>{r`xz`}</M >. Si se establece <M>{r`x=a`}</M >, la sección obtenida será la intersección entre ese plano y la superficie; análogamente, al fijar <M>{r`y=b`}</M >, la sección obtenida es la intersección entre la superficie y el plano <M>{r`y=b`}</M >.
+        Las secciones se pueden obtener de dos maneras: o asignándole un valor constante a la variable <M>{r`x`}</M>, para obtener una sección paralela al plano <M>{r`yz`}</M>, o asignándole un valor constante a la variable <M>{r`y`}</M>, obteniendo una sección paralela al plano <M>{r`xz`}</M>. Si se establece <M>{r`x=a`}</M>, la sección obtenida será la intersección entre ese plano y la superficie; análogamente, al fijar <M>{r`y=b`}</M>, la sección obtenida es la intersección entre la superficie y el plano <M>{r`y=b`}</M>.
       </p>
       <p>
         Con eso en mente, para dibujar la gráfica de una función escalar de dos variables se siguen los siguientes pasos:
@@ -177,7 +177,7 @@ const CalculoVectorial = () => (
       </ol>
       {/*
     <p>
-      En las figuras se muestran algunas imágenes del proceso de graficación del paraboloide de revolución <M>{r`f(x,y)=x^2+y^2`}</M >.
+      En las figuras se muestran algunas imágenes del proceso de graficación del paraboloide de revolución <M>{r`f(x,y)=x^2+y^2`}</M>.
     </p>
     Paraboloide hiperbólico(silla de montar): <M>{r`x^2-y^2`}</M> % Ej 4 p. 83 Marsden y tromba 
     */}
@@ -889,7 +889,7 @@ const CalculoVectorial = () => (
       <h4>Direcciones de máximo crecimiento y decrecimiento</h4>
 
       <p>
-        Haciendo uso de las propiedades del producto punto, la operación <M>{r`\nabla f(\bvec{x})\cdot\uvec{v}`}</M > que da la derivada direccional de <M>{r`f`}</M > en la dirección de <M>{r`\bvec{v}`}</M > en el punto <M>{r`\bvec{x}`}</M >, se puede reescribir como
+        Haciendo uso de las propiedades del producto punto, la operación <M>{r`\nabla f(\bvec{x})\cdot\uvec{v}`}</M> que da la derivada direccional de <M>{r`f`}</M> en la dirección de <M>{r`\bvec{v}`}</M> en el punto <M>{r`\bvec{x}`}</M>, se puede reescribir como
         {/* <M block>
         {r`\begin{ align }
 \mathrm{ D }_{ \bvec{ v } } &= f(\bvec{ x }) \cdot\uvec{ v } \notag \\
@@ -897,21 +897,21 @@ const CalculoVectorial = () => (
 \mathrm{ D }_{ \bvec{ v } }  &= \norm{ \nabla f(\bvec{ x }) } \cos\varphi \label{ eq: coseno_direccional }
 \end{ align }`}
       </M> */}
-        El análisis de la  arroja un teorema útil.La derivada direccional es máxima cuando el coseno del ángulo entre los vectores es máximo, que es cuando su valor es <M>{r`1`}</M > (recuérdese que para todo <M>{r`x`}</M >, <M>{r`-1\leq \cos(x)\leq 1`}</M>). Eso ocurre cuando los vectores son paralelos, pues <M>{r`\cos(0)=\cos(2\uppi)=1`}</M >.En otras palabras, la derivada direccional <M>{r`\mathrm{D}_{\bvec{v}}f`}</M > es máxima cuando <M>{r`\bvec{v}`}</M > es y <M>{r`\nabla f`}</M > tienen la misma dirección.Ergo, el gradiente <M>{r`\nabla f`}</M > apunta en la dirección en la cuál la derivada direccional de una función es máxima, que es la dirección de máximo crecimiento de <M>{r`f`}</M >.
+        El análisis de la  arroja un teorema útil.La derivada direccional es máxima cuando el coseno del ángulo entre los vectores es máximo, que es cuando su valor es <M>{r`1`}</M> (recuérdese que para todo <M>{r`x`}</M>, <M>{r`-1\leq \cos(x)\leq 1`}</M>). Eso ocurre cuando los vectores son paralelos, pues <M>{r`\cos(0)=\cos(2\uppi)=1`}</M>.En otras palabras, la derivada direccional <M>{r`\mathrm{D}_{\bvec{v}}f`}</M> es máxima cuando <M>{r`\bvec{v}`}</M> es y <M>{r`\nabla f`}</M> tienen la misma dirección.Ergo, el gradiente <M>{r`\nabla f`}</M> apunta en la dirección en la cuál la derivada direccional de una función es máxima, que es la dirección de máximo crecimiento de <M>{r`f`}</M>.
       </p>
 
       <Theorem>
-        Sea <M>{r`f\colon U\subseteq\mathbb{R}^{n}\to\mathbb{R}`}</M > una función diferenciable, el vector <M>{r`\nabla f`}</M > apunta en la dirección a lo largo de la cual <M>{r`f`}</M > crece más rápidamente.El vector <M>{r`- \nabla f`}</M > apunta en la dirección a lo largo de la cual <M>{r`f`}</M > decrece más rápidamente.
+        Sea <M>{r`f\colon U\subseteq\mathbb{R}^{n}\to\mathbb{R}`}</M> una función diferenciable, el vector <M>{r`\nabla f`}</M> apunta en la dirección a lo largo de la cual <M>{r`f`}</M> crece más rápidamente.El vector <M>{r`- \nabla f`}</M> apunta en la dirección a lo largo de la cual <M>{r`f`}</M> decrece más rápidamente.
       </Theorem>
 
       <p>
-        Usualmente se quiere hallar la dirección de máximo crecimiento o decrecimiento de una función <M>{r`f`}</M > desde un punto <M>{r`\bvec{v}`}</M >.En ese caso, se evalúa la gradiente para obtener que la dirección de máximo crecimiento de <M>{r`f`}</M > en <M>{r`\bvec{v}`}</M > está dada por la dirección de <M>{r`\nabla f (\bvec{v})`}</M >.Dicha dirección es el vector unitario
+        Usualmente se quiere hallar la dirección de máximo crecimiento o decrecimiento de una función <M>{r`f`}</M> desde un punto <M>{r`\bvec{v}`}</M>.En ese caso, se evalúa la gradiente para obtener que la dirección de máximo crecimiento de <M>{r`f`}</M> en <M>{r`\bvec{v}`}</M> está dada por la dirección de <M>{r`\nabla f (\bvec{v})`}</M>.Dicha dirección es el vector unitario
         {/* <M block>
 {r`\begin{ equation }
-\frac{ \nabla f(\bvec{ v }) } { \norm{ \nabla f(\bvec{ v }) } }.\tag{dirección de máximo crecimiento de <M>{r`f` }</M > en <M>{r`\bvec{v}`}</M >}
+\frac{ \nabla f(\bvec{ v }) } { \norm{ \nabla f(\bvec{ v }) } }.\tag{dirección de máximo crecimiento de <M>{r`f` }</M> en <M>{r`\bvec{v}`}</M>}
 \end{ equation }`}
 </M> */}
-        El valor negativo de ese vector unitario es la dirección de mayor decrecimiento de <M>{r`f`}</M > en el punto <M>{r`\bvec{v}`}</M >.La norma del gradiente es igual al valor de la derivada direccional máxima.
+        El valor negativo de ese vector unitario es la dirección de mayor decrecimiento de <M>{r`f`}</M> en el punto <M>{r`\bvec{v}`}</M>.La norma del gradiente es igual al valor de la derivada direccional máxima.
       </p>
 
       <h5>
@@ -919,11 +919,11 @@ const CalculoVectorial = () => (
       </h5>
 
       <p>
-        También se puede analizar la  para el caso en el que la derivada direccional es nula, es decir, para el caso en el que no hay crecimiento ni decrecimiento en el punto en el que se evalúa.La derivada direccional es nula cuando el coseno del ángulo de los vectores es <M>{r`0`}</M >, o sea cuando <M>{r`\bvec{v}`}</M > es perpendicular a <M>{r`\nabla f`}</M >.Eso implica el siguiente teorema.
+        También se puede analizar la  para el caso en el que la derivada direccional es nula, es decir, para el caso en el que no hay crecimiento ni decrecimiento en el punto en el que se evalúa.La derivada direccional es nula cuando el coseno del ángulo de los vectores es <M>{r`0`}</M>, o sea cuando <M>{r`\bvec{v}`}</M> es perpendicular a <M>{r`\nabla f`}</M>.Eso implica el siguiente teorema.
       </p>
 
       <Theorem>
-        Sea <M>{r`f\colon U\subseteq\mathbb{R}^{n}\to\mathbb{R}`}</M > una función diferenciable, el vector <M>{r`\nabla f(\bvec{v})`}</M > es igual al vector nulo <M>{r`\bvec{0}`}</M > si y solamente si <M>{r`\bvec{v}`}</M > es un punto estacionario.
+        Sea <M>{r`f\colon U\subseteq\mathbb{R}^{n}\to\mathbb{R}`}</M> una función diferenciable, el vector <M>{r`\nabla f(\bvec{v})`}</M> es igual al vector nulo <M>{r`\bvec{0}`}</M> si y solamente si <M>{r`\bvec{v}`}</M> es un punto estacionario.
       </Theorem>
 
       <Definition concept="Punto estacionario">
@@ -983,16 +983,16 @@ const CalculoVectorial = () => (
       <h4>Diferenciabilidad de funciones escalares de dos variables</h4>
 
       <p>
-        Sea <M>{r`f\colon U\subseteq \mathbb{R}^{2}\to\mathbb{R}`}</M > una función escalar de dos variables y sea <M>{r`(a,b)\in U`}</M > un punto. Se dice que <M>{r`f`}</M > es < em > diferenciable</em > en <M>{r`(a,b)`}</M > si y solamente si
+        Sea <M>{r`f\colon U\subseteq \mathbb{R}^{2}\to\mathbb{R}`}</M> una función escalar de dos variables y sea <M>{r`(a,b)\in U`}</M> un punto. Se dice que <M>{r`f`}</M> es < em > diferenciable</em > en <M>{r`(a,b)`}</M> si y solamente si
       </p>
       < ul >
         <li>[i.] <M>{r`\dparder{f}{x}`}</M> y <M>{r`\dparder{f}{y}`}</M> existen en <M>{r`(a,b)`}</M>.</li>
         <li>[ii.] <M>{r`\displaystyle \lim_{(x,y)\to(a,b)} \cfrac{f(x,y)- \left[f(a,b)+\left(\dparder{f(a,b)}{x}\right)(x-a)+\left(\dparder{f(a,b)}{y}\right)(y-b)\right]}{\norm{(x,y)-(a,b)}} = 0`}</M>.</li>
       </ul >
       <p>
-        En el ítem ii, el término que está entre corchetes es la mejor aproximación lineal a la función <M>{r`f`}</M > cerca del punto <M>{r`(a,b)`}</M >.A causa de eso, la ecuación del plano en <M>{r`\mathbb{R}^{3}`}</M > que es tangente a la superficie <M>{r`f`}</M > en el punto <M>{r`(a,b)`}</M > está dada por ese término igualado a <M>{r`z`}</M >:
+        En el ítem ii, el término que está entre corchetes es la mejor aproximación lineal a la función <M>{r`f`}</M> cerca del punto <M>{r`(a,b)`}</M>.A causa de eso, la ecuación del plano en <M>{r`\mathbb{R}^{3}`}</M> que es tangente a la superficie <M>{r`f`}</M> en el punto <M>{r`(a,b)`}</M> está dada por ese término igualado a <M>{r`z`}</M>:
         {/* <M block>{r`
-	z = f(a,b)+\left(\parder{f(a,b)}{x}\right)(x-a)+\left(\parder{f(a,b)}{y}\right)(y-b). \tag{plano tangente a <M>{r`f`}</M> en <M>{r`(a,b)`}</M >}
+	z = f(a,b)+\left(\parder{f(a,b)}{x}\right)(x-a)+\left(\parder{f(a,b)}{y}\right)(y-b). \tag{plano tangente a <M>{r`f`}</M> en <M>{r`(a,b)`}</M>}
 `}</M> */}
       </p>
 
@@ -1000,7 +1000,7 @@ const CalculoVectorial = () => (
         En ocasiones se puede demostrar diferenciabilidad de forma más sencilla, a partir de la siguiente condición necesaria.
       </p>
       <Theorem>
-        Sea <M>{r`f\colon U\subseteq \mathbb{R}^{2}\to\mathbb{R}`}</M > una función escalar de dos variables y sea <M>{r`(a,b)\in U`}</M > un punto. Si <M>f</M> y una o ambas de sus primeras derivadas parciales son continuas en un entorno del punto <M>(a,b)</M>, entonces  <M>f(x,y)</M> es diferenciable en <M>(a,b)</M>.
+        Sea <M>{r`f\colon U\subseteq \mathbb{R}^{2}\to\mathbb{R}`}</M> una función escalar de dos variables y sea <M>{r`(a,b)\in U`}</M> un punto. Si <M>f</M> y una o ambas de sus primeras derivadas parciales son continuas en un entorno del punto <M>(a,b)</M>, entonces  <M>f(x,y)</M> es diferenciable en <M>(a,b)</M>.
       </Theorem>
 
       <h4>Diferenciabilidad continua</h4>
@@ -1957,10 +1957,10 @@ const CalculoVectorial = () => (
         Esta sección pretende exponer el teorema del cambio de variables. Este traza equivalencias entre una integral dada en términos de un sistema coordenado y otra integral expresada en términos de otro sistema coordenado. Suele suceder que una de las dos integrales es notablemente más sencilla que la otra y puede suceder que alguna sea incalculable de forma directa, por lo que el teorema es una herramienta muy valiosa.
       </p>
       <p>
-        Para poder sacar provecho del teorema, naturalmente es necesario conocer al menos algunos sistemas coordenados alternativos al cartesiano, por lo cual, como antesala al teorema, se presentan los sistemas coordenados polar, cilíndrico y esférico. Se inicia con una formalización del ya familiar sistema cartesiano, para luego presentar los sistemas alternativos.
+        Para poder sacar provecho del teorema, naturalmente es necesario conocer al menos algunos sistemas coordenados alternativos al cartesiano, por lo cual, como antesala al teorema, se presentan los sistemas coordenados polar, cilíndrico y esférico. Se inicia con una formalización de los sistemas coordenados y del ya familiar sistema cartesiano, para luego presentar los sistemas alternativos.
       </p>
 
-      <h3>Sistemas coordenados</h3>
+      <h3>Sistema coordenado</h3>
 
       <Definition concept="Sistema coordenado">
         Un <em>sistema coordenado</em> es un sistema que utiliza uno o más números, denominados <em>coordenadas</em>, para determinar unívocamente la posición de puntos y otros elementos geométricos en una variedad.
@@ -1975,7 +1975,10 @@ const CalculoVectorial = () => (
         <li> Se fija arbitrariamente un punto <M>{r`\mathcal{O}`}</M> del espacio como <em>origen</em> del sistema coordenado.</li>
         <li> Cada punto se determina por <M>{r`n`}</M> coordenadas, una <M>{r`n`}</M>-tupla, que se puede entender como un <em>vector posición</em> dirigido desde el origen al punto.</li>
       </ul>
-      
+      <p>
+        A causa de la segunda propiedad, los espacios euclidianos pueden entenderse de dos maneras: algebraicamente, como conjuntos de puntos, cada uno una <M>{r`n`}</M>-tupla, y geométricamente, como conjuntos de vectores, visualizados como segmentos de recta dirigidos desde el origen a cada punto.
+      </p>
+
       <h4>Orientación de sistemas coordenados</h4>
       <p>
         En los sistemas coordenados de dos y tres dimensiones, es imprescindible definir la orientación del sistema, así sea de forma tácita. Se distingue entre sistemas <em>de mano derecha</em> y <em>de mano izquierda</em>. En la inmensa mayoría de casos, al igual que en el resto de estos apuntes, se utilizan sistemas de mano derecha, por lo que no se menciona explícitamente la orientación del sistema. Sin embargo, en algunas aplicaciones específicas, particularmente en gráficos de computadora, se utilizan sistemas de mano izquierda. A continuación se detalla la diferencia entre ambos.
@@ -2000,14 +2003,261 @@ const CalculoVectorial = () => (
       </ul>
 
       <Tip>
-        Rara vez se menciona la orientación de un sistema coordenado: se presume universalmente que es de mano derecha. En los sistemas coordenados que se estudiarán, esto afecta la dirección del eje <M>{r`z`}</M> y sobretodo la forma en la que se miden los ángulos. 
+        Rara vez se menciona la orientación de un sistema coordenado: se presume universalmente que es de mano derecha. En los sistemas coordenados que se estudiarán, esto afecta la dirección del eje <M>{r`z`}</M> y sobretodo la forma en la que se miden los ángulos.
       </Tip>
 
+      <h3>Coordenadas cartesianas</h3>
+
+      <p>
+        El <em>sistema coordenado cartesiano</em> es el sistema coordenado más común. Puede ser usado para representar puntos en cualquier dimensión.
+      </p>
+      <p>
+        En el sistema coordenado cartesiano de <M>{r`n`}</M> dimensiones, se fija el origen <M>{r`\mathcal{O}`}</M> con <M>{r`n`}</M> coordenadas <M>{r`(0, 0,..., 0)`}</M>. A partir de ese punto, se establecen <M>{r`n`}</M> vectores unitarios de base estándar,
+        <M block>
+          {r`\begin{gather*}
+            \bvec{e}_1 = (1,0,0,\ldots,0)\\
+            \bvec{e}_2 = (0,1,0,\ldots,0)\\
+            \vdots\\
+            \bvec{e}_n = (0,0,0,\ldots,1).
+          \end{gather*}`}
+        </M>
+        Los vectores unitarios de base estándar forman un sistema ortonormal, pues la norma de cada vector es unitaria y son ortogonales entre sí.
+      </p>
+      <p>
+        Cuando el sistema coordenado cartesiano se trabaja en <M>{r`\mathbb{R}^{2}`}</M>, los dos vectores unitarios de base estándar tienen notaciones especiales:
+        <M block>
+          {r`\begin{align*}
+            \uvec{i} = (1,0), \qquad \uvec{j} = (0,1).
+          \end{align*}`}
+        </M>
+        Igualmente, cuando se trabaja en <M>{r`\mathbb{R}^{3}`}</M> se tiene:
+        <M block>
+          {r`\begin{align*}
+            \uvec{i} = (1,0,0), \qquad \uvec{j} = (0,1,0),  \qquad \uvec{k} = (0,0,1).
+          \end{align*}`}
+        </M>
+      </p>
+      <Notation>
+        Los vectores de base estándar en <M>{r`\mathbb{R}^{3}`}</M>se denotan también por <M>{r`\bvec{e}_x`}</M>, <M>{r`\bvec{e}_y`}</M> y <M>{r`\bvec{e}_z`}</M>.
+      </Notation>
+      <p>
+        Se definen <em>ejes cartesianos</em>, que son rectas dirigidas, como el espacio generado por los vectores unitarios de base estándar. Cuando se trabaja en <M>{r`n`}</M> dimensiones, los ejes cartesianos se definen así:
+        <M block>
+          {r`\begin{gather*}
+            x_1 \coloneqq \operatorname{span}(\bvec{e}_1) \\
+            x_2 \coloneqq \operatorname{span}(\bvec{e}_2) \\
+            \vdots \\
+            x_n \coloneqq \operatorname{span}(\bvec{e}_n).
+          \end{gather*}`}
+        </M>
+        En <M>{r`\mathbb{R}^{2}`}</M>, a los ejes se les llama <M>{r`x`}</M> y <M>{r`y`}</M>; en <M>{r`\mathbb{R}^{3}`}</M>, son <M>{r`x`}</M>, <M>{r`y`}</M> y <M>{r`z`}</M>:
+        <M block>
+          {r`\begin{align*}
+            \text{eje } x \coloneqq \operatorname{span}(\uvec{i}) = t(1,0,0), \quad \text{para todo } t \in \mathbb{R}\\
+            \text{eje } y \coloneqq \operatorname{span}(\uvec{j}) = t(0,1,0), \quad \text{para todo } t \in \mathbb{R}\\
+            \text{eje } z \coloneqq \operatorname{span}(\uvec{k}) = t(0,0,1), \quad \text{para todo } t \in \mathbb{R}.
+          \end{align*}`}
+        </M>
+        Cada eje tiene como dirección la dirección en la que aumentan las coordenadas cartesianas. En la representación convencional del sistema coordenado cartesiano en <M>{r`\mathbb{R}^{2}`}</M>, el eje <M>{r`x`}</M> apunta hacia la derecha y el eje <M>{r`y`}</M> apunta hacia arriba. En la representación bidimensional convencional del sistema coordenado cartesiano en <M>{r`\mathbb{R}^{3}`}</M>, el eje <M>{r`y`}</M> apunta a la derecham el eje <M>{r`z`}</M> apunta hacia arriba y el eje <M>{r`x`}</M> apunta hacia afuera del plano del dibujo.
+      </p>
+      {/*  TODO FIG: Sistema coordenado cartesiano en <M>{r`\mathbb{R}^{3}`}</M>. */}
+      <p>
+        En el sistema cartesiano, proyectar un punto sobre el eje <M>{r`x`}</M> resulta en su coordenada cartesiana <M>{r`x`}</M>, proyectar un punto sobre el eje <M>{r`y`}</M> resulta en su coordenada cartesiana <M>{r`y`}</M> y proyectar un punto sobre el eje <M>{r`z`}</M> resulta en su coordenada cartesiana <M>{r`z`}</M>. El punto <M>{r`(a,b,c)`}</M>, de tres dimensiones, se puede escribir como
+        <M block>
+          {r`a\uvec{i}+b\uvec{j}+c\uvec{k}.`}
+        </M>
+        El punto <M>{r`\bvec{p} = (p_1,p_2,\ldots p_n)`}</M>, de <M>{r`n`}</M> dimensiones, se puede expresar como
+        <M block>
+          {r`\bvec{p}=\sum_{i=1}^{n}p_i\bvec{e}_i.`}
+        </M>
+      </p>
+
+      <h3>Coordenadas polares y cilíndricas</h3>
+
+      <p>
+        El <em>sistema coordenado polar</em> utiliza un ángulo y un valor de radio para determinar la posición de un punto en un plano. El <em>sistema coordenado cilíndrico</em> extiende el sistema polar a tres dimensiones, añadiendo una coordenada adicional para la altura del punto.
+      </p>
+
+      <h4>Coordenadas polares</h4>
+
+      <p>
+        El sistema coordenado polar consiste de un punto de origen <M>{r`\mathcal{O}`}</M> que se denomina <em>polo</em> y de un rayo con punto inicial en <M>{r`\mathcal{O}`}</M> y dirección arbitraria designado <em>eje polar</em>. Cada punto se determina por un par de números <M>{r`(r,\theta)`}</M> denominados <em>coordenadas polares</em>.
+      </p>
+      <ol>
+        <li> El <em>radio polar</em> <M>{r`r`}</M> es la longitud del vector posición, dirigido del polo al punto.</li>
+        <li> El <em>ángulo polar</em> <M>{r`\theta`}</M> es el ángulo entre el eje polar y el vector posición, medido desde el eje polar.</li>
+      </ol>
+      <p>
+        Las coordenadas del polo son <M>{r`(0,\theta)`}</M> para cualquier valor de <M>{r`\theta`}</M>.
+      </p>
+
+      <p>
+        El sentido positivo de <M>{r`\theta`}</M> es el contrario a las manecillas del reloj, por ser, implícitamente, un sistema de mano derecha. Si el eje polar coincide con la dirección positiva del eje <M>{r`x`}</M> de un plano cartesiano, los ángulos se miden igual en ambos sistemas coordenados.
+      </p>
+
+      <p>
+        El valor de <M>{r`r`}</M> puede ser negativo, lo que indica que el radio va en el sentido opuesto a como iría convencionalmente, es decir, equivale a recorrer media circunferencia adicional, <M>{r`\uppi`}</M> radianes. El punto <M>{r`(-r, \theta)`}</M> es el mismo punto que <M>{r`(r, \theta+\uppi)`}</M>. En general, todo punto en un sistema polar se puede expresar de infinitas maneras:
+        <M block>
+          {r`(r,\theta) = (-r,\theta+\uppi(2k-1)) = (r,\theta+2k\uppi), \quad \text{para todo } k\in\mathbb{Z}.`}
+        </M>
+      </p>
+
+      <p>
+        Se puede trazar una equivalencia entre coordenadas polares y coordenadas cartesianas, si ambos sistemas se superponen de forma que el polo coincida con el origen de un plano cartesiano y el eje polar coincida con el eje <M>{r`x`}</M>. Dado un punto con coordenadas cartesianas <M>{r`(x,y)`}</M>,
+      </p>
+      <ol>
+        <li> El radio polar está dado por el Teorema de Pitágoras como <M>{r`r=\sqrt{x^2+y^2}`}</M>.</li>
+        <li> El ángulo polar se puede obtener por trigonometría como <M>{r`\displaystyle \theta=\arctan\frac{y}{x}`}</M>.</li>
+        <Warning>
+          Si el punto <M>{r`(x,y)`}</M> se encuentra en los cuadrantes II o III del plano cartesiano, la fórmula para el ángulo polar <M>{r`\theta`}</M> será inexacta por la arcotangente. En esos casos debe sumarse <M>{r`\uppi`}</M> radianes a <M>{r`\theta`}</M>.
+        </Warning>
+      </ol>
+
+      {/* y el ángulo polar que se muestra en la , se pueden hallar el radio y el ángulo. */}
+
+      <p>
+        Similarmente, dado un punto con coordenadas polares <M>{r`(r, \theta)`}</M>, se puede determinar en coordenadas cartesianas:
+      </p>
+      <ul>
+        <li> Por trigonometría, <M>{r`x = r\cos\theta`}</M>.</li>
+        <li> Nuevamente por trigonometría, <M>{r`y = r\sin\theta`}</M>.</li>
+      </ul>
+
+      <h4>Coordenadas cilíndricas</h4>
+      <p>
+        El <em>sistema coordenado cilíndrico</em> está cimentado en el sistema coordenado polar. Usa <em>coordenadas cilíndricas</em>, que consisten de una terna ordenada de números <M>{r`(r, \theta, z)`}</M> en donde los primeros dos son las coordenadas polares del punto, que indican la ubicación de la proyección del punto en el plano <M>{r`xy`}</M>, y el último es la coordenada cartesiana <M>{r`z`}</M>, que especifica la altura del punto.
+      </p>
+      <p>
+        Dado un punto <M>{r`P`}</M> con coordenadas cartesianas <M>{r`(x,y,z)`}</M>, sus coordenadas cilíndricas están dadas por:
+      </p>
+      <ol>
+        <li> El radio polar <M>{r`r \geq 0`}</M>, que es el mismo que en coordenadas polares. La justificación para esto es el radio polar es igual a la magnitud de la proyección del vector posición <M>{r`\overrightarrow{0P}`}</M> sobre el plano <M>{r`xy`}</M>. Dicha proyección está dada por <M>{r`\proy_{xy}(\overrightarrow{0P}) = (x, y, 0)`}</M>, por lo que el radio polar es la norma de esa proyección,
+          <M block>
+            {r`r=\sqrt{x^2+y^2}.`}
+          </M>
+          <Warning>
+            Las coordenadas cilíndricas no admiten valores negativos para el radio polar, a diferencia de las coordenadas polares, en las que están basadas.
+          </Warning>
+        </li>
+        <li> El ángulo polar <M>{r`\theta`}</M>, también el mismo que en coordenadas polares, pues se mide desde el eje <M>{r`x`}</M> hasta la proyección <M>{r`\proy_{xy}(\overrightarrow{0P}) = (x, y, 0)`}</M>.</li>
+        <M block>
+          {r`\theta=\arctan\frac{y}{x}.`}
+        </M>
+        <Warning>
+          Al igual que en las coordenadas polares, si el punto está sobre el cuadrante II o III del plano <M>{r`xy`}</M>, la fórmula para el ángulo <M>{r`\theta`}</M> es imprecisa y a su resultado se le debe sumar <M>{r`\uppi`}</M> radianes.
+        </Warning>
+        <li> La <em>altura</em> <M>{r`z`}</M>, igual a la coordenada cartesiana <M>{r`z`}</M>, que es la distancia entre el punto y el plano <M>{r`xy`}</M> (la distancia más corta, medida ortogonal al plano).</li>
+      </ol>
+      <p>
+        Dado un punto con coordenadas cilíndricas <M>{r`(r, \theta, z)`}</M>, se puede convertir a coordenadas cartesianas <M>{r`(x,y,z)`}</M> usando trigonometría:
+        <M block>
+          {r`\begin{align*}
+            x &= r\cos\theta \\
+            y &= r\sin\theta \\
+            z &= z
+          \end{align*}`}
+        </M>
+      </p>
+      <p>
+        El sistema coordenado recibe el nombre de <em>cilíndrico</em> porque es particularmente útil para modelar escenarios en los que se presenta <em>simetría cilíndrica</em>, es decir, simetría alrededor de una recta. Las figuras con simetría cilíndrica son invariantes bajo rotaciones alrededor de un eje, verbigracia, cilindros, conos y prismas. El sistema coordenado cilíndrico facilita formular expresiones para describir las siguientes figuras:
+      </p>
+      <ul>
+        <li> Si se fija el radio polar <M>{r`r`}</M> como una constante <M>{r`a`}</M>, es decir el conjunto de puntos <M>{r`\{(r, \theta, z)\colon r=a\}`}</M>, en coordenadas cilíndricas describe un <b>cilindro</b> con radio <M>{r`a`}</M> y altura infinita.</li>
+
+        <li> Si se fija el ángulo polar como <M>{r`\theta = \alpha`}</M>, el conjunto de puntos <M>{r`\{(r, \theta, z)\colon \theta = \alpha\}`}</M> describe un <b>semiplano</b> con inicio el eje <M>{r`z`}</M>.
+          <Tip>
+            Tal semiplano se puede entender como una puerta cuyas bisagras están sobre el eje <M>{r`z`}</M>.
+          </Tip>
+        </li>
+
+        <li> Si se fija la altura <M>{r`z = b`}</M>, el conjunto de puntos <M>{r`\{(r, \theta, z)\colon z=b\}`}</M> describe un <b>plano</b> paralelo al plano <M>{r`xy`}</M> que contiene al punto con coordenadas cartesianas <M>{r`(0,0,b)`}</M>. (Igual que sucede en las coordenadas cartesianas). </li>
+      </ul>
+
+      <h3>Coordenadas esféricas</h3>
+
+      <p>
+        El <em>sistema coordenado esférico</em> es una generalización alternativa del sistema coordenado polar a tres dimensiones, pero no es tan parecida a este como el sistema coordenado cilíndrico. Las <em>coordenadas esféricas</em> consisten de una terna ordenada de números <M>{r`(\rho, \theta, \varphi)`}</M> en donde el primero es la distancia del punto al origen, el segundo es el <em>ángulo polar</em> y el tercero es el <em>ángulo azimutal</em>, que es el ángulo entre el eje <M>{r`z`}</M> y el vector posición.
+      </p>
+
+      <p>
+        Dado un punto con coordenadas cartesianas <M>{r`(x,y,z)`}</M>, sus coordenadas esféricas están dadas por
+      </p>
+      <ul>
+        <li> El <em>radio</em> <M>{r`\rho \geq 0`}</M>, la distancia del origen al punto.
+          <M block>
+            {r`\rho = \sqrt{x^2+y^2+z^2}`}
+          </M>
+        </li>
+        <li> El ángulo polar <M>{r`0 \leq \theta`}</M>, el mismo de las coordenadas polares, medido entre el eje cartesiano <M>{r`x`}</M> y la proyección <M>{r`\proy_{xy}(\overrightarrow{0P}) = (x, y, 0)`}</M>.
+          <M block>
+            {r`\theta = \arctan\frac{y}{x}.`}
+          </M>
+          <Warning>
+            Al igual que en las coordenadas polares, si el punto está sobre el cuadrante II o III del plano <M>{r`xy`}</M>, la fórmula para el ángulo <M>{r`\theta`}</M> es imprecisa y a su resultado se le debe sumar <M>{r`\uppi`}</M> radianes.
+          </Warning>
+        </li>
+        <li> El <em>ángulo azimutal</em> <M>{r`0 \leq \varphi \leq \uppi`}</M>, que mide la distancia desde la dirección positiva del eje <M>{r`z`}</M> hasta el vector posición <M>{r`\overrightarrow{0P}`}</M>.
+          <M block>
+            {r`\varphi = \arccos\frac{z}{\rho} = \arccos\frac{z}{\sqrt{x^2+y^2+z^2}}.`}
+          </M>
+          El ángulo azimutal se mide únicamente sobre el semiplano que inicia en el eje <M>{r`z`}</M> y contiene al vector posición. Es por eso que su valor está acotado por <M>{r`0`}</M> y <M>{r`\uppi`}</M>. El ángulo del semiplano con respecto al plano <M>{r`xy`}</M> lo dicta el ángulo polar.
+        </li>
+      </ul>
+
+      <p>
+        El sistema coordenado esférico recibe su nombre por razones análogas a las que dan nombre al cil´ndrico: es útil para modelar figuras con <em>simetría esférica</em>, es decir, simetría alrededor de un punto. Las figuras con simetría esférica son invariantes bajo rotaciones alrededor de un punto, de forma que todos los puntos a cierta distancia de aquel son equivalentes. El sistema coordenado esférico facilita particularmente describir las siguientes figuras:
+      </p>
+      <ul>
+        <li> Si se fija el radio como <M>{r`\rho = a`}</M>, el conjunto de puntos <M>{r`\{(\rho, \theta, \varphi) \colon \rho=a\}`}</M> en coordenadas esféricas generan una esfera con centro en el origen y radio <M>{r`a`}</M>.</li>
+
+        <li> Al igual que en coordenadas esféricas, si se fija el ángulo polar como <M>{r`\theta = \alpha`}</M>, se genera un semiplano con inicio el eje <M>{r`z`}</M>.</li>
+
+        <li> Si se fija el ángulo azimutal como <M>{r`\varphi = \alpha`}</M>, el conjunto de puntos <M>{r`\{(\rho, \theta, \varphi)\colon \varphi = \alpha\}`}</M> genera un cono con eje central el eje cartesiano <M>{r`z`}</M> y altura infinita.</li>
+      </ul>
+
+      <p>
+        Dado un punto con coordenadas esféricas <M>{r`(\rho, \theta, \varphi)`}</M >, se puede convertir a coordenadas cartesianas <M>{r`(x,y,z)`}</M> usando, nuevamente, trigonometría:
+        <M block>
+          {r`\begin{align*}
+          x &= \rho \cos\theta \sin\varphi \\
+          y &= \rho \sin\theta \sin\varphi \\
+          z &= \rho \cos\varphi
+        \end{align*}`}
+        </M>
+      </p>
+      <p>
+        Se puede relacionar el radio polar <M>{r`r`}</M>, de las coordenadas polares y cilíndricas, con el radio <M>{r`\rho`}</M> de las coordenadas esféricas como <M block>
+          {r`r=\rho \sin\varphi.`}
+        </M>
+      </p>
+
+      <Tip>
+        Las dos diferencias entre las coordenadas cilíndricas y las esféricas son: primero, en las cilíndricas se mide el radio polar <M>{r`r`}</M> sobre el plano <M>{r`xy`}</M>, mientras que en las esféricas el radio <M>{r`rho`}</M> desde origen directamente al punto; segundo, la tercera coordenada de las cilíndricas es una distancia, la altura, mientras que la tercera coordenada de las esféricas es el ángulo azimutal.
+      </Tip>
+
+      <h4>Coordenadas geográficas</h4>
+
+      <p>
+        Las <em>coordenadas geográficas</em>, con las que se miden las posiciones en la Tierra, son un caso especial de las coordenadas esféricas. Se utilizan dos ángulos, la <em>latitud</em> y la <em>longitud</em>, y una distancia, la <em>altura</em>, para determinar la posición de un punto. La altura se puede omitir si el punto está en la superficie terrestre. Esto no es propiamente un sistema coordenado en el sentido matemático, pero es probablemente el sistema coordenado más cotidiano, por lo cual lo incluyo.
+      </p>
+      <p>
+        Se toma el eje de rotación de la Tierra como el eje cartesiano <M>{r`z`}</M>, de forma que la <em>línea del Ecuador</em>, que es, por definición el, la circunferencia de diámetro máximo ortogonal al eje de rotación, corresponde al plano <M>{r`xy`}</M>. Con eso:
+      </p>
+      <ol>
+        <li>La <em>latitud</em> geográfica corresponde a una transformación del ángulo azimutal. Esta se mide desde la línea del ecuador, el plano <M>{r`xy`}</M>, en lugar que desde el eje de rotación, el eje <M>{r`z`}</M>. Ergo, la latitud corresponde a <M>{r`\abs{\frac{\uppi}{2} - \varphi}`}</M> y se denomina <em>latitud norte</em> cuando <M>{r`\frac{\uppi}{2} - \varphi > 0`}</M> y <em>latitud sur</em> cuando <M>{r`\frac{\uppi}{2} - \varphi < 0`}</M>.</li>
+        <li>La <em>longitud</em> geográfica corresponde al ángulo polar, con la diferencia de que es siempre positiva, <M>{r`\abs{\theta}`}</M> y se denomina <em>longitud este</em> si <M>{r`\theta > 0`}</M> y <em>longitud oeste</em> si <M>{r`\theta > 0`}</M>. Si <M>{r`\theta = 0`}</M>, la longitud es <M>{r`0`}</M> y corresponde al <em>meridiano de Greenwich</em>, que es el meridiano de referencia y por ende indica la posición del eje polar, o el eje <M>{r`x`}</M> en el sistema cartesiano.</li>
+        <li>La altura geográfica corresponde a un corrimiento del radio <M>{r`\rho`}</M>, pues no se mide la altura con respecto al centro de la Tierra, que es el equivalente al origen, sino con respecto al nivel del mar. Se expresa con un valor en metros, la unidad de distancia del Sistema Internacional, seguida de la abreviatura s. n. m., o sea, m s. n. m. (metros sobre el nivel del mar).</li>
+      </ol>
+      <p>
+        Es importante aclarar que los ángulos de las coordenadas geográficas no se miden en unidades absolutas como radianes, sino en un sistema sexagesimal constituido por grados (<M>{r`°`}</M>), minutos angulares (<M>{r`^{\prime}`}</M>) y segundos angulares (<M>{r`^{\prime\prime}`}</M>). Los grados se definen de forma tal que la circunferencia de la Tierra se divide en <M>{r`360°`}</M>. Un minuto ángular equivale a la sexagésima parte de un grado, <M>{r`1° = 60^{\prime}`}</M> y un segundo ángular equivale a la sexagésima parte de un minuto ángular, <M>{r`1^{\prime} = 60^{\prime\prime}`}</M>. Las mediciones inferiores al segundo angular se realizan con un sistema decimal.
+      </p>
+
+          
 
     </Section >
 
-  {/* <h3>Regla de integración de Leibniz</h3> */ }
-{/* Richard Feynman, nobel laurate, in his best-selling memoir Surely You're Joking, Mr. Feynman!
+    {/* <h3>Regla de integración de Leibniz</h3> */}
+    {/* Richard Feynman, nobel laurate, in his best-selling memoir Surely You're Joking, Mr. Feynman!
       
       One thing I never did learn was contour integration. I had learned to do integrals by various methods shown in a book that my high school physics teacher Mr. Bader had given me. One day he told me to stay after class. "Feynman," he said, "you talk too much and you make too much noise. I know why. You're bored. So I'm going to give you a book. You go up there in the back, in the corner, and study this book, and when you know everything that's in this book, you can talk again." So every physics class, I paid no attention to what was going on with Pascal's Law, or whatever they were doing. I was up in the back with this book: "Advanced Calculus", by Woods. Bader knew I had studied "Calculus for the Practical Man" a little bit, so he gave me the real works—it was for a junior or senior course in college. It had Fourier series, Bessel functions, determinants, elliptic functions—all kinds of wonderful stuff that I didn't know anything about. That book also showed how to differentiate parameters under the integral sign—it's a certain operation. It turns out that's not taught very much in the universities; they don't emphasize it. But I caught on how to use that method, and I used that one damn tool again and again. So because I was self-taught using that book, I had peculiar methods of doing integrals. The result was, when guys at MIT or Princeton had trouble doing a certain integral, it was because they couldn't do it with the standard methods they had learned in school. If it was contour integration, they would have found it; if it was a simple series expansion, they would have found it. Then I come along and try differentiating under the integral sign, and often it worked. So I got a great reputation for doing integrals, only because my box of tools was different from everybody else's, and they had tried all their tools on it before giving the problem to me.*/}
 
