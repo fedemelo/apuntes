@@ -1,4 +1,4 @@
-import{r as m,j as e,D as x,I as p}from"./index-D2jEzVLc.js";import{D as s,T as i}from"./Boxes-DoU58SJB.js";import{p as r,d as f,a as j,N as g,S as o,r as t}from"./Section-CxjOTy1t.js";import{P as l}from"./Properties-DueJPKay.js";import{N as b,T as v}from"./StickyNotes-CV7_BULw.js";import{L as n,r as a}from"./LaTeX-Br2BRzPE.js";const q=r.div`
+import{r as m,j as e,D as x,I as p}from"./index-Bl-66TW-.js";import{D as s,T as i}from"./Boxes-DBHlOwZx.js";import{p as r,d as f,a as j,N as g,S as o,r as t}from"./Section-DGH7OjS2.js";import{P as l}from"./Properties-Cv-p9tyF.js";import{N as b,T as v}from"./StickyNotes-DlO6-s1A.js";import{L as n,r as a}from"./LaTeX-C4ILU07f.js";const q=r.div`
   margin: 1em 0 0 0;
   padding: 3em 0 0 0;
   border-top: 2px solid var(--theorem-color);
