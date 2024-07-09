@@ -1385,16 +1385,20 @@ const CalculoVectorial = () => (
 
       <p>Esta sección generaliza la derivación a funciones vectoriales. Tras eso, se enfoca en la derivación de funciones vectoriales de una variable y estudia la principal aplicación de la derivación de funciones vectoriales de una variable, que son las trayectorias. </p>
 
-      <h3>Derivación de funciones vectoriales</h3>
+      <h3>La matriz jacobiana</h3>
 
       <p>
+        La derivada de una función vectorial es una matriz de derivadas parciales denominada matriz jacobiana.
+      </p>
+
+      <Definition concept="Matriz jacobiana">
         Sea <M>{r`\bvec{F}\colon U \subseteq \mathbb{R}^{m} \to \mathbb{R}^{n}`}</M> una función vectorial, de forma que <M>{r`n > 1`}</M>. Su derivada, denotada por <M>{r`\mathrm{D}\bvec{F}`}</M>, está dada por el vector columna de gradientes de sus funciones escalares componentes:
         <M block>
           {r`\mathrm{D}\bvec{F} = \begin{pmatrix}
             \nabla F_1 \\ \nabla F_2 \\ \vdots \\ \nabla F_n
           \end{pmatrix}`}
         </M>
-        Eso a su vez genera una matriz de derivadas parciales, donde cada fila está asociada a una función y cada columna a una variable. La derivada es entonces la siguiente matriz de tamaño <M>{r`n \times m`}</M>:
+        Si todos los gradientes están definidos. Eso a su vez genera una matriz  <M>{r`n \times m`}</M> de derivadas parciales, denominada <em>matriz jacobiana</em> de <M>{r`\bvec{F}`}</M>:
         <M block>
           {r`\mathrm{D}\bvec{F} = \begin{pmatrix}
             \dfrac{\partial F_1}{\partial x_1} & \dfrac{\partial F_1}{\partial x_2} & \cdots & \dfrac{\partial F_1}{\partial x_m} \\[1em]
@@ -1403,12 +1407,48 @@ const CalculoVectorial = () => (
             \dfrac{\partial F_n}{\partial x_1} & \dfrac{\partial F_n}{\partial x_2} & \cdots & \dfrac{\partial F_n}{\partial x_m}
           \end{pmatrix} `}
         </M>
-        Evaluar la derivada de una función vectorial en un vector <M>{r`\bvec{v}\in U`}</M> se denota por <M>{r`\mathrm{D}\bvec{F}(\bvec{v})`}</M> y consiste en evaluar cada uno de los elementos de la matriz de derivadas en dicho vector.
+      </Definition>
+
+      <p>
+        Nótese que en la matriz jacobiana, cada fila está asociada a una función y cada columna a una variable. Evaluar la derivada de una función vectorial en un vector <M>{r`\bvec{v}\in U`}</M> se denota por <M>{r`\mathrm{D}\bvec{F}(\bvec{v})`}</M> y consiste en evaluar cada uno de los elementos de la matriz de derivadas en dicho vector.
       </p>
 
+      <Notation>
+        La matriz jacobiana de una función vectorial <M>{r`\bvec{F}`}</M> se denota por <M>{r`\mathrm{D}\bvec{F}`}</M> o por <M>{r`J\bvec{F}`}</M>. La primera notación enfatiza en que la matriz representa la derivada de la función, mientras que la segunda notación recuerda el nombre de la matriz.
+      </Notation>
+
       <Warning>
-        Tenga presente la definición como vector columna de gradientes antes que la definición como matriz. De lo contrario, puede que construya la matriz confundiendo filas con columnas.
+        Tenga presente la definición de la matriz jacobiana como un vector columna de gradientes antes que la su definición como matriz. De lo contrario, puede que construya la matriz confundiendo filas con columnas.
       </Warning>
+
+      <h4>El jacobiano</h4>
+
+      <p>
+        Cuando la matriz jacobiana es cuadrada, es posible calcular su determinante, al que convenientemente se le llama <em>determinante jacobiano</em> o simplemente <em>jacobiano</em>. El jacobiano será imprescindible al estudiar el cambio de variable en integrales múltiples, tanto así que tiene una notación especial, alternativa a la convencional notación de determinante <M>{r`\abs{\mathrm{D}\bvec{F}}`}</M>.
+      </p>
+      <Definition concept="Jacobiano">
+        Sea <M>{r`\bvec{F}\colon U \subseteq \mathbb{R}^{n} \to \mathbb{R}^{n}`}</M> un campo vectorial, de forma que <M>{r`n > 1`}</M>, de clase <M>{r`C^1`}</M>. El <em>jacobiano</em> de <M>{r`\bvec{F}`}</M> se denota por <M>{r`\parder{\bvec{F}}{\bvec{x}}`}</M> y está dado por
+        <M block>
+          {r`\parder{\bvec{F}}{\bvec{x}} = \abs{\mathrm{D}\bvec{F}} = \begin{vmatrix}
+            \dfrac{\partial F_1}{\partial x_1} & \dfrac{\partial F_1}{\partial x_2} & \cdots & \dfrac{\partial F_1}{\partial x_n} \\[1em]
+            \dfrac{\partial F_2}{\partial x_1} & \dfrac{\partial F_2}{\partial x_2} & \cdots & \dfrac{\partial F_2}{\partial x_n} \\[1em]
+            \vdots & \vdots & \ddots & \vdots \\[0.5em]
+            \dfrac{\partial F_n}{\partial x_1} & \dfrac{\partial F_n}{\partial x_2} & \cdots & \dfrac{\partial F_n}{\partial x_n}
+          \end{vmatrix}.`}
+        </M>
+      </Definition>
+      <p>
+        Si el jacobiano de una función vectorial, evaluado en un punto, es distinto de cero, entonces la función es invertible al menos en un entorno de ese punto.
+      </p>
+      <p>
+        Si <M>{r`n = 2`}</M>, el jacobiano de una función vectorial <M>{r`\bvec{F}=(F_1,F_2)`}</M> se denota por <M>{r`\parder{(F_1,F_2)}{(x, y)}`}</M> y se calcula como
+        <M block>
+          {r`\parder{(F_1,F_2)}{(x, y)} = \begin{vmatrix}
+            \dfrac{\partial F_1}{\partial x} & \dfrac{\partial F_1}{\partial y} \\[1em]
+            \dfrac{\partial F_2}{\partial x} & \dfrac{\partial F_2}{\partial y}
+          \end{vmatrix} = \dfrac{\partial F_1}{\partial x}\dfrac{\partial F_2}{\partial y} - \dfrac{\partial F_1}{\partial y}\dfrac{\partial F_2}{\partial x}.`}
+        </M>
+      </p>
 
       <h4>Diferenciabilidad de funciones vectoriales</h4>
 
@@ -1478,7 +1518,7 @@ const CalculoVectorial = () => (
       </Definition>
 
       <p>
-        La derivada <M>{r`\bvec{f}'`}</M> de una función vectorial de una variable evaluada en un punto es paralela a la recta tangente a la función en ese punto. Por ende, la recta tangente a la función en el valor <M>{r`t`}</M> está dada por una función
+        La derivada <M>{r`\bvec{f}'`}</M> de una función vectorial de una variable evaluada en un punto es paralela a la recta tangente a la función en ese punto. Por ende, la recta tangente a la función en el valor <M>{r`t`}</M> está dada por la función
         <M block>
           {r`\bvec{\ell}(\lambda) = \bvec{f}(t) + \lambda \bvec{f}'(t).`}
         </M>
@@ -1542,36 +1582,12 @@ const CalculoVectorial = () => (
         La longitud de la trayectoria siempre es mayor o igual a la distancia entre el punto inicial y el punto final. Solamente es igual a dicha distancia si la trayectoria es una recta entre los dos puntos.
       </p>
 
-
-      <Example>
-        Sea <M>{r`\sigma\colon [0,2] \to \mathbb{R}^{3}`}</M> la trayectoria dada por <M>{r`\sigma (t) = (1,t,t^3/3)`}</M>.
-        <ol>[label=\alph*]
-          <li> Halle la velocidad y la rapidez.</li>
-
-          La velocidad está dada por
-          <M block>
-            {r`\sigma' (t) = (0,1,t^2).`}
-          </M>
-          La rapidez por
-          <M block>
-            {r`\norm{\sigma' (t)} = \sqrt{1+t^4}.`}
-          </M>
-
-          <li> Halle la longitud de la trayectoria</li>
-
-          La longitud de la trayectoria está dada por
-          {/* <M block>
-    {r`L (\sigma) = \defint{\sqrt{1+t^4}}[t]{0">\approx 3.65.`}
-</M> */}
-        </ol>
-      </Example>
-
     </Section>
 
     <Section title="Derivación de campos vectoriales">
 
       <p>
-        Esta sección se hace énfasis en la derivación de campos vectoriales, pues para estos existen operadores diferenciales que no tienen análogos en el cálculo de funciones escalares o vectoriales de una variable. 
+        Esta sección se hace énfasis en la derivación de campos vectoriales, pues para estos existen operadores diferenciales que no tienen análogos en el cálculo de funciones escalares o vectoriales de una variable.
       </p>
 
       <h3>La divergencia</h3>
@@ -1606,7 +1622,7 @@ const CalculoVectorial = () => (
       </p>
 
       <p>
-        
+
       </p>
 
       <Properties
@@ -2118,19 +2134,24 @@ const CalculoVectorial = () => (
         Dadas coordenadas de un sistema coordenado, siempre es posible expresarlas en términos de otro sistema coordenado, mientras ambos sean de la misma dimensión. Para hacerlo, se utilizan las <em>transformaciones de coordenadas</em>, que son funciones que toman las coordenadas de un punto en un sistema coordenado y devuelven las coordenadas del mismo punto en otro sistema coordenado.
       </p>
       <p>
-        En general, una transformación de coordenadas es un campo vectorial <M>{r`\bvec{F}\colon \mathbb{R}^n \to \mathbb{R}^n`}</M> donde <M>{r`n`}</M> es la dimensión de los sistemas coordenados. La forma general de una función que transforma de un sistema coordenado a otro es
+        En general, una transformación de coordenadas es un campo vectorial <M>{r`\bvec{T}\colon \mathbb{R}^n \to \mathbb{R}^n`}</M> donde <M>{r`n`}</M> es la dimensión de los sistemas coordenados. La forma general de una función que transforma de un sistema coordenado a otro es
         <M block>{r`
-          \bvec{F}(\bvec{x}) = (f_1(\bvec{x}), f_2(\bvec{x}), \ldots, f_n(\bvec{x})),
+          \bvec{T}(\bvec{x}) = (T_1(\bvec{x}), T_2(\bvec{x}), \ldots, T_n(\bvec{x})),
         `}</M>
-        donde <M>{r`\bvec{x}`}</M> son las coordenadas del sistema de origen y cada función <M>{r`f_i`}</M>, componente del campo vectorial, transforma las coordenadas del sistema de origen en la <M>{r`i`}</M>-ésima coordenada del sistema coordenado de destino.
+        donde <M>{r`\bvec{x}`}</M> son las coordenadas del sistema de origen y cada función componente del campo vectorial, <M>{r`F_i`}</M>, transforma las coordenadas del sistema de origen en la <M>{r`i`}</M>-ésima coordenada del sistema coordenado de destino.
+      </p>
+      <p>
+        Para simplificar la notación, frecuentemente se denotan los componentes escalares de la transformación con las mismas letras de las coordenadas a las que transforman. Así pues, si una función de transformación de coordenadas <M>{r`T`}</M> transforma las coordenadas <M>{r`(x, y)`}</M> en <M>{r`(u, v)`}</M>, se denota como
+        <M block>{r`
+          T(x, y) = (u(x, y), v(x, y)).
+        `}</M>
       </p>
       <p>
         Para que se puedan realizar conversiones en ambas direcciones de forma unívoca, las transformaciones de coordenadas deben ser <em>biyectivas</em>, es decir, deben ser: <em>inyectivas</em>, de forma que a cada elemento del dominio se le asigna uno distinto del codominio, y <em>sobreyectivas</em>, de forma que todos los elementos del codominio están cubiertos por esa asignación. Esto garantiza que a cada punto del sistema coordenado de origen le corresponde exactamante un punto del sistema coordenado de destino y viceversa.
       </p>
       <p>
-        Para que eso suceda, la derivada de la transformación (que, por ser la transformación un campo vectorial, es la matriz de derivadas parciales) debe ser no singular, es decir, su determinante no puede ser cero. Esto garantiza que la transformación sea invertible, lo que a su vez garantiza que sea biyectiva.
+        Para que eso suceda, la derivada de la transformación (que, por ser la transformación un campo vectorial, es la matriz jacobiana de derivadas parciales) debe ser no singular, es decir, su determinante no puede ser cero. Esto garantiza que la transformación sea invertible.
       </p>
-
 
 
       <h3>Coordenadas cartesianas</h3>
@@ -2240,11 +2261,7 @@ const CalculoVectorial = () => (
         Si el punto <M>{r`(x,y)`}</M> se encuentra en los cuadrantes II o III del plano cartesiano, la fórmula para el ángulo polar <M>{r`\theta`}</M> será inexacta por la arcotangente. En esos casos debe sumarse <M>{r`\uppi`}</M> radianes a <M>{r`\theta`}</M>.
       </Warning>
       <p>
-        De acuerdo con lo anterior, el campo vectorial <M>{r`\bvec{F}\colon \mathbb{R}^2 \to \mathbb{R}^2`}</M> que toma un punto en coordenadas cartesianas y devuelve uno en coordenadas polares está dado por
-        <M block>
-          {r`\bvec{F}(x,y) = (r(x,y), \theta(x,y))`}
-        </M>
-        donde <M>{r`r(x,y) = \sqrt{x^2+y^2}`}</M> y
+        De acuerdo con lo anterior, el campo vectorial <M>{r`\bvec{T}\colon \mathbb{R}^2 \to \mathbb{R}^2`}</M> que toma un punto en coordenadas cartesianas y devuelve uno en coordenadas polares está dado por <M>{r`\bvec{T}(x,y) = (r(x,y), \theta(x,y))`}</M>, donde <M>{r`r(x,y) = \sqrt{x^2+y^2}`}</M> y
         <M block>{r`
           \theta(x,y) = \begin{cases}
             \arctan\frac{y}{x} & \text{si } x > 0 \ \land \ y \geq 0, \\
@@ -2257,12 +2274,11 @@ const CalculoVectorial = () => (
       {/* y el ángulo polar que se muestra en la , se pueden hallar el radio y el ángulo. */}
 
       <p>
-        Similarmente, dado un punto con coordenadas polares <M>{r`(r, \theta)`}</M>, se puede determinar en coordenadas cartesianas:
+        Similarmente, usando trigonometría, se puede establecer la función que transforma cualquier punto con coordenadas polares <M>{r`(r, \theta)`}</M> a coordenadas cartesianas:
+        <M block>
+          {r`(x(r, \theta), y(r, \theta)) = (r\cos\theta, r\sin\theta).`}
+        </M>
       </p>
-      <ul>
-        <li> Por trigonometría, <M>{r`x = r\cos\theta`}</M>.</li>
-        <li> Nuevamente por trigonometría, <M>{r`y = r\sin\theta`}</M>.</li>
-      </ul>
 
       <h4>Coordenadas cilíndricas</h4>
       <p>
@@ -2393,7 +2409,126 @@ const CalculoVectorial = () => (
         Es importante aclarar que los ángulos de las coordenadas geográficas no se miden en unidades absolutas como radianes, sino en un sistema sexagesimal constituido por grados (<M>{r`°`}</M>), minutos angulares (<M>{r`^{\prime}`}</M>) y segundos angulares (<M>{r`^{\prime\prime}`}</M>). Los grados se definen de forma tal que la circunferencia de la Tierra se divide en <M>{r`360°`}</M>. Un minuto ángular equivale a la sexagésima parte de un grado, <M>{r`1° = 60^{\prime}`}</M> y un segundo ángular equivale a la sexagésima parte de un minuto ángular, <M>{r`1^{\prime} = 60^{\prime\prime}`}</M>. Las mediciones inferiores al segundo angular se realizan con un sistema decimal.
       </p>
 
+      <h3>Teorema del cambio de variables</h3>
+
+      <p>
+        El <em>teorema del cambio de variables</em> permite expresar una integral dada en términos de un sistema coordenado en términos de otro sistema coordenado.
+      </p>
+      <p>
+        Se estudió anteriormente que es posible pasar de un sistema coordenado a otro de la misma dimensión haciendo uso de una función de transformación, que es un campo vectorial. No obstante, cuando se cambia de sistema coordenado, al realizar la transformación, puede que se modifique la magnitud del espacio sobre el cual se integra. Es decir: en transformaciones bidimensionales, la transformación puede modificar el área de la región de integración original; en transformaciones tridimensionales, puede distorsionarse su volumen.
+      </p>
+      <p>
+        Es posible demostrar que una medida de la distorsión de la región está dado por el valor absoluto del jacobiano de la función de transformación de coordenadas. Por ende, el teorema de cambio de variables requiere de la función de transformación y de su jacobiano para poder realizar la transformación de la integral.
+      </p>
+
+      <Theorem name="Teorema de cambio de variables">
+        Sean <M>{r`W, R \subseteq \mathbb{R}^n`}</M> regiones en el espacio. Sea <M>{r`\bvec{T}\colon W \to R`}</M> una función de transformación de coordenadas biyectiva y diferenciable, que transforma las coordenadas <M>{r`\bvec{x}`}</M> en <M>{r`\bvec{u}`}</M>. Si <M>{r`f\colon R \to \mathbb{R}`}</M> es integrable en <M>{r`R`}</M>, entonces
+        <M block>{r`
+          \int_{R} f(\bvec{x}) \: \mathrm{d}^n\bvec{x} = \int_{W} f(\bvec{x}(\bvec{u})) \abs{\parder{\bvec{x}}{\bvec{u}}} \: \mathrm{d}^n\bvec{u}.
+        `}</M>
+      </Theorem>
+
+      <p>
+        Usualmente el teorema de cambio de variables se aplica en dos o tres dimensiones. En dos dimensiones, el teorema se puede expresar como
+        <M block>{r`
+          \int_{R} f(x,y) \: \mathrm{d}x \: \mathrm{d}y = \int_{W} f(x(u,v), y(u,v)) \abs{\parder{(x,y)}{(u,v)}} \: \mathrm{d}u \: \mathrm{d}v.
+        `}</M>
+      </p>
+
+      <p>
+        Para aplicar el teorema con los sitemas coordenados convencionales, conviene conocer de antemano los jacobianos coorespondientes.
+      </p>
+      <ul>
+        <li>Para transformar de coordenadas cartesianas a coordenadas polares y cilíndricas, el valor absoluto del jacobiano es
+          <M block >{r`
+            \abs{\parder{(x,y)}{(r, \theta)}} = \abs{\parder{(x,y,z)}{(r, \theta, z)}} = r.
+          `}</M></li>
+        <li>Para transformar de coordenadas cartesianas a coordenadas esféricas, el valor absoluto del jacobiano es
+          <M block>{r`
+          \abs{\parder{(x,y,z)}{(\rho, \theta, \varphi)}} = \abs{- \rho^2 \sin\varphi} = \rho^2 \sin\varphi.
+          `}</M></li>
+      </ul>
+      <p>
+        Para cerrar, no se debe estar restringido a sistemas coordenados conocidos a la hora de elegir la transformación a realizar. Es viable realizar transformaciones a sistemas coordenados arbitrarios, siempre y cuando se conozca la función de transformación y su jacobiano. De hecho, muchas integrales se simplifican notablemente haciendo transformaciones simples a extensiones o compresiones de los sistemas cartesianos. Por ejemplo, un cambio de variables válido podría ser
+        <M block>{r`
+          \begin{align*}
+            x &= u - v, \\
+            y &= 2u - v,
+          \end{align*}
+        `}</M>
+        donde el jacobiano es <M>{r`\abs{\parder{(x,y)}{(u,v)}} = 1`}</M>.
+      </p>
+
     </Section >
+
+    <Section title="Aplicaciones de las integrales múltiples">
+      <p>
+        En esta sección se resumen brevemente algunas de las aplicaciones de la integración múltiple.
+      </p>
+
+      <h3>Valor promedio</h3>
+      <p>
+        Dada una sucesión de valores discretos, <M>{r`x_1, x_2,\dots, x_n`}</M>, el <em>valor promedio</em> de la sucesión es el valor que se obtiene al sumar todos los valores y dividir el resultado entre el número de valores, es decir,
+        <M block>{r`
+          \frac{1}{n}\sum_{i=1}^{n}x_i.
+        `}</M>
+        Similarmente, dados valores continuos modelados por una función escalar de una variable, <M>{r`f(x)`}</M>, el valor promedio de la función en un intervalo <M>{r`[a,b]`}</M>, denotado por <M>{r`\avg{f}`}</M>, es el valor que se obtiene al dividir la integral de la función en el intervalo entre la longitud del intervalo:
+        <M block>{r`
+          \avg{f} = \frac{1}{b-a}\int_{a}^{b}f(x) \: \mathrm{d}x.
+        `}</M>
+        Es posible extrapolar eso a funciones escalares de múltiples variables. Dada una función escalar <M>{r`f(x)`}</M> de <M>{r`n`}</M> variables, el valor promedio de la función en una región <M>{r`R \subseteq \mathbb{R}^n`}</M> está dado por la integral de la función en la región dividida por el hipervolumen de la región:
+        <M block>{r`
+          \avg{f} = \dfrac{\int_{R} f(\bvec{x}) \: \mathrm{d}^n\bvec{x}}{\int_{R} \mathrm{d}^n\bvec{x}}.
+        `}</M>
+      </p>
+
+      <h3>Centro de masa</h3>
+
+      <p>
+        El centro de masa es el punto de todo cuerpo o sistema que resulta de ponderar la posición de cada partícula del cuerpo por su masa. Es útil porque permite manipular matemáticamente el objeto como si toda su masa estuviera concentrada en el centro de masa, lo cual posibilita tratar el objeto como una masa puntual. Es decir, para toda fuerza uniforme que actúe sobre el cuerpo o sistema, se puede considerar que actúa exclusivamente sobre su centro de masa. (Por ejemplo, cuando la fuerza de gravedad actúa sobre un cuerpo en caída libre, se puede considerar que actúa en el centro de masa del cuerpo y tratarlo como una masa puntual).
+      </p>
+      <p>
+        Más aún, al estudiar el interior del cuerpo o sistema, se sabe que si se realiza una fuerza sobre el objeto en su centro de masa, no presentará rotación, independientemente de su forma. Contrariamente, si se realiza una fuerza en un punto distinto al centro de masa, el objeto rotará alrededor de su centro de masa.
+      </p>
+      <p>
+        Considérese un sistema de <M>{r`n`}</M> cuerpos puntuales con masas <M>{r`{m_i}_{1\leq i\leq n}`}</M> dispuestos en el eje <M>{r`x`}</M>, en los valores <M>{r`{x_i}_{1\leq i\leq n}`}</M>. El <em>centro de masa</em> del sistema, denotado por <M>{r`\bar{x}`}</M>, es el punto en el eje <M>{r`x`}</M> que se encuentra en la posición promedio de los cuerpos, ponderada por sus masas:
+        <M block>{r`
+          \bar{x} = \frac{\sum_{i=1}^{n}m_ix_i}{\sum_{i=1}^{n}m_i}.
+        `}</M>
+        Si se tiene un cuerpo que se puede aproximar a una figura unidimensional, tal como una varilla lo suficientemente larga con relación a su diámetro como para que su masa se pueda considerar distribuida en una línea, el centro de masa del cuerpo se puede calcular de forma similar. Dada una varilla de longitud <M>{r`L`}</M> cuya densidad lineal de masa está dada por la función <M>{r`\rho`}</M> con respecto a la posición en la varilla, el centro de masa de la varilla está en la posición promedio de la varilla, ponderada por la densidad de masa:
+        <M block>{r`
+          \bar{x} = \frac{\int_{L} x\rho(x) \: \mathrm{d}x}{\int_{L} \rho(x) \: \mathrm{d}x}.
+        `}</M>
+        Este resultado se puede generalizar a cuerpos bidimensionales y tridimensionales, en los que se pondera la posición promedio por la densidad de masa. Para una placa relativamente plana, que se puede aproximar a una figura bidimensional, las coordenadas del centro de masa están dadas por
+        <M block>{r`
+            \bar{x} = \frac{\int_{D} x\rho(x,y) \: \mathrm{d}x \: \mathrm{d}y}{\int_{D} \rho(x,y) \: \mathrm{d}x \: \mathrm{d}y} \qquad \text{y} \qquad \bar{y} = \frac{\int_{D} y\rho(x,y) \: \mathrm{d}x \: \mathrm{d}y}{\int_{D} \rho(x,y) \: \mathrm{d}x \: \mathrm{d}y}.
+        `}</M>
+        Por último, para un cuerpo tridimensional, las coordenadas del centro de masa están dadas por
+        <M block>{r`
+            \bar{x} = \frac{\int_{W} x\rho(x,y,z) \: \mathrm{d}x \: \mathrm{d}y \: \mathrm{d}z}{\int_{W} \rho(x,y,z) \: \mathrm{d}x \: \mathrm{d}y \: \mathrm{d}z}, \quad \bar{y} = \frac{\int_{W} y\rho(x,y,z) \: \mathrm{d}x \: \mathrm{d}y \: \mathrm{d}z}{\int_{W} \rho(x,y,z) \: \mathrm{d}x \: \mathrm{d}y \: \mathrm{d}z}, \quad \text{y} \quad \bar{z} = \frac{\int_{W} z\rho(x,y,z) \: \mathrm{d}x \: \mathrm{d}y \: \mathrm{d}z}{\int_{W} \rho(x,y,z) \: \mathrm{d}x \: \mathrm{d}y \: \mathrm{d}z}.
+        `}</M>
+      </p>
+
+      <h3>Momento de inercia</h3>
+      <p>
+        El momento de inercia es una medida de la resistencia de un cuerpo a rotar alrededor de un eje. Es una medida similar a la masa, que mide la resistencia de un cuerpo al movimiento, con la diferencia de que el momento de inercia contempla también la forma del cuerpo: dependiendo de la forma de un cuerpo, es más fácil o difícil hacerlo girar.
+      </p>
+      <p>
+        Dado un cuerpo cuya forma describe la región tridimensional <M>{r`W \subseteq \mathbb{R}^3`}</M> y suponiendo que tiene densidad uniforme <M>{r`\rho`}</M>, el <em>momento de inercia</em> del cuerpo con respecto al eje <M>{r`x`}</M> está dado por
+        <M block>{r`
+          I_x = \int_{W} \rho (y^2 + z^2) \: \mathrm{d}x \: \mathrm{d}y \: \mathrm{d}z.
+        `}</M>
+        De forma similar, el momento de inercia con respecto al eje <M>{r`y`}</M> está dado por
+        <M block>{r`
+          I_y = \int_{W} \rho (x^2 + z^2) \: \mathrm{d}x \: \mathrm{d}y \: \mathrm{d}z.
+        `}</M>
+        Y el momento de inercia con respecto al eje <M>{r`z`}</M> está dado por
+        <M block>{r`
+          I_z = \int_{W} \rho (x^2 + y^2) \: \mathrm{d}x \: \mathrm{d}y \: \mathrm{d}z.
+        `}</M>
+      </p>
+
+    </Section>
 
     {/* <h3>Regla de integración de Leibniz</h3> */}
     {/* Richard Feynman, nobel laurate, in his best-selling memoir Surely You're Joking, Mr. Feynman!
