@@ -43,7 +43,7 @@ export default function NavigationBar() {
     },
   };
 
-  const homeRoute = "/apuntes";
+  const homeRoute = "/apuntes/";
 
   return (
     <AppBar position="static" className="navigation-bar">
@@ -91,7 +91,7 @@ export default function NavigationBar() {
                       <MenuItem
                         onClick={handleClose}
                         component={Link}
-                        to={`${homeRoute}/${kebabCaseTopic}/${kebabCaseSubtopic}`}
+                        to={`${homeRoute}${kebabCaseTopic}/${kebabCaseSubtopic}`}
                         sx={menuItemStyles}
                       >
                         {name}
@@ -99,7 +99,11 @@ export default function NavigationBar() {
                     );
 
                     return description ? (
-                      <Tooltip key={kebabCaseSubtopic} title={description} arrow>
+                      <Tooltip 
+                        key={kebabCaseSubtopic} 
+                        title={description} 
+                        arrow
+                      >
                         {menuItem}
                       </Tooltip>
                     ) : (
