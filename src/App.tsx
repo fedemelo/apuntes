@@ -1,5 +1,5 @@
 import Footer from "./components/Footer";
-import NavigationBar from "./components/NavigationBar";
+import NavigationBar from "./components/NavBar/NavigationBar";
 
 import Router from "./Router";
 

@@ -2,32 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { kebabCase } from "change-case";
 import removeAccents from "remove-accents";
-import AppBar from "@mui/material/AppBar";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Toolbar from "@mui/material/Toolbar";
-import Tooltip from "@mui/material/Tooltip";
+import { AppBar, Button, Container, Menu, MenuItem, Toolbar, Tooltip } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 
 import existingNotes from "@/apuntes/existingNotes.json";
 
-export default function NavigationBar() {
-  const [openMenuId, setOpenMenuId] = React.useState<string | null>(null);
+interface DesktopNavBarProps {
+  openMenuId: string | null;
+  handleClick: (menuId: string) => (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleClose: () => void;
+}
 
-  const handleClick = (categoryId: string) => () => {
-    if (openMenuId === categoryId) {
-      setOpenMenuId(null);
-    } else {
-      setOpenMenuId(categoryId);
-    }
-  };
-
-  const handleClose = () => {
-    setOpenMenuId(null);
-  };
-
+export default function DesktopNavBar({ openMenuId, handleClick, handleClose }: DesktopNavBarProps) {
   const buttonStyles = {
     fontSize: '1.1rem',
     marginLeft: '17px',
@@ -53,8 +39,6 @@ export default function NavigationBar() {
             component={Link}
             to={homeRoute}
             color="inherit"
-            // Remove marginLeft for the Home button, as extra marginLeft
-            // was previously added for spacing between buttons
             sx={{ ...buttonStyles, marginLeft: 0 }}
             startIcon={<HomeIcon />}
           >
@@ -84,7 +68,7 @@ export default function NavigationBar() {
                   onClose={handleClose}
                   MenuListProps={{ "aria-labelledby": `${kebabCaseTopic}-button` }}
                 >
-                  {subtopics.map(({ name, description }: { name: string, description: string }) => {
+                  {subtopics.map(({ name, description }) => {
                     const kebabCaseSubtopic = kebabCase(removeAccents(name));
 
                     const menuItem = (
@@ -99,17 +83,11 @@ export default function NavigationBar() {
                     );
 
                     return description ? (
-                      <Tooltip 
-                        key={kebabCaseSubtopic} 
-                        title={description} 
-                        arrow
-                      >
+                      <Tooltip key={kebabCaseSubtopic} title={description} arrow>
                         {menuItem}
                       </Tooltip>
                     ) : (
-                      <React.Fragment key={kebabCaseSubtopic}>
-                        {menuItem}
-                      </React.Fragment>
+                      <React.Fragment key={kebabCaseSubtopic}>{menuItem}</React.Fragment>
                     );
                   })}
                 </Menu>
