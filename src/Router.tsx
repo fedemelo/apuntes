@@ -4,49 +4,61 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import Loader from "@/components/loader/Loader";
 const Custom404 = React.lazy(() => import("@/pages/Custom404"));
 
-const baseUrl = "apuntes";
-const math = "matematica";
-export const DIFFERENTIAL_CALCULUS = `/${baseUrl}/${math}/calculo-diferencial`;
-export const INTEGRAL_CALCULUS = `/${baseUrl}/${math}/calculo-integral`;
-export const VECTOR_CALCULUS = `/${baseUrl}/${math}/calculo-vectorial`;
-export const LINEAR_ALGEBRA = `/${baseUrl}/${math}/algebra-lineal`;
-export const NOTATION = `/${baseUrl}/${math}/notacion`;
-export const GRAPH_THEORY = `/${baseUrl}/${math}/teoria-de-grafos`;
-export const GAME_THEORY = `/${baseUrl}/${math}/teoria-de-juegos`;
+// Paths MUST coincide with the file structure in src
+const basePath = "apuntes";
+const discreteMathPath = "discrete-mathematics";
+const foundationalMathPath = "foundational-mathematics";
+const uniMathPath = "matematica-universitaria";
+
+export const DIFFERENTIAL_CALCULUS = `/${basePath}/${uniMathPath}/calculo-diferencial`;
+export const INTEGRAL_CALCULUS = `/${basePath}/${uniMathPath}/calculo-integral`;
+export const VECTOR_CALCULUS = `/${basePath}/${uniMathPath}/calculo-vectorial`;
+export const LINEAR_ALGEBRA = `/${basePath}/${uniMathPath}/algebra-lineal`;
+
+export const NOTATION = `/${basePath}/${discreteMathPath}/notacion`;
+export const GRAPH_THEORY = `/${basePath}/${discreteMathPath}/teoria-de-grafos`;
+export const GAME_THEORY = `/${basePath}/${discreteMathPath}/teoria-de-juegos`;
+
+export const ARITHMETIC = `/${basePath}/${foundationalMathPath}/arithmetic`;
+
 
 const files = [
   {
-    Component: React.lazy(() => import("@/pages/Home")),
+    Component: React.lazy(() => import("@/pages/home/Home")),
     path: "/apuntes/"
   },
   {
-    Component: React.lazy(() => import("@/apuntes/matematica/calculo-diferencial/CalculoDiferencial")),
+    Component: React.lazy(() => import("@/apuntes/matematica-universitaria/calculo-diferencial/CalculoDiferencial")),
     path: DIFFERENTIAL_CALCULUS
   },
   {
-    Component: React.lazy(() => import("@/apuntes/matematica/calculo-integral/CalculoIntegral")),
+    Component: React.lazy(() => import("@/apuntes/matematica-universitaria/calculo-integral/CalculoIntegral")),
     path: INTEGRAL_CALCULUS
   },
   {
-    Component: React.lazy(() => import("@/apuntes/matematica/calculo-vectorial/CalculoVectorial")),
+    Component: React.lazy(() => import("@/apuntes/matematica-universitaria/calculo-vectorial/CalculoVectorial")),
     path: VECTOR_CALCULUS
   },
   {
-    Component: React.lazy(() => import("@/apuntes/matematica/algebra-lineal/AlgebraLineal")),
+    Component: React.lazy(() => import("@/apuntes/matematica-universitaria/algebra-lineal/AlgebraLineal")),
     path: LINEAR_ALGEBRA
   },
   {
-    Component: React.lazy(() => import("@/apuntes/matematica/notacion/Notacion")),
+    Component: React.lazy(() => import("@/apuntes/discrete-mathematics/notacion/Notacion")),
     path: NOTATION
   },
   {
-    Component: React.lazy(() => import("@/apuntes/matematica/teoria-de-grafos/TeoriaDeGrafos")),
+    Component: React.lazy(() => import("@/apuntes/discrete-mathematics/teoria-de-grafos/TeoriaDeGrafos")),
     path: GRAPH_THEORY
   },
   {
-    Component: React.lazy(() => import("@/apuntes/matematica/teoria-de-juegos/TeoriaDeJuegos")),
+    Component: React.lazy(() => import("@/apuntes/discrete-mathematics/teoria-de-juegos/TeoriaDeJuegos")),
     path: GAME_THEORY
-  }
+  },
+  {
+    Component: React.lazy(() => import("@/apuntes/foundational-mathematics/arithmetic/Arithmetic")),
+    path: `/${basePath}/${foundationalMathPath}/arithmetic`
+  },
 ];
 
 const RedirectHandler = () => {

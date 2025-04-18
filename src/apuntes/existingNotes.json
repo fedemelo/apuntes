@@ -1,0 +1,56 @@
+{
+    "Foundational Mathematics": [
+      {
+        "name": "Arithmetic",
+        "description": "Integers, divisibility, factorization, primes, operations, roots; estimation, percent, ratio, absolute value, sequences."
+      },
+      {
+        "name": "Elementary Algebra",
+        "description": "Exponents, factoring, simplifying expressions; relations, functions, equations, inequalities; solving linear/quadratic equations; coordinate geometry basics."
+      },
+      {
+        "name": "Geometry",
+        "description": "Lines, circles, triangles, polygons, congruence/similarity, 3D figures, area, perimeter, volume; Pythagorean theorem and basic angle measurements."
+      },
+      {
+        "name": "Statistics & Probability",
+        "description": "Descriptive statistics, data interpretation; probability of events, distributions, (basic) counting methods like combinations and permutations."
+      }
+    ],
+    "Discrete Mathematics": [
+      {
+        "name": "Basic Set Theory",
+        "description": ""
+      },
+      {
+        "name": "Counting & Combinatorics",
+        "description": ""
+      },
+      {
+        "name": "Teoría de grafos",
+        "description": ""
+      },
+      {
+        "name": "Teoría de juegos",
+        "description": ""
+      }
+    ],
+    "Matemática Universitaria": [
+      {
+        "name": "Cálculo Diferencial",
+        "description": ""
+      },
+      {
+        "name": "Cálculo Integral",
+        "description": ""
+      },
+      {
+        "name": "Cálculo Vectorial",
+        "description": ""
+      },
+      {
+        "name": "Álgebra Lineal",
+        "description": ""
+      }
+    ]
+  }

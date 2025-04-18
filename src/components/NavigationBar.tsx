@@ -1,24 +1,21 @@
-import * as React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-
 import { kebabCase } from "change-case";
 import removeAccents from "remove-accents";
-
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
 
-import "./NavigationBar.css";
-
-import existingApuntes from "@/apuntes/existingApuntes.json";
+import existingNotes from "@/apuntes/existingNotes.json";
 
 export default function NavigationBar() {
     const [openMenuId, setOpenMenuId] = React.useState<string | null>(null);
 
-    const handleClick = (categoryId: string) => (_event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleClick = (categoryId: string) => () => {
         if (openMenuId === categoryId) {
             setOpenMenuId(null);
         } else {
@@ -34,14 +31,14 @@ export default function NavigationBar() {
         <AppBar position="static" className="navigation-bar">
             <Container>
                 <Toolbar disableGutters className="toolbar">
-                    {Object.entries(existingApuntes).map(([topic, subtopics]) => {
+                    {Object.entries(existingNotes).map(([topic, subtopics]) => {
                         const kebabCaseTopic = kebabCase(removeAccents(topic));
                         return (
                             <React.Fragment key={topic}>
                                 <Button
                                     className="topic-button"
                                     id={`${kebabCaseTopic}-button`}
-                                    aria-controls={openMenuId === kebabCaseTopic ? `${topic}-menu` : undefined}
+                                    aria-controls={openMenuId === kebabCaseTopic ? `${kebabCaseTopic}-menu` : undefined}
                                     aria-haspopup="true"
                                     aria-expanded={openMenuId === kebabCaseTopic ? "true" : undefined}
                                     onClick={handleClick(kebabCaseTopic)}
@@ -56,18 +53,27 @@ export default function NavigationBar() {
                                     onClose={handleClose}
                                     MenuListProps={{ "aria-labelledby": `${kebabCaseTopic}-button` }}
                                 >
-                                    {subtopics.map((subtopic) => {
-                                        const kebabCaseSubtopic = kebabCase(removeAccents(subtopic));
+                                    {subtopics.map(({ name, description }: { name: string, description: string }) => {
+                                        const kebabCaseSubtopic = kebabCase(removeAccents(name));
 
-                                        return (
+                                        const menuItem = (
                                             <MenuItem
-                                                key={kebabCaseSubtopic}
                                                 onClick={handleClose}
                                                 component={Link}
                                                 to={`/apuntes/${kebabCaseTopic}/${kebabCaseSubtopic}`}
                                             >
-                                                {subtopic}
+                                                {name}
                                             </MenuItem>
+                                        );
+
+                                        return description ? (
+                                            <Tooltip key={kebabCaseSubtopic} title={description} arrow>
+                                                {menuItem}
+                                            </Tooltip>
+                                        ) : (
+                                            <React.Fragment key={kebabCaseSubtopic}>
+                                                {menuItem}
+                                            </React.Fragment>
                                         );
                                     })}
                                 </Menu>
