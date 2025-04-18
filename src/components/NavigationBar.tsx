@@ -9,6 +9,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
+import HomeIcon from "@mui/icons-material/Home";
 
 import existingNotes from "@/apuntes/existingNotes.json";
 
@@ -31,6 +32,16 @@ export default function NavigationBar() {
         <AppBar position="static" className="navigation-bar">
             <Container>
                 <Toolbar disableGutters className="toolbar">
+                    <Button
+                        component={Link}
+                        to="/"
+                        color="inherit"
+                        sx={{ fontSize: '1.1rem' }}
+                        startIcon={<HomeIcon />}
+                    >
+                        Home
+                    </Button>
+
                     {Object.entries(existingNotes).map(([topic, subtopics]) => {
                         const kebabCaseTopic = kebabCase(removeAccents(topic));
                         return (
@@ -43,6 +54,7 @@ export default function NavigationBar() {
                                     aria-expanded={openMenuId === kebabCaseTopic ? "true" : undefined}
                                     onClick={handleClick(kebabCaseTopic)}
                                     color="inherit"
+                                    sx={{ fontSize: '1.1rem' }}
                                 >
                                     {topic}
                                 </Button>
@@ -61,6 +73,7 @@ export default function NavigationBar() {
                                                 onClick={handleClose}
                                                 component={Link}
                                                 to={`/apuntes/${kebabCaseTopic}/${kebabCaseSubtopic}`}
+                                                sx={{ fontSize: '0.95rem' }}
                                             >
                                                 {name}
                                             </MenuItem>
