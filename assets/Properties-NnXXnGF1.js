@@ -1,4 +1,4 @@
-import{j as e,r as h,T as c}from"./index-CN4ak_3A.js";import{p as l}from"./Section-BM-R_z8e.js";import{g as x}from"./NoteDocument-CWO222rA.js";import{G as s}from"./Grid-B5aDbAk4.js";function d(r,t=!1){const i={M:1e3,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1};let a="";for(let n in i)for(;r>=i[n];)a+=n,r-=i[n];return t?a.toLowerCase():a}const u=l.div`
+import{j as e,r as h,T as c}from"./index-B0YWkx9m.js";import{p as l}from"./Section-CuSZUk_d.js";import{g as x}from"./NoteDocument-DA-1Ldmw.js";import{G as s}from"./Grid-BxG9lCeA.js";function d(r,t=!1){const i={M:1e3,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1};let a="";for(let n in i)for(;r>=i[n];)a+=n,r-=i[n];return t?a.toLowerCase():a}const u=l.div`
   margin: 1em 0;
 `,g=l.span`
   display: inline-block;

@@ -1,4 +1,4 @@
-import{r as m,j as e,D as x,I as p}from"./index-CN4ak_3A.js";import{D as s,T as i}from"./Boxes-BcdWXlJD.js";import{p as r,d as f,a as j,S as o}from"./Section-BM-R_z8e.js";import{P as l}from"./Properties-DcKjPNDU.js";import{N as g,T as b}from"./StickyNotes-DtKi4VOP.js";import{N as v,r as t}from"./NoteDocument-CWO222rA.js";import{L as n,r as a}from"./LaTeX-0cCJiKFF.js";import"./IconButton-B5NsykUl.js";import"./Grid-B5aDbAk4.js";const q=r.div`
+import{r as m,j as e,D as x,I as p}from"./index-B0YWkx9m.js";import{D as s,T as i}from"./Boxes-Buf0dhJT.js";import{p as r,d as f,a as j,S as o}from"./Section-CuSZUk_d.js";import{P as l}from"./Properties-NnXXnGF1.js";import{N as g,T as b}from"./StickyNotes-CZcHEP0_.js";import{N as v,r as t}from"./NoteDocument-DA-1Ldmw.js";import{L as n,r as a}from"./LaTeX-DsH3K-O_.js";import"./IconButton-DF_b2qVO.js";import"./Grid-BxG9lCeA.js";const q=r.div`
   margin: 1em 0 0 0;
   padding: 3em 0 0 0;
   border-top: 2px solid var(--theorem-color);
