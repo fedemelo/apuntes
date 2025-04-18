@@ -4,7 +4,7 @@ import { useTheme } from "@mui/material/styles";
 import DesktopNavBar from "./DesktopNavBar";
 import MobileNavBar from "./MobileNavBar";
 
-export default function NavigationBar() {
+export default function NavBar() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 

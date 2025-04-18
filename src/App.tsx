@@ -1,5 +1,5 @@
 import Footer from "./components/Footer";
-import NavigationBar from "./components/NavBar/NavigationBar";
+import NavBar from "./components/NavBar/NavBar";
 
 import Router from "./Router";
 
@@ -33,7 +33,7 @@ const theme = createTheme({
 export default function App() {
     return (
         <ThemeProvider theme={theme}>
-            <NavigationBar />
+            <NavBar />
             <Box className="main-content">
                 <ASCIIMathContext>
                     <Router />
