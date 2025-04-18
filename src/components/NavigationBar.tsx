@@ -49,7 +49,7 @@ export default function NavigationBar() {
         <Toolbar disableGutters className="toolbar">
           <Button
             component={Link}
-            to="/"
+            to="/apuntes"
             color="inherit"
             // Remove marginLeft for the Home button, as extra margin
             // is added for spacing between buttons
