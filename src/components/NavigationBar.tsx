@@ -43,13 +43,15 @@ export default function NavigationBar() {
     },
   };
 
+  const homeRoute = "/apuntes";
+
   return (
     <AppBar position="static" className="navigation-bar">
       <Container>
         <Toolbar disableGutters className="toolbar">
           <Button
             component={Link}
-            to="/apuntes"
+            to={homeRoute}
             color="inherit"
             // Remove marginLeft for the Home button, as extra margin
             // is added for spacing between buttons
@@ -89,7 +91,7 @@ export default function NavigationBar() {
                       <MenuItem
                         onClick={handleClose}
                         component={Link}
-                        to={`/apuntes/${kebabCaseTopic}/${kebabCaseSubtopic}`}
+                        to={`${homeRoute}/${kebabCaseTopic}/${kebabCaseSubtopic}`}
                         sx={menuItemStyles}
                       >
                         {name}
