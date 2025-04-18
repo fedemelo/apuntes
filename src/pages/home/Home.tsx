@@ -98,18 +98,31 @@ const sections = [
 export default function MathematicsLanding() {
   return (
     <Box sx={{ maxWidth: 1200, mx: 'auto', py: 4, px: 2 }}>
-      <Typography variant="h3" align="center" mb={4}>Fede&apos;s Maths Notes</Typography>
+      <Typography 
+        variant="h3" 
+        align="center" 
+        mb={4}
+        sx={{
+          fontSize: {
+            xs: '1.5rem',
+            sm: '2rem',
+            md: '2.5rem',
+          },
+        }}
+      >
+        Fede&apos;s Maths Notes
+      </Typography>
 
       {sections.map(({ title, cards }) => (
         <Box key={title} mb={6}>
           <TopicSectionHeader title={title} />
           <Grid container spacing={2}>
-  {cards.map((card) => (
-    <Grid item xs={12} md={6} lg={3} key={card.title}>
-      <TopicCard {...card} />
-    </Grid>
-  ))}
-</Grid>
+            {cards.map((card) => (
+              <Grid item xs={12} md={6} lg={3} key={card.title}>
+                <TopicCard {...card} />
+              </Grid>
+            ))}
+          </Grid>
         </Box>
       ))}
     </Box>
