@@ -28,6 +28,20 @@ export default function NavigationBar() {
         setOpenMenuId(null);
     };
 
+    const buttonStyles = {
+        fontSize: '1.1rem',
+        ':hover': {
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        },
+    };
+
+    const menuItemStyles = {
+        fontSize: '0.95rem',
+        ':hover': {
+            backgroundColor: 'rgba(255, 255, 255, 0.08)',
+        },
+    };
+
     return (
         <AppBar position="static" className="navigation-bar">
             <Container>
@@ -36,7 +50,7 @@ export default function NavigationBar() {
                         component={Link}
                         to="/"
                         color="inherit"
-                        sx={{ fontSize: '1.1rem' }}
+                        sx={buttonStyles}
                         startIcon={<HomeIcon />}
                     >
                         Home
@@ -54,7 +68,7 @@ export default function NavigationBar() {
                                     aria-expanded={openMenuId === kebabCaseTopic ? "true" : undefined}
                                     onClick={handleClick(kebabCaseTopic)}
                                     color="inherit"
-                                    sx={{ fontSize: '1.1rem' }}
+                                    sx={buttonStyles}  // Apply unified button styles
                                 >
                                     {topic}
                                 </Button>
@@ -73,7 +87,7 @@ export default function NavigationBar() {
                                                 onClick={handleClose}
                                                 component={Link}
                                                 to={`/apuntes/${kebabCaseTopic}/${kebabCaseSubtopic}`}
-                                                sx={{ fontSize: '0.95rem' }}
+                                                sx={menuItemStyles}  // Apply unified menu item styles
                                             >
                                                 {name}
                                             </MenuItem>
