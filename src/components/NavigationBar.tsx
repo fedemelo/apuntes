@@ -53,8 +53,8 @@ export default function NavigationBar() {
             component={Link}
             to={homeRoute}
             color="inherit"
-            // Remove marginLeft for the Home button, as extra margin
-            // is added for spacing between buttons
+            // Remove marginLeft for the Home button, as extra marginLeft
+            // was previously added for spacing between buttons
             sx={{ ...buttonStyles, marginLeft: 0 }}
             startIcon={<HomeIcon />}
           >
