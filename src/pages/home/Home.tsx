@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import { Calculator, GitBranch, Grid3X3, PieChart, Spline } from 'lucide-react';
 import { TopicSectionHeader } from '@/pages/home/TopicSectionHeader';
 import TopicCard from './TopicCard';
-import { ARITHMETIC, DIFFERENTIAL_CALCULUS, GAME_THEORY, GRAPH_THEORY, INTEGRAL_CALCULUS, LINEAR_ALGEBRA, VECTOR_CALCULUS } from '@/Router';
+import { CUSTOM_404, DIFFERENTIAL_CALCULUS, GAME_THEORY, GRAPH_THEORY, INTEGRAL_CALCULUS, LINEAR_ALGEBRA, VECTOR_CALCULUS } from '@/Router';
 
 // Should match the existingNotes.json file
 const sections = [
@@ -13,25 +13,25 @@ const sections = [
         title: 'Arithmetic',
         icon: <Calculator />,
         description: 'Integers, divisibility, factorization, primes, operations, roots; estimation, percent, ratio, absolute value, sequences.',
-        path: ARITHMETIC,
+        path: CUSTOM_404,
       },
       {
         title: 'Elementary Algebra',
         icon: <Spline />,
         description: 'Exponents, factoring, simplifying expressions; relations, functions, equations, inequalities; solving linear/quadratic equations; coordinate geometry basics.',
-        path: "",
+        path: CUSTOM_404,
       },
       {
         title: 'Geometry',
         icon: <Grid3X3 />,
         description: 'Lines, circles, triangles, polygons, congruence/similarity, 3D figures, area, perimeter, volume; Pythagorean theorem and basic angle measurements.',
-        path: "",
+        path: CUSTOM_404,
       },
       {
         title: 'Statistics & Probability',
         icon: <PieChart />,
         description: 'Descriptive statistics, data interpretation; probability of events, distributions, (basic) counting methods like combinations and permutations.',
-        path: "",
+        path: CUSTOM_404,
       },
     ],
   },
@@ -42,13 +42,13 @@ const sections = [
         title: 'Basic Set Theory',
         icon: <GitBranch />,
         description: '',
-        path: "",
+        path: CUSTOM_404,
       },
       {
         title: 'Counting & Combinatorics',
         icon: <Calculator />,
         description: '',
-        path: "",
+        path: CUSTOM_404,
       },
       {
         title: 'Teoría de grafos',

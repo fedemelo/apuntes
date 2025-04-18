@@ -10,6 +10,8 @@ const discreteMathPath = "discrete-mathematics";
 const foundationalMathPath = "foundational-mathematics";
 const uniMathPath = "matematica-universitaria";
 
+export const CUSTOM_404 = `/${basePath}/*`;
+
 export const DIFFERENTIAL_CALCULUS = `/${basePath}/${uniMathPath}/calculo-diferencial`;
 export const INTEGRAL_CALCULUS = `/${basePath}/${uniMathPath}/calculo-integral`;
 export const VECTOR_CALCULUS = `/${basePath}/${uniMathPath}/calculo-vectorial`;
@@ -59,6 +61,10 @@ const files = [
     Component: React.lazy(() => import("@/apuntes/foundational-mathematics/arithmetic/Arithmetic")),
     path: `/${basePath}/${foundationalMathPath}/arithmetic`
   },
+  {
+    Component: React.lazy(() => import("@/pages/Custom404")),
+    path: `/${basePath}/*`
+  }
 ];
 
 const RedirectHandler = () => {
