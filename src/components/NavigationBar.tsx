@@ -30,6 +30,7 @@ export default function NavigationBar() {
 
     const buttonStyles = {
         fontSize: '1.1rem',
+        marginLeft: '17px',
         ':hover': {
             backgroundColor: 'rgba(255, 255, 255, 0.1)',
         },
@@ -50,7 +51,9 @@ export default function NavigationBar() {
                         component={Link}
                         to="/"
                         color="inherit"
-                        sx={buttonStyles}
+                        // Remove marginLeft for the Home button, as extra margin
+                        // is added for spacing between buttons
+                        sx={{ ...buttonStyles, marginLeft: 0 }}
                         startIcon={<HomeIcon />}
                     >
                         Home
@@ -68,7 +71,7 @@ export default function NavigationBar() {
                                     aria-expanded={openMenuId === kebabCaseTopic ? "true" : undefined}
                                     onClick={handleClick(kebabCaseTopic)}
                                     color="inherit"
-                                    sx={buttonStyles}  // Apply unified button styles
+                                    sx={buttonStyles}
                                 >
                                     {topic}
                                 </Button>
@@ -87,7 +90,7 @@ export default function NavigationBar() {
                                                 onClick={handleClose}
                                                 component={Link}
                                                 to={`/apuntes/${kebabCaseTopic}/${kebabCaseSubtopic}`}
-                                                sx={menuItemStyles}  // Apply unified menu item styles
+                                                sx={menuItemStyles}
                                             >
                                                 {name}
                                             </MenuItem>
